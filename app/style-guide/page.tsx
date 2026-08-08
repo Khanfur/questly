@@ -9,7 +9,6 @@ import {
   CardContent,
   CardFooter,
 } from '@/components/ui/shadcn/card'
-import { Progress } from '@/components/ui/shadcn/progress'
 import { Separator } from '@/components/ui/shadcn/separator'
 import { Input } from '@/components/ui/shadcn/input'
 import { Textarea } from '@/components/ui/shadcn/textarea'
@@ -29,16 +28,19 @@ import { Swatch } from './_components/swatch'
 import { ThemeColorPalette } from './_components/color-swatch'
 import { SpacingScale } from './_components/spacing-scale'
 import { GridExample } from './_components/grid-example'
-import {Section} from "@/components/ui/section/section";
-import {ChatHead} from "@/components/ui/chat-head/chat-head";
-import { QuestProgress } from "@/components/ui/quest-progress/quest-progress"
+import { Section } from '@/components/ui/section/section'
+import { ChatHead } from '@/components/ui/chat-head/chat-head'
+import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
 
 export default function StyleGuide() {
   return (
     <>
       <h1>Style Guide</h1>
 
-      <Section title="Typography" className="flex-col items-stretch gap-4 rounded-lg border border-border bg-card p-6">
+      <Section
+        title="Typography"
+        className="flex-col items-stretch gap-4 rounded-lg border border-border bg-card p-6"
+      >
         <Swatch label=".eyebrow">
           <span className="eyebrow">Companion for Gielinor</span>
         </Swatch>
@@ -166,7 +168,12 @@ export default function StyleGuide() {
 
         <Swatch label="Error message" className="flex flex-col gap-1.5">
           <Label htmlFor="sg-error-demo">RuneScape username</Label>
-          <Input id="sg-error-demo" placeholder="Zezima" aria-invalid className="border-destructive" />
+          <Input
+            id="sg-error-demo"
+            placeholder="Zezima"
+            aria-invalid
+            className="border-destructive"
+          />
           <span className="error-message">Character name is required.</span>
         </Swatch>
 
@@ -182,7 +189,10 @@ export default function StyleGuide() {
 
         <Swatch label="Textarea" className="flex flex-col gap-1.5">
           <Label htmlFor="sg-textarea">Quest notes</Label>
-          <Textarea id="sg-textarea" placeholder="Talk to Sir Vyvin about the Fremennik Trials..." />
+          <Textarea
+            id="sg-textarea"
+            placeholder="Talk to Sir Vyvin about the Fremennik Trials..."
+          />
         </Swatch>
 
         <Swatch label="Select" className="flex flex-col gap-1.5">
@@ -223,7 +233,10 @@ export default function StyleGuide() {
         </Swatch>
       </Section>
 
-      <Section title="Separator &amp; Section Divider" className="max-w-md flex-col items-stretch gap-6">
+      <Section
+        title="Separator &amp; Section Divider"
+        className="max-w-md flex-col items-stretch gap-6"
+      >
         <Separator />
         <SectionDivider />
       </Section>

@@ -71,7 +71,9 @@ export function ColorPalette() {
 
 export function ThemeColorPalette({ theme, label }: { theme: 'light' | 'dark'; label: string }) {
   return (
-    <div className={`${theme === 'dark' ? 'dark' : ''} flex flex-col gap-4 rounded-lg border border-border bg-background p-4 text-foreground`}>
+    <div
+      className={`${theme === 'dark' ? 'dark' : ''} flex flex-col gap-4 rounded-lg border border-border bg-background p-4 text-foreground`}
+    >
       <span className="text-sm font-semibold">{label}</span>
       <ColorPalette />
     </div>
