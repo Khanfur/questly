@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Progress as ProgressPrimitive } from '@base-ui/react/progress';
-import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react'
+import { Progress as ProgressPrimitive } from '@base-ui/react/progress'
+import { cva, type VariantProps } from 'class-variance-authority'
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
 
 const progressIndicatorVariants = cva('h-full rounded-full transition-all', {
   variants: {
@@ -15,7 +15,7 @@ const progressIndicatorVariants = cva('h-full rounded-full transition-all', {
   defaultVariants: {
     variant: 'default',
   },
-});
+})
 
 function Progress({
   className,
@@ -42,7 +42,7 @@ function Progress({
         />
       </ProgressPrimitive.Track>
     </ProgressPrimitive.Root>
-  );
+  )
 }
 
-export { Progress };
+export { Progress }

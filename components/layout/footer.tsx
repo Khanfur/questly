@@ -1,21 +1,21 @@
-import Link from 'next/link';
-import { BookOpen, Code2 } from 'lucide-react';
+import Link from 'next/link'
+import { BookOpen, Code2 } from 'lucide-react'
 
-import { Container } from '@/components/layout/container';
+import { Container } from '@/components/layout/container'
 
 const FEATURE_LINKS = [
   { name: 'Stats', href: '/' },
   { name: 'Quests', href: '/quests' },
   { name: 'Ask the Sage', href: '/ask-the-sage' },
-] as const;
+] as const
 
 const RESOURCE_LINKS = [
   { name: 'Report an issue', href: 'https://github.com/Khanfur/questly/issues' },
-] as const;
+] as const
 
 const SOCIAL_LINKS = [
   { label: 'Source code', href: 'https://github.com/Khanfur/questly', icon: Code2 },
-] as const;
+] as const
 
 export function Footer() {
   return (
@@ -95,5 +95,5 @@ export function Footer() {
         </div>
       </Container>
     </footer>
-  );
+  )
 }

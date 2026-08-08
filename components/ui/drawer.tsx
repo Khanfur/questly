@@ -1,16 +1,16 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import { Drawer as DrawerPrimitive } from '@base-ui/react/drawer';
+import * as React from 'react'
+import { Drawer as DrawerPrimitive } from '@base-ui/react/drawer'
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
 
-const Drawer = DrawerPrimitive.Root;
-const DrawerTrigger = DrawerPrimitive.Trigger;
-const DrawerClose = DrawerPrimitive.Close;
+const Drawer = DrawerPrimitive.Root
+const DrawerTrigger = DrawerPrimitive.Trigger
+const DrawerClose = DrawerPrimitive.Close
 
 function DrawerPortal(props: React.ComponentProps<typeof DrawerPrimitive.Portal>) {
-  return <DrawerPrimitive.Portal data-slot="drawer-portal" {...props} />;
+  return <DrawerPrimitive.Portal data-slot="drawer-portal" {...props} />
 }
 
 function DrawerBackdrop({
@@ -26,7 +26,7 @@ function DrawerBackdrop({
       )}
       {...props}
     />
-  );
+  )
 }
 
 function DrawerContent({
@@ -35,7 +35,7 @@ function DrawerContent({
   side = 'right',
   ...props
 }: React.ComponentProps<typeof DrawerPrimitive.Popup> & {
-  side?: 'left' | 'right';
+  side?: 'left' | 'right'
 }) {
   return (
     <DrawerPortal>
@@ -59,7 +59,7 @@ function DrawerContent({
         </DrawerPrimitive.Popup>
       </DrawerPrimitive.Viewport>
     </DrawerPortal>
-  );
+  )
 }
 
-export { Drawer, DrawerTrigger, DrawerClose, DrawerPortal, DrawerBackdrop, DrawerContent };
+export { Drawer, DrawerTrigger, DrawerClose, DrawerPortal, DrawerBackdrop, DrawerContent }

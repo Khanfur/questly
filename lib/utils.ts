@@ -1,14 +1,14 @@
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { clsx, type ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+  return twMerge(clsx(inputs))
 }
 
-const LOCALHOST_HOSTNAMES = new Set(['localhost', '127.0.0.1', '::1']);
+const LOCALHOST_HOSTNAMES = new Set(['localhost', '127.0.0.1', '::1'])
 
 function isLocalhostHostname(hostname: string): boolean {
-  return LOCALHOST_HOSTNAMES.has(hostname);
+  return LOCALHOST_HOSTNAMES.has(hostname)
 }
 
 /**
@@ -19,12 +19,12 @@ function isLocalhostHostname(hostname: string): boolean {
  */
 export function isLocalhost(hostname?: string): boolean {
   if (hostname) {
-    return isLocalhostHostname(hostname);
+    return isLocalhostHostname(hostname)
   }
 
   if (typeof window === 'undefined') {
-    return false;
+    return false
   }
 
-  return isLocalhostHostname(window.location.hostname);
+  return isLocalhostHostname(window.location.hostname)
 }

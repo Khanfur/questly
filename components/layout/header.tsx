@@ -1,24 +1,24 @@
-'use client';
+'use client'
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { BookOpen, Menu, Settings, X } from 'lucide-react';
+import { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { BookOpen, Menu, Settings, X } from 'lucide-react'
 
-import { Container } from '@/components/layout/container';
-import { Button } from '@/components/ui/button';
-import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
-import { cn } from '@/lib/utils';
+import { Container } from '@/components/layout/container'
+import { Button } from '@/components/ui/button'
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
+import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [
   { href: '/', label: 'Stats' },
   { href: '/quests', label: 'Quests' },
   { href: '/ask-the-sage', label: 'Ask the Sage' },
-] as const;
+] as const
 
 export function Header() {
-  const pathname = usePathname();
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const pathname = usePathname()
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
     <header className="border-b border-border bg-card">
@@ -34,7 +34,7 @@ export function Header() {
 
         <nav className="hidden items-center gap-1 sm:flex">
           {NAV_LINKS.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href
             return (
               <Link
                 key={link.href}
@@ -46,7 +46,7 @@ export function Header() {
               >
                 {link.label}
               </Link>
-            );
+            )
           })}
         </nav>
 
@@ -83,7 +83,7 @@ export function Header() {
               </div>
               <nav className="flex flex-col gap-1">
                 {NAV_LINKS.map((link) => {
-                  const isActive = pathname === link.href;
+                  const isActive = pathname === link.href
                   return (
                     <Link
                       key={link.href}
@@ -96,7 +96,7 @@ export function Header() {
                     >
                       {link.label}
                     </Link>
-                  );
+                  )
                 })}
               </nav>
             </DrawerContent>
@@ -104,5 +104,5 @@ export function Header() {
         </div>
       </Container>
     </header>
-  );
+  )
 }

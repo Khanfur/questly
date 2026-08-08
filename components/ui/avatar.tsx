@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Avatar as AvatarPrimitive } from '@base-ui/react/avatar';
+import * as React from 'react'
+import { Avatar as AvatarPrimitive } from '@base-ui/react/avatar'
 
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/utils'
 
 function Avatar({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Root>) {
   return (
@@ -10,7 +10,7 @@ function Avatar({ className, ...props }: React.ComponentProps<typeof AvatarPrimi
       className={cn('relative flex size-10 shrink-0 overflow-hidden rounded-md', className)}
       {...props}
     />
-  );
+  )
 }
 
 function AvatarImage({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
@@ -20,7 +20,7 @@ function AvatarImage({ className, ...props }: React.ComponentProps<typeof Avatar
       className={cn('aspect-square size-full object-cover', className)}
       {...props}
     />
-  );
+  )
 }
 
 function AvatarFallback({
@@ -36,7 +36,7 @@ function AvatarFallback({
       )}
       {...props}
     />
-  );
+  )
 }
 
-export { Avatar, AvatarImage, AvatarFallback };
+export { Avatar, AvatarImage, AvatarFallback }

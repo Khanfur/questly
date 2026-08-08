@@ -8,7 +8,7 @@
   "bracketSpacing": true,
   "jsxSingleQuote": false,
   "jsxBracketSameLine": false,
-  "semi": true,
+  "semi": false,
   "importOrder": [
     "^react$",
     "^next",

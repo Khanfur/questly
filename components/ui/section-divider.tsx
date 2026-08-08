@@ -1,5 +1,5 @@
-import { Separator } from '@/components/ui/separator';
-import { cn } from '@/lib/utils';
+import { Separator } from '@/components/ui/separator'
+import { cn } from '@/lib/utils'
 
 function SectionDivider({ className }: { className?: string }) {
   return (
@@ -8,7 +8,7 @@ function SectionDivider({ className }: { className?: string }) {
       <span className="size-1.5 rotate-45 bg-primary" aria-hidden="true" />
       <Separator className="flex-1" />
     </div>
-  );
+  )
 }
 
-export { SectionDivider };
+export { SectionDivider }
