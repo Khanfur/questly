@@ -29,6 +29,20 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 While running a development server you can access the style guide at [http://localhost:3000/style-guide](http://localhost:3000/style-guide).
 
+## Testing
+
+Run unit/component tests with Jest:
+
+```bash
+npm test
+```
+
+Run end-to-end tests with Playwright (starts the dev server automatically):
+
+```bash
+npm run test:e2e
+```
+
 ## Noteworthy packages
 
 ### Framework & Core
@@ -66,3 +80,12 @@ While running a development server you can access the style guide at [http://loc
 | `eslint`             | devDependency | Linting                     | https://eslint.org/                           |
 | `eslint-config-next` | devDependency | Next.js-specific lint rules | https://nextjs.org/docs/basic-features/eslint |
 | `prettier`           | devDependency | Code formatting             | https://prettier.io/                          |
+
+### Testing
+
+| Package      | Type          | Notes                                  | Link                       |
+| ------------ | ------------- | --------------------------------------- | --------------------------- |
+| `jest`       | devDependency | Unit/component testing                 | https://jestjs.io/          |
+| `playwright` | devDependency | End-to-end browser testing (`e2e/`)    | https://playwright.dev/     |
+| `storybook`  | devDependency | Component development & visual testing | https://storybook.js.org/   |
+
