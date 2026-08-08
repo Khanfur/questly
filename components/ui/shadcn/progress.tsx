@@ -21,7 +21,7 @@ function Progress({
   value,
   variant,
   ...props
-}: React.ComponentProps<typeof ProgressPrimitive.Root> &
+}: import('react').ComponentProps<typeof ProgressPrimitive.Root> &
   VariantProps<typeof progressIndicatorVariants>) {
   return (
     <ProgressPrimitive.Root

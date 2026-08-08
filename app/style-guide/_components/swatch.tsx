@@ -5,7 +5,7 @@ export function Swatch({
 }: {
   label: string
   className?: string
-  children: React.ReactNode
+  children: import('react').ReactNode
 }) {
   return (
     <div className={className ?? 'flex flex-col gap-1'}>

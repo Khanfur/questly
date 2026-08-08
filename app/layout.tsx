@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description: 'An old school Runescape Companion',
 }
 
-export default function RootLayout({ children }: LayoutProps<'/'>) {
+export default function RootLayout({ children }: { children: import('react').ReactNode }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${cinzel.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">

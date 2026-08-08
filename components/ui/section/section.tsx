@@ -7,7 +7,7 @@ export function Section({
 }: {
   title: string
   className?: string
-  children: React.ReactNode
+  children: import('react').ReactNode
 }) {
   return (
     <>

@@ -5,7 +5,7 @@ export function Container({
   children,
 }: {
   className?: string
-  children: React.ReactNode
+  children: import('react').ReactNode
 }) {
   return (
     <div className={cn('mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8', className)}>{children}</div>
