@@ -31,22 +31,22 @@
 
 @layer components {
   /* Small, letter-spaced uppercase label — nav links, section headers, stat labels */
-  .type-label {
+  .label {
     @apply font-sans text-xs font-semibold uppercase tracking-widest;
   }
 
   /* Eyebrow text above a heading, e.g. "Companion for Gielinor" */
-  .type-eyebrow {
+  .eyebrow {
     @apply font-sans text-xs font-semibold uppercase tracking-widest text-secondary;
   }
 
   /* Section header, e.g. "SKILLS" / "QUEST LOG" / "ASK THE SAGE" */
-  .type-section-heading {
+  .section-heading {
     @apply font-sans text-xs font-semibold uppercase tracking-widest text-foreground;
   }
 
   /* Large emphasized number, e.g. combat level, total level, skill values */
-  .type-stat-value {
+  .stat-value {
     @apply font-heading text-lg font-bold text-primary;
   }
 }
