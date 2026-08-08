@@ -1,24 +1,19 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { BookOpen, Menu, Settings, X } from "lucide-react";
+import { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { BookOpen, Menu, Settings, X } from 'lucide-react';
 
-import { Container } from "@/components/layout/container";
-import { Button } from "@/components/ui/button";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
-import { cn } from "@/lib/utils";
+import { Container } from '@/components/layout/container';
+import { Button } from '@/components/ui/button';
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+import { cn } from '@/lib/utils';
 
 const NAV_LINKS = [
-  { href: "/", label: "Stats" },
-  { href: "/quests", label: "Quests" },
-  { href: "/ask-the-sage", label: "Ask the Sage" },
+  { href: '/', label: 'Stats' },
+  { href: '/quests', label: 'Quests' },
+  { href: '/ask-the-sage', label: 'Ask the Sage' },
 ] as const;
 
 export function Header() {
@@ -45,8 +40,8 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "label rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:text-foreground",
-                  isActive && "bg-muted text-foreground"
+                  'label rounded-md px-3 py-1.5 text-muted-foreground transition-colors hover:text-foreground',
+                  isActive && 'bg-muted text-foreground'
                 )}
               >
                 {link.label}
@@ -56,20 +51,11 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button
-            size="icon"
-            variant="outline"
-            className="bg-sidebar"
-            aria-label="Settings"
-          >
+          <Button size="icon" variant="outline" className="bg-sidebar" aria-label="Settings">
             <Settings />
           </Button>
 
-          <Drawer
-            open={mobileNavOpen}
-            onOpenChange={setMobileNavOpen}
-            swipeDirection="right"
-          >
+          <Drawer open={mobileNavOpen} onOpenChange={setMobileNavOpen} swipeDirection="right">
             <DrawerTrigger
               render={
                 <Button
@@ -104,8 +90,8 @@ export function Header() {
                       href={link.href}
                       onClick={() => setMobileNavOpen(false)}
                       className={cn(
-                        "label rounded-md px-3 py-2 text-muted-foreground transition-colors hover:text-foreground",
-                        isActive && "bg-muted text-foreground"
+                        'label rounded-md px-3 py-2 text-muted-foreground transition-colors hover:text-foreground',
+                        isActive && 'bg-muted text-foreground'
                       )}
                     >
                       {link.label}

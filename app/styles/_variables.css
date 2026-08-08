@@ -1,26 +1,26 @@
 :root {
-  --background: rgb(241, 236, 223);        /* aged parchment paper */
-  --foreground: rgb(48, 36, 23);        /* dark ink brown */
+  --background: rgb(241, 236, 223); /* aged parchment paper */
+  --foreground: rgb(48, 36, 23); /* dark ink brown */
 
-  --card: rgb(247, 244, 237);              /* lighter parchment panel */
+  --card: rgb(247, 244, 237); /* lighter parchment panel */
   --card-foreground: rgb(48, 36, 23);
 
   --popover: rgb(249, 246, 241);
   --popover-foreground: rgb(48, 36, 23);
 
-  --primary: rgb(204, 137, 20);           /* Varrock gold — XP drop / coin gold */
+  --primary: rgb(204, 137, 20); /* Varrock gold — XP drop / coin gold */
   --primary-foreground: rgb(34, 26, 17);
 
-  --secondary: rgb(78, 100, 64);         /* moss green — farming/herblore */
+  --secondary: rgb(78, 100, 64); /* moss green — farming/herblore */
   --secondary-foreground: rgb(246, 242, 234);
 
   --muted: rgb(224, 218, 204);
   --muted-foreground: rgb(114, 98, 79);
 
-  --accent: rgb(184, 122, 81);            /* bronze/copper */
+  --accent: rgb(184, 122, 81); /* bronze/copper */
   --accent-foreground: rgb(249, 246, 241);
 
-  --destructive: rgb(169, 45, 45);        /* HP bar red */
+  --destructive: rgb(169, 45, 45); /* HP bar red */
   --destructive-foreground: rgb(249, 246, 241);
 
   --border: rgb(199, 186, 168);
@@ -30,11 +30,11 @@
   --radius: 0.3rem;
 
   /* Skill-flavored chart palette */
-  --chart-1: rgb(181, 48, 48);    /* combat — red */
-  --chart-2: rgb(52, 115, 178);  /* magic — blue */
-  --chart-3: rgb(84, 116, 62);   /* gathering — green */
-  --chart-4: rgb(198, 113, 57);   /* crafting/smithing — bronze */
-  --chart-5: rgb(223, 166, 32);   /* prayer/total — gold */
+  --chart-1: rgb(181, 48, 48); /* combat — red */
+  --chart-2: rgb(52, 115, 178); /* magic — blue */
+  --chart-3: rgb(84, 116, 62); /* gathering — green */
+  --chart-4: rgb(198, 113, 57); /* crafting/smithing — bronze */
+  --chart-5: rgb(223, 166, 32); /* prayer/total — gold */
 
   --sidebar: rgb(233, 226, 210);
   --sidebar-foreground: rgb(48, 36, 23);

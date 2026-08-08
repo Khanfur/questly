@@ -1,6 +1,6 @@
 .dark {
-  --background: rgb(24, 20, 17);         /* black-brown game panel */
-  --foreground: rgb(227, 219, 201);        /* parchment tan text */
+  --background: rgb(24, 20, 17); /* black-brown game panel */
+  --foreground: rgb(227, 219, 201); /* parchment tan text */
 
   --card: rgb(36, 30, 25);
   --card-foreground: rgb(227, 219, 201);
@@ -8,7 +8,7 @@
   --popover: rgb(33, 28, 23);
   --popover-foreground: rgb(227, 219, 201);
 
-  --primary: rgb(241, 181, 39);           /* bright RS gold text */
+  --primary: rgb(241, 181, 39); /* bright RS gold text */
   --primary-foreground: rgb(27, 20, 14);
 
   --secondary: rgb(63, 81, 52);

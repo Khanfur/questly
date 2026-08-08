@@ -1,28 +1,25 @@
-import Link from "next/link";
-import { BookOpen, Code2 } from "lucide-react";
+import Link from 'next/link';
+import { BookOpen, Code2 } from 'lucide-react';
 
-import { Container } from "@/components/layout/container";
+import { Container } from '@/components/layout/container';
 
 const FEATURE_LINKS = [
-  { name: "Stats", href: "/" },
-  { name: "Quests", href: "/quests" },
-  { name: "Ask the Sage", href: "/ask-the-sage" },
+  { name: 'Stats', href: '/' },
+  { name: 'Quests', href: '/quests' },
+  { name: 'Ask the Sage', href: '/ask-the-sage' },
 ] as const;
 
 const RESOURCE_LINKS = [
-  { name: "Report an issue", href: "https://github.com/Khanfur/questly/issues" },
+  { name: 'Report an issue', href: 'https://github.com/Khanfur/questly/issues' },
 ] as const;
 
 const SOCIAL_LINKS = [
-  { label: "Source code", href: "https://github.com/Khanfur/questly", icon: Code2 },
+  { label: 'Source code', href: 'https://github.com/Khanfur/questly', icon: Code2 },
 ] as const;
 
 export function Footer() {
   return (
-    <footer
-      className="border-t border-border bg-card"
-      aria-labelledby="footer-heading"
-    >
+    <footer className="border-t border-border bg-card" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
@@ -38,8 +35,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="max-w-sm text-sm leading-6 text-muted-foreground">
-              Questly keeps every skill, quest and diary in one parchment — a
-              free, fan-made companion for Old School RuneScape.
+              Questly keeps every skill, quest and diary in one parchment — a free, fan-made
+              companion for Old School RuneScape.
             </p>
             <div className="flex gap-4">
               {SOCIAL_LINKS.map((item) => (
