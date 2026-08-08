@@ -27,7 +27,7 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-While running a development server,
+While running a development server you can access the style guide at [http://localhost:3000/style-guide](http://localhost:3000/style-guide).
 
 ## Noteworthy packages
 
