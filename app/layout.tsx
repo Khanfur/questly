@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Cinzel } from "next/font/google";
 import { Container } from "@/components/layout/container";
+import { Header } from "@/components/layout/header";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,7 +26,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${cinzel.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Container className="flex-1">{children}</Container>
+        <Header />
+        <Container className="flex-1 py-8">{children}</Container>
       </body>
     </html>
   );
