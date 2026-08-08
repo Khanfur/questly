@@ -1,0 +1,52 @@
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading font-bold tracking-tight text-foreground;
+  }
+
+  h1 {
+    @apply text-4xl leading-tight md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl leading-tight md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl leading-snug;
+  }
+
+  h4 {
+    @apply text-xl leading-snug;
+  }
+
+  p {
+    @apply leading-relaxed text-muted-foreground;
+  }
+}
+
+@layer components {
+  /* Small, letter-spaced uppercase label — nav links, section headers, stat labels */
+  .type-label {
+    @apply font-sans text-xs font-semibold uppercase tracking-widest;
+  }
+
+  /* Eyebrow text above a heading, e.g. "Companion for Gielinor" */
+  .type-eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-widest text-secondary;
+  }
+
+  /* Section header, e.g. "SKILLS" / "QUEST LOG" / "ASK THE SAGE" */
+  .type-section-heading {
+    @apply font-sans text-xs font-semibold uppercase tracking-widest text-foreground;
+  }
+
+  /* Large emphasized number, e.g. combat level, total level, skill values */
+  .type-stat-value {
+    @apply font-heading text-lg font-bold text-primary;
+  }
+}
