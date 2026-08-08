@@ -27,14 +27,14 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
- While running a development server, 
+While running a development server,
 
 ## Noteworthy packages
 
 ### Framework & Core
 
 | Package      | Type          | Notes                                            | Link                            |
-|--------------|---------------|--------------------------------------------------|---------------------------------|
+| ------------ | ------------- | ------------------------------------------------ | ------------------------------- |
 | `next`       | dependency    | Next.js framework — SSR/SSG, routing, API routes | https://nextjs.org/             |
 | `react`      | dependency    | Core React library (v19.2.8)                     | https://reactjs.org/            |
 | `react-dom`  | dependency    | React DOM renderer (v19.2.8)                     | https://reactjs.org/            |
@@ -43,7 +43,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### UI Components / Primitives
 
 | Package              | Type       | Notes                                     | Link                                 |
-|----------------------|------------|-------------------------------------------|--------------------------------------|
+| -------------------- | ---------- | ----------------------------------------- | ------------------------------------ |
 | `@base-ui/react`     | dependency | Unstyled, accessible component primitives | https://base-ui.com/                 |
 | `shadcn`             | dependency | CLI for shadcn/ui component scaffolding   | https://shadcn.com/                  |
 | `lucide-react`       | dependency | General-purpose icon set                  | https://lucide.dev/                  |
@@ -52,7 +52,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Styling
 
 | Package                | Type          | Notes                                       | Link                                       |
-|------------------------|---------------|---------------------------------------------|--------------------------------------------|
+| ---------------------- | ------------- | ------------------------------------------- | ------------------------------------------ |
 | `tailwindcss`          | devDependency | Tailwind CSS v4                             | https://tailwindcss.com/                   |
 | `@tailwindcss/postcss` | devDependency | Tailwind v4's PostCSS plugin                | https://tailwindcss.com/docs/using-postcss |
 | `postcss`              | dependency    | PostCSS core                                | https://postcss.org/                       |
@@ -62,8 +62,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ### Dev Tooling
 
 | Package              | Type          | Notes                       | Link                                          |
-|----------------------|---------------|-----------------------------|-----------------------------------------------|
+| -------------------- | ------------- | --------------------------- | --------------------------------------------- |
 | `eslint`             | devDependency | Linting                     | https://eslint.org/                           |
 | `eslint-config-next` | devDependency | Next.js-specific lint rules | https://nextjs.org/docs/basic-features/eslint |
 | `prettier`           | devDependency | Code formatting             | https://prettier.io/                          |
-

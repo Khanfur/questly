@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 import { BookOpen, Menu, Settings, X } from 'lucide-react'
 
 import { Container } from '@/components/layout/container'
-import { Button } from '@/components/ui/button'
-import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/drawer'
+import { Button } from '@/components/ui/shadcn/button'
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/shadcn/drawer'
 import { cn } from '@/lib/utils'
 
 const NAV_LINKS = [

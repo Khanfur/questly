@@ -1,89 +1,77 @@
-import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { Progress } from '@/components/ui/progress'
-import { Separator } from '@/components/ui/separator'
-import { SectionDivider } from '@/components/ui/section-divider'
-import { Avatar, AvatarFallback } from '@/components/ui/avatar'
+import { Button } from '@/components/ui/shadcn/button'
+import { Badge } from '@/components/ui/shadcn/badge'
+import { Progress } from '@/components/ui/shadcn/progress'
+import { Separator } from '@/components/ui/shadcn/separator'
+import { SectionDivider } from '@/components/ui/section-divider/section-divider'
+import { Swatch } from './_components/swatch'
+import {Section} from "@/components/ui/section/section";
+import {ChatHead} from "@/components/ui/chat-head/chat-head";
 
 export default function ComponentLibrary() {
   return (
     <>
       <h1>Component Library</h1>
 
-      <h2 className="mt-6">Typography</h2>
-      <div className="flex flex-col gap-4 rounded-lg border border-border bg-card p-6">
-        <div className="flex flex-col gap-1">
+      <Section title="Typography" className="flex-col items-stretch gap-4 rounded-lg border border-border bg-card p-6">
+        <Swatch label=".eyebrow">
           <span className="eyebrow">Companion for Gielinor</span>
-          <span className="text-xs text-muted-foreground">.eyebrow</span>
-        </div>
-        <div className="flex flex-col gap-1">
+        </Swatch>
+        <Swatch label="h1">
           <h1>Track the grind. Trust the Sage.</h1>
-          <span className="text-xs text-muted-foreground">h1</span>
-        </div>
-        <div className="flex flex-col gap-1">
+        </Swatch>
+        <Swatch label="h2">
           <h2>Song of the Elves</h2>
-          <span className="text-xs text-muted-foreground">h2</span>
-        </div>
-        <div className="flex flex-col gap-1">
+        </Swatch>
+        <Swatch label="h3">
           <h3>Dragon Slayer II</h3>
-          <span className="text-xs text-muted-foreground">h3</span>
-        </div>
-        <div className="flex flex-col gap-1">
+        </Swatch>
+        <Swatch label="h4">
           <h4>Combat Level</h4>
-          <span className="text-xs text-muted-foreground">h4</span>
-        </div>
-        <div className="flex flex-col gap-1">
+        </Swatch>
+        <Swatch label="p">
           <p>
             Questly keeps every skill, quest and diary in one parchment — and a Sage on call
             whenever you&apos;re stuck between a slayer task and a life choice.
           </p>
-          <span className="text-xs text-muted-foreground">p</span>
-        </div>
+        </Swatch>
         <div className="flex flex-wrap items-end gap-6">
-          <div className="flex flex-col gap-1">
+          <Swatch label=".section-heading">
             <span className="section-heading">Skills</span>
-            <span className="text-xs text-muted-foreground">.section-heading</span>
-          </div>
-          <div className="flex flex-col gap-1">
+          </Swatch>
+          <Swatch label=".label">
             <span className="label">Stats</span>
-            <span className="text-xs text-muted-foreground">.label</span>
-          </div>
-          <div className="flex flex-col gap-1">
+          </Swatch>
+          <Swatch label=".stat-value">
             <span className="stat-value">1,543</span>
-            <span className="text-xs text-muted-foreground">.stat-value</span>
-          </div>
+          </Swatch>
         </div>
-      </div>
+      </Section>
 
-      <h2 className="mt-6">Buttons</h2>
-      <div className="flex flex-wrap items-center gap-2">
+      <Section title="Buttons">
         <Button>Default</Button>
         <Button variant="outline">Outline</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="ghost">Ghost</Button>
         <Button variant="destructive">Destructive</Button>
         <Button variant="link">Link</Button>
-      </div>
+      </Section>
 
-      <h2 className="mt-6">Hero CTAs</h2>
-      <div className="flex flex-wrap items-center gap-3">
+      <Section title="Hero CTAs" className="gap-3">
         <Button size="lg">View my stats</Button>
         <Button size="lg" variant="outline">
           Ask the Sage
         </Button>
-      </div>
+      </Section>
 
-      <h2 className="mt-6">Badges</h2>
-      <div className="flex flex-wrap items-center gap-2">
+      <Section title="Badges">
         <Badge>In Progress</Badge>
         <Badge variant="secondary">Completed</Badge>
         <Badge variant="muted">Not Started</Badge>
         <Badge variant="destructive">Failed</Badge>
         <Badge variant="outline">Outline</Badge>
-      </div>
+      </Section>
 
-      <h2 className="mt-6">Progress</h2>
-      <div className="flex flex-col gap-4 max-w-md">
+      <Section title="Progress" className="max-w-md flex-col items-stretch gap-4">
         <div className="flex flex-col gap-1">
           <span className="label">Dragon Slayer II — in progress</span>
           <Progress value={65} />
@@ -96,20 +84,18 @@ export default function ComponentLibrary() {
           <span className="label">Song of the Elves — not started</span>
           <Progress value={0} variant="muted" />
         </div>
-      </div>
+      </Section>
 
-      <h2 className="mt-6">Separator &amp; Section Divider</h2>
-      <div className="flex flex-col gap-6 max-w-md">
+      <Section title="Separator &amp; Section Divider" className="max-w-md flex-col items-stretch gap-6">
         <Separator />
         <SectionDivider />
-      </div>
+      </Section>
 
-      <h2 className="mt-6">Avatar</h2>
-      <div className="flex flex-wrap items-center gap-3">
-        <Avatar>
-          <AvatarFallback>🧙</AvatarFallback>
-        </Avatar>
-      </div>
+      <Section title="Chathead" className="gap-3">
+        <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="online" />
+        <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="away" />
+        <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="offline" />
+      </Section>
     </>
   )
 }
