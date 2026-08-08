@@ -49,4 +49,14 @@
   .stat-value {
     @apply font-heading text-lg font-bold text-primary;
   }
+
+  /* Supporting text below a form field, e.g. "Used to sync your Hiscores" */
+  .helper-text {
+    @apply text-xs text-muted-foreground;
+  }
+
+  /* Validation text below a form field, e.g. "Character name is required" */
+  .error-message {
+    @apply text-xs font-medium text-destructive;
+  }
 }
