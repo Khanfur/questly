@@ -1,0 +1,44 @@
+.dark {
+  --background: rgb(24, 20, 17);         /* black-brown game panel */
+  --foreground: rgb(227, 219, 201);        /* parchment tan text */
+
+  --card: rgb(36, 30, 25);
+  --card-foreground: rgb(227, 219, 201);
+
+  --popover: rgb(33, 28, 23);
+  --popover-foreground: rgb(227, 219, 201);
+
+  --primary: rgb(241, 181, 39);           /* bright RS gold text */
+  --primary-foreground: rgb(27, 20, 14);
+
+  --secondary: rgb(63, 81, 52);
+  --secondary-foreground: rgb(234, 228, 215);
+
+  --muted: rgb(49, 43, 37);
+  --muted-foreground: rgb(171, 159, 135);
+
+  --accent: rgb(159, 97, 56);
+  --accent-foreground: rgb(238, 233, 221);
+
+  --destructive: rgb(198, 47, 47);
+  --destructive-foreground: rgb(241, 237, 228);
+
+  --border: rgb(58, 51, 44);
+  --input: rgb(58, 51, 44);
+  --ring: rgb(241, 181, 39);
+
+  --chart-1: rgb(208, 57, 57);
+  --chart-2: rgb(71, 140, 209);
+  --chart-3: rgb(101, 139, 75);
+  --chart-4: rgb(203, 128, 77);
+  --chart-5: rgb(239, 184, 57);
+
+  --sidebar: rgb(31, 25, 20);
+  --sidebar-foreground: rgb(227, 219, 201);
+  --sidebar-primary: rgb(241, 181, 39);
+  --sidebar-primary-foreground: rgb(27, 20, 14);
+  --sidebar-accent: rgb(47, 41, 35);
+  --sidebar-accent-foreground: rgb(227, 219, 201);
+  --sidebar-border: rgb(58, 51, 44);
+  --sidebar-ring: rgb(241, 181, 39);
+}
