@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Questly
 
-## Getting Started
+An Old School RuneScape companion built for your personal journey,
 
-First, run the development server:
+Questly keeps every skill, quest and diary in one parchment — a free, fan-made companion for Old School RuneScape.
+
+Questly is a fan-made companion app and is not affiliated with Jagex.
+
+## Installation
+
+Clone and install the project using the following commands, assuming:
+
+1. you're in your projects root folder
+2. you're using `nvm` to manage node versions
+
+```
+git clone git@github.com:Khanfur/questly.git
+cd questly
+nvm use
+npm install
+```
+
+## Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ While running a development server, 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Noteworthy packages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Framework & Core
 
-## Learn More
+| Package      | Type          | Notes                                            | Link                            |
+|--------------|---------------|--------------------------------------------------|---------------------------------|
+| `next`       | dependency    | Next.js framework — SSR/SSG, routing, API routes | https://nextjs.org/             |
+| `react`      | dependency    | Core React library (v19.2.8)                     | https://reactjs.org/            |
+| `react-dom`  | dependency    | React DOM renderer (v19.2.8)                     | https://reactjs.org/            |
+| `typescript` | devDependency | Type checking                                    | https://www.typescriptlang.org/ |
 
-To learn more about Next.js, take a look at the following resources:
+### UI Components / Primitives
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Package              | Type       | Notes                                     | Link                                 |
+|----------------------|------------|-------------------------------------------|--------------------------------------|
+| `@base-ui/react`     | dependency | Unstyled, accessible component primitives | https://base-ui.com/                 |
+| `shadcn`             | dependency | CLI for shadcn/ui component scaffolding   | https://shadcn.com/                  |
+| `lucide-react`       | dependency | General-purpose icon set                  | https://lucide.dev/                  |
+| `@dava96/osrs-icons` | dependency | Niche OSRS-themed icon set                | https://github.com/Dava96/osrs-icons |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Styling
 
-## Deploy on Vercel
+| Package                | Type          | Notes                                       | Link                                       |
+|------------------------|---------------|---------------------------------------------|--------------------------------------------|
+| `tailwindcss`          | devDependency | Tailwind CSS v4                             | https://tailwindcss.com/                   |
+| `@tailwindcss/postcss` | devDependency | Tailwind v4's PostCSS plugin                | https://tailwindcss.com/docs/using-postcss |
+| `postcss`              | dependency    | PostCSS core                                | https://postcss.org/                       |
+| `tw-animate-css`       | dependency    | Animation utilities for Tailwind            | https://github.com/benface/tw-animate-css  |
+| `tailwind-merge`       | dependency    | Resolves conflicting Tailwind class strings | https://tailwind-merge.vercel.app/         |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Dev Tooling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Package              | Type          | Notes                       | Link                                          |
+|----------------------|---------------|-----------------------------|-----------------------------------------------|
+| `eslint`             | devDependency | Linting                     | https://eslint.org/                           |
+| `eslint-config-next` | devDependency | Next.js-specific lint rules | https://nextjs.org/docs/basic-features/eslint |
+| `prettier`           | devDependency | Code formatting             | https://prettier.io/                          |
+
