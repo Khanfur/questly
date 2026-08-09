@@ -27,12 +27,12 @@ import {
 import { Separator } from '@/components/ui/shadcn/separator'
 import { Switch } from '@/components/ui/shadcn/switch'
 import { Textarea } from '@/components/ui/shadcn/textarea'
+import { StatCard } from '@/components/ui/stat-card/stat-card'
 
 import { ThemeColorPalette } from './_components/color-swatch'
 import { GridExample } from './_components/grid-example'
 import { SpacingScale } from './_components/spacing-scale'
 import { Swatch } from './_components/swatch'
-import { StatCard } from "@/components/ui/stat-card/stat-card"
 
 export default function StyleGuide() {
   return (
@@ -248,11 +248,8 @@ export default function StyleGuide() {
         <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="away" />
         <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="offline" />
       </Section>
-      
-      <Section
-        title="Stat card"
-        className="w-full max-w-3xl flex-row items-stretch gap-4"
-      >
+
+      <Section title="Stat card" className="w-full max-w-3xl flex-row items-stretch gap-4">
         <StatCard className="min-w-0 flex-1" label="Combat Level" stat={112} />
         <StatCard className="min-w-0 flex-1" label="Total Level" stat={1543} />
         <StatCard className="min-w-0 flex-1" label="Quest Points" stat={284} secondaryStat={293} />

@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
@@ -9,7 +10,6 @@ import { Container } from '@/components/layout/container/container'
 import { HeaderSettingsDrawer } from '@/components/layout/header/header-settings-drawer'
 
 import { HeaderMobileNavDrawer } from './header-mobile-nav-drawer'
-import Image from "next/image"
 
 const NAV_LINKS = [
   { href: '/', label: 'Stats' },

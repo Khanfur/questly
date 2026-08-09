@@ -1,6 +1,7 @@
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
+import { SectionWindow } from '@/components/ui/section-window/section-window'
 import { Button } from '@/components/ui/shadcn/button'
-import { StatCard } from "@/components/ui/stat-card/stat-card"
+import { StatCard } from '@/components/ui/stat-card/stat-card'
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
           </Button>
         </div>
       </div>
-      
+
       <div className={'flex justify-center gap-4'}>
         <StatCard className="min-w-45" label="Combat Level" stat={112} />
         <StatCard className="min-w-45" label="Total Level" stat={1543} />
@@ -29,6 +30,19 @@ export default function Home() {
       </div>
 
       <SectionDivider className={'my-8'} />
+
+      <SectionWindow title={'Skills'}>
+        <div className={'flex flex-wrap gap-4'}>
+          <StatCard className="min-w-45" label="Attack" stat={99} />
+          <StatCard className="min-w-45" label="Strength" stat={99} />
+          <StatCard className="min-w-45" label="Defence" stat={99} />
+          <StatCard className="min-w-45" label="Ranged" stat={99} />
+          <StatCard className="min-w-45" label="Prayer" stat={99} />
+          <StatCard className="min-w-45" label="Magic" stat={99} />
+          <StatCard className="min-w-45" label="Runecrafting" stat={99} />
+          <StatCard className="min-w-45" label="Construction" stat={99} />
+        </div>
+      </SectionWindow>
     </>
   )
 }

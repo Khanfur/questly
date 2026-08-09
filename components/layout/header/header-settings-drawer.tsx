@@ -13,7 +13,7 @@ export function HeaderSettingsDrawer() {
       <DrawerTrigger
         render={
           <Button size="icon" variant="outline" className="bg-sidebar" aria-label="Settings">
-             <Settings />
+            <Settings />
           </Button>
         }
       />
