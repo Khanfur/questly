@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import { Header } from '@/components/layout/header'
+import { Header } from '@/components/layout/header/header'
 
 jest.mock('next/navigation', () => ({
   usePathname: () => '/',

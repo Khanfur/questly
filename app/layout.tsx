@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
 import { Cinzel, Geist } from 'next/font/google'
 
-import { Container } from '@/components/layout/container'
-import { Footer } from '@/components/layout/footer'
-import { Header } from '@/components/layout/header'
+import { Container } from '@/components/layout/container/container'
+import { Footer } from '@/components/layout/footer/footer'
+import { Header } from '@/components/layout/header/header'
 
 import './globals.css'
 

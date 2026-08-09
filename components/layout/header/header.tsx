@@ -8,8 +8,8 @@ import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { BookOpen, Settings } from 'lucide-react'
 
-import { Container } from '@/components/layout/container'
-import { HeaderMobileNavDrawer } from '@/components/layout/header-mobile-nav-drawer'
+import { Container } from '@/components/layout/container/container'
+import { HeaderMobileNavDrawer } from './header-mobile-nav-drawer'
 import { Button } from '@/components/ui/shadcn/button'
 
 const NAV_LINKS = [

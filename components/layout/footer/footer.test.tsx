@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 
-import { Footer } from '@/components/layout/footer'
+import { Footer } from '@/components/layout/footer/footer'
 
 describe('Footer', () => {
   it('renders the Questly brand link', () => {
