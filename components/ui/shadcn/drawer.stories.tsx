@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { expect, within } from 'storybook/test'
 
+import { Button } from './button'
 import {
   Drawer,
   DrawerClose,
@@ -11,7 +12,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from './drawer'
-import { Button } from './button'
 
 const meta = {
   component: Drawer,

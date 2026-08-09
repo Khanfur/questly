@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { expect } from 'storybook/test'
 
+import { Button } from './button'
 import {
   Card,
   CardAction,
@@ -10,7 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from './card'
-import { Button } from './button'
 
 const meta = {
   component: Card,

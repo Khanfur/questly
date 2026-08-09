@@ -1,4 +1,5 @@
 import Link from 'next/link'
+
 import { BookOpen, Code2 } from 'lucide-react'
 
 import { Container } from '@/components/layout/container'

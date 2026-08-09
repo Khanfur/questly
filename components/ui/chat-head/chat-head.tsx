@@ -1,7 +1,8 @@
 import * as React from 'react'
 
-import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from '@/components/ui/shadcn/avatar'
 import { cn } from '@/lib/utils'
+
+import { Avatar, AvatarBadge, AvatarFallback, AvatarImage } from '@/components/ui/shadcn/avatar'
 
 type ConnectionStatus = 'online' | 'offline' | 'away'
 

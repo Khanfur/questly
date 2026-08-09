@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { expect } from 'storybook/test'
 
-import { Label } from './label'
 import { Input } from './input'
+import { Label } from './label'
 
 const meta = {
   component: Label,

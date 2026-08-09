@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
 test.describe('Site layout', () => {
   test('renders header with logo and desktop navigation', async ({ page }) => {
