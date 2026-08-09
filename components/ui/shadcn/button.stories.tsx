@@ -6,7 +6,7 @@ import { Button } from './button'
 
 const meta = {
   component: Button,
-  tags: ['ai-generated','autodocs'],
+  tags: ['ai-generated', 'autodocs'],
   args: {
     children: 'Order now',
   },

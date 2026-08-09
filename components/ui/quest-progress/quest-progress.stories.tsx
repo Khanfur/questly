@@ -25,4 +25,6 @@ export const InProgress: Story = {
 }
 
 export const Completed: Story = { args: { status: 'completed', questName: "Cook's Assistant" } }
-export const NotStarted: Story = { args: { status: 'not-started', questName: 'Recipe for Disaster' } }
+export const NotStarted: Story = {
+  args: { status: 'not-started', questName: 'Recipe for Disaster' },
+}

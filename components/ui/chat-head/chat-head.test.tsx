@@ -13,9 +13,7 @@ describe('ChatHead', () => {
     ['offline', 'bg-destructive'],
     ['away', 'bg-primary'],
   ] as const)('applies the correct status color for "%s"', (status, expectedClass) => {
-    const { container } = render(
-      <ChatHead avatar="" fallbackAvatar="JD" status={status} />
-    )
+    const { container } = render(<ChatHead avatar="" fallbackAvatar="JD" status={status} />)
     const badge = container.querySelector('[data-slot="avatar-badge"]')
     expect(badge).toHaveClass(expectedClass)
   })
