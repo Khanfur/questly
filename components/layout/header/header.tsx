@@ -22,16 +22,18 @@ export function Header() {
 
   return (
     <header className="border-b border-border bg-card">
-      <Container className="flex h-[70px] items-center justify-between gap-4">
-        <HeaderMobileNavDrawer links={NAV_LINKS} />
-        <Link href="/" className="items-center gap-2 sm:flex hidden">
-          <Image src="/favicon.png" alt="Questly Logo" width={32} height={32} />
-          <span className="font-heading text-lg font-bold uppercase tracking-wide text-foreground">
-            Questly
-          </span>
-        </Link>
+      <Container className="grid h-[70px] grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div className="flex items-center gap-2">
+          <HeaderMobileNavDrawer links={NAV_LINKS} />
+          <Link href="/" className="hidden items-center gap-2 sm:flex">
+            <Image src="/favicon.png" alt="Questly Logo" width={32} height={32} />
+            <span className="font-heading text-lg font-bold uppercase tracking-wide text-foreground">
+              Questly
+            </span>
+          </Link>
+        </div>
 
-        <nav className="hidden items-center gap-1 sm:flex">
+        <nav className="hidden items-center justify-center gap-1 sm:flex">
           {NAV_LINKS.map((link) => {
             const isActive = pathname === link.href
             return (
@@ -49,9 +51,8 @@ export function Header() {
           })}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="col-start-3 flex items-center justify-end">
           <HeaderSettingsDrawer />
-          
         </div>
       </Container>
     </header>

@@ -12,7 +12,7 @@ export function HeaderSettingsDrawer() {
     <Drawer open={open} onOpenChange={setOpen} swipeDirection={'right'}>
       <DrawerTrigger
         render={
-          <Button size="icon" variant="outline" className="bg-sidebar" aria-label="Open menu">
+          <Button size="icon" variant="outline" className="bg-sidebar" aria-label="Settings">
              <Settings />
           </Button>
         }
