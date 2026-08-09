@@ -60,7 +60,7 @@ export default function StyleGuide() {
         <Swatch label="p">
           <p>
             Questly keeps every skill, quest and diary in one parchment — and a Sage on call
-            whenever you&apos;re stuck between a slayer task and a life choice.
+            whenever you're stuck between a slayer task and a life choice.
           </p>
         </Swatch>
         <div className="flex flex-wrap items-end gap-6">
