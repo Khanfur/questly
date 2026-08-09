@@ -62,43 +62,50 @@ The `CI` check is a required status check on `master`, so pull requests cannot b
 ### Framework & Core
 
 | Package      | Type          | Notes                                            | Link                            |
-| ------------ | ------------- | ------------------------------------------------ | ------------------------------- |
-| `next`       | dependency    | Next.js framework — SSR/SSG, routing, API routes | https://nextjs.org/             |
-| `react`      | dependency    | Core React library (v19.2.8)                     | https://reactjs.org/            |
-| `react-dom`  | dependency    | React DOM renderer (v19.2.8)                     | https://reactjs.org/            |
-| `typescript` | devDependency | Type checking                                    | https://www.typescriptlang.org/ |
+| ------------ | ------------- | ------------------------------------------------ |---------------------------------|
+| `next`       | dependency    | Next.js framework — SSR/SSG, routing, API routes | [Link](https://nextjs.org/)     |
+| `react`      | dependency    | Core React library (v19.2.8)                     | [Link](https://reactjs.org/)            |
+| `react-dom`  | dependency    | React DOM renderer (v19.2.8)                     | [Link](https://reactjs.org/)            |
+| `typescript` | devDependency | Type checking                                    | [Link](https://www.typescriptlang.org/) |
 
 ### UI Components / Primitives
 
 | Package              | Type       | Notes                                     | Link                                 |
 | -------------------- | ---------- | ----------------------------------------- | ------------------------------------ |
-| `@base-ui/react`     | dependency | Unstyled, accessible component primitives | https://base-ui.com/                 |
-| `shadcn`             | dependency | CLI for shadcn/ui component scaffolding   | https://shadcn.com/                  |
-| `lucide-react`       | dependency | General-purpose icon set                  | https://lucide.dev/                  |
-| `@dava96/osrs-icons` | dependency | Niche OSRS-themed icon set                | https://github.com/Dava96/osrs-icons |
+| `@base-ui/react`     | dependency | Unstyled, accessible component primitives | [Link](https://base-ui.com/)                 |
+| `shadcn`             | dependency | CLI for shadcn/ui component scaffolding   | [Link](https://shadcn.com/)                  |
+| `lucide-react`       | dependency | General-purpose icon set                  | [Link](https://lucide.dev/icons/)                  |
+| `@dava96/osrs-icons` | dependency | Niche OSRS-themed icon set                | [Link](https://dava96.github.io/osrs-icons/) |
 
 ### Styling
 
 | Package                | Type          | Notes                                       | Link                                       |
 | ---------------------- | ------------- | ------------------------------------------- | ------------------------------------------ |
-| `tailwindcss`          | devDependency | Tailwind CSS v4                             | https://tailwindcss.com/                   |
-| `@tailwindcss/postcss` | devDependency | Tailwind v4's PostCSS plugin                | https://tailwindcss.com/docs/using-postcss |
-| `postcss`              | dependency    | PostCSS core                                | https://postcss.org/                       |
-| `tw-animate-css`       | dependency    | Animation utilities for Tailwind            | https://github.com/benface/tw-animate-css  |
-| `tailwind-merge`       | dependency    | Resolves conflicting Tailwind class strings | https://tailwind-merge.vercel.app/         |
+| `tailwindcss`          | devDependency | Tailwind CSS v4                             | [Link](https://tailwindcss.com/)           |
+| `@tailwindcss/postcss` | devDependency | Tailwind v4's PostCSS plugin                | [Link](https://tailwindcss.com/docs/using-postcss) |
+| `postcss`              | dependency    | PostCSS core                                | [Link](https://postcss.org/)               |
+| `tw-animate-css`       | dependency    | Animation utilities for Tailwind            | [Link](https://github.com/benface/tw-animate-css)  |
+| `tailwind-merge`       | dependency    | Resolves conflicting Tailwind class strings | [Link](https://tailwind-merge.vercel.app/)         |
 
 ### Dev Tooling
 
 | Package              | Type          | Notes                       | Link                                          |
 | -------------------- | ------------- | --------------------------- | --------------------------------------------- |
-| `eslint`             | devDependency | Linting                     | https://eslint.org/                           |
-| `eslint-config-next` | devDependency | Next.js-specific lint rules | https://nextjs.org/docs/basic-features/eslint |
-| `prettier`           | devDependency | Code formatting             | https://prettier.io/                          |
+| `eslint`             | devDependency | Linting                     | [Link](https://eslint.org/)                           |
+| `eslint-config-next` | devDependency | Next.js-specific lint rules | [Link](https://nextjs.org/docs/basic-features/eslint) |
+| `prettier`           | devDependency | Code formatting             | [Link](https://prettier.io/)                   |
 
 ### Testing
 
 | Package      | Type          | Notes                                  | Link                      |
 | ------------ | ------------- | -------------------------------------- | ------------------------- |
-| `jest`       | devDependency | Unit/component testing                 | https://jestjs.io/        |
-| `playwright` | devDependency | End-to-end browser testing (`e2e/`)    | https://playwright.dev/   |
-| `storybook`  | devDependency | Component development & visual testing | https://storybook.js.org/ |
+| `jest`       | devDependency | Unit/component testing                 | [Link](https://jestjs.io/)        |
+| `playwright` | devDependency | End-to-end browser testing (`e2e/`)    | [Link](https://playwright.dev/)   |
+| `storybook`  | devDependency | Component development & visual testing | [Link](https://storybook.js.org/) |
+
+
+## Icon sets
+
+The icons used in Questly are sourced from the following icon sets:
+- [Lucide](https://lucide.dev/icons/)
+- [OSRS Icons](https://dava96.github.io/osrs-icons/)

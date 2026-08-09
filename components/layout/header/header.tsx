@@ -1,16 +1,15 @@
 'use client'
 
-import { useState } from 'react'
-
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 import { cn } from '@/lib/utils'
-import { BookOpen, Settings } from 'lucide-react'
 
 import { Container } from '@/components/layout/container/container'
+import { HeaderSettingsDrawer } from '@/components/layout/header/header-settings-drawer'
+
 import { HeaderMobileNavDrawer } from './header-mobile-nav-drawer'
-import { Button } from '@/components/ui/shadcn/button'
+import Image from "next/image"
 
 const NAV_LINKS = [
   { href: '/', label: 'Stats' },
@@ -20,15 +19,13 @@ const NAV_LINKS = [
 
 export function Header() {
   const pathname = usePathname()
-  const [settings, setSettingsDrawerOpen] = useState(false)
 
   return (
     <header className="border-b border-border bg-card">
       <Container className="flex h-[70px] items-center justify-between gap-4">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-            <BookOpen className="size-4" />
-          </span>
+        <HeaderMobileNavDrawer links={NAV_LINKS} />
+        <Link href="/" className="items-center gap-2 sm:flex hidden">
+          <Image src="/favicon.png" alt="Questly Logo" width={32} height={32} />
           <span className="font-heading text-lg font-bold uppercase tracking-wide text-foreground">
             Questly
           </span>
@@ -53,11 +50,8 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-2">
-          <Button size="icon" variant="outline" className="bg-sidebar" aria-label="Settings" onClick={() => setSettingsDrawerOpen(true)}>
-            <Settings />
-          </Button>
-
-          <HeaderMobileNavDrawer links={NAV_LINKS} />
+          <HeaderSettingsDrawer />
+          
         </div>
       </Container>
     </header>

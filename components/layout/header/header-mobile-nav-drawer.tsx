@@ -10,6 +10,7 @@ import { Menu, X } from 'lucide-react'
 
 import { Button } from '@/components/ui/shadcn/button'
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/shadcn/drawer'
+import Image from "next/image"
 
 type NavLink = { readonly href: string; readonly label: string }
 
@@ -22,7 +23,7 @@ export function HeaderMobileNavDrawer({ links }: HeaderMobileNavDrawerProps) {
   const [open, setOpen] = useState(false)
 
   return (
-    <Drawer open={open} onOpenChange={setOpen} swipeDirection="right">
+    <Drawer open={open} onOpenChange={setOpen} swipeDirection="left">
       <DrawerTrigger
         render={
           <Button
@@ -37,9 +38,13 @@ export function HeaderMobileNavDrawer({ links }: HeaderMobileNavDrawerProps) {
       />
       <DrawerContent aria-label="Mobile navigation" className="gap-4 p-4">
         <div className="flex items-center justify-between">
-          <span className="font-heading text-lg font-bold uppercase tracking-wide text-foreground">
-            Menu
+            <div className={"flex gap-2"}>
+                <Image src="/favicon.png" alt="Questly Logo" width={32} height={32} />
+                <span className="font-heading text-lg font-bold uppercase tracking-wide text-foreground">
+            Questly
           </span>
+            </div>
+     
           <DrawerClose
             render={
               <Button size="icon" variant="ghost" aria-label="Close menu">

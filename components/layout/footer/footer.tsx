@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { BookOpen, Code2 } from 'lucide-react'
 
 import { Container } from '@/components/layout/container/container'
+import Image from "next/image"
 
 const FEATURE_LINKS = [
   { name: 'Stats', href: '/' },
@@ -28,9 +29,7 @@ export function Footer() {
         <div className="xl:grid xl:grid-cols-2 xl:gap-16">
           <div className="space-y-6 pr-8">
             <Link href="/" className="flex items-center gap-2">
-              <span className="flex size-8 items-center justify-center rounded-md bg-primary text-primary-foreground">
-                <BookOpen className="size-4" />
-              </span>
+              <Image src="/favicon.png" alt="Questly Logo" width={32} height={32} />
               <span className="font-heading text-lg font-bold uppercase tracking-wide text-foreground">
                 Questly
               </span>
