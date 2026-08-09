@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { expect } from 'storybook/test'
 
-import { Section } from './section'
 import { Badge } from '@/components/ui/shadcn/badge'
+
+import { Section } from './section'
 
 const meta = {
   component: Section,

@@ -43,6 +43,20 @@ Run end-to-end tests with Playwright (starts the dev server automatically):
 npm run test:e2e
 ```
 
+## Continuous Integration
+
+Every push to `master` and every pull request targeting `master` triggers the `CI` workflow (`.github/workflows/ci.yml`), which runs the following steps in order:
+
+1. **Checkout** — checks out the repository
+2. **Setup Node.js** — installs the Node version from `.nvmrc` with npm caching
+3. **Install dependencies** — `npm ci`
+4. **Check formatting** — `npm run format:check`
+5. **Run ESLint** — `npm run lint`
+6. **Run tests** — `npm test -- --ci`
+7. **Build** — `npm run build`
+
+The `CI` check is a required status check on `master`, so pull requests cannot be merged until all of the above steps pass.
+
 ## Noteworthy packages
 
 ### Framework & Core

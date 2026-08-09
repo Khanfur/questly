@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
-import { expect } from 'storybook/test'
 import { Settings } from 'lucide-react'
+import { expect } from 'storybook/test'
 
 import { Button } from './button'
 

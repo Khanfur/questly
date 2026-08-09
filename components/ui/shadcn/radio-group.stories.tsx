@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { expect } from 'storybook/test'
 
-import { RadioGroup, RadioGroupItem } from './radio-group'
 import { Label } from './label'
+import { RadioGroup, RadioGroupItem } from './radio-group'
 
 const meta = {
   component: RadioGroup,

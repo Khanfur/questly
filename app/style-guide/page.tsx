@@ -1,18 +1,22 @@
-import { Button } from '@/components/ui/shadcn/button'
+import { ChatHead } from '@/components/ui/chat-head/chat-head'
+import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
+import { SectionDivider } from '@/components/ui/section-divider/section-divider'
+import { Section } from '@/components/ui/section/section'
 import { Badge } from '@/components/ui/shadcn/badge'
+import { Button } from '@/components/ui/shadcn/button'
 import {
   Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
   CardAction,
   CardContent,
+  CardDescription,
   CardFooter,
+  CardHeader,
+  CardTitle,
 } from '@/components/ui/shadcn/card'
-import { Separator } from '@/components/ui/shadcn/separator'
+import { Checkbox } from '@/components/ui/shadcn/checkbox'
 import { Input } from '@/components/ui/shadcn/input'
-import { Textarea } from '@/components/ui/shadcn/textarea'
 import { Label } from '@/components/ui/shadcn/label'
+import { RadioGroup, RadioGroupItem } from '@/components/ui/shadcn/radio-group'
 import {
   Select,
   SelectContent,
@@ -20,17 +24,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/shadcn/select'
-import { Checkbox } from '@/components/ui/shadcn/checkbox'
-import { RadioGroup, RadioGroupItem } from '@/components/ui/shadcn/radio-group'
+import { Separator } from '@/components/ui/shadcn/separator'
 import { Switch } from '@/components/ui/shadcn/switch'
-import { SectionDivider } from '@/components/ui/section-divider/section-divider'
-import { Swatch } from './_components/swatch'
+import { Textarea } from '@/components/ui/shadcn/textarea'
+
 import { ThemeColorPalette } from './_components/color-swatch'
-import { SpacingScale } from './_components/spacing-scale'
 import { GridExample } from './_components/grid-example'
-import { Section } from '@/components/ui/section/section'
-import { ChatHead } from '@/components/ui/chat-head/chat-head'
-import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
+import { SpacingScale } from './_components/spacing-scale'
+import { Swatch } from './_components/swatch'
 
 export default function StyleGuide() {
   return (

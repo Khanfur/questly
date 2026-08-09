@@ -7,7 +7,6 @@
   "printWidth": 100,
   "bracketSpacing": true,
   "jsxSingleQuote": false,
-  "jsxBracketSameLine": false,
   "semi": false,
   "importOrder": [
     "^react$",
@@ -18,5 +17,6 @@
     "^[./]"
   ],
   "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
 }

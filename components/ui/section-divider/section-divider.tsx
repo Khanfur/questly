@@ -1,5 +1,6 @@
-import { Separator } from '@/components/ui/shadcn/separator'
 import { cn } from '@/lib/utils'
+
+import { Separator } from '@/components/ui/shadcn/separator'
 
 function SectionDivider({ className }: { className?: string }) {
   return (

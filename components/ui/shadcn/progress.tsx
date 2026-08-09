@@ -1,7 +1,6 @@
-import { Progress as ProgressPrimitive } from '@base-ui/react/progress'
-import { cva, type VariantProps } from 'class-variance-authority'
-
 import { cn } from '@/lib/utils'
+import { Progress as ProgressPrimitive } from '@base-ui/react/progress'
+import { type VariantProps, cva } from 'class-variance-authority'
 
 const progressIndicatorVariants = cva('h-full rounded-full transition-all', {
   variants: {
