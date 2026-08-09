@@ -22,10 +22,10 @@ export default function Home() {
         </div>
       </div>
       
-      <div className={'flex items-center gap-4'}>
-        <StatCard className="min-w-0 flex-1" label="Combat Level" stat={112} />
-        <StatCard className="min-w-0 flex-1" label="Total Level" stat={1543} />
-        <StatCard className="min-w-0 flex-1" label="Quest Points" stat={284} secondaryStat={293} />
+      <div className={'flex justify-center gap-4'}>
+        <StatCard className="min-w-45" label="Combat Level" stat={112} />
+        <StatCard className="min-w-45" label="Total Level" stat={1543} />
+        <StatCard className="min-w-45" label="Quest Points" stat={284} secondaryStat={341} />
       </div>
 
       <SectionDivider className={'my-8'} />
