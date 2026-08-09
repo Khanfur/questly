@@ -83,9 +83,8 @@ npm run test:e2e
 
 ### Testing
 
-| Package      | Type          | Notes                                  | Link                       |
-| ------------ | ------------- | --------------------------------------- | --------------------------- |
-| `jest`       | devDependency | Unit/component testing                 | https://jestjs.io/          |
-| `playwright` | devDependency | End-to-end browser testing (`e2e/`)    | https://playwright.dev/     |
-| `storybook`  | devDependency | Component development & visual testing | https://storybook.js.org/   |
-
+| Package      | Type          | Notes                                  | Link                      |
+| ------------ | ------------- | -------------------------------------- | ------------------------- |
+| `jest`       | devDependency | Unit/component testing                 | https://jestjs.io/        |
+| `playwright` | devDependency | End-to-end browser testing (`e2e/`)    | https://playwright.dev/   |
+| `storybook`  | devDependency | Component development & visual testing | https://storybook.js.org/ |

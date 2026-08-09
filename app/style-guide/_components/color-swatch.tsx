@@ -7,7 +7,13 @@ export function ColorSwatch({ name, className }: { name: string; className: stri
   )
 }
 
-export function ColorGroup({ title, children }: { title: string; children: import('react').ReactNode }) {
+export function ColorGroup({
+  title,
+  children,
+}: {
+  title: string
+  children: import('react').ReactNode
+}) {
   return (
     <div className="flex flex-col gap-1">
       <span className="text-sm font-medium text-foreground">{title}</span>
