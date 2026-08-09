@@ -1,10 +1,11 @@
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
 import { Button } from '@/components/ui/shadcn/button'
+import { StatCard } from "@/components/ui/stat-card/stat-card"
 
 export default function Home() {
   return (
     <>
-      <div className={'flex flex-col items-center'}>
+      <div className={'flex flex-col items-center mb-4'}>
         <span className="eyebrow">Companion for Gielinor</span>
         <h1>Track the grind.</h1>
         <h1>Trust the Sage.</h1>
@@ -19,6 +20,12 @@ export default function Home() {
             Ask the Sage
           </Button>
         </div>
+      </div>
+      
+      <div className={'flex items-center gap-4'}>
+        <StatCard className="min-w-0 flex-1" label="Combat Level" stat={112} />
+        <StatCard className="min-w-0 flex-1" label="Total Level" stat={1543} />
+        <StatCard className="min-w-0 flex-1" label="Quest Points" stat={284} secondaryStat={293} />
       </div>
 
       <SectionDivider className={'my-8'} />

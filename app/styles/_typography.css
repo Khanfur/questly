@@ -50,6 +50,15 @@
     @apply font-heading text-lg font-bold text-primary;
   }
 
+  /* Hero / summary metric tile — label + stat-value */
+  .stat-card {
+    @apply flex flex-col gap-1 rounded-sm border border-muted-foreground/35 bg-muted px-4 py-3;
+  }
+
+  .stat-card .stat-value {
+    @apply text-xl leading-tight;
+  }
+
   /* Supporting text below a form field, e.g. "Used to sync your Hiscores" */
   .helper-text {
     @apply text-xs text-muted-foreground;
