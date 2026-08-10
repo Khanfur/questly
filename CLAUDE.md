@@ -19,6 +19,10 @@ noteworthy-packages table.
   these rather than hand-rolling new primitives.
 - `lib/utils.ts` — shared helpers, notably `cn()` (clsx + tailwind-merge) for conditional class
   names, and `isLocalhost()`.
+- `lib/types/` — shared TypeScript types and interfaces. Organized by domain: `skill.ts`, `quest.ts`,
+  `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, etc.
+- `lib/fixtures/` — dummy data for development and Storybook. Organized by domain: `skills.ts`,
+  `quests.ts`, `sage-suggestions.ts`, `skill-names.ts`, `activity-names.ts`, etc.
 - `lib/integrations/` — external service integration code.
 - `e2e/` — Playwright end-to-end specs (`home.spec.ts`, `navigation.spec.ts`, `style-guide.spec.ts`).
 - `proxy.ts` — request proxy/middleware-adjacent logic (uses `isLocalhost`).
