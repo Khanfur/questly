@@ -1,5 +1,6 @@
 import React from 'react'
 
+import type { QuestInfo } from '@/lib/types/quest'
 import { Progress } from '@/components/ui/shadcn/progress'
 
 type QuestProgressStatus = 'completed' | 'in-progress' | 'not-started'
