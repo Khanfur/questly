@@ -1,12 +1,12 @@
-import { useState } from 'react'
-
 import { Settings, X } from 'lucide-react'
 
+import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
+import { ThemeToggle } from '@/components/theme/theme-toggle'
 import { Button } from '@/components/ui/shadcn/button'
 import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/shadcn/drawer'
 
 export function HeaderSettingsDrawer() {
-  const [open, setOpen] = useState(false)
+  const { open, setOpen } = useSettingsDrawer()
 
   return (
     <Drawer open={open} onOpenChange={setOpen} swipeDirection={'right'}>
@@ -31,6 +31,11 @@ export function HeaderSettingsDrawer() {
               </Button>
             }
           />
+        </div>
+
+        <div className="flex items-center justify-between gap-4">
+          <span className="text-sm font-medium text-foreground">Theme</span>
+          <ThemeToggle />
         </div>
       </DrawerContent>
     </Drawer>
