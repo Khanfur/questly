@@ -16,7 +16,8 @@ import {
   miningIcon,
   prayerIcon,
   rangedIcon,
-  runecraftIcon,
+  runecraftIcon, 
+  sailing,
   slayerIcon,
   smithingIcon,
   strengthIcon,
@@ -50,4 +51,5 @@ export const skills: SkillInfo[] = [
   { name: 'Firemaking', level: 99, icon: firemakingIcon },
   { name: 'Woodcutting', level: 99, icon: woodcuttingIcon },
   { name: 'Farming', level: 99, icon: farmingIcon },
+  { name: 'Sailing', level: 99, icon: sailing },
 ]

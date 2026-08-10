@@ -18,6 +18,7 @@ export const SKILL_NAMES = [
   'Herblore',
   'Agility',
   'Thieving',
+  'Sailing',
   'Slayer',
   'Farming',
   'Runecraft',
