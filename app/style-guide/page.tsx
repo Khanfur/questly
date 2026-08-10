@@ -1,3 +1,5 @@
+'use client'
+
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
 import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'

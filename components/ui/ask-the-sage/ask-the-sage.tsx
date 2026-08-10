@@ -2,16 +2,12 @@
 
 import * as React from 'react'
 
+import type { SageSuggestion } from '@/lib/types/sage'
 import { cn } from '@/lib/utils'
 import { MessageCircle } from 'lucide-react'
 
 import { ChatHead, type ConnectionStatus } from '@/components/ui/chat-head/chat-head'
 import { Button } from '@/components/ui/shadcn/button'
-
-interface SageSuggestion {
-  id: string
-  label: string
-}
 
 interface AskTheSageProps {
   sageName?: string
@@ -101,4 +97,4 @@ function AskTheSage({
 }
 
 export { AskTheSage }
-export type { AskTheSageProps, SageSuggestion }
+export type { AskTheSageProps }
