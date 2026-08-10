@@ -1,3 +1,5 @@
+'use client'
+
 import {
   agilityIcon,
   attackIcon,
@@ -26,9 +28,11 @@ import {
   woodcuttingIcon,
 } from '@dava96/osrs-icons'
 
+import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
+import { AskTheSage } from '@/components/ui/ask-the-sage/ask-the-sage'
+import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
 import { SectionWindow } from '@/components/ui/section-window/section-window'
-import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
 import { Button } from '@/components/ui/shadcn/button'
 import { SkillCard } from '@/components/ui/skill-card/skill-card'
 import { SkillCardGrid } from '@/components/ui/skill-card/skill-card-grid'
@@ -72,6 +76,12 @@ const skills: SkillInfo[] = [
   { name: 'Farming', level: 99, icon: farmingIcon },
 ]
 
+const sageSuggestions = [
+  { id: 'quest-points', label: 'What should I do next for quest points?' },
+  { id: 'gear', label: 'Best in slot for my current combat level?' },
+  { id: 'chat', label: 'Just here to chat.' },
+]
+
 const quests: QuestInfo[] = [
   { name: 'Dragon Slayer II', status: 'in-progress' },
   { name: 'Song of the Elves', status: 'not-started' },
@@ -80,6 +90,8 @@ const quests: QuestInfo[] = [
 ]
 
 export default function Home() {
+  const { setOpen } = useSettingsDrawer()
+
   return (
     <>
       <div className={'flex flex-col items-center mb-4'}>
@@ -92,7 +104,9 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap justify-center gap-3">
-          <Button size="lg">View my stats</Button>
+          <Button size="lg" onClick={() => setOpen(true)}>
+            View my stats
+          </Button>
           <Button size="lg" variant="outline">
             Ask the Sage
           </Button>
@@ -124,6 +138,15 @@ export default function Home() {
           </div>
         </SectionWindow>
       </div>
+
+      <SectionDivider className={'my-8'} />
+
+      <AskTheSage
+        message={
+          "Back again? Your Slayer's crept to 71 but you're still avoiding Vannaka. Ask me anything — task advice, quest order, gear upgrades. I won't judge. Much."
+        }
+        suggestions={sageSuggestions}
+      />
     </>
   )
 }
