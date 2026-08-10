@@ -27,6 +27,8 @@ import {
 import { Separator } from '@/components/ui/shadcn/separator'
 import { Switch } from '@/components/ui/shadcn/switch'
 import { Textarea } from '@/components/ui/shadcn/textarea'
+import { StatCard } from '@/components/ui/stat-card/stat-card'
+import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 
 import { ThemeColorPalette } from './_components/color-swatch'
 import { GridExample } from './_components/grid-example'
@@ -60,7 +62,7 @@ export default function StyleGuide() {
         <Swatch label="p">
           <p>
             Questly keeps every skill, quest and diary in one parchment — and a Sage on call
-            whenever you&apos;re stuck between a slayer task and a life choice.
+            whenever you're stuck between a slayer task and a life choice.
           </p>
         </Swatch>
         <div className="flex flex-wrap items-end gap-6">
@@ -246,6 +248,14 @@ export default function StyleGuide() {
         <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="online" />
         <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="away" />
         <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="offline" />
+      </Section>
+
+      <Section title="Stat card" className="w-full max-w-3xl flex-col items-stretch gap-4">
+        <StatCardGroup className="sm:[&>*]:flex-1">
+          <StatCard label="Combat Level" stat={112} />
+          <StatCard label="Total Level" stat={1543} />
+          <StatCard label="Quest Points" stat={284} secondaryStat={293} />
+        </StatCardGroup>
       </Section>
     </>
   )

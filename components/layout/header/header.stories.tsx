@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { expect, within } from 'storybook/test'
 
+import { SettingsDrawerProvider } from '@/components/layout/header/settings-drawer-context'
+
 import { Header } from './header'
 
 const meta = {
@@ -9,6 +11,13 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [
+    (Story) => (
+      <SettingsDrawerProvider>
+        <Story />
+      </SettingsDrawerProvider>
+    ),
+  ],
 } satisfies Meta<typeof Header>
 
 export default meta

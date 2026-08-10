@@ -21,7 +21,7 @@ interface ChatHeadProps extends Omit<React.ComponentProps<typeof Avatar>, 'child
 function ChatHead({ avatar, fallbackAvatar, status, className, ...props }: ChatHeadProps) {
   return (
     <Avatar className={className} {...props}>
-      <AvatarImage src={avatar} alt="" />
+      <AvatarImage src={avatar} alt="Avatar" />
       <AvatarFallback>{fallbackAvatar}</AvatarFallback>
       <AvatarBadge className={cn(STATUS_STYLES[status])} />
     </Avatar>

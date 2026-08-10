@@ -1,14 +1,12 @@
 import { cn } from '@/lib/utils'
 
-export function Section({
-  title,
-  className,
-  children,
-}: {
+interface Section {
   title: string
   className?: string
   children: import('react').ReactNode
-}) {
+}
+
+export function Section({ title, className, children }: Section) {
   return (
     <>
       <h2 className="mt-6">{title}</h2>

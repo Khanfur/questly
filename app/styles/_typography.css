@@ -9,23 +9,23 @@
   }
 
   h1 {
-    @apply text-4xl leading-tight md:text-5xl;
+    @apply text-3xl leading-tight sm:text-4xl md:text-5xl;
   }
 
   h2 {
-    @apply text-3xl leading-tight md:text-4xl;
+    @apply text-2xl leading-tight sm:text-3xl md:text-4xl;
   }
 
   h3 {
-    @apply text-2xl leading-snug;
+    @apply text-xl leading-snug sm:text-2xl;
   }
 
   h4 {
-    @apply text-xl leading-snug;
+    @apply text-lg leading-snug sm:text-xl;
   }
 
   p {
-    @apply leading-relaxed text-muted-foreground;
+    @apply text-sm leading-relaxed text-muted-foreground sm:text-base;
   }
 }
 
@@ -48,6 +48,15 @@
   /* Large emphasized number, e.g. combat level, total level, skill values */
   .stat-value {
     @apply font-heading text-lg font-bold text-primary;
+  }
+
+  /* Hero / summary metric tile — label + stat-value */
+  .stat-card {
+    @apply flex flex-col gap-1 rounded-sm border border-muted-foreground/35 bg-muted px-4 py-3;
+  }
+
+  .stat-card .stat-value {
+    @apply text-xl leading-tight;
   }
 
   /* Supporting text below a form field, e.g. "Used to sync your Hiscores" */
