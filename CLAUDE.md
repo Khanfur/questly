@@ -23,7 +23,14 @@ noteworthy-packages table.
   `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, etc.
 - `lib/fixtures/` — dummy data for development and Storybook. Organized by domain: `skills.ts`,
   `quests.ts`, `sage-suggestions.ts`, `skill-names.ts`, `activity-names.ts`, etc.
-- `lib/integrations/` — external service integration code.
+- `lib/integrations/` — external service integration code, one folder per service, each split into
+  `client.ts` (fetch logic), per-feature files (e.g. `hook.ts`/`search.ts`/`summary.ts`/`quests.ts`)
+  exposing a `fetchX`/`useX` pair, and an `index.ts` barrel re-exporting the public API + types:
+  - `osrs-hiscores/` — OSRS Hiscores (Lite) CSV endpoint; `fetchHiscores`/`useHiscores`.
+  - `osrs-wiki/` — OSRS Wiki (MediaWiki) API; `searchWiki`/`useWikiSearch`,
+    `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList`.
+  Both integrations default to routing through same-origin proxy routes under `app/api/` (to dodge
+  CORS/User-Agent restrictions) but accept a `baseUrl` override for testing or self-hosted proxies.
 - `e2e/` — Playwright end-to-end specs (`home.spec.ts`, `navigation.spec.ts`, `style-guide.spec.ts`).
 - `proxy.ts` — request proxy/middleware-adjacent logic (uses `isLocalhost`).
 

@@ -43,6 +43,20 @@ Run end-to-end tests with Playwright (starts the dev server automatically):
 npm run test:e2e
 ```
 
+## Integrations
+
+Questly talks to two external OSRS data sources, both wrapped in `lib/integrations/` and proxied
+through same-origin API routes under `app/api/` so requests work from the browser without CORS
+issues:
+
+| Integration     | Source                                                       | Proxy route         | Exposes                                                             |
+| ---------------- | ------------------------------------------------------------ | -------------------- | -------------------------------------------------------------------- |
+| `osrs-hiscores` | [OSRS HiScores](https://oldschool.runescape.wiki/w/Hiscores) | `app/api/osrs-hiscores` | `fetchHiscores` / `useHiscores` — a player's skill levels & activity ranks |
+| `osrs-wiki`     | [OSRS Wiki API](https://oldschool.runescape.wiki/api.php)     | `app/api/osrs-wiki`  | `searchWiki`/`useWikiSearch`, `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList` |
+
+Both modules accept a `baseUrl` option to point at a different proxy (e.g. in tests), but default to
+the routes above.
+
 ## Continuous Integration
 
 Every push to `master` and every pull request targeting `master` triggers the `CI` workflow (`.github/workflows/ci.yml`), which runs the following steps in order:
