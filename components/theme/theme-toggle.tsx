@@ -27,7 +27,7 @@ export function ThemeToggle() {
     <div
       role="radiogroup"
       aria-label="Theme"
-      className="inline-flex items-center gap-1 rounded-lg border border-input bg-transparent p-1 dark:bg-input/30"
+      className="inline-flex items-center gap-1 rounded-lg border border-input bg-transparent p-1 dark:bg-input/30 w-fit"
     >
       {THEME_OPTIONS.map(({ value, label, icon: Icon }) => {
         const isSelected = mounted && theme === value
