@@ -11,7 +11,5 @@ interface SkillCardGridProps {
  * expanding to the full skill-row layout from `sm` up.
  */
 export function SkillCardGrid({ className, children }: SkillCardGridProps) {
-  return (
-    <div className={cn('grid grid-cols-4 gap-2 sm:grid-cols-6', className)}>{children}</div>
-  )
+  return <div className={cn('grid grid-cols-4 gap-2 sm:grid-cols-6', className)}>{children}</div>
 }

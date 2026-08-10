@@ -2,9 +2,10 @@
 
 import { useSyncExternalStore } from 'react'
 
+import { useTheme } from 'next-themes'
+
 import { cn } from '@/lib/utils'
 import { Laptop, Moon, Sun } from 'lucide-react'
-import { useTheme } from 'next-themes'
 
 const THEME_OPTIONS = [
   { value: 'light', label: 'Light', icon: Sun },

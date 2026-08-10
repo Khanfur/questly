@@ -45,4 +45,3 @@ noteworthy-packages table.
 
 CI (`.github/workflows/ci.yml`) runs format check → lint → test → build on every push/PR to
 `master`; match that order locally before pushing.
-
