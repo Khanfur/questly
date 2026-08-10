@@ -9,23 +9,23 @@
   }
 
   h1 {
-    @apply text-4xl leading-tight md:text-5xl;
+    @apply text-3xl leading-tight sm:text-4xl md:text-5xl;
   }
 
   h2 {
-    @apply text-3xl leading-tight md:text-4xl;
+    @apply text-2xl leading-tight sm:text-3xl md:text-4xl;
   }
 
   h3 {
-    @apply text-2xl leading-snug;
+    @apply text-xl leading-snug sm:text-2xl;
   }
 
   h4 {
-    @apply text-xl leading-snug;
+    @apply text-lg leading-snug sm:text-xl;
   }
 
   p {
-    @apply leading-relaxed text-muted-foreground;
+    @apply text-sm leading-relaxed text-muted-foreground sm:text-base;
   }
 }
 
