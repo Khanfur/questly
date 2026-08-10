@@ -38,7 +38,6 @@ import { SpacingScale } from './_components/spacing-scale'
 import { Swatch } from './_components/swatch'
 
 export default function StyleGuide() {
-  
   return (
     <>
       <h1>Style Guide</h1>

@@ -68,10 +68,7 @@ describe('buildWikiParams', () => {
     })
 
     it('forwards an eicontinue token when provided', () => {
-      const result = buildWikiParams(
-        'quests',
-        new URLSearchParams({ eicontinue: '500|123' })
-      )
+      const result = buildWikiParams('quests', new URLSearchParams({ eicontinue: '500|123' }))
       expect('params' in result).toBe(true)
       if ('params' in result) {
         expect(result.params.get('eicontinue')).toBe('500|123')

@@ -2,12 +2,12 @@
 
 import * as React from 'react'
 
+import type { SageSuggestion } from '@/lib/types/sage'
 import { cn } from '@/lib/utils'
 import { MessageCircle } from 'lucide-react'
 
 import { ChatHead, type ConnectionStatus } from '@/components/ui/chat-head/chat-head'
 import { Button } from '@/components/ui/shadcn/button'
-import type { SageSuggestion } from '@/lib/types/sage'
 
 interface AskTheSageProps {
   sageName?: string

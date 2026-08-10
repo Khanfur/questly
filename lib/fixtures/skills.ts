@@ -1,3 +1,4 @@
+import type { SkillInfo } from '@/lib/types/skill'
 import {
   agilityIcon,
   attackIcon,
@@ -16,7 +17,7 @@ import {
   miningIcon,
   prayerIcon,
   rangedIcon,
-  runecraftIcon, 
+  runecraftIcon,
   sailing,
   slayerIcon,
   smithingIcon,
@@ -24,8 +25,6 @@ import {
   thievingIcon,
   woodcuttingIcon,
 } from '@dava96/osrs-icons'
-
-import type { SkillInfo } from '@/lib/types/skill'
 
 export const skills: SkillInfo[] = [
   { name: 'Attack', level: 99, icon: attackIcon },

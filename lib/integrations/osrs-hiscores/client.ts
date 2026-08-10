@@ -18,7 +18,7 @@
  * override so you can point it at your own proxy, e.g.:
  *   fetchHiscores('Zezima', { baseUrl: '/api/osrs-hiscores' })
  */
-
+import { ACTIVITY_NAMES, SKILL_NAMES } from '@/lib/fixtures'
 import type {
   ActivityEntry,
   FetchHiscoresOptions,
@@ -26,7 +26,6 @@ import type {
   SkillEntry,
 } from '@/lib/types/osrs-hiscores'
 import { HiscoresError } from '@/lib/types/osrs-hiscores'
-import { ACTIVITY_NAMES, SKILL_NAMES } from '@/lib/fixtures'
 
 export function parseHiscoresCsv(csv: string): OsrsHiscores {
   const lines = csv
@@ -60,8 +59,7 @@ export function parseHiscoresCsv(csv: string): OsrsHiscores {
   return { skills, activities, overall }
 }
 
-const DEFAULT_BASE_URL =
-  'https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws'
+const DEFAULT_BASE_URL = 'https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws'
 
 export async function fetchHiscores(
   playerName: string,
@@ -75,9 +73,7 @@ export async function fetchHiscores(
     res = await fetch(url, { signal: options.signal })
   } catch (err) {
     throw new HiscoresError(
-      `Network error while fetching hiscores for "${playerName}": ${
-        (err as Error).message
-      }`
+      `Network error while fetching hiscores for "${playerName}": ${(err as Error).message}`
     )
   }
 
@@ -85,10 +81,7 @@ export async function fetchHiscores(
     throw new HiscoresError(`Player "${playerName}" not found.`, 404)
   }
   if (!res.ok) {
-    throw new HiscoresError(
-      `Hiscores request failed with status ${res.status}.`,
-      res.status
-    )
+    throw new HiscoresError(`Hiscores request failed with status ${res.status}.`, res.status)
   }
 
   const text = await res.text()

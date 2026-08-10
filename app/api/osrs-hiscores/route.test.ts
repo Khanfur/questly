@@ -39,7 +39,9 @@ describe('GET /api/osrs-hiscores', () => {
 
     expect(global.fetch).toHaveBeenCalledWith(
       expect.stringContaining('player=Zezima'),
-      expect.objectContaining({ headers: expect.objectContaining({ 'User-Agent': expect.any(String) }) })
+      expect.objectContaining({
+        headers: expect.objectContaining({ 'User-Agent': expect.any(String) }),
+      })
     )
     expect(response.status).toBe(200)
     expect(response.headers.get('content-type')).toContain('text/plain')

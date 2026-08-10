@@ -2,11 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-import type {
-  FetchWikiOptions,
-  UseWikiPageResult,
-  WikiPageSummary,
-} from '@/lib/types/osrs-wiki'
+import type { FetchWikiOptions, UseWikiPageResult, WikiPageSummary } from '@/lib/types/osrs-wiki'
 import { WikiError } from '@/lib/types/osrs-wiki'
 
 import { DEFAULT_BASE_URL, wikiFetch } from './client'
@@ -61,8 +57,12 @@ export function useWikiPage(
 
   useEffect(() => {
     if (!title) {
+      // Resetting to the "no title" state is intentionally synchronous here —
+      // there's no async work to defer it into.
+      /* eslint-disable react-hooks/set-state-in-effect */
       setData(null)
       setError(null)
+      /* eslint-enable react-hooks/set-state-in-effect */
       return
     }
 

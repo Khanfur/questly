@@ -5,9 +5,7 @@
  * unit-tested and read independently of the HTTP plumbing.
  */
 
-export type WikiParamsResult =
-  | { params: URLSearchParams }
-  | { error: Response }
+export type WikiParamsResult = { params: URLSearchParams } | { error: Response }
 
 function errorResponse(message: string, status = 400): { error: Response } {
   return {
@@ -18,7 +16,10 @@ function errorResponse(message: string, status = 400): { error: Response } {
   }
 }
 
-export function buildWikiParams(mode: string | null, searchParams: URLSearchParams): WikiParamsResult {
+export function buildWikiParams(
+  mode: string | null,
+  searchParams: URLSearchParams
+): WikiParamsResult {
   const params = new URLSearchParams({
     format: 'json',
     formatversion: '2',

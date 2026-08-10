@@ -1,5 +1,6 @@
 'use client'
 
+import { quests, sageSuggestions, skills } from '@/lib/fixtures'
 import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
 
 import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
@@ -12,7 +13,6 @@ import { SkillCard } from '@/components/ui/skill-card/skill-card'
 import { SkillCardGrid } from '@/components/ui/skill-card/skill-card-grid'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
-import { quests, sageSuggestions, skills } from '@/lib/fixtures'
 
 export default function Home() {
   const { setOpen } = useSettingsDrawer()

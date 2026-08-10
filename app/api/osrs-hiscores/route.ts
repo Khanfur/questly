@@ -8,10 +8,10 @@ export async function GET(request: Request) {
   const playerName = searchParams.get('player')
 
   if (!playerName) {
-    return new Response(
-      JSON.stringify({ error: 'Missing player parameter' }),
-      { status: 400, headers: { 'content-type': 'application/json' } }
-    )
+    return new Response(JSON.stringify({ error: 'Missing player parameter' }), {
+      status: 400,
+      headers: { 'content-type': 'application/json' },
+    })
   }
 
   try {
@@ -21,8 +21,7 @@ export async function GET(request: Request) {
 
     const response = await fetch(url, {
       headers: {
-        'User-Agent':
-          'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
       },
     })
 

@@ -2,11 +2,7 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-import type {
-  FetchWikiOptions,
-  UseQuestListResult,
-  WikiQuestListItem,
-} from '@/lib/types/osrs-wiki'
+import type { FetchWikiOptions, UseQuestListResult, WikiQuestListItem } from '@/lib/types/osrs-wiki'
 import { WikiError } from '@/lib/types/osrs-wiki'
 
 import { DEFAULT_BASE_URL, wikiFetch } from './client'
@@ -26,9 +22,7 @@ interface RawQuestListResponse {
  * pages). Follows pagination automatically since the wiki caps each
  * response at 500 results.
  */
-export async function fetchQuestList(
-  options: FetchWikiOptions = {}
-): Promise<WikiQuestListItem[]> {
+export async function fetchQuestList(options: FetchWikiOptions = {}): Promise<WikiQuestListItem[]> {
   const baseUrl = options.baseUrl ?? DEFAULT_BASE_URL
   const quests: WikiQuestListItem[] = []
   let eicontinue: string | undefined
@@ -69,8 +63,12 @@ export function useQuestList(options: FetchWikiOptions = {}): UseQuestListResult
 
   useEffect(() => {
     const controller = new AbortController()
+    // Marking the start of a (re)fetch is intentionally synchronous here —
+    // there's no async work to defer it into.
+    /* eslint-disable react-hooks/set-state-in-effect */
     setLoading(true)
     setError(null)
+    /* eslint-enable react-hooks/set-state-in-effect */
 
     fetchQuestList({ ...options, signal: controller.signal })
       .then((result) => {

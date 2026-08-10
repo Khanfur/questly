@@ -25,8 +25,12 @@ export function useHiscores(
 
   useEffect(() => {
     if (!playerName) {
+      // Resetting to the "no player selected" state is intentionally synchronous
+      // here — there's no async work to defer it into.
+      /* eslint-disable react-hooks/set-state-in-effect */
       setData(null)
       setError(null)
+      /* eslint-enable react-hooks/set-state-in-effect */
       return
     }
 

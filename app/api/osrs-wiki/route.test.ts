@@ -42,7 +42,9 @@ describe('GET /api/osrs-wiki', () => {
     })
 
     it('proxies the search request to the wiki API', async () => {
-      const wikiResponse = { query: { search: [{ pageid: 1, title: 'Cabbage', snippet: 'A cabbage.' }] } }
+      const wikiResponse = {
+        query: { search: [{ pageid: 1, title: 'Cabbage', snippet: 'A cabbage.' }] },
+      }
       mockFetchOnce({ json: wikiResponse })
 
       const request = new Request('http://localhost/api/osrs-wiki?mode=search&q=cabbage')
@@ -50,7 +52,9 @@ describe('GET /api/osrs-wiki', () => {
 
       expect(global.fetch).toHaveBeenCalledWith(
         expect.stringContaining('action=query&list=search&srsearch=cabbage'),
-        expect.objectContaining({ headers: expect.objectContaining({ 'User-Agent': expect.any(String) }) })
+        expect.objectContaining({
+          headers: expect.objectContaining({ 'User-Agent': expect.any(String) }),
+        })
       )
       expect(response.status).toBe(200)
       expect(response.headers.get('content-type')).toContain('application/json')
@@ -69,7 +73,9 @@ describe('GET /api/osrs-wiki', () => {
     })
 
     it('proxies the summary request to the wiki API', async () => {
-      const wikiResponse = { query: { pages: [{ pageid: 42, title: 'Cabbage', extract: 'A cabbage.' }] } }
+      const wikiResponse = {
+        query: { pages: [{ pageid: 42, title: 'Cabbage', extract: 'A cabbage.' }] },
+      }
       mockFetchOnce({ json: wikiResponse })
 
       const request = new Request('http://localhost/api/osrs-wiki?mode=summary&title=Cabbage')
@@ -98,7 +104,9 @@ describe('GET /api/osrs-wiki', () => {
         expect.stringContaining(
           'action=query&list=embeddedin&eititle=Template%3AInfobox+Quest&einamespace=0&eilimit=500'
         ),
-        expect.objectContaining({ headers: expect.objectContaining({ 'User-Agent': expect.any(String) }) })
+        expect.objectContaining({
+          headers: expect.objectContaining({ 'User-Agent': expect.any(String) }),
+        })
       )
       expect(response.status).toBe(200)
       expect(await response.json()).toEqual(wikiResponse)

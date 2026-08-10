@@ -1,7 +1,7 @@
+import { sageSuggestions } from '@/lib/fixtures'
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { expect, fn } from 'storybook/test'
 
-import { sageSuggestions } from '@/lib/fixtures'
 import { AskTheSage } from './ask-the-sage'
 
 const meta = {
