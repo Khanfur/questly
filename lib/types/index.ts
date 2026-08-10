@@ -5,3 +5,11 @@ export type { SkillEntry } from './hiscores'
 export type { ActivityEntry } from './activity'
 export type { OsrsHiscores, FetchHiscoresOptions, UseHiscoresResult } from './osrs-hiscores'
 export { HiscoresError } from './osrs-hiscores'
+export type {
+  WikiSearchResult,
+  WikiPageSummary,
+  FetchWikiOptions,
+  UseWikiSearchResult,
+  UseWikiPageResult,
+} from './osrs-wiki'
+export { WikiError } from './osrs-wiki'
