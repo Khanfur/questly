@@ -1,32 +1,6 @@
 'use client'
 
-import {
-  agilityIcon,
-  attackIcon,
-  constructionIcon,
-  cookingIcon,
-  craftingIcon,
-  defenceIcon,
-  farmingIcon,
-  firemakingIcon,
-  fishingIcon,
-  fletchingIcon,
-  herbloreIcon,
-  hitpointsIcon,
-  hunterIcon,
-  magicIcon,
-  miningIcon,
-  prayerIcon,
-  questStartIcon,
-  rangedIcon,
-  runecraftIcon,
-  skillsIcon,
-  slayerIcon,
-  smithingIcon,
-  strengthIcon,
-  thievingIcon,
-  woodcuttingIcon,
-} from '@dava96/osrs-icons'
+import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
 
 import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
 import { AskTheSage } from '@/components/ui/ask-the-sage/ask-the-sage'
@@ -38,56 +12,7 @@ import { SkillCard } from '@/components/ui/skill-card/skill-card'
 import { SkillCardGrid } from '@/components/ui/skill-card/skill-card-grid'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
-
-export type SkillInfo = {
-  name: string
-  level: number
-  icon: string
-}
-
-type QuestInfo = {
-  name: string
-  status: 'completed' | 'in-progress' | 'not-started'
-}
-
-const skills: SkillInfo[] = [
-  { name: 'Attack', level: 99, icon: attackIcon },
-  { name: 'Strength', level: 99, icon: strengthIcon },
-  { name: 'Defence', level: 99, icon: defenceIcon },
-  { name: 'Ranged', level: 99, icon: rangedIcon },
-  { name: 'Prayer', level: 99, icon: prayerIcon },
-  { name: 'Magic', level: 99, icon: magicIcon },
-  { name: 'Runecraft', level: 99, icon: runecraftIcon },
-  { name: 'Construction', level: 99, icon: constructionIcon },
-  { name: 'Hitpoints', level: 99, icon: hitpointsIcon },
-  { name: 'Agility', level: 99, icon: agilityIcon },
-  { name: 'Herblore', level: 99, icon: herbloreIcon },
-  { name: 'Thieving', level: 99, icon: thievingIcon },
-  { name: 'Crafting', level: 99, icon: craftingIcon },
-  { name: 'Fletching', level: 99, icon: fletchingIcon },
-  { name: 'Slayer', level: 99, icon: slayerIcon },
-  { name: 'Hunter', level: 99, icon: hunterIcon },
-  { name: 'Mining', level: 99, icon: miningIcon },
-  { name: 'Smithing', level: 99, icon: smithingIcon },
-  { name: 'Fishing', level: 99, icon: fishingIcon },
-  { name: 'Cooking', level: 99, icon: cookingIcon },
-  { name: 'Firemaking', level: 99, icon: firemakingIcon },
-  { name: 'Woodcutting', level: 99, icon: woodcuttingIcon },
-  { name: 'Farming', level: 99, icon: farmingIcon },
-]
-
-const sageSuggestions = [
-  { id: 'quest-points', label: 'What should I do next for quest points?' },
-  { id: 'gear', label: 'Best in slot for my current combat level?' },
-  { id: 'chat', label: 'Just here to chat.' },
-]
-
-const quests: QuestInfo[] = [
-  { name: 'Dragon Slayer II', status: 'in-progress' },
-  { name: 'Song of the Elves', status: 'not-started' },
-  { name: 'Sins of the Father', status: 'completed' },
-  { name: 'Monkey Madness II', status: 'completed' },
-]
+import { quests, sageSuggestions, skills } from '@/lib/fixtures'
 
 export default function Home() {
   const { setOpen } = useSettingsDrawer()
