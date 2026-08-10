@@ -19,17 +19,13 @@
  *   fetchHiscores('Zezima', { baseUrl: '/api/osrs-hiscores' })
  */
 
-import { useCallback, useEffect, useState } from 'react'
-
 import type {
   ActivityEntry,
   FetchHiscoresOptions,
-  HiscoresError,
   OsrsHiscores,
   SkillEntry,
-  UseHiscoresResult,
 } from '@/lib/types/osrs-hiscores'
-import { HiscoresError as HiscoresErrorClass } from '@/lib/types/osrs-hiscores'
+import { HiscoresError } from '@/lib/types/osrs-hiscores'
 import { ACTIVITY_NAMES, SKILL_NAMES } from '@/lib/fixtures'
 
 export function parseHiscoresCsv(csv: string): OsrsHiscores {
@@ -64,10 +60,6 @@ export function parseHiscoresCsv(csv: string): OsrsHiscores {
   return { skills, activities, overall }
 }
 
-/* ------------------------------------------------------------------ */
-/*  Fetch helper                                                       */
-/* ------------------------------------------------------------------ */
-
 const DEFAULT_BASE_URL =
   'https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws'
 
@@ -82,7 +74,7 @@ export async function fetchHiscores(
   try {
     res = await fetch(url, { signal: options.signal })
   } catch (err) {
-    throw new HiscoresErrorClass(
+    throw new HiscoresError(
       `Network error while fetching hiscores for "${playerName}": ${
         (err as Error).message
       }`
@@ -90,10 +82,10 @@ export async function fetchHiscores(
   }
 
   if (res.status === 404) {
-    throw new HiscoresErrorClass(`Player "${playerName}" not found.`, 404)
+    throw new HiscoresError(`Player "${playerName}" not found.`, 404)
   }
   if (!res.ok) {
-    throw new HiscoresErrorClass(
+    throw new HiscoresError(
       `Hiscores request failed with status ${res.status}.`,
       res.status
     )
@@ -102,59 +94,3 @@ export async function fetchHiscores(
   const text = await res.text()
   return parseHiscoresCsv(text)
 }
-
-/* ------------------------------------------------------------------ */
-/*  React hook                                                         */
-/* ------------------------------------------------------------------ */
-
-export function useHiscores(
-  playerName: string | null,
-  options: FetchHiscoresOptions = {}
-): UseHiscoresResult {
-  const [data, setData] = useState<OsrsHiscores | null>(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState<HiscoresError | null>(null)
-  const [refetchTick, setRefetchTick] = useState(0)
-
-  const refetch = useCallback(() => setRefetchTick((t) => t + 1), [])
-
-  useEffect(() => {
-    if (!playerName) {
-      setData(null)
-      setError(null)
-      return
-    }
-
-    const controller = new AbortController()
-    setLoading(true)
-    setError(null)
-
-    fetchHiscores(playerName, { ...options, signal: controller.signal })
-      .then((result) => {
-        setData(result)
-      })
-      .catch((err: unknown) => {
-        if (controller.signal.aborted) return
-        setError(
-          err instanceof HiscoresErrorClass
-            ? (err as HiscoresError)
-            : new HiscoresErrorClass((err as Error).message)
-        )
-      })
-      .finally(() => {
-        if (!controller.signal.aborted) setLoading(false)
-      })
-
-    return () => controller.abort()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [playerName, options.baseUrl, refetchTick])
-
-  return { data, loading, error, refetch }
-}
-
-/* ------------------------------------------------------------------ */
-/*  Re-export types for convenience                                    */
-/* ------------------------------------------------------------------ */
-
-export type { OsrsHiscores, SkillEntry, ActivityEntry, FetchHiscoresOptions, UseHiscoresResult } from '@/lib/types/osrs-hiscores'
-export { HiscoresError } from '@/lib/types/osrs-hiscores'
