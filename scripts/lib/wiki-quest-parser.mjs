@@ -260,3 +260,41 @@ export function parseQuestDetails(pageId, title, wikitext) {
     wikiUrl: buildWikiUrl(title),
   }
 }
+
+/**
+ * Parses a miniquest page's wikitext into a `WikiMiniquestDetails`-shaped
+ * plain object (difficulty, length, members, series, release date, released
+ * status, start, description, requirements, enemies, items required, wiki
+ * link), by scraping the `{{Infobox Miniquest}}` and `{{Quest details}}`
+ * templates. Mirrors `parseQuestDetails`, but miniquests award no quest
+ * points so there's no `{{Quest rewards}}` block/`questPoints` field.
+ */
+export function parseMiniquestDetails(pageId, title, wikitext) {
+  const infobox = extractTemplateBlock(wikitext, 'Infobox Miniquest')
+  const details = extractTemplateBlock(wikitext, 'Quest details')
+
+  const infoboxFields = infobox ? parseTemplateFields(infobox) : {}
+  const detailsFields = details ? parseTemplateFields(details) : {}
+
+  const difficulty = DIFFICULTY_BY_NAME[detailsFields.difficulty?.toLowerCase() ?? ''] ?? null
+  const series =
+    infoboxFields.series && infoboxFields.series !== 'None' ? infoboxFields.series : null
+  const releaseDate = infoboxFields.release ? stripWikitext(infoboxFields.release) : null
+
+  return {
+    pageId,
+    title,
+    difficulty,
+    length: detailsFields.length ? stripWikitext(detailsFields.length) : null,
+    members: infoboxFields.members?.toLowerCase() === 'yes',
+    series: series ? stripWikitext(series) : null,
+    releaseDate,
+    released: isQuestReleased(releaseDate),
+    start: detailsFields.start ? stripWikitext(detailsFields.start) : null,
+    description: detailsFields.description ? stripWikitext(detailsFields.description) : null,
+    requirements: detailsFields.requirements ? parseRequirements(detailsFields.requirements) : null,
+    enemies: detailsFields.kills ? parseBulletList(detailsFields.kills) : null,
+    itemsRequired: detailsFields.items ? parseBulletList(detailsFields.items) : null,
+    wikiUrl: buildWikiUrl(title),
+  }
+}

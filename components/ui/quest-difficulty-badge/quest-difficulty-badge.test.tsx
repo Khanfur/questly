@@ -18,4 +18,9 @@ describe('QuestDifficultyBadge', () => {
     render(<QuestDifficultyBadge difficulty="novice" className="custom-class" />)
     expect(screen.getByText('Novice')).toHaveClass('custom-class')
   })
+
+  it('renders nothing when difficulty is null', () => {
+    const { container } = render(<QuestDifficultyBadge difficulty={null} />)
+    expect(container).toBeEmptyDOMElement()
+  })
 })

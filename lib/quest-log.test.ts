@@ -1,5 +1,5 @@
-import { buildQuestLog } from '@/lib/quest-log'
-import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
+import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log'
+import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki'
 
 function detail(overrides: Partial<WikiQuestDetails>): WikiQuestDetails {
   return {
@@ -18,6 +18,26 @@ function detail(overrides: Partial<WikiQuestDetails>): WikiQuestDetails {
     enemies: null,
     itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/Some_Quest',
+    ...overrides,
+  }
+}
+
+function miniquestDetail(overrides: Partial<WikiMiniquestDetails>): WikiMiniquestDetails {
+  return {
+    pageId: 1,
+    title: 'Some Miniquest',
+    difficulty: null,
+    length: null,
+    members: false,
+    series: null,
+    releaseDate: null,
+    released: true,
+    start: null,
+    description: null,
+    requirements: null,
+    enemies: null,
+    itemsRequired: null,
+    wikiUrl: 'https://oldschool.runescape.wiki/w/Some_Miniquest',
     ...overrides,
   }
 }
@@ -141,5 +161,92 @@ describe('buildQuestLog', () => {
     expect(quest?.itemsRequired).toEqual(['Bucket of milk', 'Egg', 'Pot of flour'])
     expect(quest?.releaseDate).toBe('4 January 2001')
     expect(quest?.wikiUrl).toBe("https://oldschool.runescape.wiki/w/Cook's_Assistant")
+  })
+})
+
+describe('buildMiniquestLog', () => {
+  it('returns a flat list, not grouped into difficulty tiers', () => {
+    const miniquests = buildMiniquestLog(
+      [
+        miniquestDetail({ title: 'Mage Arena I' }),
+        miniquestDetail({ pageId: 2, title: 'Mage Arena II' }),
+      ],
+      {}
+    )
+    expect(miniquests.map((m) => m.name)).toEqual(['Mage Arena I', 'Mage Arena II'])
+  })
+
+  it('defaults miniquests with no locally-tracked status to not-started', () => {
+    const miniquests = buildMiniquestLog([miniquestDetail({ title: 'Mage Arena I' })], {})
+    expect(miniquests[0].status).toBe('not-started')
+  })
+
+  it('applies the locally-tracked status for a miniquest by title', () => {
+    const miniquests = buildMiniquestLog([miniquestDetail({ title: 'Mage Arena I' })], {
+      'Mage Arena I': 'completed',
+    })
+    expect(miniquests[0].status).toBe('completed')
+  })
+
+  it('falls back to "None" for requirements when the field is null or blank', () => {
+    const miniquests = buildMiniquestLog(
+      [miniquestDetail({ title: 'Mage Arena I', requirements: null })],
+      {}
+    )
+    expect(miniquests[0].requires).toBe('None')
+  })
+
+  it('has no questPoints field on the resulting miniquest', () => {
+    const miniquests = buildMiniquestLog([miniquestDetail({ title: 'Mage Arena I' })], {})
+    expect(miniquests[0]).not.toHaveProperty('questPoints')
+  })
+
+  it('excludes wiki sub-pages (titles containing "/")', () => {
+    const miniquests = buildMiniquestLog(
+      [miniquestDetail({ title: 'Barbarian Training/Guide' })],
+      {}
+    )
+    expect(miniquests).toHaveLength(0)
+  })
+
+  it('excludes miniquests that have not been released yet', () => {
+    const miniquests = buildMiniquestLog(
+      [
+        miniquestDetail({ title: 'Mage Arena I', released: true }),
+        miniquestDetail({ pageId: 2, title: 'An Upcoming Miniquest', released: false }),
+      ],
+      {}
+    )
+    expect(miniquests.map((m) => m.name)).toEqual(['Mage Arena I'])
+  })
+
+  it('copies the wiki detail fields onto the miniquest', () => {
+    const miniquests = buildMiniquestLog(
+      [
+        miniquestDetail({
+          title: 'Mage Arena I',
+          difficulty: 'experienced',
+          start: 'Speak to Kolodion at the Mage Arena.',
+          description: 'Prove your magical might.',
+          series: null,
+          length: 'Short',
+          enemies: ['Kolodion (level 112)'],
+          itemsRequired: ['Runes'],
+          releaseDate: '22 September 2003',
+          wikiUrl: 'https://oldschool.runescape.wiki/w/Mage_Arena_I',
+        }),
+      ],
+      {}
+    )
+    const miniquest = miniquests[0]
+
+    expect(miniquest.difficulty).toBe('experienced')
+    expect(miniquest.start).toBe('Speak to Kolodion at the Mage Arena.')
+    expect(miniquest.description).toBe('Prove your magical might.')
+    expect(miniquest.length).toBe('Short')
+    expect(miniquest.enemies).toEqual(['Kolodion (level 112)'])
+    expect(miniquest.itemsRequired).toEqual(['Runes'])
+    expect(miniquest.releaseDate).toBe('22 September 2003')
+    expect(miniquest.wikiUrl).toBe('https://oldschool.runescape.wiki/w/Mage_Arena_I')
   })
 })

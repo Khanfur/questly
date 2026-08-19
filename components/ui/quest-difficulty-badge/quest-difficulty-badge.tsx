@@ -20,12 +20,15 @@ const DIFFICULTY_CLASSNAME: Record<QuestDifficulty, string> = {
 }
 
 interface QuestDifficultyBadgeProps {
-  difficulty: QuestDifficulty
+  /** Miniquests may have no wiki-rated difficulty; renders nothing when `null`. */
+  difficulty: QuestDifficulty | null
   className?: string
 }
 
-/** Colour-coded badge for a quest's difficulty tier. */
+/** Colour-coded badge for a quest's difficulty tier. Renders nothing when `difficulty` is `null`. */
 export function QuestDifficultyBadge({ difficulty, className }: QuestDifficultyBadgeProps) {
+  if (!difficulty) return null
+
   return (
     <Badge className={cn(DIFFICULTY_CLASSNAME[difficulty], className)}>
       {DIFFICULTY_LABEL[difficulty]}

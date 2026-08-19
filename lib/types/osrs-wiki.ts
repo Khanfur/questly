@@ -23,6 +23,9 @@ export interface WikiQuestListItem {
   title: string
 }
 
+/** A page embedding `Template:Infobox Miniquest` — see `WikiQuestListItem`. */
+export type WikiMiniquestListItem = WikiQuestListItem
+
 export interface FetchWikiOptions {
   /**
    * Override the base endpoint. Use this to point at your own backend
@@ -50,6 +53,13 @@ export interface UseWikiPageResult {
 
 export interface UseQuestListResult {
   data: WikiQuestListItem[] | null
+  loading: boolean
+  error: WikiError | null
+  refetch: () => void
+}
+
+export interface UseMiniquestListResult {
+  data: WikiMiniquestListItem[] | null
   loading: boolean
   error: WikiError | null
   refetch: () => void
@@ -96,6 +106,51 @@ export interface WikiQuestDetails {
 
 export interface UseQuestDetailsResult {
   data: WikiQuestDetails | null
+  loading: boolean
+  error: WikiError | null
+  refetch: () => void
+}
+
+/**
+ * Miniquest metadata scraped from a page's `{{Infobox Miniquest}}` and
+ * `{{Quest details}}` templates. Miniquests are wiki-documented the same way
+ * as quests (same `{{Quest details}}` block, including a `difficulty`) but
+ * use a distinct infobox template, have no world-map icon, and award no
+ * quest points — so there's no `{{Quest rewards}}` block/`questPoints` field.
+ * See https://oldschool.runescape.wiki/w/Miniquests.
+ */
+export interface WikiMiniquestDetails {
+  pageId: number
+  title: string
+  difficulty: QuestDifficulty | null
+  /** e.g. "Very Short", "Short", "Medium", "Long", "Very Long". */
+  length: string | null
+  members: boolean
+  /** e.g. "Dragonkin, #3", or null if the miniquest isn't part of a series. */
+  series: string | null
+  /** Plain-text release date, e.g. "4 January 2001", with wiki markup stripped. */
+  releaseDate: string | null
+  /**
+   * Whether the miniquest has actually been released yet — see
+   * `WikiQuestDetails.released`.
+   */
+  released: boolean
+  /** Plain-text summary of how to start the miniquest, with wiki markup stripped. */
+  start: string | null
+  /** Plain-text description/synopsis of the miniquest, with wiki markup stripped. */
+  description: string | null
+  /** Direct prerequisites (skills, quest points, other quests), with wiki markup stripped. */
+  requirements: string[] | null
+  /** Enemies the player must defeat during the miniquest (e.g. "Vorkath (level 392)"), if any. */
+  enemies: string[] | null
+  /** Items required to start/complete the miniquest (e.g. "A pickaxe"), if any. */
+  itemsRequired: string[] | null
+  /** Direct link to the miniquest's page on the OSRS Wiki. */
+  wikiUrl: string
+}
+
+export interface UseMiniquestDetailsResult {
+  data: WikiMiniquestDetails | null
   loading: boolean
   error: WikiError | null
   refetch: () => void

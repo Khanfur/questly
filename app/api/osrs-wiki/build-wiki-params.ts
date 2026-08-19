@@ -72,7 +72,21 @@ export function buildWikiParams(
     return { params }
   }
 
+  if (mode === 'miniquests') {
+    const continueToken = searchParams.get('eicontinue')
+
+    params.set('action', 'query')
+    params.set('list', 'embeddedin')
+    params.set('eititle', 'Template:Infobox Miniquest')
+    params.set('einamespace', '0')
+    params.set('eilimit', '500')
+    if (continueToken) {
+      params.set('eicontinue', continueToken)
+    }
+    return { params }
+  }
+
   return errorResponse(
-    'Missing or invalid mode parameter (expected "search", "summary", "quests", or "details")'
+    'Missing or invalid mode parameter (expected "search", "summary", "quests", "miniquests", or "details")'
   )
 }

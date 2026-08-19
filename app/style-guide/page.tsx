@@ -2,14 +2,17 @@
 
 import { useState } from 'react'
 
-import { diaryRegions, questLog } from '@/lib/fixtures'
-import type { Quest } from '@/lib/types/quest'
+import { diaryRegions, miniquestLog, questLog } from '@/lib/fixtures'
+import type { Miniquest, Quest } from '@/lib/types/quest'
 
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
 import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'
 import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'
 import { ErrorMessage } from '@/components/ui/error-message/error-message'
 import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'
+import { MiniquestDetailModal } from '@/components/ui/miniquest-detail-modal/miniquest-detail-modal'
+import { MiniquestListItem } from '@/components/ui/miniquest-list-item/miniquest-list-item'
+import { MiniquestSection } from '@/components/ui/miniquest-section/miniquest-section'
 import { PageHero } from '@/components/ui/page-hero/page-hero'
 import { QuestDetailModal } from '@/components/ui/quest-detail-modal/quest-detail-modal'
 import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
@@ -69,9 +72,24 @@ const SAMPLE_QUEST_DETAILS: Quest = {
   wikiUrl: "https://oldschool.runescape.wiki/w/Cook's_Assistant",
 }
 
+const SAMPLE_MINIQUEST_DETAILS: Miniquest = {
+  name: 'Mage Arena I',
+  difficulty: 'experienced',
+  status: 'not-started',
+  requires: 'Magic level 60',
+  members: true,
+  start: 'Speak to Kolodion at the Mage Arena bank in level 53 Wilderness.',
+  description: 'Prove your magical might to Kolodion and gain the ability to fight in his arena.',
+  length: 'Short',
+  itemsRequired: ['Runes or a powered staff to fight Kolodion'],
+  releaseDate: '22 September 2003',
+  wikiUrl: 'https://oldschool.runescape.wiki/w/Mage_Arena_I',
+}
+
 export default function StyleGuide() {
   const [activeFilter, setActiveFilter] = useState('All')
   const [questDetailOpen, setQuestDetailOpen] = useState(false)
+  const [miniquestDetailOpen, setMiniquestDetailOpen] = useState(false)
 
   return (
     <>
@@ -332,6 +350,29 @@ export default function StyleGuide() {
           quest={SAMPLE_QUEST_DETAILS}
           open={questDetailOpen}
           onOpenChange={setQuestDetailOpen}
+        />
+      </Section>
+
+      <Section
+        title="Miniquest List Item"
+        className="w-full max-w-2xl flex-col items-stretch gap-0 rounded-sm border border-border bg-card px-4"
+      >
+        {/* Covers every status: completed, in-progress, not-started, and an unrated difficulty. */}
+        {miniquestLog.map((miniquest) => (
+          <MiniquestListItem key={miniquest.name} miniquest={miniquest} />
+        ))}
+      </Section>
+
+      <Section title="Miniquest Section" className="w-full max-w-2xl flex-col items-stretch gap-4">
+        <MiniquestSection miniquests={miniquestLog} />
+      </Section>
+
+      <Section title="Miniquest Detail Modal">
+        <Button onClick={() => setMiniquestDetailOpen(true)}>Open miniquest details</Button>
+        <MiniquestDetailModal
+          miniquest={SAMPLE_MINIQUEST_DETAILS}
+          open={miniquestDetailOpen}
+          onOpenChange={setMiniquestDetailOpen}
         />
       </Section>
 

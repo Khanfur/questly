@@ -1,5 +1,5 @@
-import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
-import type { Quest, QuestDifficulty, QuestStatus, QuestTier } from '@/lib/types/quest'
+import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki'
+import type { Miniquest, Quest, QuestDifficulty, QuestStatus, QuestTier } from '@/lib/types/quest'
 
 const DIFFICULTY_ORDER: QuestDifficulty[] = [
   'novice',
@@ -59,6 +59,49 @@ function toQuest(
     difficulty,
     status,
     questPoints: details.questPoints ?? 0,
+    requires:
+      details.requirements && details.requirements.length > 0
+        ? details.requirements.join(', ')
+        : 'None',
+    members: details.members,
+    start: details.start,
+    description: details.description,
+    series: details.series,
+    length: details.length,
+    enemies: details.enemies,
+    itemsRequired: details.itemsRequired,
+    wikiUrl: details.wikiUrl,
+    requirements: details.requirements,
+    releaseDate: details.releaseDate,
+  }
+}
+
+/**
+ * Builds the full Miniquests list from the generated `miniquestDetails` data
+ * (`lib/data/miniquest-details.ts`), applying each miniquest's locally-tracked
+ * completion status. Unlike quests, miniquests aren't grouped into difficulty
+ * tiers (the Quest Log's tiers/totals are for the 200+ full quests; miniquests
+ * are a much smaller, separate category — see
+ * https://oldschool.runescape.wiki/w/Miniquests) and award no quest points, so
+ * they must never be folded into `buildQuestLog`'s totals.
+ *
+ * Wiki sub-pages and not-yet-released miniquests are excluded, same as `buildQuestLog`.
+ */
+export function buildMiniquestLog(
+  miniquestDetails: WikiMiniquestDetails[],
+  statusByMiniquest: Record<string, QuestStatus>
+): Miniquest[] {
+  return miniquestDetails
+    .filter((details) => !details.title.includes('/'))
+    .filter((details) => details.released)
+    .map((details) => toMiniquest(details, statusByMiniquest[details.title] ?? 'not-started'))
+}
+
+function toMiniquest(details: WikiMiniquestDetails, status: QuestStatus): Miniquest {
+  return {
+    name: details.title,
+    difficulty: details.difficulty,
+    status,
     requires:
       details.requirements && details.requirements.length > 0
         ? details.requirements.join(', ')

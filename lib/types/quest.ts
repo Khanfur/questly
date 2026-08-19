@@ -45,3 +45,38 @@ export type QuestTier = {
   difficulty: QuestDifficulty
   quests: Quest[]
 }
+
+/**
+ * A miniquest — a smaller, self-contained objective (see
+ * https://oldschool.runescape.wiki/w/Miniquests). Unlike a `Quest`,
+ * miniquests have no world-map icon and award no quest points, so they're
+ * tracked in their own list and are **not** counted towards the Quest Log's
+ * total quest / quest point counts.
+ */
+export type Miniquest = {
+  name: string
+  difficulty: QuestDifficulty | null
+  status: QuestStatus
+  /** Human-readable prerequisites, e.g. "Tree Gnome Village, The Grand Tree". */
+  requires: string
+  /** Whether this miniquest requires a members (P2P) account. */
+  members: boolean
+  /** How the miniquest is started, e.g. "Speak to Marlo in north-east Varrock." */
+  start?: string | null
+  /** Plain-text synopsis of the miniquest, if available. */
+  description?: string | null
+  /** Quest series this miniquest belongs to, e.g. "Dragonkin, #3". */
+  series?: string | null
+  /** Rough play-time estimate, e.g. "Short", "Very Long". */
+  length?: string | null
+  /** Enemies the player must defeat during the miniquest, if any. */
+  enemies?: string[] | null
+  /** Items required to start/complete the miniquest, if any. */
+  itemsRequired?: string[] | null
+  /** Full breakdown of `requires` as individual requirements, if available. */
+  requirements?: string[] | null
+  /** Plain-text release date, e.g. "4 January 2001", if available. */
+  releaseDate?: string | null
+  /** Direct link to the miniquest's page on the OSRS Wiki. */
+  wikiUrl?: string
+}

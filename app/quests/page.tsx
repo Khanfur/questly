@@ -2,14 +2,15 @@
 
 import { useEffect, useMemo, useState } from 'react'
 
-import { questDetails } from '@/lib/data'
+import { miniquestDetails, questDetails } from '@/lib/data'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
-import { buildQuestLog } from '@/lib/quest-log'
+import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log'
 import type { QuestStatus } from '@/lib/types/quest'
 import { Search } from 'lucide-react'
 
 import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'
+import { MiniquestSection } from '@/components/ui/miniquest-section/miniquest-section'
 import { PageHero } from '@/components/ui/page-hero/page-hero'
 import { QuestTierGroup } from '@/components/ui/quest-tier-group/quest-tier-group'
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
@@ -50,6 +51,10 @@ export default function QuestsPage() {
   }, [accountDetails.membership])
 
   const questLog = useMemo(() => buildQuestLog(questDetails, statusByQuest), [statusByQuest])
+  const miniquestLog = useMemo(
+    () => buildMiniquestLog(miniquestDetails, statusByQuest),
+    [statusByQuest]
+  )
 
   const totalQuests = questLog.reduce((sum, tier) => sum + tier.quests.length, 0)
   const completedQuests = questLog.reduce(
@@ -85,7 +90,20 @@ export default function QuestsPage() {
     }))
   }, [questLog, search, statusFilter, f2pOnly])
 
-  const hasResults = filteredQuestLog.some(({ quests }) => quests.length > 0)
+  const filteredMiniquests = useMemo(() => {
+    const query = search.trim().toLowerCase()
+    const requiredStatus = FILTER_STATUS[statusFilter]
+
+    return miniquestLog.filter((miniquest) => {
+      if (query && !miniquest.name.toLowerCase().includes(query)) return false
+      if (requiredStatus && miniquest.status !== requiredStatus) return false
+      if (f2pOnly && miniquest.members) return false
+      return true
+    })
+  }, [miniquestLog, search, statusFilter, f2pOnly])
+
+  const hasQuestResults = filteredQuestLog.some(({ quests }) => quests.length > 0)
+  const hasResults = hasQuestResults || filteredMiniquests.length > 0
 
   return (
     <>
@@ -142,17 +160,26 @@ export default function QuestsPage() {
 
       <div className="flex flex-col gap-8">
         {hasResults ? (
-          filteredQuestLog.map(
-            ({ tier, quests }) =>
-              quests.length > 0 && (
-                <QuestTierGroup
-                  key={tier.difficulty}
-                  tier={tier}
-                  quests={quests}
-                  onStatusChange={setQuestStatus}
-                />
-              )
-          )
+          <>
+            {filteredQuestLog.map(
+              ({ tier, quests }) =>
+                quests.length > 0 && (
+                  <QuestTierGroup
+                    key={tier.difficulty}
+                    tier={tier}
+                    quests={quests}
+                    onStatusChange={setQuestStatus}
+                  />
+                )
+            )}
+            {filteredMiniquests.length > 0 && (
+              <MiniquestSection
+                miniquests={miniquestLog}
+                filteredMiniquests={filteredMiniquests}
+                onStatusChange={setQuestStatus}
+              />
+            )}
+          </>
         ) : (
           <p className="text-center text-muted-foreground">
             No quests match your filters. Try broadening your search.
