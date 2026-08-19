@@ -49,16 +49,22 @@ export function HeaderAccountDetails() {
         <Label>Account type</Label>
         <RadioGroup
           value={accountDetails.accountType}
-          onValueChange={(value) => updateAccountDetails({ accountType: value as AccountType })}
+          onValueChange={(value: AccountType) =>
+            updateAccountDetails({ accountType: value as AccountType })
+          }
           className="gap-2"
         >
           <div className="flex items-center gap-2">
-            <RadioGroupItem value="normal" id="sg-radio-normal" />
-            <Label htmlFor="sg-radio-normal">Normal Account</Label>
+            <RadioGroupItem value="main" id="sg-radio-main" />
+            <Label htmlFor="sg-radio-main">Main</Label>
           </div>
           <div className="flex items-center gap-2">
             <RadioGroupItem value="ironman" id="sg-radio-ironman" />
             <Label htmlFor="sg-radio-ironman">Ironman</Label>
+          </div>
+          <div className="flex items-center gap-2">
+            <RadioGroupItem value="hc_ironman" id="sg-radio-hc-ironman" />
+            <Label htmlFor="sg-radio-hc-ironman">Hardcore Ironman</Label>
           </div>
         </RadioGroup>
       </div>

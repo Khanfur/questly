@@ -48,7 +48,19 @@ describe('HeaderAccountDetails', () => {
     render(<HeaderAccountDetails />)
 
     expect(screen.getByLabelText('RuneScape username')).toHaveValue('Woox')
-    expect(screen.getByRole('radio', { name: 'Free-to-play' })).toBeChecked()
+    expect(screen.getByRole('radio', { name: 'Free to play' })).toBeChecked()
     expect(screen.getByRole('radio', { name: 'Ironman' })).toBeChecked()
+  })
+
+  it('allows selecting hardcore ironman as an account type', async () => {
+    const user = userEvent.setup()
+    render(<HeaderAccountDetails />)
+
+    await user.click(screen.getByRole('radio', { name: 'Hardcore Ironman' }))
+
+    expect(screen.getByRole('radio', { name: 'Hardcore Ironman' })).toBeChecked()
+
+    const stored = JSON.parse(window.localStorage.getItem('questly:account-details') ?? '{}')
+    expect(stored).toEqual({ username: '', membership: 'member', accountType: 'hc_ironman' })
   })
 })

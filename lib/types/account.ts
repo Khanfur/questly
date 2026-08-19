@@ -1,6 +1,6 @@
 export type Membership = 'member' | 'f2p'
 
-export type AccountType = 'normal' | 'ironman'
+export type AccountType = 'main' | 'ironman' | 'hc_ironman'
 
 export interface AccountDetails {
   username: string
@@ -11,5 +11,5 @@ export interface AccountDetails {
 export const DEFAULT_ACCOUNT_DETAILS: AccountDetails = {
   username: '',
   membership: 'member',
-  accountType: 'normal',
+  accountType: 'main',
 }
