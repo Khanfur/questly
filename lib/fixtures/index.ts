@@ -1,5 +1,7 @@
 export { skills } from './skills'
 export { quests } from './quests'
+export { questLog } from './quest-log'
+export { diaryRegions } from './diary-regions'
 export { sageSuggestions } from './sage-suggestions'
 export { SKILL_NAMES } from './skill-names'
 export { ACTIVITY_NAMES } from './activity-names'
