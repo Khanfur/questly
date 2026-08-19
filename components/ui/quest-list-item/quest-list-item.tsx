@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import type { Quest, QuestStatus } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Clock } from 'lucide-react'
 
 import { QuestDetailModal } from '@/components/ui/quest-detail-modal/quest-detail-modal'
 import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
@@ -40,7 +40,7 @@ interface QuestListItemProps {
 
 /** A single row in the Quest Log: status, name, difficulty, points and status label. */
 export function QuestListItem({ quest, className, onStatusChange }: QuestListItemProps) {
-  const { name, difficulty, status, questPoints } = quest
+  const { name, difficulty, status, questPoints, length } = quest
   const [detailsOpen, setDetailsOpen] = useState(false)
 
   return (
@@ -66,6 +66,12 @@ export function QuestListItem({ quest, className, onStatusChange }: QuestListIte
               <span className="truncate font-heading font-bold text-foreground">{name}</span>
               <QuestDifficultyBadge difficulty={difficulty} />
             </div>
+            {length && (
+              <div className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="size-3" aria-hidden="true" />
+                <span>{length}</span>
+              </div>
+            )}
           </div>
         </div>
 

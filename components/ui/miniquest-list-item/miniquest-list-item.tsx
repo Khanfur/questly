@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import type { Miniquest, QuestStatus } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, Clock } from 'lucide-react'
 
 import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
 import { QuestStatusIcon } from '@/components/ui/quest-list-item/quest-status-icon'
@@ -47,7 +47,7 @@ export function MiniquestListItem({
   className,
   onStatusChange,
 }: MiniquestListItemProps) {
-  const { name, difficulty, status } = miniquest
+  const { name, difficulty, status, length } = miniquest
   const [detailsOpen, setDetailsOpen] = useState(false)
 
   return (
@@ -73,6 +73,12 @@ export function MiniquestListItem({
               <span className="truncate font-heading font-bold text-foreground">{name}</span>
               <QuestDifficultyBadge difficulty={difficulty} />
             </div>
+            {length && (
+              <div className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
+                <Clock className="size-3" aria-hidden="true" />
+                <span>{length}</span>
+              </div>
+            )}
           </div>
         </div>
 
