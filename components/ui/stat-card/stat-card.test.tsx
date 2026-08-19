@@ -26,4 +26,10 @@ describe('StatCard', () => {
     )
     expect(container.firstChild).toHaveClass('stat-card', 'custom-class')
   })
+
+  it('renders a skeleton placeholder instead of the stat when loading', () => {
+    render(<StatCard label="Combat Level" stat={112} loading />)
+    expect(screen.queryByText('112')).not.toBeInTheDocument()
+    expect(screen.getByText('Combat Level')).toBeInTheDocument()
+  })
 })

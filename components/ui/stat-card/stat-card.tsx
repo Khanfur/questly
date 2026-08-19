@@ -5,21 +5,32 @@ interface StatCardProps {
   stat: number | string
   secondaryStat?: number | string
   className?: string
+  loading?: boolean
 }
 
-export function StatCard({ label, stat, secondaryStat, className }: StatCardProps) {
+export function StatCard({
+  label,
+  stat,
+  secondaryStat,
+  className,
+  loading = false,
+}: StatCardProps) {
   return (
     <div className={cn('stat-card', className)}>
       <span className="label text-muted-foreground">{label}</span>
-      <p className="stat-value tabular-nums">
-        {stat}
-        {secondaryStat !== undefined && (
-          <>
-            {' / '}
-            {secondaryStat}
-          </>
-        )}
-      </p>
+      {loading ? (
+        <div className="h-[1em] w-16 animate-pulse rounded bg-muted" aria-hidden="true" />
+      ) : (
+        <p className="stat-value tabular-nums">
+          {stat}
+          {secondaryStat !== undefined && (
+            <>
+              {' / '}
+              {secondaryStat}
+            </>
+          )}
+        </p>
+      )}
     </div>
   )
 }
