@@ -29,7 +29,9 @@ export function HeaderAccountDetails() {
         <Label>Membership</Label>
         <RadioGroup
           value={accountDetails.membership}
-          onValueChange={(value) => updateAccountDetails({ membership: value as Membership })}
+          onValueChange={(value: Membership) =>
+            updateAccountDetails({ membership: value as Membership })
+          }
           className="gap-2"
         >
           <div className="flex items-center gap-2">

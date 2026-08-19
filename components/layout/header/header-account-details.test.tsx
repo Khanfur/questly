@@ -29,10 +29,10 @@ describe('HeaderAccountDetails', () => {
     const user = userEvent.setup()
     render(<HeaderAccountDetails />)
 
-    await user.click(screen.getByRole('radio', { name: 'Free-to-play' }))
+    await user.click(screen.getByRole('radio', { name: 'Free to play' }))
     await user.click(screen.getByRole('radio', { name: 'Ironman' }))
 
-    expect(screen.getByRole('radio', { name: 'Free-to-play' })).toBeChecked()
+    expect(screen.getByRole('radio', { name: 'Free to play' })).toBeChecked()
     expect(screen.getByRole('radio', { name: 'Ironman' })).toBeChecked()
 
     const stored = JSON.parse(window.localStorage.getItem('questly:account-details') ?? '{}')
