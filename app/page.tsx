@@ -1,6 +1,8 @@
 'use client'
 
 import { quests, sageSuggestions, skills } from '@/lib/fixtures'
+import { useAccountDetails } from '@/lib/hooks/use-account-details'
+import { SkillInfo } from '@/lib/types'
 import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
 
 import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
@@ -16,6 +18,15 @@ import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 
 export default function Home() {
   const { setOpen } = useSettingsDrawer()
+  const { hiscores, hiscoresHydrated } = useAccountDetails()
+
+  // Overlay the fixture skill list (names + icons) with real levels from the
+  // player's stored hiscores, when available, so the grid reflects their
+  // actual progress instead of the placeholder level-99 data.
+  const displaySkills: SkillInfo[] = skills.map((skill) => {
+    const hiscoreSkill = hiscores?.skills.find((s) => s.name === skill.name)
+    return hiscoreSkill && hiscoreSkill.level >= 0 ? { ...skill, level: hiscoreSkill.level } : skill
+  })
 
   return (
     <>
@@ -39,18 +50,18 @@ export default function Home() {
       </div>
 
       <StatCardGroup>
-        <StatCard className="sm:min-w-45" label="Combat Level" stat={112} />
-        <StatCard className="sm:min-w-45" label="Total Level" stat={1543} />
-        <StatCard className="sm:min-w-45" label="Quest Points" stat={284} secondaryStat={341} />
+        <StatCard className="sm:min-w-45" label="Combat Level" stat={126} />
+        <StatCard className="sm:min-w-45" label="Total Level" stat={2277} />
+        <StatCard className="sm:min-w-45" label="Quest Points" stat={341} secondaryStat={341} />
       </StatCardGroup>
 
       <SectionDivider className={'my-8'} />
 
-      <div className={'grid grid-cols-1 gap-6 md:grid-cols-2'}>
+      <div className={'grid grid-cols-1 gap-6 lg:grid-cols-2'}>
         <SectionWindow title={'Skills'} icon={skillsIcon}>
           <SkillCardGrid>
-            {skills.map((skill) => (
-              <SkillCard skill={skill} key={skill.name} />
+            {displaySkills.map((skill: SkillInfo) => (
+              <SkillCard skill={skill} key={skill.name} loading={!hiscoresHydrated} />
             ))}
           </SkillCardGrid>
         </SectionWindow>
