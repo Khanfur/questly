@@ -49,10 +49,10 @@ Questly talks to two external OSRS data sources, both wrapped in `lib/integratio
 through same-origin API routes under `app/api/` so requests work from the browser without CORS
 issues:
 
-| Integration     | Source                                                       | Proxy route             | Exposes                                                                                                                                                                                                                                                                                 |
-| --------------- | ------------------------------------------------------------ | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `osrs-hiscores` | [OSRS HiScores](https://oldschool.runescape.wiki/w/Hiscores) | `app/api/osrs-hiscores` | `fetchHiscores` / `useHiscores` — a player's skill levels & activity ranks; `calculateCombatLevel` — derives [combat level](https://oldschool.runescape.wiki/w/Combat_level) from those skills                                                                                          |
-| `osrs-wiki`     | [OSRS Wiki API](https://oldschool.runescape.wiki/api.php)    | `app/api/osrs-wiki`     | `searchWiki`/`useWikiSearch`, `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList` (quest titles/ids), `fetchQuestDetails`/`useQuestDetails` (per-quest difficulty/length/members/series/quest points/start/description/requirements/enemies/items required/wiki link) |
+| Integration     | Source                                                       | Proxy route             | Exposes                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --------------- | ------------------------------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `osrs-hiscores` | [OSRS HiScores](https://oldschool.runescape.wiki/w/Hiscores) | `app/api/osrs-hiscores` | `fetchHiscores` / `useHiscores` — a player's skill levels & activity ranks; `calculateCombatLevel` — derives [combat level](https://oldschool.runescape.wiki/w/Combat_level) from those skills                                                                                                                                                                                                                                                   |
+| `osrs-wiki`     | [OSRS Wiki API](https://oldschool.runescape.wiki/api.php)    | `app/api/osrs-wiki`     | `searchWiki`/`useWikiSearch`, `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList` (quest titles/ids), `fetchQuestDetails`/`useQuestDetails` (per-quest difficulty/length/members/series/quest points/start/description/requirements/enemies/items required/wiki link), `fetchMiniquestList`/`useMiniquestList` and `fetchMiniquestDetails`/`useMiniquestDetails` (the miniquest equivalents; miniquests award no quest points) |
 
 Both modules accept a `baseUrl` option to point at a different proxy (e.g. in tests), but default to
 the routes above.
@@ -62,14 +62,14 @@ the routes above.
 `lib/data/` holds static snapshots scraped from the OSRS Wiki, checked into the repo so this data is
 available without a live network call:
 
-- `quest-list.ts` — every quest's title/page id (`list=embeddedin` on `Template:Infobox Quest`).
+- `quest/quest-list.ts` — every quest's title/page id (`list=embeddedin` on `Template:Infobox Quest`).
   Regenerate with:
 
   ```bash
   npm run fetch:quests
   ```
 
-- `quest-details.ts` — full per-quest metadata (difficulty, length, members, series, quest points,
+- `quest/quest-details.ts` — full per-quest metadata (difficulty, length, members, series, quest points,
   start, description, requirements, enemies to defeat, items required, and a direct wiki link),
   scraped from each page's `{{Quest details}}`/`{{Quest rewards}}` templates. Regenerate everything
   (~196 requests, rate-limited) with:
@@ -85,8 +85,20 @@ available without a live network call:
   npm run fetch:quest-details -- --title "Quest Name"
   ```
 
-Both commands run their respective script in `scripts/` directly against the wiki API and overwrite
-the corresponding file in `lib/data/`.
+- `miniquest/miniquest-list.ts` / `miniquest/miniquest-details.ts` — the miniquest equivalents
+  (`list=embeddedin` on `Template:Infobox Miniquest`; scraped from `{{Infobox Miniquest}}`/
+  `{{Quest details}}` — miniquests award no quest points, so there's no `{{Quest rewards}}` to
+  scrape). Regenerate with:
+
+  ```bash
+  npm run fetch:miniquests
+  npm run fetch:miniquest-details
+  ```
+
+  Both also support `-- --title "Miniquest Name"` to fetch/update a single miniquest.
+
+All four commands run their respective script in `scripts/` directly against the wiki API and
+overwrite the corresponding file in `lib/data/`.
 
 ## Continuous Integration
 

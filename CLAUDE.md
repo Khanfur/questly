@@ -16,7 +16,11 @@ noteworthy-packages table.
   list from `lib/data/questDetails` via `buildQuestLog` (`lib/quest-log.ts`), grouped by difficulty
   tier, with each quest's completion status merged in from `useQuestProgress` (locally-tracked in
   `localStorage`, since there's no OSRS API for per-quest completion). Clicking a quest's status
-  icon cycles it not-started → in-progress → completed → not-started. `app/quests/diaries/` is the
+  icon cycles it not-started → in-progress → completed → not-started. It also renders a flat
+  `MiniquestSection` below the quest tiers, built from `lib/data/miniquestDetails` via
+  `buildMiniquestLog` (`lib/quest-log.ts`) — miniquests share `statusByQuest`/`useQuestProgress`
+  but are a separate, ungrouped category that isn't counted towards quest/quest point totals.
+  `app/quests/diaries/` is the
   Achievement Diaries page — still static (fixture-driven, no filtering wired up yet) — and both
   share the `PageHero`/`ViewToggle` layout. `app/style-guide/` hosts the internal component style
   guide (visit `/style-guide` while `npm run dev` is running).
@@ -26,7 +30,11 @@ noteworthy-packages table.
 - `components/ui/` — feature/presentational components, one folder per component
   (e.g. `ask-the-sage`, `chat-head`, `quest-progress`, `skill-card`, `stat-card`, `section-window`,
   `page-hero`, `view-toggle`, `filter-pill-group`, `quest-difficulty-badge`, `quest-list-item`
-  (incl. `quest-status-icon`), `quest-tier-group`, `diary-tier-card`, `diary-region-card`).
+  (incl. `quest-status-icon`), `quest-tier-group`, `quest-detail-modal`, `diary-tier-card`,
+  `diary-region-card`, `miniquest-list-item`, `miniquest-section`, `miniquest-detail-modal` — the
+  latter three mirror their `quest-*` counterparts but for the separate, ungrouped Miniquests
+  category, e.g. `MiniquestListItem` omits the quest points badge and `MiniquestDetailModal` omits
+  the difficulty badge when a miniquest's difficulty is unrated (`null`)).
   `components/ui/shadcn/` holds shadcn/ui-generated primitives (`button`, etc.) — prefer composing
   these rather than hand-rolling new primitives.
 - `lib/utils.ts` — shared helpers, notably `cn()` (clsx + tailwind-merge) for conditional class
@@ -36,6 +44,9 @@ noteworthy-packages table.
   into `QuestTier[]`, grouped by difficulty. Excludes wiki sub-pages (titles containing `/`, e.g.
   Recipe for Disaster's individual sub-quest/guide pages) and falls back non-standard wiki difficulty
   ratings (e.g. Recipe for Disaster's "Special") to a sensible `QuestDifficulty` tier.
+  `buildMiniquestLog(miniquestDetails, statusByQuest)` is the equivalent for the generated
+  `lib/data/miniquestDetails` — a flat `Miniquest[]` (no difficulty tiers, no quest points), sharing
+  the same wiki sub-page/unreleased exclusions.
 - `lib/hooks/` — reusable client-side hooks:
   - `useLocalStorage` — generic, JSON-serialized, SSR-safe state synced to `window.localStorage`.
     Returns `[value, setValue, isHydrated]`. The initial read happens in a layout effect (before
@@ -89,7 +100,10 @@ noteworthy-packages table.
     `list=embeddedin`), `fetchQuestDetails`/`useQuestDetails` (per-quest difficulty/length/members/
     series/quest points/start/description/requirements/enemies/items required/wiki link, scraped from a page's
     `{{Quest details}}`/`{{Quest rewards}}` wikitext via `action=parse`; one request per quest, so
-    used on demand rather than in bulk).
+    used on demand rather than in bulk), plus the miniquest equivalents `fetchMiniquestList`/
+    `useMiniquestList` (`list=embeddedin` on `Template:Infobox Miniquest`) and
+    `fetchMiniquestDetails`/`useMiniquestDetails` (scrapes `{{Infobox Miniquest}}`/`{{Quest details}}`;
+    no `{{Quest rewards}}` since miniquests award no quest points).
     Both integrations default to routing through same-origin proxy routes under `app/api/` (to dodge
     CORS/User-Agent restrictions) but accept a `baseUrl` override for testing or self-hosted proxies.
 - `scripts/` — standalone Node scripts run outside the Next.js app, invoked directly with `node` (not
@@ -128,6 +142,10 @@ noteworthy-packages table.
 - `npm run fetch:quests` — regenerates `lib/data/quest/quest-list.ts` from the live OSRS Wiki API.
 - `npm run fetch:quest-details` — regenerates `lib/data/quest/quest-details.ts` (full metadata) for
   every quest; add `-- --title "Quest Name"` to fetch/update a single quest instead.
+- `npm run fetch:miniquests` — regenerates `lib/data/miniquest/miniquest-list.ts`, the miniquest
+  equivalent of `fetch:quests`.
+- `npm run fetch:miniquest-details` — regenerates `lib/data/miniquest/miniquest-details.ts`, the
+  miniquest equivalent of `fetch:quest-details` (also supports `-- --title "Miniquest Name"`).
 
 CI (`.github/workflows/ci.yml`) runs format check → lint → test → build on every push/PR to
 `master`; match that order locally before pushing.
