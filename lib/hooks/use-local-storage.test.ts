@@ -68,4 +68,22 @@ describe('useLocalStorage', () => {
 
     expect(result.current[0]).toBe('default')
   })
+
+  it('syncs across separate instances for the same key within the same tab', () => {
+    const first = renderHook(() => useLocalStorage('shared-key', 'default'))
+    const second = renderHook(() => useLocalStorage('shared-key', 'default'))
+
+    act(() => first.result.current[1]('updated'))
+
+    expect(second.result.current[0]).toBe('updated')
+  })
+
+  it('does not sync across instances using a different key', () => {
+    const first = renderHook(() => useLocalStorage('shared-key', 'default'))
+    const other = renderHook(() => useLocalStorage('other-key', 'default'))
+
+    act(() => first.result.current[1]('updated'))
+
+    expect(other.result.current[0]).toBe('default')
+  })
 })
