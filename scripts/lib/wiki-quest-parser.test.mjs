@@ -14,6 +14,7 @@ const COOKS_ASSISTANT_WIKITEXT = `{{Has quick guide|speedrun=1}}
 {{Infobox Quest
 |name = Cook's Assistant
 |number = 1
+|release = [[4 January]] [[2001]]
 |members = No
 |series = None
 }}
@@ -57,6 +58,24 @@ describe('parseTemplateFields', () => {
     )
     expect(fields.requirements).toBe('')
     expect(fields.items).toBe('*[[Air talisman]]')
+  })
+
+  it('parses fields packed onto a single line, without swallowing subsequent fields', () => {
+    const fields = parseTemplateFields(
+      '{{Quest rewards|image=[[File:Reward scroll.png|centre]]|name=Some Quest|qp=5|rewards=}}'
+    )
+    expect(fields.image).toBe('[[File:Reward scroll.png|centre]]')
+    expect(fields.name).toBe('Some Quest')
+    expect(fields.qp).toBe('5')
+    expect(fields.rewards).toBe('')
+  })
+
+  it('does not treat pipes nested inside a field value as field boundaries', () => {
+    const fields = parseTemplateFields(
+      '{{Quest details\n|requirements = *{{SCP|Agility|10|link=yes}}\n|start = Talk to someone.\n}}'
+    )
+    expect(fields.requirements).toBe('*{{SCP|Agility|10|link=yes}}')
+    expect(fields.start).toBe('Talk to someone.')
   })
 })
 
@@ -126,7 +145,7 @@ describe('parseRequirements', () => {
 })
 
 describe('parseQuestDetails', () => {
-  it('parses difficulty, length, members, series, quest points, description, enemies, and items', () => {
+  it('parses difficulty, length, members, series, quest points, release date, description, enemies, and items', () => {
     const details = parseQuestDetails(2088, "Cook's Assistant", COOKS_ASSISTANT_WIKITEXT)
 
     expect(details).toEqual({
@@ -137,6 +156,7 @@ describe('parseQuestDetails', () => {
       members: false,
       series: null,
       questPoints: 1,
+      releaseDate: '4 January 2001',
       start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
       description: 'The Lumbridge Castle cook is in a mess.',
       requirements: null,
@@ -157,6 +177,7 @@ describe('parseQuestDetails', () => {
       members: false,
       series: null,
       questPoints: null,
+      releaseDate: null,
       start: null,
       description: null,
       requirements: null,

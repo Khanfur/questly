@@ -7,7 +7,7 @@
  * GENERATED FILE — do not hand-edit.
  * Regenerate all: npm run fetch:quest-details
  * Update one: npm run fetch:quest-details -- --title "Quest Name"
- * Last generated: 2026-08-19T18:31:11.644Z
+ * Last generated: 2026-08-19T18:56:33.588Z
  * Count: 196 quests
  */
 import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
@@ -21,6 +21,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '4 January 2001',
     start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
     description:
       "The Lumbridge Castle cook is in a mess. It is the Duke of Lumbridge's birthday and the cook is making the cake. He needs a lot of ingredients and doesn't have much time.",
@@ -36,7 +37,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Short',
     members: false,
     series: null,
-    questPoints: null,
+    questPoints: 5,
+    releaseDate: '4 January 2001',
     start: 'Talk to Romeo in Varrock Square.',
     description:
       "Romeo and Juliet are desperately in love, but Juliet's father doesn't approve. Help them to find a way to get married and live happily ever after.",
@@ -53,6 +55,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: 'Demon Slayer, #1',
     questPoints: 3,
+    releaseDate: '4 January 2001',
     start: 'Talk to Aris in the tent on the western side of Varrock Square.',
     description:
       'A mighty demon is being summoned to destroy the city of Varrock. You find out you are the one destined to stop him (or at least try).',
@@ -73,6 +76,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '4 January 2001',
     start:
       'Talk to Reldo in the Varrock library, located within the northern end of Varrock Castle.',
     description:
@@ -98,6 +102,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '4 January 2001',
     start: 'Talk to Fred the Farmer in the house by the sheep pen north of Lumbridge Castle.',
     description:
       "Fred the Farmer's sheep are getting mighty woolly. He will pay you to shear them.",
@@ -114,6 +119,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '4 January 2001',
     start: 'Talk to Father Aereck in the chapel south-east of Lumbridge Castle.',
     description:
       'A ghost is haunting Lumbridge graveyard. The priest of the Lumbridge church of Saradomin wants you to find out how to get rid of it.',
@@ -130,6 +136,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 4,
+    releaseDate: '21 January 2001',
     start: 'Talk to Veronica, south of Draynor Manor by the gate.',
     description:
       "Veronica is very worried. Her fiancé went into the big spooky manor house to ask for directions. An hour later and he's still not out yet.",
@@ -150,6 +157,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 3,
+    releaseDate: '28 January 2001',
     start: "Talk to Morgan in his house in Draynor Village, just north of Ned's house.",
     description:
       'The people of Draynor Village live in constant terror. Their numbers are dwindling, all due to the foul creature lurking in the manor to the north known as a vampyre.',
@@ -170,6 +178,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '16 February 2001',
     start: "Talk to Wizard Mizgog on the top floor of the Wizards' Tower.",
     description:
       'The Wizard Grayzag has summoned hundreds of little imps. They have stolen a lot of things belonging to the Wizard Mizgog including his magic beads.',
@@ -186,6 +195,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: 'Kharidian, #1',
     questPoints: 3,
+    releaseDate: '28 February 2001',
     start: 'Talk to Hassan in the palace at Al Kharid.',
     description:
       'Prince Ali of Al Kharid has been kidnapped by the scheming Lady Keli. You are hired to stage a rescue mission.',
@@ -215,6 +225,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '6 April 2001',
     start:
       'Talk to Doric in the small house north of Falador, just outside the east gate of Taverley.',
     description:
@@ -232,6 +243,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 3,
+    releaseDate: '6 April 2001',
     start:
       "Talk to Sir Amik Varze on the  of the White Knights' Castle's western tower in Falador.",
     description:
@@ -253,6 +265,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '6 April 2001',
     start: 'Talk to Hetty in her house in Rimmington, south of Falador and west of Port Sarim.',
     description:
       'Become one with your darker side. Tap into your hidden depths of magical potential by making a potion with the help of Hetty the Rimmington witch.',
@@ -274,6 +287,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '6 April 2001',
     start: "Talk to the squire in the courtyard of the White Knights' Castle in Falador.",
     description:
       "Sir Vyvin's squire is in trouble. He has accidentally lost Sir Vyvin's ceremonial sword. Help him find a replacement without Sir Vyvin finding out.",
@@ -298,6 +312,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 5,
+    releaseDate: '8 May 2001',
     start: 'Talk to General Bentnoze or General Wartface in Goblin Village.',
     description:
       "There's a disturbance in the Goblin Village. Help the goblins solve their dispute so the world doesn't have to worry about rioting goblins. Aim: to help the goblins decide which colour they will wear.",
@@ -318,6 +333,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 2,
+    releaseDate: '11 June 2001',
     start:
       'Talk to Redbeard Frank at the northernmost dock at Port Sarim, just outside The Rusty Anchor.',
     description:
@@ -340,7 +356,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: false,
     series: 'Dragonkin, #1',
-    questPoints: null,
+    questPoints: 2,
+    releaseDate: '23 September 2001',
     start: "Talk to the Guildmaster in the Champions' Guild.",
     description:
       'Prove yourself a true champion. Kill the mighty dragon Elvarg of Crandor and earn the right to buy and wear the Rune platebody.',
@@ -380,6 +397,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 4,
+    releaseDate: '27 February 2002',
     start: 'Talk to Kaqemeex in the stone circle north of Taverley.',
     description:
       'The Druids north of Taverley need help making a potion to reclaim the stone circle south of Varrock.',
@@ -396,6 +414,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 3,
+    releaseDate: '27 February 2002',
     start: 'Talk to the warrior in the north-western corner of the Lumbridge Swamp.',
     description: 'Can you find the legendary lost city of Zanaris?',
     requirements: [
@@ -421,6 +440,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 4,
+    releaseDate: '27 February 2002',
     start: 'Talk to the boy near the gate entrance of Taverley.',
     description:
       'A young boy who lives in Taverley has kicked his ball into the garden of a scary old lady. He asks you to get it back for him. This proves more difficult than it first sounds.',
@@ -440,6 +460,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Camelot, #1',
     questPoints: 6,
+    releaseDate: '27 February 2002',
     start: 'Talk to King Arthur in Camelot.',
     description:
       "The wizard Merlin has been trapped in a magical crystal by the witch Morgan Le Faye. So far, King Arthur hasn't been able to figure out how to free his mentor from his crystal prison. Can you help?",
@@ -460,7 +481,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: null,
-    questPoints: null,
+    questPoints: 1,
+    releaseDate: '27 February 2002',
     start:
       "Talk to Achietties by the entrance to the Heroes' Guild, between Taverley and Burthorpe.",
     description:
@@ -505,6 +527,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '25 March 2002',
     start:
       "Talk to Thormac at the top floor of the Sorcerer's Tower, south-east of the Ranging Guild.",
     description:
@@ -528,6 +551,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '9 April 2002',
     start: 'Talk to Dimintheis in south-eastern Varrock.',
     description:
       "There is a man in Varrock who needs a bit of help. He is of noble heritage, but without his family's crest, he can't prove it. Unfortunately, his three sons took the crest with them when they left, scattering all across Gielinor.",
@@ -562,6 +586,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '28 May 2002',
     start:
       'Talk to Austri east of White Wolf Mountain or Vestri to the west of it, by either tunnel entrance.',
     description:
@@ -585,6 +610,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '30 April 2002',
     start: 'Talk to Kangai Mau at The Shrimp and Parrot restaurant in Brimhaven.',
     description:
       'Lord Handelmort of Ardougne is a collector of exotic artefacts. A recent addition to his private collection is a strange looking totem from Karamja. The Rantuki tribe are not happy about the recent disappearance of their totem.',
@@ -601,6 +627,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '28 May 2002',
     start: 'Talk to Brother Omad at the Ardougne Monastery south of East Ardougne.',
     description:
       "A monk's child has had their blanket stolen. Find the thieves' den and return the blanket, then help Brother Omad organise the drinks for the child's birthday party.",
@@ -617,6 +644,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #5',
     questPoints: 1,
+    releaseDate: '17 June 2002',
     start: 'Talk to Lucien at the Flying Horse Inn in the north-western corner of East Ardougne.',
     description:
       "A mysterious stranger called Lucien asks you to go on a mission deep under the Temple of Ikov in central Kandarin. He wants you to retrieve an artefact known as the Staff of Armadyl. After you retrieve it, the quest doesn't stop there... Are you on the side of good or evil?",
@@ -645,6 +673,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '17 June 2002',
     start: 'Talk to Brother Kojo in the Clock Tower south of East Ardougne.',
     description:
       'Help the confused Brother Kojo find the missing cogs and fix his clock tower. Search the dungeon using brawn and brains to correctly place the four cogs.',
@@ -661,6 +690,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Camelot, #2',
     questPoints: 2,
+    releaseDate: '23 July 2002',
     start: 'Talk to King Arthur in Camelot.',
     description:
       'King Arthur is sending out his knights on a quest for the famous Holy Grail. If you are a Knight of the Round Table go to King Arthur for further orders.',
@@ -681,6 +711,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Gnome quest series',
     questPoints: 2,
+    releaseDate: '23 July 2002',
     start: 'Talk to King Bolren at the centre of the Tree Gnome Village maze.',
     description:
       "The tree gnomes are in trouble. General Khazard's forces are hunting them to extinction. Find your way through the hedge maze to the gnomes secret treetop village. Then help the gnomes fight Khazard and retrieve the orbs of protection.",
@@ -701,6 +732,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #3',
     questPoints: 2,
+    releaseDate: '23 July 2002',
     start:
       'Talk to Lady Servil west of the Ardougne Monastery, just outside the north-eastern corner of the Gnome Maze.',
     description:
@@ -723,6 +755,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #2',
     questPoints: 1,
+    releaseDate: '15 August 2002',
     start: 'Talk to Ceril Carnillean in East Ardougne, just north of the Clock Tower.',
     description:
       'Discover the truth behind the Carnillean family fortune. Decide for yourself whether to aid the Carnilleans in retrieving stolen goods, or join the Hazeel cult members in their mission to resurrect the infamous Lord Hazeel.',
@@ -739,6 +772,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 4,
+    releaseDate: '15 August 2002',
     start: 'Talk to Councillor Halgrive outside of the East Ardougne church.',
     description: 'Dispose of plagued sheep and save Ardougne!',
     requirements: null,
@@ -754,6 +788,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elf, #1',
     questPoints: 1,
+    releaseDate: '27 August 2002',
     start: 'Talk to Edmond in the most north-western house of East Ardougne.',
     description:
       'The western part of Ardougne has been shut off as a deadly plague sweeps through the people. However, a young woman who went in to try to help those stricken by the illness has disappeared and her parents have become worried.',
@@ -777,6 +812,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Temple Knight, #3',
     questPoints: 1,
+    releaseDate: '9 September 2002',
     start: 'Talk to Caroline just north of Witchaven.',
     description:
       "Something strange is happening on the Fishing Platform. Missing fishermen and the presence of dozens of strange sea creatures gives cause for concern. Investigate the platform, discover the truth before it's too late.",
@@ -795,6 +831,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '24 September 2002',
     start: 'Talk to Almera in her house north-east of Baxtorian Falls.',
     description:
       "Investigate the death of elven leaders of old. Search for the elf King Baxtorian's tomb and discover the mysterious hidden treasure of the waterfall.",
@@ -811,6 +848,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '23 October 2002',
     start: 'Talk to Trufitus in Tai Bwo Wannai.',
     description:
       'Trufitus Shakaya of the Tai Bwo Wannai Village requires that you collect five special jungle herbs for a potion so he can commune with his gods.',
@@ -831,6 +869,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Gnome, #1',
     questPoints: 5,
+    releaseDate: '12 December 2002',
     start: 'Talk to King Narnode Shareen in the Grand Tree.',
     description:
       'The Grand Tree, which shelters the majority of the small gnome population of Gielinor, is dying. Is it human sabotage or an inside job? Help King Shareen to find the true cause and save the tree gnomes from an uncertain fate.',
@@ -852,6 +891,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elf, #3',
     questPoints: 5,
+    releaseDate: '3 March 2003',
     start: 'Talk to King Lathas on the  of Ardougne Castle.',
     description:
       "There are rumours of a secret passageway that can be used to get to the other side of the mountains west of Ardougne. Now it's just a matter of finding it.",
@@ -880,6 +920,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '17 March 2003',
     start:
       'Talk to the Observatory professor in the Observatory Reception Room north of Castle Wars.',
     description:
@@ -897,6 +938,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '14 April 2003',
     start: 'Talk to Irena by the Shantay Pass, south of Al Kharid.',
     description:
       'South of Al Kharid a new desert pass has opened up, leading to the dangers of the Kharid desert. Equip your desert garb and make sure your waterskin is full before heading off into the trackless dunes in search of desert adventure.',
@@ -923,6 +965,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 4,
+    releaseDate: '7 May 2003',
     start:
       'Talk to the Watchtower Wizard in the Watchtower north of Yanille; you must climb the trellis on the north side of the tower.',
     description:
@@ -963,6 +1006,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '27 May 2003',
     start: 'Talk to Captain Lawgof, south of the Coal Trucks, north-west of the Fishing Guild.',
     description:
       'For several years now, the Dwarven Black Guard have been developing the latest in projectile warfare. With the constant attack of goblin renegades, the dwarven troops who protect the mines need to put this secret weapon into action. Only with your help can the true power of this cannon be harnessed!',
@@ -979,6 +1023,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 3,
+    releaseDate: '9 June 2003',
     start: "Talk to any guard around the Sinclair Mansion, north  of Seers' Village and Camelot.",
     description:
       "Old man Sinclair has been found dead in his mansion! Unfortunately, the local authorities are having some trouble figuring out who's the guilty party. Maybe the unbiased eye of a passing adventurer will be of help.",
@@ -995,6 +1040,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #1',
     questPoints: 2,
+    releaseDate: '9 July 2003',
     start: 'Talk to an examiner in the Exam Centre south of the Digsite.',
     description:
       'Feeling uneducated? Desperate for buried treasure? "There\'s gold in them there hills" (well stream actually) as well as many other items that can be found at the digsite. Join the students in their attempt to be a qualified archaeologist, and become experienced in making the earth move! Have you got what it takes to unearth the hidden altar to one of Gielinor\'s lesser-known Gods?',
@@ -1023,6 +1069,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '28 July 2003',
     start: 'Talk to Gertrude in her house just west of Varrock.',
     description:
       'Gertrude has lost her cat Fluffs and desperately wants to find her. Can you help bring her home?',
@@ -1043,6 +1090,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 4,
+    releaseDate: '20 August 2003',
     start: "Talk to the Legends' Guards just outside of the Legends' Guild.",
     description:
       "Only the elite are allowed to call themselves a member of the Legends' Guild. Do you have what it takes to make it in?",
@@ -1101,6 +1149,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: 'Order of Wizards, #1',
     questPoints: 1,
+    releaseDate: '29 March 2004',
     start: 'Talk to Duke Horacio on the  of Lumbridge Castle.',
     description:
       "After the first Wizards' Tower burned down a hundred years ago, the incantation allowing teleportation to the rune essence mine was lost. However, after much research from the Order of Wizards, the incantation is on the verge of rediscovery...",
@@ -1117,6 +1166,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Troll, #1',
     questPoints: 1,
+    releaseDate: '9 August 2004',
     start: 'Talk to Denulth in his tent in Burthorpe.',
     description:
       'Trolls have come down from the north and are camped on Death Plateau. They are using this base to launch attacks on the principality of Burthorpe! The Imperial Guard is taking heavy losses. They need your help!',
@@ -1139,6 +1189,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Troll, #3',
     questPoints: 1,
+    releaseDate: '5 October 2004',
     start: 'Talk to Sanfew  on the  of the herbalist shop in Taverley.',
     description:
       'Sanfew requires a rare herb for the next part of the purifying ritual. Travel back to the Troll Stronghold to find this herb that the trolls use as an ingredient for their favourite dish.',
@@ -1168,6 +1219,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '18 May 2004',
     start: 'Talk to Rantz by the eastern coast of Feldip Hills, east of fairy ring .',
     description:
       "Rantz the Ogre needs to feed his demanding children, Fycie and Bugs, so he wants to go Big Chompy Bird hunting. Problem is, he's all fingers and thumbs when it comes to making ogre arrows. Could someone please give him a hand?",
@@ -1201,6 +1253,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elemental Workshop, #1',
     questPoints: 1,
+    releaseDate: '2 June 2004',
     start: "Search the bookcase in the house immediately south-west of the Seers' Village bank.",
     description:
       'Hundreds of years ago, a mineral was found that had the ability to change the property of Magic. The magicians, fearing the effect this may have on their profession, sealed this Workshop forever; or so they had hoped. See if you can rediscover the lost knowledge of elemental ore.',
@@ -1225,6 +1278,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '13 July 2004',
     start:
       'Talk to Drezel in the basement of the Paterdomus Temple by the northern end of the River Salve.',
     description:
@@ -1242,6 +1296,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '29 June 2004',
     start: 'Talk to King Roald in the Varrock Palace.',
     description:
       "Recently contact has been lost with the temple to Saradomin on Misthalins' Eastern border. King Roald would be very interested to know what has caused this lack of communication, and seeks an adventurer willing to report back to him on the situation.",
@@ -1263,7 +1318,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Long',
     members: true,
     series: 'Elf, #4',
-    questPoints: null,
+    questPoints: 3,
+    releaseDate: '20 September 2004',
     start: 'Talk to King Lathas on the  of Ardougne Castle.',
     description:
       "Continuing the Plague City series, the Regicide Quest takes you beyond the 'Well of Voyage' to a new realm. King Lathas will employ you once again, this time for the grim task of disposing of his brother. Upon travelling to the realm you will find yourself surrounded by new and strange plants, animals and even a new race. Once there, you will see that everything is not as serene as it first appears.",
@@ -1297,6 +1353,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '14 September 2004',
     start: 'Talk to Timfraku in his house in Tai Bwo Wannai.',
     description:
       'In Jungle Potion, the Shaman Trufitus communed with the gods to determine the fate of his people. Now, Timfraku, the Chief of Tai Bwo Wannai, wishes to see his people and family return to the abandoned village. Help a depressed fisherman, encourage a raging hunter and satiate an eccentric priest in this extreme test of aptitude and patience!',
@@ -1331,6 +1388,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Troll, #2',
     questPoints: 1,
+    releaseDate: '24 August 2004',
     start: 'Talk to Denulth in Burthorpe.',
     description:
       "The Imperial Guard raid was a failure, and Dunstan's son has been captured by the trolls! Journey through Trollheim to the Troll Stronghold, and rescue him!",
@@ -1355,6 +1413,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 3,
+    releaseDate: '18 October 2004',
     start: "Search the shelf in the southern-western house of Mort'ton.",
     description:
       "The townsfolk of Mort'ton have some form of strange affliction and the town is full of Shades. Can you find some way to reverse this?",
@@ -1385,7 +1444,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: 'Fremennik, #1',
-    questPoints: null,
+    questPoints: 3,
+    releaseDate: '2 November 2004',
     start: 'Talk to Brundt the Chieftain in the Rellekka longhall.',
     description:
       'Council workmen have at last found the time to make repairs to the footbridge that connects Kandarin with the Barbarian town of Rellekka. Do you have what it takes to impress the barbarians who live there, and perhaps be welcomed as an honorary member of their clan?',
@@ -1415,6 +1475,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '17 November 2004',
     start: 'Talk to Larrissa outside the Lighthouse north of Barbarian Outpost.',
     description:
       "The lighthouse protecting Kandarin's north-western coastline has mysteriously stopped operating, and contact with the lighthouse keeper Jossik has been lost. The Council would greatly appreciate it if somebody could discover for them what has happened to this most vital landscape feature.",
@@ -1448,6 +1509,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Miscellania, #1',
     questPoints: 1,
+    releaseDate: '29 November 2004',
     start: 'Talk to King Vargas in the Miscellania Castle.',
     description:
       'Rumours have been coming back from Miscellania that all is not well, it is said that the king has been turned into a monster! An exceptional hero is required to investigate. Experience in ruling kingdoms, wooing royalty, and negotiating peace would be an advantage.',
@@ -1469,6 +1531,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Gnome, #4',
     questPoints: 3,
+    releaseDate: '6 December 2004',
     start: 'Talk to King Narnode Shareen in the Grand Tree.',
     description:
       'The King of the northern Gnomes, Narnode Shareen, is once again in need of your help. He recently decided to send an envoy of his Royal Guard, the 10th squad, to oversee the decommissioning of the Gnome owned ship-building facilities on the eastern coast of Karamja. It has been quite some time since the 10th squad were dispatched and they have been deemed missing in action. It will be up to you, should you decide to help, to find out what fate befell the 10th squad and if possible, track them down. If only it were so simple. Sinister forces have begun to spread through the Gnome hierarchy and threaten to unleash an unknown terror upon the world. Far across the land, the fires of vengeance are being stoked once again. Can you unravel the mystery behind the deception? Can you separate the truth from the lies? Can you decide for yourself what is real and what is not?',
@@ -1495,6 +1558,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '21 December 2004',
     start: 'Talk to the Zealot by the Abandoned Mine in the south-western corner of Morytania.',
     description:
       "Recent forays into Morytania by some of Saradomin's more fanatical supporters have unearthed murky rumours concerning an abandoned mine in the south. Legend speaks of an unusual material, hidden in the depths of the mines, that is somehow linked to the desolation and fear that now surrounds the place. Do you have the nerve to find out more, and enter the haunted mines of Morytania?",
@@ -1515,7 +1579,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Short',
     members: true,
     series: null,
-    questPoints: null,
+    questPoints: 2,
+    releaseDate: '5 January 2005',
     start: 'Talk to Ug at the Troll Stronghold.',
     description:
       "Ug loves Aga, but Aga is together with Arrg. Since Arrg is a lot stronger than Ug, Ug can't follow the regular mating ritual, which involves ripping the opponent into pieces. Will you be able to find out what will impress the troll female more than a display of violence? Will you survive the journey to help a lonely troll find love?",
@@ -1542,6 +1607,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Myreque, #1',
     questPoints: 2,
+    releaseDate: '10 January 2005',
     start: 'Talk to Vanstrom Klause at the Hair of the Dog tavern in Canifis.',
     description:
       'Canifis is experiencing an upsurge in new faces and a new stranger has appeared with a job to track down some local heroes known only as "The Myreque". The Myreque are fighting a desperate battle against the darkness of Morytania and he wishes to take them weapons to aid in the battle. Can you help him out?',
@@ -1573,6 +1639,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '31 January 2005',
     start: 'Read the signpost in the middle of Canifis.',
     description:
       'Dr Fenkenstrain, master and sole occupant of the castle to the north-east of Canifis, needs a new servant to go on a dark errand for him. Do you have the stomach to help Fenkenstrain complete his twisted purpose?',
@@ -1603,6 +1670,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elf, #5',
     questPoints: 1,
+    releaseDate: '7 February 2005',
     start: 'Talk to Islwyn inside the elven woods of Isafdar.',
     description:
       "Deep in the elven forests of Isafdar, live a duo of roving elves: Islwyn, a grumpy, old elf who dislikes humans and his companion, Eluned, who is a beautiful, friendly, young female elf with a kind heart. In this quest, you are challenged to overcome Islwyn's prejudice against humans and alleviate the burdens of the past.",
@@ -1628,7 +1696,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: null,
-    questPoints: null,
+    questPoints: 2,
+    releaseDate: '15 February 2005',
     start: 'Talk to Velorina in Port Phasmatys.',
     description:
       "East of Canifis is a ghost port. Not meaning that it's deserted. It's full of ghosts! For some reason, they're unable to pass on to the afterlife, but some aren't happy with that. Can you help?",
@@ -1663,6 +1732,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '28 February 2005',
     start: 'Talk to Yanni Salika in Shilo Village.',
     description:
       "If you're new to Shilo Village after solving the mystery (or even if you did it some time ago), you may like to check out Yanni Salika's antiques shop. He's a busy chap, revamping antique items, checking out new stock from potential adventurers and maybe he'll have a small<sup>(1)</sup> favour to ask of you? Probably nothing particularly large, Yanni isn't a demanding<sup>(2)</sup> person, should hardly take you any time<sup>(3)</sup> at all really, something to do when you have a spare moment. That's assuming there aren't any complications. 1: - Perception of the word \"small\" may be open to interpretation. 2: - In a recent vote, Yanni Salika was only voted the second most demanding person in Shilo Village. 3: - As everyone knows, time is relative.",
@@ -1696,6 +1766,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '7 March 2005',
     start:
       'Talk to Hamal the Chieftain in the Mountain Camp east of Rellekka (to access the camp, see below)',
     description:
@@ -1723,6 +1794,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '21 March 2005',
     start: 'Talk to Dondakan the Dwarf at the Keldagrim south-west mine.',
     description:
       "Hidden away from the fearsome trolls and the roaming Fremennik, the dwarves delve deep beneath the mountains in search for the ore they need to support their home of Keldagrim. One dwarf in particular, however, has for years been trying to crack open a rock that seems to be impervious to any material that he's tried on it. Convinced that solving the riddle of the rock will lead him to unimaginable wealth, he has spent the later part of his life on just this lump of stone. Help him out, but take care you don't end up in a tight spot!",
@@ -1752,6 +1824,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '4 April 2005',
     start: 'Talk to Ali Morrisane east of the Gem Trader in northern Al Kharid.',
     description:
       "Ali Morrisane - Gielinor's self proclaimed 'greatest merchant' - is having difficulties. He is selling things at such a rate that he cannot keep his market stall in stock. Word has it that he is on the lookout for someone; someone who can recruit some help from his home town Pollnivneach - a somewhat anarchic place, south of the Shantay Pass.",
@@ -1780,6 +1853,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '11 April 2005',
     start:
       'Talk to the clay golem in the ruins of Uzer, east of the Shantay Pass in the Kharidian Desert.',
     description:
@@ -1803,7 +1877,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Long',
     members: true,
     series: 'Mahjarrat, #7',
-    questPoints: null,
+    questPoints: 3,
+    releaseDate: '18 April 2005',
     start: 'Talk to Asgarnia Smith at the Bedabin Camp.',
     description:
       'Rumours abound throughout Varrock and Al Kharid that an archaeologist has discovered clues to a hoard of treasure hidden deep in the desert, south of Al Kharid. Anybody prepared to offer him assistance in his treasure hunting could well find themselves benefitting from a very large reward indeed...',
@@ -1858,6 +1933,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Kharidian, #2',
     questPoints: 2,
+    releaseDate: '26 April 2005',
     start: 'Talk to the wanderer in the camp west of the Agility Pyramid.',
     description:
       "In the deep south of the desert, unrest is brewing... The cities of the Menaphites have barred their gates to all. An unsettling desert wanderer may know of a secret entrance though, to Sophanem - the city of the dead. Will you become Icthlarin's Little Helper by entering? Enter into a titanic struggle for the soul of the high priest of Icthlarin in a land where the cat is top dog.",
@@ -1889,6 +1965,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '4 May 2005',
     start: 'Talk to Juna, deep inside the Lumbridge Swamp Caves.',
     description:
       'Deep in the caves in the Lumbridge Swamp is an enchanted place where the tears shed by Guthix when it saw the destruction Saradomin and Zamorak had caused with their wars flow from the very walls. These tears are said to have magical properties to help players gain deeper understanding of the world. However, the cave is guarded by a loyal serpent named Juna who blocks passage from everyone. However, she has grown bored from three thousand years of sitting in the dark cave and wishes to hear stories of life above. Maybe you could come to some sort of arrangement...?',
@@ -1915,6 +1992,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Dorgeshuun, #1',
     questPoints: 1,
+    releaseDate: '31 May 2005',
     start: 'Talk to Sigmund in Lumbridge Castle.',
     description:
       'Sigmund is the advisor to the Duke of Lumbridge, but the Duke does not always take his advice. When part of the cellar wall collapses the Duke insists the damage was caused by an earthquake, but Sigmund is worried about a monster attack. If you investigate this mystery it will lead you through treacherous caves to uncover something lost by the Gods for thousands of years.',
@@ -1940,6 +2018,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Red Axe, #1',
     questPoints: 2,
+    releaseDate: '31 May 2005',
     start:
       'Talk to the Dwarven Boatman by the underground River Kelda, accessible through the Keldagrim entrance east of Rellekka, in the cave beyond the statues.',
     description:
@@ -1972,6 +2051,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Temple Knight, #1',
     questPoints: 1,
+    releaseDate: '27 June 2005',
     start:
       "Talk to Sir Amik Varze on the  of the White Knights' Castle's western tower in Falador.",
     description:
@@ -1989,6 +2069,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elf, #6',
     questPoints: 2,
+    releaseDate: '19 July 2005',
     start: 'Talk to Eluned inside the elven woods of Isafdar.',
     description:
       "It seems at last Arianwyn has need of your skills. He believes there is more to the Mourners than meets the eye and he wishes for you to find out just what they're up to. Can you gain the trust of the Mourners?",
@@ -2025,6 +2106,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Red Axe, #2',
     questPoints: 2,
+    releaseDate: '26 July 2005',
     start: 'Talk to Commander Veldaban in the Dwarven Black Guard headquarters in Keldagrim.',
     description:
       "Forgettable Tale of a Drunken Dwarf is part 2 in the Rise of the Red Axe series, focusing on the dwarves and their capital city of Keldagrim. After the events in The Giant Dwarf, the Red Axe mining company has departed the city and set up a new headquarters in a remote underground location. Veldaban, the Commander of the Dwarven Black Guard in Keldagrim, wants you to investigate the case and find out if the Red Axe is planning anything nefarious. The problem is, the only lead he's got is an extremely drunken and kebab obsessed dwarf. Use your farming and brewing abilities to your advantage, then prepare to be perplexed by puzzles as you follow the trail to the Red Axe...",
@@ -2057,6 +2139,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '30 August 2005',
     start: 'Talk to Queen Ellamaria in the garden of Varrock Palace.',
     description:
       "'Queen of Varrock seeks experienced gardener to help construct a garden of peace and serenity as surprise for husband. Only serious Farmers need apply. Peasants welcome (although not that welcome). Tools not supplied. Please note: under no circumstances are the contents of this message to be disclosed to Rollie – um, one means King Roald.'",
@@ -2084,7 +2167,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: 'Dragonkin, #2',
-    questPoints: null,
+    questPoints: 2,
+    releaseDate: '26 September 2005',
     start: 'Talk to Unferth at his house in Burthorpe.',
     description:
       'Missing: small black cat, answers to the name of Bob. Last seen on the 19th of Bennath. Please contact Unferth in Burthorpe.',
@@ -2116,6 +2200,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Temple Knight, #2',
     questPoints: 1,
+    releaseDate: '17 October 2005',
     start: 'Talk to Sir Tiffy Cashien in Falador Park.',
     description: 'A wanted man is on the loose. Can you track him down?',
     requirements: [
@@ -2142,6 +2227,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elf, #7',
     questPoints: 2,
+    releaseDate: '17 October 2005',
     start: 'Talk to Arianwyn in Lletya.',
     description:
       'This chapter of the quest takes our hero deep under the mountains of Arandar to put a stop to the evil plans of the mourners. If our hero is to succeed, they must solve one of the most complicated puzzles in all of Gielinor.',
@@ -2163,6 +2249,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Pirate, #1',
     questPoints: 2,
+    releaseDate: '31 October 2005',
     start: 'Talk to Pirate Pete on the dock north of Port Phasmatys.',
     description:
       "Zombie pirates have arisen on Braindeath Island, and they don't look friendly! Production of 'rum' has stopped, and the pirate brewers are running scared. Can you overcome the horde of drunken, undead pirates? Can you even get to the island without getting a splitting headache?",
@@ -2193,6 +2280,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Demon Slayer, #2',
     questPoints: 1,
+    releaseDate: '14 November 2005',
     start: 'Talk to Father Reen south of Al Kharid bank.',
     description:
       'A sinister group of dark wizards is attempting to summon Agrith-Naar, a demon of exceptional mystical power. Rather than try to prevent them, a Saradominist priest asks the player to help summon the demon and then kill it once and for all. But all is not as it seems...',
@@ -2221,6 +2309,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 3,
+    releaseDate: '22 November 2005',
     start: 'Talk to Jorral in the outpost north-west of West Ardougne.',
     description:
       'A secluded outpost has served the City of Ardougne for generations, playing stage to many exceptional events. Its current occupant wants to employ your skills to construct its true history before time runs out and history itself is wiped away!',
@@ -2242,6 +2331,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '28 November 2005',
     start: 'Talk to Gertrude west of Varrock.',
     description:
       "Gertrude knows of some ratcatchers in Varrock, pay her a visit and she may tell you of their whereabouts. Perhaps they could show you and your cat a few pointers about rat catching. Enter the subterranean world of the rat catchers and discover more of your cat's true potential.",
@@ -2270,7 +2360,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Short',
     members: true,
     series: null,
-    questPoints: null,
+    questPoints: 2,
+    releaseDate: '5 December 2005',
     start: 'Talk to Awusah the Mayor in Nardah.',
     description:
       'The people in the desert village of Nardah have a problem. Their town well has dried up and any water they try to bring back to the town from the river mysteriously disappears before they can get it back. The villagers suspect they have been cursed in some way. Can you unravel what is going on and save the village?',
@@ -2305,6 +2396,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #11',
     questPoints: 1,
+    releaseDate: '19 December 2005',
     start:
       'Talk to the monk outside the Paterdomus Temple, at the northern end of the River Salve.',
     description:
@@ -2329,6 +2421,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '10 January 2006',
     start: 'Talk to Bert in Yanille, near the sand pit.',
     description:
       "Bert the Sandman in Yanille is in a spot of bother. A mysterious severed hand has appeared in his sand box. Help find out whose hand it is and, more to the point, how it got in Bert's sand box.",
@@ -2354,6 +2447,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #4',
     questPoints: 2,
+    releaseDate: '23 January 2006',
     start: 'Talk to Lazim just north-east of the Desert Quarry.',
     description:
       "Lazim the sculptor has a sad tale to tell - his days of making art are over, and now all he can do is carp at adventurers as they make a statue for him in the desert. Although, isn't just south of the Bandit Camp an odd place to be putting up a statue? Help Lazim out with his artistic endeavours, and learn more as this quest goes deeper into the history of Gielinor than you might expect...",
@@ -2394,6 +2488,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Pirate, #2',
     questPoints: 2,
+    releaseDate: '7 February 2006',
     start: 'Talk to Bill Teach at The Green Ghost inn in Port Phasmatys.',
     description:
       "It's war on the high seas as Bill Teach tries to make the journey from Port Phasmatys to the pirate enclave of Mos Le'Harmless! With his crew heading for the hills, he's looking to recruit anyone eager to become a pirate to help him sink the enemy before he ends up swimming home. He's offering a lot more than a shilling to join his crew. Have you got what it takes to be a pirate?",
@@ -2417,6 +2512,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Fairytale, #1',
     questPoints: 2,
+    releaseDate: '27 February 2006',
     start: 'Talk to Martin the Master Gardener by the pig pen in Draynor Village.',
     description:
       "Recently, farmers around Gielinor have been noticing some trouble with their farming patches. They just don't seem to have the same yields as before. What could be the source of this malady?",
@@ -2444,6 +2540,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 10,
+    releaseDate: '15 March 2006',
     start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
     description:
       "The cook in Lumbridge has a surprisingly small number of ingredients on hand in his kitchen, possibly as a result of an endless stream of newcomers with light fingers, taking anything that isn't nailed down from his kitchen. Luckily, in the past, a kind Cook's Assistant was willing to help him in his culinary duties, but a problem has now appeared that could spell... a Recipe For Disaster! Almost all members may attempt to solve his tricky predicament, and be rewarded accordingly, but only the very elite of Questers will be able to put an end to his problem permanently!",
@@ -2543,7 +2640,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: 'Myreque, #2',
-    questPoints: null,
+    questPoints: 2,
+    releaseDate: '22 March 2006',
     start: 'Talk to to Veliaf Hurtz in the Myreque Hideout below the Canifis pub.',
     description:
       "After the attack on the Myreque by Vanstrom Klause and with the deaths of both Sani and Harold, Veliaf is counting on you to help. Now that the Myreque freedom fighters' base camp has been revealed, they'll need to move on and set up base somewhere else. Veliaf has heard of a little known village south of Mort'ton, referred to as 'Burgh de Rott'. This could be just the place to set up operations to strike back against the evil of Lowerniel Vergidiyad Drakan and his Vampyric overlordship in Morytania. And who knows what other secrets about Morytania and its dark past will be revealed?",
@@ -2592,6 +2690,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '3 April 2006',
     start: 'Talk to Launa east of Varrock, just south of the Earth Altar.',
     description:
       'A rift in the ground has opened up releasing all manner of strange monsters into the lands near the Digsite. A sorrowful mother waits at the top of the rift for her long lost son, who has been missing for 25 years. You can journey down into the rift for an adventure full of twisted monsters all created from the mind of a young boy driven to madness through incarceration.',
@@ -2614,6 +2713,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Rag and Bone Man, #1',
     questPoints: 1,
+    releaseDate: '10 April 2006',
     start: 'Talk to the Odd Old Man in Silvarea north-east of Varrock, by the Limestone Mine.',
     description:
       'Everybody needs some body, and the Odd Old Man knows exactly which bits of those bodies he needs. Can you help him finish his extensive and extremely creepy collection?',
@@ -2635,6 +2735,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '2 May 2006',
     start:
       'Talk to Herman Caranos in the Piscatoris Fishing Colony, accessed via a boat trip from the river to the west of the Tree Gnome Stronghold.',
     description:
@@ -2677,7 +2778,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: 'Miscellania, #2',
-    questPoints: null,
+    questPoints: 1,
+    releaseDate: '22 May 2006',
     start: 'Talk to Advisor Ghrim in Miscellania Castle.',
     description:
       "It's tough being a regent of a small island kingdom, especially when the king has declared war while you were adventuring. Something is up in Miscellania and Etceteria, so you'd better find out what before both kingdoms end up in royal trouble.",
@@ -2698,6 +2800,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Dorgeshuun, #2',
     questPoints: 1,
+    releaseDate: '21 June 2006',
     start: 'Talk to Mistag in the Dorgesh-Kaan mine.',
     description:
       'Humans have been visiting the Dorgeshuun mines for some time now, but no Dorgeshuun has visited the surface since the signing of the Lumbridge-Dorgeshuun treaty. The Dorgeshuun Council fears that the H.A.M. group may be planning another attack, and want to send an agent to the surface to investigate. But they do not want to send someone to the surface without a guide...',
@@ -2723,6 +2826,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Fairytale, #2',
     questPoints: 2,
+    releaseDate: '11 July 2006',
     start: 'Talk to Martin the Master Gardener by the pig pen in Draynor Village.',
     description:
       "The Fairy Queen should be awake and back in charge of the Lost City by now, but what is happening in Zanaris? Why hasn't the Fairy Godfather abdicated the throne? What is happening to all the fairy inhabitants and where has Fairy Nuff gone? Can you rise to the challenge of using the fairy rings to search the other planes and Cure a Queen, in the second part of the Fairy Tale trilogy?",
@@ -2751,6 +2855,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Fremennik, #3',
     questPoints: 2,
+    releaseDate: '24 July 2006',
     start: 'Talk to Lokar Searunner at the westernmost dock of Rellekka.',
     description:
       'Can you make it to Moonclan Island and make peace between the Moonclan and the Fremenniks?',
@@ -2796,6 +2901,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Gnome, #2',
     questPoints: 2,
+    releaseDate: '15 August 2006',
     start:
       'Talk to Brimstail in his cave south-west side of the Tree Gnome Stronghold, directly west of the bank near the Stronghold Slayer Cave.',
     description:
@@ -2821,6 +2927,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Myreque, #3',
     questPoints: 2,
+    releaseDate: '4 September 2006',
     start: 'Talk to Veliaf Hurtz in the basement of the Burgh de Rott inn.',
     description:
       "Fighting tooth and nail against the vampyre overlord, Drakan, the Myreque have moved their secret base camp to Burgh de Rott. Now the fight starts in earnest! Veliaf needs someone to make their way into the Sanguinesti region, the eastern side of Morytania cut off from the west behind an impenetrably huge wall. Will the fight be supported by Myreque resistance inside the vampyres' domain? What grim discoveries are to be found behind that dread wall? And what of the Vyrewatch - deadly sky-bound patrollers of the blood-tithed lands of Meiyerditch? Only a daring, quick-witted agent with an eye for detail can hope to pick their way through the tumbled down slums of Meiyerditch.",
@@ -2853,6 +2960,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Temple Knight, #4',
     questPoints: 1,
+    releaseDate: '20 September 2006',
     start: 'Talk to Sir Tiffy Cashien in Falador Park.',
     description:
       'The small village of Witchaven was all but deserted when the Fishing Platform was built a short ways off the coast. Now, some of the inhabitants of the village have been acting somewhat strangely....',
@@ -2888,6 +2996,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elemental Workshop, #2',
     questPoints: 1,
+    releaseDate: '2 October 2006',
     start: "Search the bookcases in the Exam Centre's library.",
     description:
       "Among the ancient scrolls and papers held at the Dig Site's Examination Centre, scholars have discovered more references to the mysterious elemental ore. Recently they have uncovered a beaten book detailing long-lost uses for this odd material. Can you decrypt the code that will lead you to the deeper depths of the Elemental Workshop? Can you get your head around fixing the mind-bending machinery, or will you fry your brain in the attempt?",
@@ -2909,6 +3018,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Troll, #4',
     questPoints: 1,
+    releaseDate: '23 October 2006',
     start: 'Talk to Burntmeat in the Troll Stronghold kitchen.',
     description:
       "Trolls love goutweed. They love it so much that they've picked it all, and now they can't get any more. However, in his smelly kitchen in the Troll Stronghold, Burntmeat the cook has heard a rumour that goutweed is growing once again, for anyone who's got the skill to farm it. Can you teach his young assistant - a simple troll known as My Arm - to grow the precious goutweed? Will you overcome My Arm's stubbornness and ignorance to earn yourself Burntmeat's reward? Dare you accompany My Arm on this uniquely trollish expedition?",
@@ -2937,6 +3047,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '6 November 2006',
     start: 'Talk to Auguste on Entrana.',
     description:
       "On the peaceful island of Entrana, a lone monk has tired of his life of simplicity and quiet reflection. Auguste wants to boldly write his name in the history books; to craftily defeat the laws of physics; to miraculously sail through the air... preferably not to horribly explode into a ball of flaming death. Of course, to do all this, he'll need the help of a worldly adventurer: are you bold enough to merrily laugh in the face of the unknown?",
@@ -2958,6 +3069,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '28 November 2006',
     start: 'Talk to Charlie at the Ardougne Zoo.',
     description:
       "The Ardougne Zoo is always looking for new specimens, but one of their anticipated new attractions - a ferret from the north - has been proving elusive. One of the Zoo's more eccentric freelance specimen hunters is reported to be on the case, but after setting out for the far western reaches, somewhere between the Piscatoris Fishing Colony and the Tree Gnome Stronghold, nothing more has been heard from him. Will you be able to use your skills as a Hunter to track him down? What else will you discover at the mountain known as Eagles' Peak?",
@@ -2974,6 +3086,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '12 December 2006',
     start: 'Talk to Ava in Draynor Manor.',
     description:
       "Draynor Manor has a new resident and, adventurers rejoice, she is a damsel in distress. Far from being Sleeping Beauty, she finds the Manor's beds not to her liking and is suffering from insomniac nights. If you fancy yourself able to aid Ava in her search for a good night's sleep, who knows what the budding scientist will produce as a reward?",
@@ -3007,6 +3120,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Kharidian, #3',
     questPoints: 1,
+    releaseDate: '10 January 2007',
     start: 'Talk to the High Priest of Icthlarin in Sophanem.',
     description:
       'The High Priest of Icthlarin has problems again - this time with the inhabitants of Menaphos. Sophanem is recovering from the plague, yet most of its citizens are still trapped on the other side of the river. Diplomacy has failed and subterfuge beckons. Clearly, this is the sort of job that a shifty adventurer could excel in.',
@@ -3026,6 +3140,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Penguin, #1',
     questPoints: 1,
+    releaseDate: '29 January 2007',
     start: 'Talk to Larry at Ardougne Zoo.',
     description:
       "At the Ardougne Zoo, one of the zookeepers has become a bit preoccupied by penguins. In fact, he's downright paranoid about them. He needs your help to observe their habits on the iceberg in the Lunar Sea. What begins as a peaceful bird-watching expedition opens a new world of espionage and bad musicians.",
@@ -3063,6 +3178,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Fremennik, #2',
     questPoints: 1,
+    releaseDate: '6 February 2007',
     start: 'Talk to Mord Gunnars at the northernmost dock of Rellekka.',
     description:
       'Sibling rivalry can get messy - more so when the siblings are Fremennik princes with a point to prove. The islands of Jatizso and Neitiznot were set up by two brothers who hated each other, and they have been at loggerheads ever since. But now there is a new threat from trolls in the north... Can you prove your loyalty to both brothers and save the islanders from a fate as troll food? Your skills as a Fremennik warrior, a bridge builder and... a jester will be tested on the islands.',
@@ -3093,6 +3209,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Pirate, #3',
     questPoints: 2,
+    releaseDate: '6 March 2007',
     start: "Talk to Brother Tranquility in Mos Le'Harmless.",
     description:
       "The peaceful contemplation of the monks of Harmony Island has been disturbed by such rude interruptions as an invasion of zombie pirates and the theft of their brains! The evil zombie pirates have returned with a new scheme, and it's up to you to try to re-mind these poor priests before the sinister Mi-Gor completes his experiments...",
@@ -3124,6 +3241,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '27 March 2007',
     start: 'Talk to Rat Burgiss south of Varrock.',
     description:
       "A travelling trader has been stranded south of Varrock after his cart was attacked by local outlaws. He needs the help of a hero to recover his lost documents, but that's not all... The Varrock Palace Secret Guard (VPSG) are on the trail of treacherous dealings with the Monks of Zamorak. Will you be able to help the VPSG and uncover what lies below?",
@@ -3143,7 +3261,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Short',
     members: true,
     series: null,
-    questPoints: null,
+    questPoints: 1,
+    releaseDate: '10 April 2007',
     start: 'Talk to Olaf Hradson east of Rellekka, just south of the Rellekka Hunter area.',
     description:
       "Poor Olaf Hradson. He has to live up to such expectations. His ancestors sailed all over the world, and now he has to go out and prove himself their equal. If only he could read a map... If only he could sail... If only he hadn't crashed! Can you help a depressed and soggy Fremennik regain his pride, and possibly the lost treasure of his grandfather?",
@@ -3171,6 +3290,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Dorgeshuun, #3',
     questPoints: 1,
+    releaseDate: '24 April 2007',
     start: 'Talk to Ur-tag in Dorgesh-Kaan.',
     description:
       "The dwarves are building a new underground rail link between their city of Keldagrim and the cave goblins' Dorgesh-Kaan, but work is being held up by the discovery of ancient goblin artefacts, and they need the help of a qualified archaeologist. Helping them out should be simple enough - unless you stumble upon another H.A.M. plot against the city.",
@@ -3199,6 +3319,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '15 May 2007',
     start: 'Talk to the fallen man in the small cave in the Lunar Isle mine.',
     description:
       "Gielinor is not the safest place to live - dragons, trolls, demons... dangerous and despicable monsters of all sorts roam free. In this quest, you must help a fellow adventurer that doesn't do so well against these threats. With perseverance and the magical help of the Moon Clan, there should be no monster that can't be beaten. But is that really true? How about the monsters in your dreams? How about your own inescapable fears? How would you defeat them? Well, you'll soon find out as a tough and often bizarre quest awaits those of a strong will!",
@@ -3234,6 +3355,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '4 June 2007',
     start: 'Talk to Sylas in Taverley, just south of the house portal.',
     description:
       '"Once upon a time in a land far, far away..." Sylas, a collector of items both wondrous and unusual seeks out the latest additions to his trove with a somewhat unusual prize for the finder. Terrors and towers await; fierce battles with giant beasts; striding boldly to rescue a dwarf in distress! Not a quest for the meek or faint-hearted, prepare yourself for a feast of fairy-tale fun with rewards a-plenty! The Brothers Grimm could never have foretold a tale such as this...',
@@ -3266,6 +3388,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Camelot, #3',
     questPoints: 1,
+    releaseDate: '24 July 2007',
     start: 'Talk to the Gossip outside Sinclair Mansion.',
     description:
       "Life has been quiet at the Sinclair Mansion since you discovered the murderer... too quiet. So quiet, in fact, that the family has gone! Suspicions are running high that the Sinclairs' recent departure is tied to the disappearance of King Arthur and his knights. But time is running short and clues are scarce, will you crack the case in time?",
@@ -3296,6 +3419,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '27 January 2003',
     start: 'Talk to Mosol Rei outside of Shilo Village in the south part of Karamja.',
     description:
       'A foul mist and a plague of undead have overtaken Shilo Village. Can you stop the queen of the dead and save the village?',
@@ -3324,6 +3448,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elf, #2',
     questPoints: 3,
+    releaseDate: '23 October 2002',
     start: 'Talk to Elena in her house in East Ardougne.',
     description:
       "This is the second part of an ongoing adventure. Help Elena discover the truth about the infamous Ardougne plague. Smuggle test samples across Ardougne to Elena's old mentor.",
@@ -3343,6 +3468,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '19 February 2007',
     start: 'Talk to Effigy at the Tower of Life just east of the Ardougne Monastery.',
     description:
       "The construction of a mysterious tower is almost complete, but the builders working on it have gone on strike. Losing patience, the alchemists that hired them are looking for anybody to help them. When the world of magic and the world of logic combine you can expect dangerous results, but a true adventurer would cherish such things... wouldn't they?",
@@ -3362,7 +3488,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: 'Rag and Bone Man, #2',
-    questPoints: null,
+    questPoints: 1,
+    releaseDate: '10 April 2006',
     start: 'Talk to the Odd Old Man in Silvarea north-east of Varrock, by the Limestone Mine.',
     description:
       'An archeological bone gathering quest. Requires the start and/or completion of multiple quests. Lots of creatures and animals necessary to be scavenged for specific bones, that will then need to be cleaned and given to the Odd Old Man for his marvelous collection of bone remains.',
@@ -3398,6 +3525,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Dorgeshuun, #4',
     questPoints: 2,
+    releaseDate: '9 February 2022',
     start: 'Talk to Grubfoot in the Dorgesh-Kaan mine.',
     description:
       "The most ancient goblin legends speak of Yu'biusk, the far-off land that saw the origin of the goblin race. Now, one goblin has had a vision of this land and believes it is Zanik's destiny to lead all goblins to live there in peace and safety - but Zanik will not be able to realise her destiny without your help.",
@@ -3439,6 +3567,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #15',
     questPoints: 5,
+    releaseDate: '10 July 2024',
     start: 'Talk to Ivy Sophista in Taverley.',
     description:
       "This Grandmaster quest sees you continue the Mahjarrat storyline, hunting down one of the most powerful artefacts in existence while ensuring it doesn't fall into the wrong hands. This artefact is known by many names – most recently, the Stone of Jas. It has shaped the course of Gielinor’s history, from the creation of the first Runes to the fall of Zaros. It was last seen at the devastating end of the God Wars, when Zamorak, in a fit of rage, used it to reduce the land of Forinthry to the Wilderness we know today. Angered by Zamorak’s actions, Guthix rose from his age-long slumber and banished the gods. He hid the Stone of Jas far underground, where it could never disturb the balance again... But while Guthix sleeps, nefarious forces have been gathering: the Mahjarrat. Shaped by war and deadly ritual, their plans for the Stone can only lead to catastrophe. Facing off against the Mahjarrat is nothing new for dedicated adventurers – at every turn, they seem to grow in power and wage war against the people of Gielinor. In their last attempt, we saw them set out to tear Varrock apart with an undead army in Defender of Varrock. What are they plotting now?",
@@ -3503,6 +3632,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '17 May 2005',
     start: 'Talk to Grish in Jiggig, just south of Castle Wars.',
     description:
       'Run for your lives...the zombie ogres are here for your flesh! An ogre ceremonial dance area, used to communicate with ancient ogrish ancestors, has been overrun with diseased undead ogres. How could something like this have happened? And what sort of rewards could an enterprising adventurer gain from exploring the tombs of such a place?',
@@ -3529,7 +3659,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Very Long',
     members: true,
     series: 'Gnome, #5',
-    questPoints: null,
+    questPoints: 4,
+    releaseDate: '6 May 2016',
     start: 'Talk to King Narnode Shareen in the Grand Tree.',
     description:
       'Glough, the war criminal set on eradicating humans and overthrowing Gielinor, has escaped the watch of the Grand Tree gnomes. With a history of leaving large-scale conflicts and warfare in his wake, Glough must be tracked down and stopped. King Narnode Shareen needs your help.',
@@ -3580,6 +3711,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '26 January 2017',
     start:
       'Talk to Abigale or Hewey in the south-eastern corner of Lumbridge Swamp, near the fishing spots.',
     description:
@@ -3601,6 +3733,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Great Kourend, #2',
     questPoints: 1,
+    releaseDate: '20 April 2017',
     start: 'Talk to Veos at Port Piscarilius.',
     description: 'Will you help Veos handle a mysterious client?',
     requirements: ['Completion of X Marks the Spot'],
@@ -3618,6 +3751,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Great Kourend, #3A',
     questPoints: 1,
+    releaseDate: '9 November 2017',
     start: 'Talk to Tomas Lawry outside the Port Piscarilius bank.',
     description:
       'The gangs of Kourend have recently been uniting under a mysterious figure called the Queen of Thieves, somewhere in Port Piscarilius. This novice quest tasks the player with infiltrating the gangs of Kourend in order to find the Queen of Thieves.',
@@ -3635,7 +3769,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Short',
     members: true,
     series: null,
-    questPoints: null,
+    questPoints: 1,
+    releaseDate: '7 September 2017',
     start: 'Talk to Curator Haig Halen in the Varrock Museum.',
     description:
       'Curator Haig Halen needs your help to finish the construction of a barge fit to take the Varrock museum crew to an unexplored landmass to the east. There have been many attempts to reach the island, but none were successful. This quest will have you venturing across Gielinor, aiding the Varrock museum and making the success of the voyage a possibility.',
@@ -3652,6 +3787,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Dragonkin, #3',
     questPoints: 5,
+    releaseDate: '4 January 2018',
     start: "Talk to Alec Kincade outside the Myths' Guild.",
     description:
       "30 years prior to the fateful day a mighty adventurer awakened Elvarg from her slumber, Crandor was a thriving and very much alive island, with a great tradition of mages and adventurers. The history of Crandor is a bold one, enough so that many a Crandorian earned the right to be part of the Champions' Guild! The Crandor we know today is very different from that of the past and there are so many questions that remain unanswered - your chance to uncover the secrets of the past starts with Dragon Slayer II.",
@@ -3723,6 +3859,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Great Kourend, #3B',
     questPoints: 1,
+    releaseDate: '9 November 2017',
     start: 'Talk to Lord Kandur Hosidius at his home in Hosidius, north-west of the Vinery.',
     description:
       'Artur Hosidius has gone missing, and Lord Kandur Hosidius needs your help to find his son and bring him home.',
@@ -3743,6 +3880,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: "Talk to the Cook in Lumbridge Castle's kitchen.",
     description:
       "The cook in Lumbridge has a surprisingly small number of ingredients to hand in his kitchen, possibly as a result of an endless stream of newcomers with light fingers taking anything that isn't nailed down from his kitchen. Luckily, in the past a kind Cook's Assistant was willing to help him in his culinary duties, but now a problem has appeared that could spell... a Recipe For Disaster! Almost all members may attempt to solve his tricky predicament, and be rewarded accordingly, but only the very elite of Questers will be able to put an end to his problem permanently!",
@@ -3765,6 +3903,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: 'Inspect one of the goblin generals in the Lumbridge Castle dining room.',
     description:
       "The goblin generals need a food that they'll both eat. Find a chef in Goblin Village to learn how to make it.",
@@ -3792,6 +3931,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: 'Inspect the frozen dwarf in the Lumbridge Castle dining room.',
     description:
       'To save the dwarf, you will need a special dwarven rock cake. Only his father in the tunnel under White Wolf Mountain knows how to make one.',
@@ -3820,6 +3960,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: 'Inspect Evil Dave in the Lumbridge Castle dining room.',
     description:
       "Evil Dave needs some kind of spicy stew. You will need Evil Dave's help for this one. He lives in his mother's basement...",
@@ -3843,6 +3984,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: 'Inspect Pirate Pete in the Lumbridge Castle dining room.',
     description:
       'Pirate Pete needs a fishcake to be protected. Talk to the Lumbridge Cook to learn how to make one.',
@@ -3871,6 +4013,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: 'Inspect the Lumbridge Guide in the Lumbridge Castle dining room.',
     description:
       "You need a cake of guidance to protect the Lumbridge Guide. Wizard Traiborn in the Wizards' Tower can teach you how to make one.",
@@ -3902,7 +4045,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: null,
-    questPoints: null,
+    questPoints: 1,
+    releaseDate: '15 March 2006',
     start: 'Inspect Sir Amik Varze in the Lumbridge Castle dining room.',
     description:
       'Sir Amik Varze requires a crème brulee supreme. Talk to the Cook to learn how to make one in this complicated but fun subquest.',
@@ -3939,6 +4083,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: 'Inspect Awowogei in the Lumbridge Castle dining room.',
     description:
       'Awowogei needs his favourite food, but nobody seems to know what it is. Maybe you should go talk to him in his palace.',
@@ -3973,6 +4118,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: 'Inspect Skrach Uglogwee in the Lumbridge Castle dining room.',
     description:
       'To protect Skrach Uglogwee from the Culinaromancer, you need to feed him a cooked jubbly bird, the most delicious type of Chompy in the Feldip Hills. You need to talk to Rantz to learn how to get one.',
@@ -4005,6 +4151,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: null,
+    releaseDate: null,
     start: null,
     description: null,
     requirements: null,
@@ -4020,6 +4167,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 2,
+    releaseDate: '7 December 2017',
     start: 'Talk to Captain Tock at the crossroads north of Port Sarim.',
     description:
       'From the newly revealed town of Corsair Cove, deep in the south of Feldip Hills, the captain of the Corsairs has sailed to Port Sarim seeking help. His crew is sick, and he suspects that a curse has been laid upon them. If you can unravel the fearful and conflicting tales of ogre relics, vengeful mermaids and demonic possession, maybe you can help his ailing crew overcome The Corsair Curse.',
@@ -4036,6 +4184,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Myreque, #4',
     questPoints: 1,
+    releaseDate: '24 May 2018',
     start: 'Talk to Garth in Ver Sinhaza by the entrance to the Theatre of Blood.',
     description:
       'For many years, the Myreque have fought back against the reign of the Drakans. To many, they act as a glimmer of hope in an otherwise miserable existence. In recent times, the Myreque have been beset by disaster, with numerous members meeting a gruesome end at the hands of Vanstrom Klause, the brutal henchman of the Drakans. However, while the Myreque may be in their darkest hour, hope still remains. Thanks to a recent discovery in the laboratories deep beneath Meiyerditch, the Myreque may have finally found a way to take the fight to the vampyres.',
@@ -4073,6 +4222,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Great Kourend, #3E',
     questPoints: 1,
+    releaseDate: '19 April 2018',
     start: 'Talk to Phileas Rimor in his house west of The Cloak and Stagger tavern in Shayzien.',
     description:
       'Over a thousand years ago, King Shayzien VII ordered an expedition to Mount Quidamortem. The expedition never returned and it was assumed that all members perished in the field. However, a recent discovery suggests this may not have been the case. Phileas Rimor is the descendant of the expedition leader and he is desperate to discover the truth. Join him and delve into a conspiracy a thousand years in the making in "Tale of the Righteous".',
@@ -4095,6 +4245,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Troll, #5',
     questPoints: 2,
+    releaseDate: '6 September 2018',
     start: "Talk to Burntmeat in the Troll Stronghold's kitchen.",
     description:
       "My Arm, the troll from My Arm's Big Adventure, must embark on another journey of discovery. This time, you'll be escorting him to Weiss, a newly discovered troll town in the far north of the world, so he can share his wisdom *cough* with the inhabitants, in exchange for learning about their inventions. Life's journeys can take us to some strange places, but My Arm is about to face the greatest adventure of all - true love. Plus, they'd like him to kill the Wise Old Man of Draynor Village, which doesn't sound like a clever move. Can you help My Arm get a grip on the situation and woo the fair Snowflake over the objections of her father, Mother? Or will My Arm be left to a loveless life of loneliness?",
@@ -4132,6 +4283,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '15 March 2006',
     start: "Release each member of the council from the Culinaromancer's spell.",
     description:
       "The Culinaromancer has retreated through the portal back to his own dimension, where he'll be ready to cause more trouble. Aris has said that you too must go through the portal to finish him off.",
@@ -4174,6 +4326,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Elf, #8',
     questPoints: 4,
+    releaseDate: '25 July 2019',
     start: 'Talk to Edmond in East Ardougne, at his home north of the Flying Horse Inn.',
     description:
       "Our story begins with you, the hero, answering the call to adventure when Edmond, a resident of Ardougne, asks for your aid. By rescuing his daughter Elena from Plague City, the quarantined West Ardougne, you begin to unravel the mystery surrounding the disease. With her help, you discover the plague is a hoax - a plot by King Lathas to section off the West Ardougne. By confronting him, you find out this was done to protect the rest of Gielinor from the threat in the elven lands. The king sends you on a mission to travel through the Underground Pass and help his ally, Lord Iorwerth, in eradicating his brother King Tyras who threatens to revive the mysterious Dark Lord. After an arduous journey through the pass, you meet with Iorwerth and his forces to end Tyras' evil once and for all. Upon your return to Lathas you are intercepted by Arianwyn, a rebel elf who opposes Lord Iorwerth. He informs you of Lathas and Iorwerth's deception. They manipulated you into removing their final opposition and were now free to bring the Dark Lord back to Gielinor for their own intentions. You work with the elven rebellion to discover the purpose of the plague was to disguise the digsite of the long lost Temple of Light. An ancient place that is key to bringing back the Dark Lord. To make amends for your past mistakes and put a halt in King Lathas' and Lord Iorwerth's plans, you solve the intricate light puzzle designed to protect the Death Altar within the temple. After sealing off the temple and preventing the return of the Dark Lord, it's now time to turn your attention to King Lathas and Lord Iorwerth to end their schemes once and for all in Song of the Elves.",
@@ -4237,6 +4390,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Great Kourend, #3C',
     questPoints: 1,
+    releaseDate: '10 January 2019',
     start: 'Talk to Mori in Arceuus.',
     description:
       'A long time ago, the citizens of Arceuus house gave up their human bodies and claimed immortality. This event was known as the Ascent of Arceuus and it marked the end of death within Arceuus house. Or so they believed. For the first time in a thousand years, a member of Arceuus house has fallen. You will need to solve the mystery of this death. However, time is of the essence and the fate of Arceuus house lies in your hands.',
@@ -4253,6 +4407,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Great Kourend, #3D',
     questPoints: 1,
+    releaseDate: '10 January 2019',
     start: 'Talk to Lady Vulcana Lovakengj in Lovakengj.',
     description:
       'For thousands of years, the Wintertodt has remained safely sealed behind the great Doors of Dinh. Alas, despite the best attempts of the Lovakengj smiths and the Arceuus mages, the doors are failing. Only Dinh himself knew the secrets behind the creation of these doors. Without his knowledge, there may be nothing to stop the Wintertodt escaping and bringing ruin upon Kourend. It is up to you to recover this knowledge.',
@@ -4268,7 +4423,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: 'Fremennik, #4',
-    questPoints: null,
+    questPoints: 2,
+    releaseDate: '26 September 2019',
     start: 'Talk to Brundt the Chieftain in Rellekka.',
     description:
       "The Fremennik bards often sing tales of the past. Of great battles, deadly foes and heroes long gone. However, in recent years, things have been much quieter in the Province, as there's increasingly less to sing about. All that is about to change though, as what starts off as a simple investigation soon leads to one of the greatest threats the Fremennik have ever seen.",
@@ -4316,6 +4472,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: 'Great Kourend, #1',
     questPoints: 1,
+    releaseDate: '7 February 2019',
     start: 'Talk to Veos in The Sheared Ram in Lumbridge.',
     description:
       'Veos has long been a lover of treasure hunts and his latest hunt has brought him to Lumbridge. However, not knowing the area well, Veos could use some help finding this treasure.',
@@ -4332,6 +4489,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #10',
     questPoints: 2,
+    releaseDate: '6 November 2024',
     start: 'Talk to Elias White at the Uzer Oasis.',
     description:
       'The icy waste to the north of the troll country is as mysterious as any land in Gielinor, no less because of the interest the Mahjarrat take in it. Elias White thinks that he might have found a way for you to discover more about this strange area to the north. Uncover more of the mysteries of the Mahjarrat and learn about the dark magic that was used to enslave Arrav for these last few millennia.',
@@ -4364,6 +4522,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #6',
     questPoints: 2,
+    releaseDate: '21 February 2024',
     start: 'Talk to Elias White in the Jolly Boar Inn.',
     description:
       'Long ago, one man wielding a magic shield stood against the undead armies of the Mahjarrat. His name was Arrav, and he was strong and noble, but the fates had spoken: his downfall at the hands of the evil necromancer Zemouregal was inevitable. In one last desperate act to save his people, Arrav flung the shield towards the town now known as Varrock, protecting it from further harm. In that very moment, Zemouregal struck him down. Standing over the fatally wounded hero, Zemouregal made a promise: "When I return, you shall lead my armies. You shall be my greatest champion, and suffer under the knowledge that while you hoped to save your people, you will instead be their doom." Now, there is fear in the air. Whispers of the dead rising. Could this be the time of the prophesied return?',
@@ -4394,6 +4553,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Myreque, #5',
     questPoints: 2,
+    releaseDate: '4 June 2020',
     start: 'Talk to Veliaf Hurtz outside the church in Slepe.',
     description:
       'A darkness has fallen over Morytania. The Myreque freedom fighters have achieved their first major victory over the vampyres with the death of Ranis Drakan. However, their newly found hope is unlikely to last. After many years of absence, Lord Lowerniel Drakan, the vampyre overlord of Morytania, has finally emerged from his castle. He has but one goal. To avenge his brother and eradicate the Myreque once and for all.',
@@ -4436,6 +4596,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Great Kourend, #4',
     questPoints: 2,
+    releaseDate: '16 June 2021',
     start: 'Talk to Martin Holt at the entrance to Kourend Castle in Kingstown.',
     description:
       "Great Kourend: a land of wealth, comfort and security. Across its five cities, the people of this Kingdom work to bring peace and prosperity. However, all is not as it seems. Beneath this delicate façade lies an uncomfortable truth: the kingdom of Great Kourend is A Kingdom Divided. Since the death of the last king, Great Kourend has been ruled by the Kourend Council. Under the watchful gaze of the Council, Kourend has enjoyed a golden age of progression. But not all of its citizens are happy, and, spurred by the recent arrest of Councillor Sophia Hughes, allegations of corruption are growing. However, the political games of the Council may be the least of Kourend's concerns. A darker power is gathering in the Kingdom - one that could change the face of Gielinor forever...",
@@ -4478,6 +4639,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '10 September 2020',
     start: "Read the town notice board in Draynor Village, behind Fortunato's Wine Shop.",
     description:
       "Ah, the Falador Farm - filled with cabbages, cows, and even a sleepy sheepdog. A peaceful place, where you can learn to churn butter, give a dog a bone, or purchase various Farming supplies. What was once a place of happiness, joy and wholesome dairy goods has of late become dominated by a vile presence. Each morning Sarah wakes to find her crops destroyed, her cows cowering, and her loyal sheepdog looking... sheepish.<br><br> She's had enough, but she thinks she's got the culprit on the trot. Can you help her track down... A Porcine of Interest?",
@@ -4497,6 +4659,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Twisted Tales',
     questPoints: 1,
+    releaseDate: '25 November 2020',
     start: 'Talk to Gordon on his farm south of the Farming Guild.',
     description:
       "Gordon and Mary are two small-town farmers with a big problem – some heinous beastie keeps taking their livestock! Luckily they've hit upon a solution. They just need some brave adventurer to venture into the creature's lair and bring them back its head. We can't envisage any complications with such a routine matter, right?",
@@ -4525,6 +4688,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '14 April 2021',
     start: 'Talk to Willow on the path south of Ice Mountain.',
     description:
       "Willow, an energetic archaeologist (perhaps suspiciously so) is hunting for her next big discovery. She believes she has found the entrance to ancient underground ruins found to the west of Ice Mountain. There's a catch though - the entrance is sealed tight and she needs to re-unite her old crew to help her break in. Naturally, she has to stay close to the ruins in order to lay claim to the find, so it falls to you to bring her rag-tag group back together for one last caper and a final big pay-off. Burntof is an old dwarf with a penchant for demolition, Checkal is a well-built lifter of heavy things and Marley is a cunning thief with a knack for disarming traps. Together, they have the talents it will take to gain entry to the secret ruins. But persuading them might not be easy. See, the gang aren't all too keen on working with Willow again, and her intentions might not be as honourable as she claims...",
@@ -4546,6 +4710,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '3 June 2021',
     start: 'Talk to the Mysterious Stranger inside Ver Sinhaza, south-east of Meiyerditch.',
     description:
       'The Mysterious Stranger lurks outside of the mighty Theatre of Blood, the centrepiece of Ver Sinhaza. This shadowy figure has a new request for you – to humiliate a vampyre noble by the name of Lady Verzik Vitur. Take on the challenges that lie within the Theatre to reach her and bring a blush to her bloodless face!',
@@ -4572,6 +4737,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Kharidian, #4',
     questPoints: 2,
+    releaseDate: '27 April 2022',
     start: 'Talk to Jamila at her stall in Sophanem.',
     description:
       "When Sophanem was beset by a series of plagues, the gates to the golden city of Menaphos quickly closed. The city has been locked down ever since, with no one allowed to leave or enter. However, rumours have escaped of strange happenings inside Menaphos and there are stories of citizens mysteriously disappearing. These odd happenings need to be investigated, but few are willing to do so. Maisa, a spy from Al Kharid, has grown tired of inaction. She is determined to solve this mystery herself, but she won't be able to do it alone... are you up for the challenge?",
@@ -4604,6 +4770,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Order of Wizards, #3',
     questPoints: 1,
+    releaseDate: '23 March 2022',
     start: 'Talk to Wizard Persten north of Al Kharid, near the gate from Lumbridge.',
     description:
       "The Abyss: a deadly realm filled with ancient power. The secrets of this plane have long eluded the denizens of the Wizards' Tower, though some would give anything to properly uncover them. One of these wizards is Persten. While many in the Tower aren't convinced by her unorthodox methods, a recent discovery means she may now hold the key to the knowledge they crave the most. However, nothing is simple when the Abyss is involved, and Persten won't be able to get to the bottom of her discovery without your help...",
@@ -4624,6 +4791,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Gnome, #3',
     questPoints: 2,
+    releaseDate: '13 September 2023',
     start: 'Speak to King Bolren in the Tree Gnome Village.',
     description:
       "King Bolren has a new pet. Unfortunately, it's another watcher, like the ones unmasked in the Tree Gnome Stronghold during The Eyes of Glouphrie. Has Glouphrie been watching the Tree Gnome Village, too? If you investigate further you'll find out more about Glouphrie, the history of the gnomes (and their unusual monarchy) and maybe you'll get within a hair's breadth of the lost city of Arposandra...",
@@ -4654,6 +4822,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '8 June 2022',
     start: "Talk to Kovac at the Giants' Plateau, east of Al Kharid.",
     description:
       "Ahh, giants. We all know them. Enormous humanoids hanging about Gielinor, simply minding their own business until some adventurer or another comes along to beat them up. But how much do we really know about these giants? What do they think about? Where did they come from? Would they enjoy making massive swords in some kind of... gargantuan workshop? All these questions, and more, will be answered in the quest Sleeping Giants! You'll help Kovac, a friendly giant who's discovered an ancient forge built to his giant-size proportions!",
@@ -4677,6 +4846,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Twisted Tales',
     questPoints: 1,
+    releaseDate: '30 November 2022',
     start:
       'Search the tent at the campsite found east of the chasm at the southern end of the Kebos Lowlands.',
     description:
@@ -4694,6 +4864,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #14',
     questPoints: 5,
+    releaseDate: '26 July 2023',
     start: 'Investigate the Ancient Vault north-east of Nardah.',
     description:
       "During Gielinor's Second Age, the world was dominated by an empire the likes of which had never been seen. The areas now known as Asgarnia, Misthalin and even the Wilderness all once flourished under the banner of the Empty Lord. With the grand city of Senntisten at its heart, this civilisation washed over Gielinor like an unstoppable tide, pushing the boundaries of magic and science, while crushing any who stood in their way. Fast forward to today, the Fifth Age, and you won't find much trace of this ancient empire. Indeed, Saradominists and Zamorakians alike have spent many lifetimes purging all remnants of it. However, small fragments of this fallen empire remain, for those who know where to look. Perhaps you’ve already encountered some of these remains. Maybe you’ve met the monstrous Nex, sealed behind the Frozen Door for millennia. Or perhaps you’ve visited the bandits of the Kharidian Desert, the final human followers of the Empty Lord. You might even have encountered some mysterious Mahjarrat hidden away beneath those same sands. However, there are other parts of this forgotten empire that even you won’t have encountered yet. For example, this story begins deep in the desert, within a mysterious vault...",
@@ -4746,6 +4917,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Mahjarrat, #13',
     questPoints: 2,
+    releaseDate: '11 January 2023',
     start:
       'Talk to the guard outside of the Carnillean Mansion in the south-western corner of East Ardougne.',
     description:
@@ -4775,6 +4947,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Twilight Emissaries, #1',
     questPoints: 1,
+    releaseDate: '10 January 2024',
     start: 'Talk to Noah or Alina in Varrock square.',
     description:
       'Children of the Sun begins on the familiar streets of Varrock, where a delegation from Varlamore has arrived to sign a treaty with the rulers of Misthalin. It’s a day for celebration, but something’s amiss… you’d better find out what’s going on!',
@@ -4791,6 +4964,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '20 March 2024',
     start: 'Talk to Zuma or Attala at the entrance to Cam Torum.',
     description:
       "Beneath the steep and jagged cliffs of Ralos' Rise sits the dwarven town of Cam Torum. Its strong fortifications have kept it safe through all of Varlamore's history... but now the inhabitants face a new challenge.<br><br>Lurking below the surface is an ancient temple, built to contain powerful entities. Now, the earth has been disturbed – and the dwarves need your help to keep these strange beings contained!",
@@ -4825,6 +4999,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '20 March 2024',
     start: 'Talk to Marcellus at the Locus Oasis.',
     description: 'Solve a ribbiting dispute and gain access to a new hardwood Farming patch.',
     requirements: ['Woodcutting level 15', 'Completion of Children of the Sun'],
@@ -4840,6 +5015,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Twilight Emissaries, #2',
     questPoints: 1,
+    releaseDate: '20 March 2024',
     start: 'Talk to Ennius Tullus or Furia Tullus in front of the Sunrise Palace.',
     description: 'Take your first steps into Varlamore and unlock the Quetzal Transport System.',
     requirements: ['Completion of Children of the Sun'],
@@ -4857,6 +5033,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '20 March 2024',
     start: 'Talk to Guildmaster Apatura at the Hunter Guild.',
     description: 'Learn about the role of the Hunter Guild and unlock higher tier rumours.',
     requirements: [
@@ -4881,7 +5058,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Medium',
     members: true,
     series: 'Twilight Emissaries, #3',
-    questPoints: null,
+    questPoints: 2,
+    releaseDate: '25 September 2024',
     start: 'Talk to Prince Itzla Arkan at the Teomat.',
     description: 'Uncover the secrets of a mysterious cult and unlock a new dungeon.',
     requirements: [
@@ -4908,6 +5086,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '25 September 2024',
     start: 'Talk to Patzi by the entrance to Villa Lucens.',
     description: 'Solve a mysterious murder on the island of Aldarin.',
     requirements: ['Thieving level 34', 'Agility level 32', 'Completion of Children of the Sun'],
@@ -4923,6 +5102,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '25 September 2024',
     start: 'Talk to Emelio at his home in Outer Fortis.',
     description: 'Bring the joy of kebabs to the land of Varlamore.',
     requirements: ['Completion of Children of the Sun'],
@@ -4938,6 +5118,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '25 September 2024',
     start:
       'Inspect the empty display on the ground floor of the Grand Museum in Civitas illa Fortis.',
     description: 'Investigate a mysterious theft from the Fortis Grand Museum.',
@@ -4958,6 +5139,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Myreque, #6',
     questPoints: 4,
+    releaseDate: '30 June 2026',
     start: 'Talk to Sarius Guile in the Icyene Graveyard.',
     description:
       'Long ago, before the vampyres were united as one, they lived in disparate clans in their ancestral home of Vampyrium. For the Drakan clan, strength ruled above all else. Clan leaders were selected during a brutal festival of combat known as the Night of the Blood Moon. Along with leadership of the clan, the victor of this festival was granted a title: they became known as the Blood Moon. Now, thousands of years later, Lord Lowerniel Drakan, the last Blood Moon has returned. He has but one goal: to return his people to the old ways and reclaim his former title, even if he has to sacrifice every life in Morytania to do it. For Drakan, this is the endgame. Failure is not an option and he does not intend to let anyone stand in his way. No matter what, the Blood Moon will rise once more.',
@@ -5009,6 +5191,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Twilight Emissaries, #4',
     questPoints: 3,
+    releaseDate: '23 July 2025',
     start: 'Talk to Servius in the Sunrise Palace.',
     description: 'Bring an end to the plots of a deadly cult and unlock a new boss.',
     requirements: [
@@ -5040,7 +5223,8 @@ export const questDetails: WikiQuestDetails[] = [
     length: 'Short',
     members: true,
     series: null,
-    questPoints: null,
+    questPoints: 1,
+    releaseDate: '19 November 2025',
     start: 'Talk to Will and Anne on the docks of Port Sarim.',
     description: 'Embark on your first voyage and unlock the Sailing skill.',
     requirements: null,
@@ -5056,6 +5240,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '19 November 2025',
     start: "Talk to 'Squawking' Steve Beanie at The Pandemonium pub.",
     description:
       "Help Steve Beanie recover some 'pirate treasure' and unlock the crowbar, a useful Sailing tool.",
@@ -5083,6 +5268,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '19 November 2025',
     start: 'Talk to Arhein on the Catherby docks.',
     description:
       'Help Arhein get past some political red tape and unlock the current duck, a useful Sailing tool.',
@@ -5099,6 +5285,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Tortugan, #1',
     questPoints: 1,
+    releaseDate: '19 November 2025',
     start: 'Talk to the injured tortugan on a Remote Island in the Unquiet Ocean.',
     description: 'Help a stranded tortugan and gain access to the Great Conch.',
     requirements: [
@@ -5126,6 +5313,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Tortugan, #2',
     questPoints: 2,
+    releaseDate: '20 May 2026',
     start: 'Talk to Elder Raley at his home on the Great Conch.',
     description:
       'Investigate the dealings of the Red Reef Trading Company and gain access to some trees to cut.',
@@ -5150,6 +5338,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '23 July 2025',
     start: 'Read the notice board in Auburn Pub.',
     description: 'Solve the case of some missing people and unlock a new dungeon.',
     requirements: [
@@ -5176,6 +5365,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 1,
+    releaseDate: '23 July 2025',
     start: 'Talk to Alan at the temple of Tal Teok north of Tal Teklan.',
     description: 'Egg.',
     requirements: [
@@ -5206,6 +5396,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '22 October 2025',
     start: 'Talk to the Quest Guide on Tutorial Island.',
     description: 'N/A',
     requirements: null,
@@ -5221,6 +5412,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: '25 February 2026',
     start: 'Talk to Cassius by the Lumbridge pond.',
     description:
       'Lumbridge, the iconic city for all the fresh-faced arrivals and budding adventurers. Home to regular citizens of Gielinor, they chop the trees, work the fields, and tend to the animals of the realm, except there has been a disturbance in the nearby cow pen and the steaks have never been higher! Distress runs through the herd and while they have always feared adventurers claiming their lives, a new threat has entered their domain bringing the beef...',
@@ -5237,6 +5429,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: 'Fremennik, #5',
     questPoints: 3,
+    releaseDate: null,
     start: null,
     description: null,
     requirements: [
@@ -5260,6 +5453,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: 2,
+    releaseDate: '29 July 2026',
     start: 'Talk to Cormac, the mayor of Auchrie, on the island of Wyrmscraig.',
     description:
       'Help the citizens of an isolated island and unlock new training methods and a repeatable boss.',
@@ -5287,6 +5481,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: null,
+    releaseDate: null,
     start: null,
     description:
       'Talia and Chase have set up a Dog Shelter near Ice Mountain. Unfortunately, their operations are struggling to get off the ground, and they need your help.',
@@ -5303,6 +5498,7 @@ export const questDetails: WikiQuestDetails[] = [
     members: true,
     series: null,
     questPoints: null,
+    releaseDate: 'September 2026',
     start: null,
     description: null,
     requirements: ['Sailing level 40', 'Fishing level 30'],

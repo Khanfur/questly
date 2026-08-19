@@ -72,6 +72,8 @@ export interface WikiQuestDetails {
   /** e.g. "Dragonkin, #3", or null if the quest isn't part of a series. */
   series: string | null
   questPoints: number | null
+  /** Plain-text release date, e.g. "4 January 2001", with wiki markup stripped. */
+  releaseDate: string | null
   /** Plain-text summary of how to start the quest, with wiki markup stripped. */
   start: string | null
   /** Plain-text description/synopsis of the quest, with wiki markup stripped. */

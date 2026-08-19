@@ -32,11 +32,10 @@ const NOT_STARTED_QUEST_WITH_NOTE: Quest = {
 }
 
 describe('QuestListItem', () => {
-  it('renders the quest name, difficulty, requirements and points', () => {
+  it('renders the quest name, difficulty and points', () => {
     render(<QuestListItem quest={COMPLETED_QUEST} />)
     expect(screen.getByText("Cook's Assistant")).toBeInTheDocument()
     expect(screen.getByText('Novice')).toBeInTheDocument()
-    expect(screen.getByText(/Requires: None/)).toBeInTheDocument()
     expect(screen.getByText('1 QP')).toBeInTheDocument()
     expect(screen.getByText('Completed')).toBeInTheDocument()
   })
@@ -49,11 +48,6 @@ describe('QuestListItem', () => {
   it('does not render a progress bar for completed quests', () => {
     render(<QuestListItem quest={COMPLETED_QUEST} />)
     expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
-  })
-
-  it('renders the optional flavour note when provided', () => {
-    render(<QuestListItem quest={NOT_STARTED_QUEST_WITH_NOTE} />)
-    expect(screen.getByText(/Ten minutes, tops/)).toBeInTheDocument()
   })
 
   it('does not render the status icon as a button when onStatusChange is omitted', () => {

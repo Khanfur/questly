@@ -10,6 +10,7 @@ function detail(overrides: Partial<WikiQuestDetails>): WikiQuestDetails {
     members: false,
     series: null,
     questPoints: 1,
+    releaseDate: null,
     start: null,
     description: null,
     requirements: null,
@@ -99,7 +100,7 @@ describe('buildQuestLog', () => {
     expect(questLog.flatMap((t) => t.quests)).toHaveLength(0)
   })
 
-  it('copies the wiki detail fields (start, description, series, length, enemies, itemsRequired, wikiUrl) onto the quest', () => {
+  it('copies the wiki detail fields (start, description, series, length, enemies, itemsRequired, releaseDate, wikiUrl) onto the quest', () => {
     const questLog = buildQuestLog(
       [
         detail({
@@ -110,6 +111,7 @@ describe('buildQuestLog', () => {
           length: 'Very short',
           enemies: ['Cook'],
           itemsRequired: ['Bucket of milk', 'Egg', 'Pot of flour'],
+          releaseDate: '4 January 2001',
           wikiUrl: "https://oldschool.runescape.wiki/w/Cook's_Assistant",
         }),
       ],
@@ -123,6 +125,7 @@ describe('buildQuestLog', () => {
     expect(quest?.length).toBe('Very short')
     expect(quest?.enemies).toEqual(['Cook'])
     expect(quest?.itemsRequired).toEqual(['Bucket of milk', 'Egg', 'Pot of flour'])
+    expect(quest?.releaseDate).toBe('4 January 2001')
     expect(quest?.wikiUrl).toBe("https://oldschool.runescape.wiki/w/Cook's_Assistant")
   })
 })

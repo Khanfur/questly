@@ -69,5 +69,6 @@ function toQuest(
     itemsRequired: details.itemsRequired,
     wikiUrl: details.wikiUrl,
     requirements: details.requirements,
+    releaseDate: details.releaseDate,
   }
 }

@@ -65,6 +65,7 @@ const SAMPLE_QUEST_DETAILS: Quest = {
     "The Cook is in a panic! The Duke of Lumbridge is arriving shortly and he hasn't got a cake for him. Help the Cook gather the ingredients he needs before it's too late.",
   length: 'Very short',
   itemsRequired: ['Bucket of milk', 'Egg', 'Pot of flour'],
+  releaseDate: '4 January 2001',
   wikiUrl: "https://oldschool.runescape.wiki/w/Cook's_Assistant",
 }
 

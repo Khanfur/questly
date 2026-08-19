@@ -16,6 +16,7 @@ const FULL_QUEST: Quest = {
   length: 'Short',
   enemies: undefined,
   itemsRequired: ['Bucket of milk', 'Egg', 'Pot of flour'],
+  releaseDate: '4 January 2001',
   wikiUrl: 'https://oldschool.runescape.wiki/w/Cook%27s_Assistant',
 }
 
@@ -45,6 +46,14 @@ describe('QuestDetailModal', () => {
     expect(screen.getByRole('heading', { name: FULL_QUEST.name })).toBeInTheDocument()
     expect(screen.getAllByText('Novice').length).toBeGreaterThan(0)
     expect(screen.getByText(/Talk to the Cook/)).toBeInTheDocument()
+  })
+
+  it('renders the release date when present, and "Unknown" when absent', () => {
+    render(<QuestDetailModal quest={FULL_QUEST} open onOpenChange={jest.fn()} />)
+    expect(screen.getByText('4 January 2001')).toBeInTheDocument()
+
+    render(<QuestDetailModal quest={MINIMAL_QUEST} open onOpenChange={jest.fn()} />)
+    expect(screen.getAllByText('Unknown').length).toBeGreaterThan(0)
   })
 
   it('renders the description, items required and a wiki link when present', () => {

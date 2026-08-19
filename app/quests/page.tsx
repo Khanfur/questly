@@ -1,8 +1,9 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 
 import { questDetails } from '@/lib/data'
+import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
 import { buildQuestLog } from '@/lib/quest-log'
 import type { QuestStatus } from '@/lib/types/quest'
@@ -37,8 +38,16 @@ const FILTER_STATUS: Record<QuestFilter, QuestStatus | null> = {
 export default function QuestsPage() {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<QuestFilter>('All')
-  const [membersOnly, setMembersOnly] = useState(false)
+  const [f2pOnly, setF2pOnly] = useState(false)
   const { statusByQuest, setQuestStatus } = useQuestProgress()
+  const { accountDetails } = useAccountDetails()
+
+  // Default the filter to the player's actual account: F2P accounts can only
+  // play F2P quests, so pre-filter for them (still user-overridable below).
+  useEffect(() => {
+    /* eslint-disable-next-line react-hooks/set-state-in-effect */
+    setF2pOnly(accountDetails.membership === 'f2p')
+  }, [accountDetails.membership])
 
   const questLog = useMemo(() => buildQuestLog(questDetails, statusByQuest), [statusByQuest])
 
@@ -70,11 +79,11 @@ export default function QuestsPage() {
       quests: tier.quests.filter((quest) => {
         if (query && !quest.name.toLowerCase().includes(query)) return false
         if (requiredStatus && quest.status !== requiredStatus) return false
-        if (membersOnly && !quest.members) return false
+        if (f2pOnly && quest.members) return false
         return true
       }),
     }))
-  }, [questLog, search, statusFilter, membersOnly])
+  }, [questLog, search, statusFilter, f2pOnly])
 
   const hasResults = filteredQuestLog.some(({ quests }) => quests.length > 0)
 
@@ -122,11 +131,11 @@ export default function QuestsPage() {
           />
           <div className="flex items-center gap-2">
             <Checkbox
-              id="members-quests"
-              checked={membersOnly}
-              onCheckedChange={(checked) => setMembersOnly(checked)}
+              id="f2p-quests"
+              checked={f2pOnly}
+              onCheckedChange={(checked) => setF2pOnly(checked)}
             />
-            <Label htmlFor="members-quests">Members quests</Label>
+            <Label htmlFor="f2p-quests">Free-to-play only</Label>
           </div>
         </div>
       </div>

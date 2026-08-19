@@ -34,6 +34,8 @@ export type Quest = {
   itemsRequired?: string[] | null
   /** Full breakdown of `requires` as individual requirements, if available (for the detail modal). */
   requirements?: string[] | null
+  /** Plain-text release date, e.g. "4 January 2001", if available. */
+  releaseDate?: string | null
   /** Direct link to the quest's page on the OSRS Wiki. */
   wikiUrl?: string
 }

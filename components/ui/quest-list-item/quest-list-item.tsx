@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import type { Quest, QuestStatus } from '@/lib/types/quest'
 import { cn } from '@/lib/utils'
-import { ChevronRight, Sparkles } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 
 import { QuestDetailModal } from '@/components/ui/quest-detail-modal/quest-detail-modal'
 import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
@@ -38,9 +38,9 @@ interface QuestListItemProps {
   onStatusChange?: (status: QuestStatus) => void
 }
 
-/** A single row in the Quest Log: status, name, requirements, points and status label. */
+/** A single row in the Quest Log: status, name, difficulty, points and status label. */
 export function QuestListItem({ quest, className, onStatusChange }: QuestListItemProps) {
-  const { name, difficulty, status, questPoints, requires, note } = quest
+  const { name, difficulty, status, questPoints } = quest
   const [detailsOpen, setDetailsOpen] = useState(false)
 
   return (
@@ -66,15 +66,6 @@ export function QuestListItem({ quest, className, onStatusChange }: QuestListIte
               <span className="truncate font-heading font-bold text-foreground">{name}</span>
               <QuestDifficultyBadge difficulty={difficulty} />
             </div>
-            <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
-              Requires: {requires}
-              {note && (
-                <span className="ml-1.5 inline-flex items-center gap-1 text-primary">
-                  <Sparkles className="size-3" aria-hidden="true" />
-                  {note}
-                </span>
-              )}
-            </p>
           </div>
         </div>
 

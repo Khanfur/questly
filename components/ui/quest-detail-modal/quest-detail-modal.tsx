@@ -61,10 +61,10 @@ interface QuestDetailModalProps {
 
 /**
  * Quest details dialog, modelled on the in-game quest journal popup: how to
- * start, a stats grid (difficulty/length/storyline/quest points), then
- * requirements/items/enemies sections — each only rendered when we have that
- * data. Requirements aren't struck through like in-game, since we've no way
- * to know which of the player's *other* quests are already complete.
+ * start, a stats grid (difficulty/length/storyline/quest points/release date),
+ * then requirements/items/enemies sections — each only rendered when we have
+ * that data. Requirements aren't struck through like in-game, since we've no
+ * way to know which of the player's *other* quests are already complete.
  */
 export function QuestDetailModal({ quest, open, onOpenChange }: QuestDetailModalProps) {
   if (!quest) return null
@@ -90,6 +90,7 @@ export function QuestDetailModal({ quest, open, onOpenChange }: QuestDetailModal
           <QuestField label="Length">{quest.length ?? 'Unknown'}</QuestField>
           <QuestField label="Storyline">{quest.series ?? 'None'}</QuestField>
           <QuestField label="Quest Points">{quest.questPoints}</QuestField>
+          <QuestField label="Released">{quest.releaseDate ?? 'Unknown'}</QuestField>
         </div>
 
         {quest.description && (

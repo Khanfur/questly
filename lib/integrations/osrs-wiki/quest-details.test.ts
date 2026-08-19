@@ -94,6 +94,7 @@ describe('fetchQuestDetails', () => {
       members: false,
       series: null,
       questPoints: 1,
+      releaseDate: '4 January 2001',
       start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
       description: "The Lumbridge Castle cook is in a mess. It is the Duke's birthday.",
       requirements: null,
@@ -115,6 +116,7 @@ describe('fetchQuestDetails', () => {
     expect(details.members).toBe(true)
     expect(details.series).toBe('Dragonkin, #3')
     expect(details.questPoints).toBe(3)
+    expect(details.releaseDate).toBeNull()
     expect(details.start).toBe("Talk to Alec Kincade outside the Myths' Guild.")
     expect(details.requirements).toContain("Completion of Legends' Quest")
     expect(details.requirements).toContain('200 Quest Points')
@@ -131,6 +133,42 @@ describe('fetchQuestDetails', () => {
   it('throws WikiError on a failed request', async () => {
     mockFetchOnce({}, false, 500)
     await expect(fetchQuestDetails("Cook's Assistant")).rejects.toThrow(WikiError)
+  })
+})
+
+// Excerpt mirroring quests whose {{Quest rewards}} (and often
+// {{Infobox Quest}}) fields are all packed onto a single line
+// (e.g. Dragon Slayer I, Romeo & Juliet) rather than one per line — a
+// regression check for a parser bug where such single-line templates lost
+// every field after the first because field boundaries were only detected
+// at newlines.
+const SINGLE_LINE_FIELDS_WIKITEXT = `{{Infobox Quest
+|name = Some Quest
+|release = [[4 January]] [[2001]]
+|members = No
+}}
+==Details==
+{{Quest details
+|start = Talk to someone.
+|difficulty = Novice
+}}
+==Rewards==
+{{Quest rewards
+|image=[[File:Reward scroll.png|centre]]|name=Some Quest|qp=5|rewards=
+}}
+`
+
+describe('single-line template fields (regression)', () => {
+  it('parses fields correctly when packed onto one line, without swallowing subsequent fields', async () => {
+    mockFetchOnce({
+      parse: { title: 'Some Quest', pageid: 1, wikitext: SINGLE_LINE_FIELDS_WIKITEXT },
+    })
+
+    const details = await fetchQuestDetails('Some Quest')
+
+    expect(details.questPoints).toBe(5)
+    expect(details.releaseDate).toBe('4 January 2001')
+    expect(details.members).toBe(false)
   })
 })
 

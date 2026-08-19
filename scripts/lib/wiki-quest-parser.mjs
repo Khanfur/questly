@@ -43,17 +43,51 @@ export function extractTemplateBlock(wikitext, templateName) {
   return null
 }
 
+/**
+ * Splits template contents on top-level `|` characters, i.e. pipes that
+ * aren't nested inside a `{{template}}` or `[[link]]` — those pipes
+ * separate the template's *own* parameters (e.g. `[[File:x.png|centre]]`,
+ * `{{SCP|Agility|10|link=yes}}`), not this template's fields. MediaWiki
+ * templates are frequently written as a single line
+ * (`{{Quest rewards|name=...|image=...|qp=5|rewards=...}}`), so field
+ * boundaries can't be reliably found with a newline-anchored regex.
+ */
+function splitTopLevelPipes(inner) {
+  const parts = []
+  let depth = 0
+  let current = ''
+
+  for (let i = 0; i < inner.length; i++) {
+    const two = inner.slice(i, i + 2)
+    if (two === '{{' || two === '[[') {
+      depth++
+      current += two
+      i++
+    } else if (two === '}}' || two === ']]') {
+      depth = Math.max(0, depth - 1)
+      current += two
+      i++
+    } else if (inner[i] === '|' && depth === 0) {
+      parts.push(current)
+      current = ''
+    } else {
+      current += inner[i]
+    }
+  }
+  parts.push(current)
+  return parts
+}
+
 /** Parses top-level `|field = value` pairs out of a template block extracted by `extractTemplateBlock`. */
 export function parseTemplateFields(block) {
   const fields = {}
   const inner = block.replace(/^\{\{\s*[^\n|]+/, '').replace(/\}\}$/, '')
 
-  // The value only eats spaces/tabs after "=" (not `\s*`, which would also
-  // consume the newline before an empty field's value and swallow the next
-  // `|field = ...` entirely, since the lookahead below requires that newline).
-  const fieldPattern = /\|\s*([A-Za-z0-9_]+)\s*=[ \t]*([\s\S]*?)(?=\n\s*\|[A-Za-z0-9_]+\s*=|$)/g
-  let match
-  while ((match = fieldPattern.exec(inner))) {
+  for (const part of splitTopLevelPipes(inner)) {
+    // The value only eats spaces/tabs after "=" (not `\s*`, which would also
+    // consume the newline before an otherwise-empty field's value).
+    const match = /^\s*([A-Za-z0-9_]+)\s*=[ \t]*([\s\S]*)$/.exec(part)
+    if (!match) continue
     fields[match[1]] = match[2].trim()
   }
   return fields
@@ -145,9 +179,10 @@ export function buildWikiUrl(title) {
 
 /**
  * Parses a quest page's wikitext into a `WikiQuestDetails`-shaped plain
- * object (difficulty, length, members, series, quest points, start,
- * description, requirements, enemies, items required, wiki link), by scraping the
- * `{{Infobox Quest}}`, `{{Quest details}}`, and `{{Quest rewards}}` templates.
+ * object (difficulty, length, members, series, quest points, release date,
+ * start, description, requirements, enemies, items required, wiki link), by
+ * scraping the `{{Infobox Quest}}`, `{{Quest details}}`, and
+ * `{{Quest rewards}}` templates.
  */
 export function parseQuestDetails(pageId, title, wikitext) {
   const infobox = extractTemplateBlock(wikitext, 'Infobox Quest')
@@ -171,6 +206,7 @@ export function parseQuestDetails(pageId, title, wikitext) {
     members: infoboxFields.members?.toLowerCase() === 'yes',
     series: series ? stripWikitext(series) : null,
     questPoints: questPoints !== null && !Number.isNaN(questPoints) ? questPoints : null,
+    releaseDate: infoboxFields.release ? stripWikitext(infoboxFields.release) : null,
     start: detailsFields.start ? stripWikitext(detailsFields.start) : null,
     description: detailsFields.description ? stripWikitext(detailsFields.description) : null,
     requirements: detailsFields.requirements ? parseRequirements(detailsFields.requirements) : null,

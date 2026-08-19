@@ -50,13 +50,35 @@ describe('QuestsPage', () => {
     expect(screen.queryByText('Dragon Slayer II')).not.toBeInTheDocument()
   })
 
-  it('shows only members quests when the members-quests checkbox is checked', () => {
+  it('shows only free-to-play quests when the free-to-play checkbox is checked', () => {
     render(<QuestsPage />)
-    fireEvent.click(screen.getByRole('checkbox', { name: 'Members quests' }))
-    // Cook's Assistant is F2P and should be filtered out.
-    expect(screen.queryByText("Cook's Assistant")).not.toBeInTheDocument()
-    // Dragon Slayer II is members-only and should still be shown.
-    expect(screen.getAllByText('Dragon Slayer II').length).toBeGreaterThan(0)
+    fireEvent.click(screen.getByRole('checkbox', { name: 'Free-to-play only' }))
+    // Cook's Assistant is F2P and should still be shown.
+    expect(screen.getByText("Cook's Assistant")).toBeInTheDocument()
+    // Dragon Slayer II is members-only and should be filtered out.
+    expect(screen.queryByText('Dragon Slayer II')).not.toBeInTheDocument()
+  })
+
+  it('automatically checks free-to-play only for an F2P account', () => {
+    window.localStorage.setItem(
+      'questly:account-details',
+      JSON.stringify({ username: '', membership: 'f2p', accountType: 'main' })
+    )
+    render(<QuestsPage />)
+
+    expect(screen.getByRole('checkbox', { name: 'Free-to-play only' })).toBeChecked()
+    expect(screen.getByText("Cook's Assistant")).toBeInTheDocument()
+    expect(screen.queryByText('Dragon Slayer II')).not.toBeInTheDocument()
+  })
+
+  it('leaves free-to-play only unchecked for a members account', () => {
+    window.localStorage.setItem(
+      'questly:account-details',
+      JSON.stringify({ username: '', membership: 'member', accountType: 'main' })
+    )
+    render(<QuestsPage />)
+
+    expect(screen.getByRole('checkbox', { name: 'Free-to-play only' })).not.toBeChecked()
   })
 
   it('shows an empty state when no quests match the filters', () => {
