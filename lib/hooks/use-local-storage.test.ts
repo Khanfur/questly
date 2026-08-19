@@ -11,6 +11,11 @@ describe('useLocalStorage', () => {
     expect(result.current[0]).toBe('default')
   })
 
+  it('reports isHydrated as true once the initial storage read has run', () => {
+    const { result } = renderHook(() => useLocalStorage('test-key', 'default'))
+    expect(result.current[2]).toBe(true)
+  })
+
   it('reads a previously stored value on mount', () => {
     window.localStorage.setItem('test-key', JSON.stringify('stored'))
     const { result } = renderHook(() => useLocalStorage('test-key', 'default'))

@@ -1,6 +1,11 @@
 'use client'
 
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react'
+
+// `useLayoutEffect` warns when it runs during SSR (it has no effect there),
+// so fall back to `useEffect` on the server and only use the layout variant
+// in the browser, where it fires synchronously before paint.
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect
 
 /**
  * Persists state to `localStorage`, keeping the in-memory value in sync
@@ -8,15 +13,24 @@ import { useCallback, useEffect, useState } from 'react'
  *
  * SSR-safe: reads/writes are guarded so this can be imported in code that
  * also runs on the server (the initial render always returns
- * `defaultValue`, then syncs to the stored value once mounted).
+ * `defaultValue`). The stored value is read back in a layout effect (rather
+ * than a regular effect) so it's applied before the browser paints.
+ *
+ * Note this only prevents flashes caused by React's own render timing. Pages
+ * using this hook are commonly prerendered/static, so the very first paint
+ * (before the JS bundle has hydrated) still shows `defaultValue` baked into
+ * the HTML. The returned `isHydrated` flag lets callers avoid displaying
+ * that placeholder as if it were real data — e.g. by rendering a skeleton
+ * until `isHydrated` is `true`.
  */
 export function useLocalStorage<T>(
   key: string,
   defaultValue: T
-): [T, (value: T | ((previous: T) => T)) => void] {
+): [T, (value: T | ((previous: T) => T)) => void, boolean] {
   const [value, setValue] = useState<T>(defaultValue)
+  const [isHydrated, setIsHydrated] = useState(false)
 
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
     if (typeof window === 'undefined') {
       return
     }
@@ -24,14 +38,12 @@ export function useLocalStorage<T>(
     try {
       const stored = window.localStorage.getItem(key)
       if (stored !== null) {
-        // Resetting to the persisted value is intentionally synchronous here
-        // — there's no async work to defer it into.
-        // eslint-disable-next-line react-hooks/set-state-in-effect
         setValue(JSON.parse(stored) as T)
       }
     } catch {
       // Ignore malformed/inaccessible storage and fall back to defaultValue.
     }
+    setIsHydrated(true)
 
     const handleStorage = (event: StorageEvent) => {
       if (event.key !== key) return
@@ -45,7 +57,6 @@ export function useLocalStorage<T>(
 
     window.addEventListener('storage', handleStorage)
     return () => window.removeEventListener('storage', handleStorage)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key])
 
   const setStoredValue = useCallback(
@@ -67,5 +78,5 @@ export function useLocalStorage<T>(
     [key]
   )
 
-  return [value, setStoredValue]
+  return [value, setStoredValue, isHydrated]
 }
