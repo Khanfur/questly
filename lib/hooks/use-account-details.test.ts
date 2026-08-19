@@ -7,7 +7,7 @@ describe('useAccountDetails', () => {
     window.localStorage.clear()
   })
 
-  it('defaults to an empty username, member and normal account', () => {
+  it('defaults to an empty username, member and main account', () => {
     const { result } = renderHook(() => useAccountDetails())
     expect(result.current.accountDetails).toEqual(DEFAULT_ACCOUNT_DETAILS)
   })

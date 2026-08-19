@@ -12,7 +12,7 @@ describe('HeaderAccountDetails', () => {
     render(<HeaderAccountDetails />)
     expect(screen.getByLabelText('RuneScape username')).toHaveValue('')
     expect(screen.getByRole('radio', { name: 'Member' })).toBeChecked()
-    expect(screen.getByRole('radio', { name: 'Normal Account' })).toBeChecked()
+    expect(screen.getByRole('radio', { name: 'Main' })).toBeChecked()
   })
 
   it('persists the username to localStorage as the user types', async () => {

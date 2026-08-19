@@ -40,7 +40,7 @@ export function HeaderAccountDetails() {
           </div>
           <div className="flex items-center gap-2">
             <RadioGroupItem value="f2p" id="sg-radio-f2p" />
-            <Label htmlFor="sg-radio-f2p">Free-to-play</Label>
+            <Label htmlFor="sg-radio-f2p">Free to play</Label>
           </div>
         </RadioGroup>
       </div>
