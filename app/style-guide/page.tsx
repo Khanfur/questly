@@ -1,6 +1,7 @@
 'use client'
 
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
+import { ErrorMessage } from '@/components/ui/error-message/error-message'
 import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
 import { Section } from '@/components/ui/section/section'
@@ -179,7 +180,7 @@ export default function StyleGuide() {
             aria-invalid
             className="border-destructive"
           />
-          <span className="error-message">Character name is required.</span>
+          <ErrorMessage message="Character name is required." />
         </Swatch>
 
         <Swatch label="Input" className="flex flex-col gap-1.5">
