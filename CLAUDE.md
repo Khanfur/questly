@@ -8,8 +8,12 @@ noteworthy-packages table.
 
 ## Structure
 
-- `app/` — Next.js App Router pages. `app/page.tsx` is the home page; `app/style-guide/` hosts the
-  internal component style guide (visit `/style-guide` while `npm run dev` is running).
+- `app/` — Next.js App Router pages. `app/page.tsx` is the home page — it renders the fixture skill
+  list/quests/stats but overlays real values from `useAccountDetails()`'s `hiscores` when present
+  (skill levels, `Total Level`, and a computed `Combat Level` via `calculateCombatLevel`), showing a
+  skeleton (`loading` prop on `SkillCard`/`StatCard`) until `hiscoresHydrated` is `true` to avoid
+  flashing placeholder data. `app/style-guide/` hosts the internal component style guide (visit
+  `/style-guide` while `npm run dev` is running).
 - `components/layout/` — structural chrome: `container`, `header` (incl. a settings drawer, see
   `useSettingsDrawer`), `footer`.
 - `components/theme/` — dark/light theme provider + toggle (`next-themes`).
@@ -19,9 +23,21 @@ noteworthy-packages table.
   these rather than hand-rolling new primitives.
 - `lib/utils.ts` — shared helpers, notably `cn()` (clsx + tailwind-merge) for conditional class
   names, and `isLocalhost()`.
-- `lib/hooks/` — reusable client-side hooks, e.g. `useLocalStorage` (generic, JSON-serialized,
-  SSR-safe state synced to `window.localStorage`) and `useAccountDetails` (persists the user's OSRS
-  account details — username, membership, account type — via `useLocalStorage`).
+- `lib/hooks/` — reusable client-side hooks:
+  - `useLocalStorage` — generic, JSON-serialized, SSR-safe state synced to `window.localStorage`.
+    Returns `[value, setValue, isHydrated]`. The initial read happens in a layout effect (before
+    paint) to avoid a same-render flash, and `isHydrated` lets callers show a loading/skeleton state
+    until it's `true` — pages using it are commonly prerendered/static, so the very first paint
+    (before hydration) still shows `defaultValue`. Writes also broadcast a custom
+    `questly:local-storage-change` window event (in addition to the native cross-tab `storage`
+    event) so multiple components reading the _same_ key in the _same_ tab stay in sync — e.g. the
+    header's account-details form and the home page both read the `questly:hiscores` key
+    independently. That side effect is dispatched outside the `setState` call (not from within a
+    `setState` updater) to avoid React's "Cannot update a component while rendering a different
+    component" warning.
+  - `useAccountDetails` — persists the user's OSRS account details (username, membership, account
+    type) and fetched `hiscores` via `useLocalStorage`, exposing `hiscoresHydrated` alongside
+    `hiscores`.
 - `lib/types/` — shared TypeScript types and interfaces. Organized by domain: `skill.ts`, `quest.ts`,
   `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, `account.ts`, etc.
 - `lib/fixtures/` — dummy data for development and Storybook. Organized by domain: `skills.ts`,
@@ -29,7 +45,9 @@ noteworthy-packages table.
 - `lib/integrations/` — external service integration code, one folder per service, each split into
   `client.ts` (fetch logic), per-feature files (e.g. `hook.ts`/`search.ts`/`summary.ts`/`quests.ts`)
   exposing a `fetchX`/`useX` pair, and an `index.ts` barrel re-exporting the public API + types:
-  - `osrs-hiscores/` — OSRS Hiscores (Lite) CSV endpoint; `fetchHiscores`/`useHiscores`.
+  - `osrs-hiscores/` — OSRS Hiscores (Lite) CSV endpoint; `fetchHiscores`/`useHiscores`, plus
+    `calculateCombatLevel(skills)` (`combat-level.ts`) implementing the official
+    [combat level formula](https://oldschool.runescape.wiki/w/Combat_level).
   - `osrs-wiki/` — OSRS Wiki (MediaWiki) API; `searchWiki`/`useWikiSearch`,
     `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList`.
     Both integrations default to routing through same-origin proxy routes under `app/api/` (to dodge
@@ -47,6 +65,9 @@ noteworthy-packages table.
 - Imports are auto-sorted by `@trivago/prettier-plugin-sort-imports` — run `npm run format` rather
   than reordering imports by hand.
 - Path alias `@/*` maps to the repo root (see `tsconfig.json`), e.g. `@/components/...`, `@/lib/...`.
+- Components that render data which may briefly be unknown on mount (e.g. hiscores-derived values)
+  accept a `loading?: boolean` prop and render a `bg-muted animate-pulse` skeleton in place of the
+  real content — see `SkillCard` and `StatCard`.
 
 ## Commands
 

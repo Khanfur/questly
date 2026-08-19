@@ -23,6 +23,7 @@ describe('useAccountDetails', () => {
     const { result } = renderHook(() => useAccountDetails())
     expect(result.current.accountDetails).toEqual(DEFAULT_ACCOUNT_DETAILS)
     expect(result.current.hiscores).toBeNull()
+    expect(result.current.hiscoresHydrated).toBe(true)
     expect(result.current.loading).toBe(false)
     expect(result.current.error).toBeNull()
   })

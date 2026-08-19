@@ -24,4 +24,10 @@ describe('SkillCard', () => {
     )
     expect(container.firstChild).toHaveClass('stat-card', 'custom-class')
   })
+
+  it('renders a skeleton placeholder instead of the level when loading', () => {
+    render(<SkillCard skill={{ name: 'Attack', level: 99, icon: 'attack' }} loading />)
+    expect(screen.queryByText('99')).not.toBeInTheDocument()
+    expect(screen.queryByRole('img', { name: 'Attack' })).not.toBeInTheDocument()
+  })
 })

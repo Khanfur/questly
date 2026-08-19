@@ -49,10 +49,10 @@ Questly talks to two external OSRS data sources, both wrapped in `lib/integratio
 through same-origin API routes under `app/api/` so requests work from the browser without CORS
 issues:
 
-| Integration     | Source                                                       | Proxy route             | Exposes                                                                                             |
-| --------------- | ------------------------------------------------------------ | ----------------------- | --------------------------------------------------------------------------------------------------- |
-| `osrs-hiscores` | [OSRS HiScores](https://oldschool.runescape.wiki/w/Hiscores) | `app/api/osrs-hiscores` | `fetchHiscores` / `useHiscores` — a player's skill levels & activity ranks                          |
-| `osrs-wiki`     | [OSRS Wiki API](https://oldschool.runescape.wiki/api.php)    | `app/api/osrs-wiki`     | `searchWiki`/`useWikiSearch`, `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList` |
+| Integration     | Source                                                       | Proxy route             | Exposes                                                                                                                                                                                        |
+| --------------- | ------------------------------------------------------------ | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `osrs-hiscores` | [OSRS HiScores](https://oldschool.runescape.wiki/w/Hiscores) | `app/api/osrs-hiscores` | `fetchHiscores` / `useHiscores` — a player's skill levels & activity ranks; `calculateCombatLevel` — derives [combat level](https://oldschool.runescape.wiki/w/Combat_level) from those skills |
+| `osrs-wiki`     | [OSRS Wiki API](https://oldschool.runescape.wiki/api.php)    | `app/api/osrs-wiki`     | `searchWiki`/`useWikiSearch`, `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList`                                                                                            |
 
 Both modules accept a `baseUrl` option to point at a different proxy (e.g. in tests), but default to
 the routes above.
