@@ -20,10 +20,20 @@ test.describe('Style guide', () => {
       'Progress',
       'Form Controls',
       'Chathead',
+      'Stat card',
+      'Quest Difficulty Badge',
+      'Quest Status Icon',
+      'Quest List Item',
+      'Quest Tier Group',
+      'Diary Tier Card',
+      'Diary Region Card',
+      'Filter Pill Group',
+      'View Toggle',
+      'Page Hero',
     ]
 
     for (const title of sectionTitles) {
-      await expect(page.getByRole('heading', { name: title })).toBeVisible()
+      await expect(page.getByRole('heading', { name: title, exact: true })).toBeVisible()
     }
   })
 
@@ -39,6 +49,25 @@ test.describe('Style guide', () => {
     await expect(page.getByText("Cook's Assistant — completed")).toBeVisible()
     await expect(page.getByText('Dragon Slayer II — in-progress')).toBeVisible()
     await expect(page.getByText('Song of the Elves — not-started')).toBeVisible()
+  })
+
+  test('renders quest list items covering every status', async ({ page }) => {
+    await expect(page.getByText('Monkey Madness I, Client of Kourend')).toBeVisible()
+    await expect(page.getByText('A Taste of Hope, Vampyre Slayer')).toBeVisible()
+    await expect(page.getByText('Level 200 Quest Points, several skills 50-75')).toBeVisible()
+    await expect(page.getByText(/Last one on the list\. No pressure\./)).toBeVisible()
+  })
+
+  test('renders diary tier cards covering every status', async ({ page }) => {
+    await expect(page.getByText('5 / 5 tasks')).toBeVisible()
+    await expect(page.getByText('8 / 12 tasks')).toBeVisible()
+    await expect(page.getByText('0 / 9 tasks')).toBeVisible()
+    await expect(page.getByText('0 / 7 tasks')).toBeVisible()
+  })
+
+  test('highlights the matching item in the view toggle', async ({ page }) => {
+    const toggles = page.getByRole('link', { name: 'Quest Log' })
+    await expect(toggles.first()).toHaveAttribute('aria-current', 'page')
   })
 
   test('allows interacting with form controls', async ({ page }) => {

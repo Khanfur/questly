@@ -12,13 +12,17 @@ noteworthy-packages table.
   list/quests/stats but overlays real values from `useAccountDetails()`'s `hiscores` when present
   (skill levels, `Total Level`, and a computed `Combat Level` via `calculateCombatLevel`), showing a
   skeleton (`loading` prop on `SkillCard`/`StatCard`) until `hiscoresHydrated` is `true` to avoid
-  flashing placeholder data. `app/style-guide/` hosts the internal component style guide (visit
-  `/style-guide` while `npm run dev` is running).
+  flashing placeholder data. `app/quests/` is the Quest Log page and `app/quests/diaries/` is the
+  Achievement Diaries page — both are currently static (fixture-driven, no filtering wired up yet)
+  and share the `PageHero`/`ViewToggle` layout. `app/style-guide/` hosts the internal component style
+  guide (visit `/style-guide` while `npm run dev` is running).
 - `components/layout/` — structural chrome: `container`, `header` (incl. a settings drawer, see
   `useSettingsDrawer`), `footer`.
 - `components/theme/` — dark/light theme provider + toggle (`next-themes`).
 - `components/ui/` — feature/presentational components, one folder per component
-  (e.g. `ask-the-sage`, `chat-head`, `quest-progress`, `skill-card`, `stat-card`, `section-window`).
+  (e.g. `ask-the-sage`, `chat-head`, `quest-progress`, `skill-card`, `stat-card`, `section-window`,
+  `page-hero`, `view-toggle`, `filter-pill-group`, `quest-difficulty-badge`, `quest-list-item`
+  (incl. `quest-status-icon`), `quest-tier-group`, `diary-tier-card`, `diary-region-card`).
   `components/ui/shadcn/` holds shadcn/ui-generated primitives (`button`, etc.) — prefer composing
   these rather than hand-rolling new primitives.
 - `lib/utils.ts` — shared helpers, notably `cn()` (clsx + tailwind-merge) for conditional class
@@ -39,9 +43,10 @@ noteworthy-packages table.
     type) and fetched `hiscores` via `useLocalStorage`, exposing `hiscoresHydrated` alongside
     `hiscores`.
 - `lib/types/` — shared TypeScript types and interfaces. Organized by domain: `skill.ts`, `quest.ts`,
-  `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, `account.ts`, etc.
+  `diary.ts`, `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, `account.ts`, etc.
 - `lib/fixtures/` — dummy data for development and Storybook. Organized by domain: `skills.ts`,
-  `quests.ts`, `sage-suggestions.ts`, `skill-names.ts`, `activity-names.ts`, etc.
+  `quests.ts`, `quest-log.ts`, `diary-regions.ts`, `sage-suggestions.ts`, `skill-names.ts`,
+  `activity-names.ts`, etc.
 - `lib/integrations/` — external service integration code, one folder per service, each split into
   `client.ts` (fetch logic), per-feature files (e.g. `hook.ts`/`search.ts`/`summary.ts`/`quests.ts`)
   exposing a `fetchX`/`useX` pair, and an `index.ts` barrel re-exporting the public API + types:
@@ -53,6 +58,8 @@ noteworthy-packages table.
     Both integrations default to routing through same-origin proxy routes under `app/api/` (to dodge
     CORS/User-Agent restrictions) but accept a `baseUrl` override for testing or self-hosted proxies.
 - `e2e/` — Playwright end-to-end specs (`home.spec.ts`, `navigation.spec.ts`, `style-guide.spec.ts`).
+  `style-guide.spec.ts` asserts every documented style-guide section renders — add a new section
+  title to its `sectionTitles` list whenever a component is added to the style guide.
 - `proxy.ts` — request proxy/middleware-adjacent logic (uses `isLocalhost`).
 
 ## Conventions
@@ -68,6 +75,9 @@ noteworthy-packages table.
 - Components that render data which may briefly be unknown on mount (e.g. hiscores-derived values)
   accept a `loading?: boolean` prop and render a `bg-muted animate-pulse` skeleton in place of the
   real content — see `SkillCard` and `StatCard`.
+- New reusable `components/ui/` components should be showcased in `app/style-guide/page.tsx` (wrap
+  each in a `<Section title="...">`) and the section title added to `sectionTitles` in
+  `e2e/style-guide.spec.ts` so the "renders every documented section" test stays accurate.
 
 ## Commands
 

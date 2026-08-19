@@ -1,8 +1,18 @@
 'use client'
 
+import { diaryRegions, questLog } from '@/lib/fixtures'
+
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
+import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'
+import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'
 import { ErrorMessage } from '@/components/ui/error-message/error-message'
+import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'
+import { PageHero } from '@/components/ui/page-hero/page-hero'
+import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
+import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'
+import { QuestStatusIcon } from '@/components/ui/quest-list-item/quest-status-icon'
 import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
+import { QuestTierGroup } from '@/components/ui/quest-tier-group/quest-tier-group'
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
 import { Section } from '@/components/ui/section/section'
 import { Badge } from '@/components/ui/shadcn/badge'
@@ -32,6 +42,7 @@ import { Switch } from '@/components/ui/shadcn/switch'
 import { Textarea } from '@/components/ui/shadcn/textarea'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
+import { ViewToggle } from '@/components/ui/view-toggle/view-toggle'
 
 import { ThemeColorPalette } from './_components/color-swatch'
 import { GridExample } from './_components/grid-example'
@@ -258,7 +269,104 @@ export default function StyleGuide() {
           <StatCard label="Combat Level" stat={112} />
           <StatCard label="Total Level" stat={1543} />
           <StatCard label="Quest Points" stat={284} secondaryStat={293} />
+          <StatCard label="In Progress" stat={1} caption="Dragon Slayer II" />
         </StatCardGroup>
+      </Section>
+
+      <Section title="Quest Difficulty Badge">
+        <QuestDifficultyBadge difficulty="novice" />
+        <QuestDifficultyBadge difficulty="intermediate" />
+        <QuestDifficultyBadge difficulty="experienced" />
+        <QuestDifficultyBadge difficulty="master" />
+        <QuestDifficultyBadge difficulty="grandmaster" />
+      </Section>
+
+      <Section title="Quest Status Icon" className="items-center gap-4">
+        <QuestStatusIcon status="completed" />
+        <QuestStatusIcon status="in-progress" />
+        <QuestStatusIcon status="not-started" />
+      </Section>
+
+      <Section
+        title="Quest List Item"
+        className="w-full max-w-2xl flex-col items-stretch gap-0 rounded-sm border border-border bg-card px-4"
+      >
+        {/* Grandmaster tier conveniently covers every status + the optional flavour note. */}
+        {questLog
+          .find((tier) => tier.difficulty === 'grandmaster')
+          ?.quests.map((quest) => (
+            <QuestListItem key={quest.name} quest={quest} />
+          ))}
+      </Section>
+
+      <Section title="Quest Tier Group" className="w-full max-w-2xl flex-col items-stretch gap-4">
+        <QuestTierGroup tier={questLog[0]} />
+      </Section>
+
+      <Section title="Diary Tier Card" className="items-stretch gap-3">
+        <div className="w-40">
+          <DiaryTierCard
+            tier={{ tier: 'easy', status: 'complete', completedTasks: 5, totalTasks: 5 }}
+          />
+        </div>
+        <div className="w-40">
+          <DiaryTierCard
+            tier={{ tier: 'medium', status: 'in-progress', completedTasks: 8, totalTasks: 12 }}
+          />
+        </div>
+        <div className="w-40">
+          <DiaryTierCard
+            tier={{ tier: 'hard', status: 'not-started', completedTasks: 0, totalTasks: 9 }}
+          />
+        </div>
+        <div className="w-40">
+          <DiaryTierCard
+            tier={{ tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 7 }}
+          />
+        </div>
+      </Section>
+
+      <Section title="Diary Region Card" className="w-full max-w-2xl flex-col items-stretch gap-4">
+        <DiaryRegionCard region={diaryRegions[0]} />
+      </Section>
+
+      <Section title="Filter Pill Group">
+        <FilterPillGroup
+          items={['All', 'Not started', 'In progress', 'Completed']}
+          activeItem="All"
+        />
+      </Section>
+
+      <Section title="View Toggle">
+        <ViewToggle
+          items={[
+            { href: '/style-guide', label: 'Quest Log' },
+            { href: '/style-guide#achievement-diaries', label: 'Achievement Diaries' },
+          ]}
+        />
+      </Section>
+
+      <Section title="Page Hero" className="w-full flex-col items-stretch gap-4">
+        <PageHero
+          eyebrow="Quest Log"
+          titleLines={['24 quests.', "You've earned the right to be smug about 17."]}
+          description="Every quest in Gielinor, sorted by what's left to prove."
+          actions={
+            <ViewToggle
+              items={[
+                { href: '/style-guide', label: 'Quest Log' },
+                { href: '/style-guide#achievement-diaries', label: 'Achievement Diaries' },
+              ]}
+            />
+          }
+          stats={
+            <StatCardGroup className="sm:[&>*]:flex-1">
+              <StatCard label="Quest Points" stat={37} secondaryStat={51} />
+              <StatCard label="Quests Completed" stat={17} secondaryStat={24} />
+              <StatCard label="In Progress" stat={1} caption="Dragon Slayer II" />
+            </StatCardGroup>
+          }
+        />
       </Section>
     </>
   )
