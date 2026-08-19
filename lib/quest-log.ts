@@ -51,7 +51,8 @@ export function buildQuestLog(
       )
       .map((details) =>
         toQuest(details, tierDifficulty, statusByQuest[details.title] ?? 'not-started')
-      ),
+      )
+      .sort((a, b) => a.name.localeCompare(b.name)),
   }))
 }
 
@@ -101,6 +102,11 @@ export function buildMiniquestLog(
     .filter((details) => !details.title.includes('/'))
     .filter((details) => details.released)
     .map((details) => toMiniquest(details, statusByMiniquest[details.title] ?? 'not-started'))
+    .sort((a, b) => {
+      const aOrder = a.difficulty ? DIFFICULTY_ORDER.indexOf(a.difficulty) : DIFFICULTY_ORDER.length
+      const bOrder = b.difficulty ? DIFFICULTY_ORDER.indexOf(b.difficulty) : DIFFICULTY_ORDER.length
+      return aOrder !== bOrder ? aOrder - bOrder : a.name.localeCompare(b.name)
+    })
 }
 
 function toMiniquest(details: WikiMiniquestDetails, status: QuestStatus): Miniquest {
