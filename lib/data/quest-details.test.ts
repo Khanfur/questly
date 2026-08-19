@@ -10,6 +10,8 @@ describe('questDetails', () => {
       expect(typeof quest.pageId).toBe('number')
       expect(typeof quest.title).toBe('string')
       expect(typeof quest.members).toBe('boolean')
+      expect(typeof quest.released).toBe('boolean')
+      expect(quest.releaseDate === null || typeof quest.releaseDate === 'string').toBe(true)
       expect(typeof quest.wikiUrl).toBe('string')
       expect(quest.wikiUrl).toMatch(/^https:\/\/oldschool\.runescape\.wiki\/w\//)
       expect(

@@ -101,6 +101,19 @@ describe('buildQuestLog', () => {
     expect(questLog.flatMap((t) => t.quests)).toHaveLength(0)
   })
 
+  it('excludes quests that have not been released yet, and their quest points', () => {
+    const questLog = buildQuestLog(
+      [
+        detail({ title: "Cook's Assistant", released: true }),
+        detail({ pageId: 2, title: 'An Upcoming Quest', released: false, questPoints: 5 }),
+      ],
+      {}
+    )
+    const quests = questLog.flatMap((t) => t.quests)
+    expect(quests.map((q) => q.name)).toEqual(["Cook's Assistant"])
+    expect(quests.reduce((sum, q) => sum + q.questPoints, 0)).toBe(1)
+  })
+
   it('copies the wiki detail fields (start, description, series, length, enemies, itemsRequired, releaseDate, wikiUrl) onto the quest', () => {
     const questLog = buildQuestLog(
       [

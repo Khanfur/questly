@@ -3,6 +3,7 @@
  */
 import {
   extractTemplateBlock,
+  isQuestReleased,
   parseBulletList,
   parseQuestDetails,
   parseRequirements,
@@ -144,6 +145,38 @@ describe('parseRequirements', () => {
   })
 })
 
+describe('isQuestReleased', () => {
+  it('is false for a blank release date', () => {
+    expect(isQuestReleased('')).toBe(false)
+    expect(isQuestReleased(null)).toBe(false)
+  })
+
+  it('is true for a date in a past year', () => {
+    expect(isQuestReleased('4 January 2001')).toBe(true)
+  })
+
+  it('is false for a date in a future year', () => {
+    const now = new Date('2026-08-19')
+    expect(isQuestReleased('4 January 2030', now)).toBe(false)
+  })
+
+  it('is false for a future month within the current year', () => {
+    const now = new Date('2026-08-19')
+    expect(isQuestReleased('September 2026', now)).toBe(false)
+  })
+
+  it('is true for a past or current month within the current year', () => {
+    const now = new Date('2026-08-19')
+    expect(isQuestReleased('4 January 2026', now)).toBe(true)
+    expect(isQuestReleased('August 2026', now)).toBe(true)
+  })
+
+  it('assumes released when the current year is given with no month', () => {
+    const now = new Date('2026-08-19')
+    expect(isQuestReleased('2026', now)).toBe(true)
+  })
+})
+
 describe('parseQuestDetails', () => {
   it('parses difficulty, length, members, series, quest points, release date, description, enemies, and items', () => {
     const details = parseQuestDetails(2088, "Cook's Assistant", COOKS_ASSISTANT_WIKITEXT)
@@ -157,6 +190,7 @@ describe('parseQuestDetails', () => {
       series: null,
       questPoints: 1,
       releaseDate: '4 January 2001',
+      released: true,
       start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
       description: 'The Lumbridge Castle cook is in a mess.',
       requirements: null,
@@ -178,6 +212,7 @@ describe('parseQuestDetails', () => {
       series: null,
       questPoints: null,
       releaseDate: null,
+      released: false,
       start: null,
       description: null,
       requirements: null,

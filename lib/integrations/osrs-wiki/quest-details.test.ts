@@ -38,6 +38,7 @@ const COOKS_ASSISTANT_WIKITEXT = `{{Has quick guide|speedrun=1}}
 const DRAGON_SLAYER_II_WIKITEXT = `{{Infobox Quest
 |name = Dragon Slayer II
 |number = 136
+|release = [[4 January]] [[2018]]
 |members = Yes
 |series = [[Quests/Series#Dragonkin|Dragonkin]], #3
 }}
@@ -95,6 +96,7 @@ describe('fetchQuestDetails', () => {
       series: null,
       questPoints: 1,
       releaseDate: '4 January 2001',
+      released: true,
       start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
       description: "The Lumbridge Castle cook is in a mess. It is the Duke's birthday.",
       requirements: null,
@@ -116,7 +118,8 @@ describe('fetchQuestDetails', () => {
     expect(details.members).toBe(true)
     expect(details.series).toBe('Dragonkin, #3')
     expect(details.questPoints).toBe(3)
-    expect(details.releaseDate).toBeNull()
+    expect(details.releaseDate).toBe('4 January 2018')
+    expect(details.released).toBe(true)
     expect(details.start).toBe("Talk to Alec Kincade outside the Myths' Guild.")
     expect(details.requirements).toContain("Completion of Legends' Quest")
     expect(details.requirements).toContain('200 Quest Points')
@@ -169,6 +172,48 @@ describe('single-line template fields (regression)', () => {
     expect(details.questPoints).toBe(5)
     expect(details.releaseDate).toBe('4 January 2001')
     expect(details.members).toBe(false)
+  })
+})
+
+// Excerpt mirroring an upcoming/proposed quest the wiki documents ahead of
+// release (e.g. "A Ruff Situation") — its `release` field is blank.
+const UPCOMING_QUEST_WIKITEXT = `{{Infobox Quest
+|name = An Upcoming Quest
+|release =
+|members = Yes
+}}
+==Details==
+{{Quest details
+|difficulty = Novice
+}}
+==Rewards==
+{{Quest rewards
+|qp =
+}}
+`
+
+describe('released', () => {
+  it('is false for an upcoming quest with a blank release date', async () => {
+    mockFetchOnce({
+      parse: { title: 'An Upcoming Quest', pageid: 1, wikitext: UPCOMING_QUEST_WIKITEXT },
+    })
+
+    const details = await fetchQuestDetails('An Upcoming Quest')
+    expect(details.releaseDate).toBeNull()
+    expect(details.released).toBe(false)
+  })
+
+  it('is false for a quest scheduled for a future month this year', async () => {
+    const futureWikitext = UPCOMING_QUEST_WIKITEXT.replace(
+      '|release =',
+      `|release = [[December]] [[${new Date().getFullYear() + 1}]]`
+    )
+    mockFetchOnce({
+      parse: { title: 'An Upcoming Quest', pageid: 1, wikitext: futureWikitext },
+    })
+
+    const details = await fetchQuestDetails('An Upcoming Quest')
+    expect(details.released).toBe(false)
   })
 })
 
