@@ -7,8 +7,8 @@
  *   https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player=NAME
  *
  * The endpoint returns plain CSV text (not JSON). Each line is:
- *   rank,level,experience        (for skills)
- *   rank,score                   (for activities/bosses, no "level")
+ *   rank,level,experience (for skills)
+ *   rank,score (for activities/bosses, no "level")
  *
  * IMPORTANT — CORS:
  * This endpoint does not send CORS headers, so calling it directly from
