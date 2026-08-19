@@ -19,8 +19,11 @@ noteworthy-packages table.
   these rather than hand-rolling new primitives.
 - `lib/utils.ts` — shared helpers, notably `cn()` (clsx + tailwind-merge) for conditional class
   names, and `isLocalhost()`.
+- `lib/hooks/` — reusable client-side hooks, e.g. `useLocalStorage` (generic, JSON-serialized,
+  SSR-safe state synced to `window.localStorage`) and `useAccountDetails` (persists the user's OSRS
+  account details — username, membership, account type — via `useLocalStorage`).
 - `lib/types/` — shared TypeScript types and interfaces. Organized by domain: `skill.ts`, `quest.ts`,
-  `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, etc.
+  `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, `account.ts`, etc.
 - `lib/fixtures/` — dummy data for development and Storybook. Organized by domain: `skills.ts`,
   `quests.ts`, `sage-suggestions.ts`, `skill-names.ts`, `activity-names.ts`, etc.
 - `lib/integrations/` — external service integration code, one folder per service, each split into
