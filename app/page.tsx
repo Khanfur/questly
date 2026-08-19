@@ -2,6 +2,7 @@
 
 import { quests, sageSuggestions, skills } from '@/lib/fixtures'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
+import { calculateCombatLevel } from '@/lib/integrations/osrs-hiscores'
 import { SkillInfo } from '@/lib/types'
 import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
 
@@ -28,6 +29,11 @@ export default function Home() {
     return hiscoreSkill && hiscoreSkill.level >= 0 ? { ...skill, level: hiscoreSkill.level } : skill
   })
 
+  const totalLevel =
+    hiscores?.overall && hiscores.overall.level >= 0 ? hiscores.overall.level : 2277
+
+  const combatLevel = hiscores ? calculateCombatLevel(hiscores.skills) : 126
+
   return (
     <>
       <div className={'flex flex-col items-center mb-4'}>
@@ -50,8 +56,18 @@ export default function Home() {
       </div>
 
       <StatCardGroup>
-        <StatCard className="sm:min-w-45" label="Combat Level" stat={126} />
-        <StatCard className="sm:min-w-45" label="Total Level" stat={2277} />
+        <StatCard
+          className="sm:min-w-45"
+          label="Combat Level"
+          stat={combatLevel}
+          loading={!hiscoresHydrated}
+        />
+        <StatCard
+          className="sm:min-w-45"
+          label="Total Level"
+          stat={totalLevel}
+          loading={!hiscoresHydrated}
+        />
         <StatCard className="sm:min-w-45" label="Quest Points" stat={341} secondaryStat={341} />
       </StatCardGroup>
 
