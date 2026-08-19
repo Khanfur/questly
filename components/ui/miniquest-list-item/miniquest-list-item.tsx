@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import type { Miniquest, QuestStatus } from '@/lib/types/quest'
+import type { Miniquest, QuestStatus } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-react'
 

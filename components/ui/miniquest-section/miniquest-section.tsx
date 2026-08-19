@@ -1,4 +1,4 @@
-import type { Miniquest, QuestStatus } from '@/lib/types/quest'
+import type { Miniquest, QuestStatus } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
 
 import { MiniquestListItem } from '@/components/ui/miniquest-list-item/miniquest-list-item'

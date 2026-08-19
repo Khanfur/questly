@@ -1,5 +1,5 @@
 import { searchWiki, useWikiSearch } from '@/lib/integrations/osrs-wiki/search'
-import { WikiError } from '@/lib/types/osrs-wiki'
+import { WikiError } from '@/lib/types/osrs-wiki/osrs-wiki'
 import { act, renderHook, waitFor } from '@testing-library/react'
 
 function mockFetchOnce(body: unknown, ok = true, status = 200) {

@@ -10,7 +10,7 @@
  * Last generated: 2026-08-19T19:05:18.197Z
  * Count: 196 quests
  */
-import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
+import type { WikiQuestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const questDetails: WikiQuestDetails[] = [
   {

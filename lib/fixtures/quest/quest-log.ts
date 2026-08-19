@@ -1,4 +1,4 @@
-import type { QuestTier } from '@/lib/types/quest'
+import type { QuestTier } from '@/lib/types/quest/quest'
 
 // Static representative slice of the full Quest Log, grouped by difficulty tier.
 // Mirrors the design mock — not an exhaustive list of every OSRS quest.

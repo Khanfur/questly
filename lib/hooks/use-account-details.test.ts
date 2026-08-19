@@ -1,5 +1,5 @@
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
-import { DEFAULT_ACCOUNT_DETAILS } from '@/lib/types/account'
+import { DEFAULT_ACCOUNT_DETAILS } from '@/lib/types/account/account'
 import { act, renderHook } from '@testing-library/react'
 
 function mockFetchOnce(body = '', ok = true, status = 200) {

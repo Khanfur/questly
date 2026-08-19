@@ -1,4 +1,4 @@
-import type { QuestInfo } from '@/lib/types/quest'
+import type { QuestInfo } from '@/lib/types/quest/quest'
 
 export const quests: QuestInfo[] = [
   { name: 'Dragon Slayer II', status: 'in-progress' },

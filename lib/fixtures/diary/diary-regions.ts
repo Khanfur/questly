@@ -1,4 +1,4 @@
-import type { DiaryRegion } from '@/lib/types/diary'
+import type { DiaryRegion } from '@/lib/types/diary/diary'
 
 // Static representative slice of the Achievement Diary tracker, matching the design mock.
 export const diaryRegions: DiaryRegion[] = [

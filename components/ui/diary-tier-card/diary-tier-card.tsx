@@ -1,4 +1,4 @@
-import type { DiaryTier, DiaryTierName } from '@/lib/types/diary'
+import type { DiaryTier, DiaryTierName } from '@/lib/types/diary/diary'
 import { cn } from '@/lib/utils'
 import { Check, Lock, MoreHorizontal } from 'lucide-react'
 

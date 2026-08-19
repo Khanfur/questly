@@ -2,7 +2,7 @@
  * One-off script that bulk-fetches the full OSRS miniquest list directly
  * from the wiki's MediaWiki API (bypassing the Next.js dev server, since
  * this runs standalone via `npm run fetch:miniquests`) and writes it out as
- * a static TypeScript module at `lib/data/miniquest-list.ts`.
+ * a static TypeScript module at `lib/data/miniquest/miniquest-list.ts`.
  *
  * Miniquests are identified by embedding `Template:Infobox Miniquest`
  * (distinct from `Template:Infobox Quest` used by full quests — see
@@ -17,7 +17,9 @@ import { fileURLToPath } from 'node:url'
 
 const WIKI_API_BASE = 'https://oldschool.runescape.wiki/api.php'
 const USER_AGENT = 'Questly/1.0 (https://github.com/Khanfur/questly)'
-const OUTPUT_PATH = fileURLToPath(new URL('../lib/data/miniquest-list.ts', import.meta.url))
+const OUTPUT_PATH = fileURLToPath(
+  new URL('../lib/data/miniquest/miniquest-list.ts', import.meta.url)
+)
 
 export async function fetchMiniquestList() {
   const miniquests = []
@@ -65,7 +67,7 @@ export function toModuleSource(miniquests, generatedAt = new Date()) {
  * Last generated: ${generatedAt.toISOString()}
  * Count: ${miniquests.length} miniquests
  */
-import type { WikiMiniquestListItem } from '@/lib/types/osrs-wiki'
+import type { WikiMiniquestListItem } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const miniquestList: WikiMiniquestListItem[] = [
 ${entries}

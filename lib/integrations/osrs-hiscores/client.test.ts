@@ -1,7 +1,7 @@
-import { ACTIVITY_NAMES } from '@/lib/fixtures/activity-names'
-import { SKILL_NAMES } from '@/lib/fixtures/skill-names'
+import { ACTIVITY_NAMES } from '@/lib/fixtures/activity/activity-names'
+import { SKILL_NAMES } from '@/lib/fixtures/skill/skill-names'
 import { fetchHiscores, parseHiscoresCsv } from '@/lib/integrations/osrs-hiscores/client'
-import { HiscoresError } from '@/lib/types/osrs-hiscores'
+import { HiscoresError } from '@/lib/types/osrs-hiscores/osrs-hiscores'
 
 function buildCsv({
   skillLine = (i: number) => `${i + 1},${99 - i},${1000 * (i + 1)}`,

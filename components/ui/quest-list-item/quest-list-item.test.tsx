@@ -1,4 +1,4 @@
-import type { Quest } from '@/lib/types/quest'
+import type { Quest } from '@/lib/types/quest/quest'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'

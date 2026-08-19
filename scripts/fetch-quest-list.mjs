@@ -2,7 +2,7 @@
  * One-off script that bulk-fetches the full OSRS quest list directly from
  * the wiki's MediaWiki API (bypassing the Next.js dev server, since this
  * runs standalone via `npm run fetch:quests`) and writes it out as a static
- * TypeScript module at `lib/data/quest-list.ts`.
+ * TypeScript module at `lib/data/quest/quest-list.ts`.
  *
  * This only fetches page titles/ids (one `list=embeddedin` query, paginated
  * via `eicontinue`) — cheap enough to run in a handful of requests. Fetching
@@ -18,7 +18,7 @@ import { fileURLToPath } from 'node:url'
 
 const WIKI_API_BASE = 'https://oldschool.runescape.wiki/api.php'
 const USER_AGENT = 'Questly/1.0 (https://github.com/Khanfur/questly)'
-const OUTPUT_PATH = fileURLToPath(new URL('../lib/data/quest-list.ts', import.meta.url))
+const OUTPUT_PATH = fileURLToPath(new URL('../lib/data/quest/quest-list.ts', import.meta.url))
 
 export async function fetchQuestList() {
   const quests = []
@@ -66,7 +66,7 @@ export function toModuleSource(quests, generatedAt = new Date()) {
  * Last generated: ${generatedAt.toISOString()}
  * Count: ${quests.length} quests
  */
-import type { WikiQuestListItem } from '@/lib/types/osrs-wiki'
+import type { WikiQuestListItem } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const questList: WikiQuestListItem[] = [
 ${entries}

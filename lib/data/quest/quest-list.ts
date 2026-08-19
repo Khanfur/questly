@@ -6,7 +6,7 @@
  * Last generated: 2026-08-19T16:17:52.698Z
  * Count: 196 quests
  */
-import type { WikiQuestListItem } from '@/lib/types/osrs-wiki'
+import type { WikiQuestListItem } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const questList: WikiQuestListItem[] = [
   { pageId: 2088, title: "Cook's Assistant" },

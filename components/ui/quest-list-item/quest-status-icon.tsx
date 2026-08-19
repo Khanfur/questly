@@ -1,4 +1,4 @@
-import type { QuestStatus } from '@/lib/types/quest'
+import type { QuestStatus } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
 import { Check } from 'lucide-react'
 

@@ -19,5 +19,5 @@ export type {
   ActivityEntry,
   FetchHiscoresOptions,
   UseHiscoresResult,
-} from '@/lib/types/osrs-hiscores'
-export { HiscoresError } from '@/lib/types/osrs-hiscores'
+} from '@/lib/types/osrs-hiscores/osrs-hiscores'
+export { HiscoresError } from '@/lib/types/osrs-hiscores/osrs-hiscores'

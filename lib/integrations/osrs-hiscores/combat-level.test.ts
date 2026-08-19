@@ -1,5 +1,5 @@
 import { calculateCombatLevel } from '@/lib/integrations/osrs-hiscores/combat-level'
-import type { SkillEntry } from '@/lib/types/osrs-hiscores'
+import type { SkillEntry } from '@/lib/types/osrs-hiscores/osrs-hiscores'
 
 function skill(name: string, level: number): SkillEntry {
   return { name, rank: 1, level, xp: 0 }

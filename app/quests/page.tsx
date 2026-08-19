@@ -6,7 +6,7 @@ import { miniquestDetails, questDetails } from '@/lib/data'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
 import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log'
-import type { QuestStatus } from '@/lib/types/quest'
+import type { QuestStatus } from '@/lib/types/quest/quest'
 import { Search } from 'lucide-react'
 
 import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'

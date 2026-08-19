@@ -4,8 +4,8 @@ import { useCallback, useRef, useState } from 'react'
 
 import { useLocalStorage } from '@/lib/hooks/use-local-storage'
 import { fetchHiscores } from '@/lib/integrations/osrs-hiscores'
-import { AccountDetails, DEFAULT_ACCOUNT_DETAILS } from '@/lib/types/account'
-import type { OsrsHiscores } from '@/lib/types/osrs-hiscores'
+import { AccountDetails, DEFAULT_ACCOUNT_DETAILS } from '@/lib/types/account/account'
+import type { OsrsHiscores } from '@/lib/types/osrs-hiscores/osrs-hiscores'
 
 const ACCOUNT_DETAILS_STORAGE_KEY = 'questly:account-details'
 const HISCORES_STORAGE_KEY = 'questly:hiscores'

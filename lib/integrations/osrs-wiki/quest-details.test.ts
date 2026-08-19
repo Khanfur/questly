@@ -1,5 +1,5 @@
 import { fetchQuestDetails, useQuestDetails } from '@/lib/integrations/osrs-wiki/quest-details'
-import { WikiError } from '@/lib/types/osrs-wiki'
+import { WikiError } from '@/lib/types/osrs-wiki/osrs-wiki'
 import { act, renderHook, waitFor } from '@testing-library/react'
 
 // A trimmed-down but realistic excerpt of the real wikitext returned by

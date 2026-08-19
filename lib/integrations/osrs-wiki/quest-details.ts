@@ -6,9 +6,9 @@ import type {
   FetchWikiOptions,
   UseQuestDetailsResult,
   WikiQuestDetails,
-} from '@/lib/types/osrs-wiki'
-import { WikiError } from '@/lib/types/osrs-wiki'
-import type { QuestDifficulty } from '@/lib/types/quest'
+} from '@/lib/types/osrs-wiki/osrs-wiki'
+import { WikiError } from '@/lib/types/osrs-wiki/osrs-wiki'
+import type { QuestDifficulty } from '@/lib/types/quest/quest'
 
 import { DEFAULT_BASE_URL, wikiFetch } from './client'
 

@@ -1,4 +1,4 @@
-import type { QuestTier } from '@/lib/types/quest'
+import type { QuestTier } from '@/lib/types/quest/quest'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import { QuestTierGroup } from '@/components/ui/quest-tier-group/quest-tier-group'

@@ -6,7 +6,7 @@
  * Last generated: 2026-08-19T19:38:23.827Z
  * Count: 20 miniquests
  */
-import type { WikiMiniquestListItem } from '@/lib/types/osrs-wiki'
+import type { WikiMiniquestListItem } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const miniquestList: WikiMiniquestListItem[] = [
   { pageId: 13262, title: "Alfred Grimhand's Barcrawl" },

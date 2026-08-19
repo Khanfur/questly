@@ -1,5 +1,11 @@
-import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki'
-import type { Miniquest, Quest, QuestDifficulty, QuestStatus, QuestTier } from '@/lib/types/quest'
+import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
+import type {
+  Miniquest,
+  Quest,
+  QuestDifficulty,
+  QuestStatus,
+  QuestTier,
+} from '@/lib/types/quest/quest'
 
 const DIFFICULTY_ORDER: QuestDifficulty[] = [
   'novice',

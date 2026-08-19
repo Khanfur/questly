@@ -8,7 +8,7 @@
  *   magic  = 0.325 * floor(Magic * 1.5)
  *   level  = floor(base + max(melee, ranged, magic))
  */
-import type { SkillEntry } from '@/lib/types/osrs-hiscores'
+import type { SkillEntry } from '@/lib/types/osrs-hiscores/osrs-hiscores'
 
 function levelFor(skills: SkillEntry[], name: string): number {
   const skill = skills.find((s) => s.name === name)

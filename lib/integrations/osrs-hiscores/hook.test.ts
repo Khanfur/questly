@@ -1,7 +1,7 @@
-import { ACTIVITY_NAMES } from '@/lib/fixtures/activity-names'
-import { SKILL_NAMES } from '@/lib/fixtures/skill-names'
+import { ACTIVITY_NAMES } from '@/lib/fixtures/activity/activity-names'
+import { SKILL_NAMES } from '@/lib/fixtures/skill/skill-names'
 import { useHiscores } from '@/lib/integrations/osrs-hiscores/hook'
-import { HiscoresError } from '@/lib/types/osrs-hiscores'
+import { HiscoresError } from '@/lib/types/osrs-hiscores/osrs-hiscores'
 import { act, renderHook, waitFor } from '@testing-library/react'
 
 function buildCsv({

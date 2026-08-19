@@ -1,4 +1,4 @@
-import type { Quest } from '@/lib/types/quest'
+import type { Quest } from '@/lib/types/quest/quest'
 import { ExternalLink } from 'lucide-react'
 
 import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'

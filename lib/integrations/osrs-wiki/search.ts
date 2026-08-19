@@ -2,8 +2,12 @@
 
 import { useCallback, useEffect, useState } from 'react'
 
-import type { FetchWikiOptions, UseWikiSearchResult, WikiSearchResult } from '@/lib/types/osrs-wiki'
-import { WikiError } from '@/lib/types/osrs-wiki'
+import type {
+  FetchWikiOptions,
+  UseWikiSearchResult,
+  WikiSearchResult,
+} from '@/lib/types/osrs-wiki/osrs-wiki'
+import { WikiError } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 import { DEFAULT_BASE_URL, wikiFetch } from './client'
 

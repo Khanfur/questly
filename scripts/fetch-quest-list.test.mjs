@@ -75,7 +75,9 @@ describe('toModuleSource', () => {
     ]
     const source = toModuleSource(quests, new Date('2026-01-01T00:00:00.000Z'))
 
-    expect(source).toContain("import type { WikiQuestListItem } from '@/lib/types/osrs-wiki'")
+    expect(source).toContain(
+      "import type { WikiQuestListItem } from '@/lib/types/osrs-wiki/osrs-wiki'"
+    )
     expect(source).toContain('export const questList: WikiQuestListItem[] = [')
     expect(source).toContain(`{ pageId: 2088, title: "Cook's Assistant" },`)
     expect(source).toContain(`{ pageId: 2174, title: "Dragon Slayer I" },`)

@@ -1,4 +1,4 @@
-import type { QuestDifficulty } from '@/lib/types/quest'
+import type { QuestDifficulty } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
 
 import { Badge } from '@/components/ui/shadcn/badge'

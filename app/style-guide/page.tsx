@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 import { diaryRegions, miniquestLog, questLog } from '@/lib/fixtures'
-import type { Miniquest, Quest } from '@/lib/types/quest'
+import type { Miniquest, Quest } from '@/lib/types/quest/quest'
 
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
 import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'

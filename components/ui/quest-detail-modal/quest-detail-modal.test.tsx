@@ -1,4 +1,4 @@
-import type { Quest } from '@/lib/types/quest'
+import type { Quest } from '@/lib/types/quest/quest'
 import { render, screen } from '@testing-library/react'
 
 import { QuestDetailModal } from '@/components/ui/quest-detail-modal/quest-detail-modal'

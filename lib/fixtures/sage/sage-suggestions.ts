@@ -1,4 +1,4 @@
-import type { SageSuggestion } from '@/lib/types/sage'
+import type { SageSuggestion } from '@/lib/types/sage/sage'
 
 export const sageSuggestions: SageSuggestion[] = [
   { id: 'quest-points', label: 'What should I do next for quest points?' },

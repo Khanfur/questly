@@ -1,4 +1,4 @@
-import type { SkillInfo } from '@/lib/types/skill'
+import type { SkillInfo } from '@/lib/types/skill/skill'
 import {
   agilityIcon,
   attackIcon,

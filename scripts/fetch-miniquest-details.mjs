@@ -4,7 +4,7 @@
  * every OSRS miniquest, by requesting each page's wikitext (`action=parse`)
  * and scraping its `{{Infobox Miniquest}}` / `{{Quest details}}` templates.
  * Writes a generated array matching the `WikiMiniquestDetails` type
- * (`lib/types/osrs-wiki.ts`) to `lib/data/miniquest-details.ts`.
+ * (`lib/types/osrs-wiki/osrs-wiki.ts`) to `lib/data/miniquest/miniquest-details.ts`.
  *
  * Mirrors `fetch-quest-details.mjs`, but miniquests award no quest points so
  * there's no `{{Quest rewards}}` block to scrape.
@@ -21,7 +21,9 @@ import { parseMiniquestDetails } from './lib/wiki-quest-parser.mjs'
 
 const WIKI_API_BASE = 'https://oldschool.runescape.wiki/api.php'
 const USER_AGENT = 'Questly/1.0 (https://github.com/Khanfur/questly)'
-const OUTPUT_PATH = fileURLToPath(new URL('../lib/data/miniquest-details.ts', import.meta.url))
+const OUTPUT_PATH = fileURLToPath(
+  new URL('../lib/data/miniquest/miniquest-details.ts', import.meta.url)
+)
 const REQUEST_DELAY_MS = 250
 
 function sleep(ms) {
@@ -54,7 +56,7 @@ export async function fetchMiniquestDetails(title) {
   return parseMiniquestDetails(json.parse.pageid, json.parse.title, wikitext)
 }
 
-/** Reads the existing generated array back out of `lib/data/miniquest-details.ts`, if present. */
+/** Reads the existing generated array back out of `lib/data/miniquest/miniquest-details.ts`, if present. */
 export function readExistingMiniquestDetails(path = OUTPUT_PATH) {
   if (!existsSync(path)) return []
 
@@ -90,7 +92,7 @@ export function toModuleSource(miniquestDetails, generatedAt = new Date()) {
  * Last generated: ${generatedAt.toISOString()}
  * Count: ${miniquestDetails.length} miniquests
  */
-import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki'
+import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const miniquestDetails: WikiMiniquestDetails[] = ${JSON.stringify(miniquestDetails, null, 2)}
 `

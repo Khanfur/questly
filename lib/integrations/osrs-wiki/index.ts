@@ -35,5 +35,5 @@ export type {
   UseQuestDetailsResult,
   UseMiniquestListResult,
   UseMiniquestDetailsResult,
-} from '@/lib/types/osrs-wiki'
-export { WikiError } from '@/lib/types/osrs-wiki'
+} from '@/lib/types/osrs-wiki/osrs-wiki'
+export { WikiError } from '@/lib/types/osrs-wiki/osrs-wiki'

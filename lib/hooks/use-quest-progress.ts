@@ -3,7 +3,7 @@
 import { useCallback } from 'react'
 
 import { useLocalStorage } from '@/lib/hooks/use-local-storage'
-import type { QuestStatus } from '@/lib/types/quest'
+import type { QuestStatus } from '@/lib/types/quest/quest'
 
 const QUEST_PROGRESS_STORAGE_KEY = 'questly:quest-progress'
 

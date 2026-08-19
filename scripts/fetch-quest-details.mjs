@@ -3,8 +3,8 @@
  * quest points, start, description, requirements, enemies, items required — for every OSRS quest, by requesting
  * each page's wikitext (`action=parse`) and scraping its `{{Infobox Quest}}`
  * / `{{Quest details}}` / `{{Quest rewards}}` templates. Writes a generated
- * array matching the `WikiQuestDetails` type (`lib/types/osrs-wiki.ts`) to
- * `lib/data/quest-details.ts`.
+ * array matching the `WikiQuestDetails` type (`lib/types/osrs-wiki/osrs-wiki.ts`) to
+ * `lib/data/quest/quest-details.ts`.
  *
  * Unlike `fetch-quest-list.mjs` (one cheap paginated request for every
  * title), this is one request *per quest* (~196 requests), so:
@@ -23,7 +23,7 @@ import { parseQuestDetails } from './lib/wiki-quest-parser.mjs'
 
 const WIKI_API_BASE = 'https://oldschool.runescape.wiki/api.php'
 const USER_AGENT = 'Questly/1.0 (https://github.com/Khanfur/questly)'
-const OUTPUT_PATH = fileURLToPath(new URL('../lib/data/quest-details.ts', import.meta.url))
+const OUTPUT_PATH = fileURLToPath(new URL('../lib/data/quest/quest-details.ts', import.meta.url))
 const REQUEST_DELAY_MS = 250
 
 function sleep(ms) {
@@ -56,7 +56,7 @@ export async function fetchQuestDetails(title) {
   return parseQuestDetails(json.parse.pageid, json.parse.title, wikitext)
 }
 
-/** Reads the existing generated array back out of `lib/data/quest-details.ts`, if present. */
+/** Reads the existing generated array back out of `lib/data/quest/quest-details.ts`, if present. */
 export function readExistingQuestDetails(path = OUTPUT_PATH) {
   if (!existsSync(path)) return []
 
@@ -92,7 +92,7 @@ export function toModuleSource(questDetails, generatedAt = new Date()) {
  * Last generated: ${generatedAt.toISOString()}
  * Count: ${questDetails.length} quests
  */
-import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
+import type { WikiQuestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const questDetails: WikiQuestDetails[] = ${JSON.stringify(questDetails, null, 2)}
 `

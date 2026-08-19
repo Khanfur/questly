@@ -7,8 +7,8 @@ import type {
   HiscoresError,
   OsrsHiscores,
   UseHiscoresResult,
-} from '@/lib/types/osrs-hiscores'
-import { HiscoresError as HiscoresErrorClass } from '@/lib/types/osrs-hiscores'
+} from '@/lib/types/osrs-hiscores/osrs-hiscores'
+import { HiscoresError as HiscoresErrorClass } from '@/lib/types/osrs-hiscores/osrs-hiscores'
 
 import { fetchHiscores } from './client'
 

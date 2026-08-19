@@ -24,8 +24,8 @@ import type {
   FetchHiscoresOptions,
   OsrsHiscores,
   SkillEntry,
-} from '@/lib/types/osrs-hiscores'
-import { HiscoresError } from '@/lib/types/osrs-hiscores'
+} from '@/lib/types/osrs-hiscores/osrs-hiscores'
+import { HiscoresError } from '@/lib/types/osrs-hiscores/osrs-hiscores'
 
 export function parseHiscoresCsv(csv: string): OsrsHiscores {
   const lines = csv

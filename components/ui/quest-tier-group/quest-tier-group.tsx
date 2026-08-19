@@ -1,4 +1,4 @@
-import type { QuestDifficulty, QuestStatus, QuestTier } from '@/lib/types/quest'
+import type { QuestDifficulty, QuestStatus, QuestTier } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
 
 import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'

@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 
-import type { SageSuggestion } from '@/lib/types/sage'
+import type { SageSuggestion } from '@/lib/types/sage/sage'
 import { cn } from '@/lib/utils'
 import { MessageCircle } from 'lucide-react'
 

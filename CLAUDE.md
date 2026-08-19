@@ -54,22 +54,30 @@ noteworthy-packages table.
   - `useQuestProgress` — persists a `Record<questTitle, QuestStatus>` map to `localStorage`
     (`questly:quest-progress`) via `useLocalStorage`, exposing `statusByQuest` and `setQuestStatus`.
     Used by the Quest Log page (`app/quests/page.tsx`) since OSRS has no API for per-quest completion.
-- `lib/types/` — shared TypeScript types and interfaces. Organized by domain: `skill.ts`, `quest.ts`,
-  `diary.ts`, `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, `account.ts`, etc.
-- `lib/fixtures/` — dummy data for development and Storybook. Organized by domain: `skills.ts`,
-  `quests.ts`, `quest-log.ts`, `diary-regions.ts`, `sage-suggestions.ts`, `skill-names.ts`,
-  `activity-names.ts`, etc.
+- `lib/types/` — shared TypeScript types and interfaces, one folder per domain (mirroring the
+  `components/ui/<name>/<name>.tsx` convention): `account/account.ts`, `activity/activity.ts`,
+  `diary/diary.ts`, `hiscores/hiscores.ts`, `osrs-hiscores/osrs-hiscores.ts`, `osrs-wiki/osrs-wiki.ts`,
+  `quest/quest.ts`, `sage/sage.ts`, `skill/skill.ts`. A root `index.ts` barrel re-exports the public
+  API of each domain.
+- `lib/fixtures/` — dummy data for development and Storybook, one folder per domain: `activity/`
+  (`activity-names.ts`), `diary/` (`diary-regions.ts`), `quest/` (`quests.ts`, `quest-log.ts`,
+  `miniquest-log.ts`), `sage/` (`sage-suggestions.ts`), `skill/` (`skill-names.ts`, `skills.ts`). A
+  root `index.ts` barrel re-exports every fixture.
 - `lib/data/` — generated (not hand-edited) data snapshots fetched from external OSRS APIs, checked
-  into the repo for use without a live network call:
-  - `quest-list.ts` — every OSRS quest title/page id (`questList: WikiQuestListItem[]`), produced by
-    `scripts/fetch-quest-list.mjs` via `npm run fetch:quests`.
-  - `quest-details.ts` — full per-quest metadata (`questDetails: WikiQuestDetails[]` — difficulty,
-    length, members, series, quest points, start, description, requirements, enemies to defeat, items
-    required, wiki link), produced by `scripts/fetch-quest-details.mjs` via `npm run fetch:quest-details`
-    (refetches every quest, ~196 requests with a short delay between them) or
-    `npm run fetch:quest-details -- --title "Quest Name"` (fetches/updates just that one quest,
-    upserting it into the existing array by `pageId`). Re-run either script to pick up newly
+  into the repo for use without a live network call, grouped into `quest/` and `miniquest/` folders
+  (with a root `index.ts` barrel):
+  - `quest/quest-list.ts` — every OSRS quest title/page id (`questList: WikiQuestListItem[]`),
+    produced by `scripts/fetch-quest-list.mjs` via `npm run fetch:quests`.
+  - `quest/quest-details.ts` — full per-quest metadata (`questDetails: WikiQuestDetails[]` —
+    difficulty, length, members, series, quest points, start, description, requirements, enemies to
+    defeat, items required, wiki link), produced by `scripts/fetch-quest-details.mjs` via
+    `npm run fetch:quest-details` (refetches every quest, ~196 requests with a short delay between
+    them) or `npm run fetch:quest-details -- --title "Quest Name"` (fetches/updates just that one
+    quest, upserting it into the existing array by `pageId`). Re-run either script to pick up newly
     released quests or refresh stale data.
+  - `miniquest/miniquest-list.ts` / `miniquest/miniquest-details.ts` — the miniquest equivalents,
+    produced by `scripts/fetch-miniquest-list.mjs` / `scripts/fetch-miniquest-details.mjs` via
+    `npm run fetch:miniquests` / `npm run fetch:miniquest-details`.
 - `lib/integrations/` — external service integration code, one folder per service, each split into
   `client.ts` (fetch logic), per-feature files (e.g. `hook.ts`/`search.ts`/`summary.ts`/`quests.ts`)
   exposing a `fetchX`/`useX` pair, and an `index.ts` barrel re-exporting the public API + types:
@@ -117,9 +125,9 @@ noteworthy-packages table.
 - `npm run lint` — ESLint. `npm run format` / `format:check` — Prettier.
 - `npm run storybook` / `build-storybook` — Storybook dev server / static build.
 - `npm run build` — production build.
-- `npm run fetch:quests` — regenerates `lib/data/quest-list.ts` from the live OSRS Wiki API.
-- `npm run fetch:quest-details` — regenerates `lib/data/quest-details.ts` (full metadata) for every
-  quest; add `-- --title "Quest Name"` to fetch/update a single quest instead.
+- `npm run fetch:quests` — regenerates `lib/data/quest/quest-list.ts` from the live OSRS Wiki API.
+- `npm run fetch:quest-details` — regenerates `lib/data/quest/quest-details.ts` (full metadata) for
+  every quest; add `-- --title "Quest Name"` to fetch/update a single quest instead.
 
 CI (`.github/workflows/ci.yml`) runs format check → lint → test → build on every push/PR to
 `master`; match that order locally before pushing.

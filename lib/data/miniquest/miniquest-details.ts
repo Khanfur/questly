@@ -10,7 +10,7 @@
  * Last generated: 2026-08-19T19:38:34.313Z
  * Count: 20 miniquests
  */
-import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki'
+import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const miniquestDetails: WikiMiniquestDetails[] = [
   {

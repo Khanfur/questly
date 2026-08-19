@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import React from 'react'
 
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
-import type { AccountType, Membership } from '@/lib/types/account'
+import type { AccountType, Membership } from '@/lib/types/account/account'
 
 import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
 import { ErrorMessage } from '@/components/ui/error-message/error-message'

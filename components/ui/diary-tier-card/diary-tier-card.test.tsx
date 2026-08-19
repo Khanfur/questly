@@ -1,4 +1,4 @@
-import type { DiaryTier } from '@/lib/types/diary'
+import type { DiaryTier } from '@/lib/types/diary/diary'
 import { render, screen } from '@testing-library/react'
 
 import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'

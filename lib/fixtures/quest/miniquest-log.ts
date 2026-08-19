@@ -1,4 +1,4 @@
-import type { Miniquest } from '@/lib/types/quest'
+import type { Miniquest } from '@/lib/types/quest/quest'
 
 // Static representative slice of the OSRS Miniquests list (see
 // https://oldschool.runescape.wiki/w/Miniquests). Miniquests award no quest

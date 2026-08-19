@@ -1,4 +1,4 @@
-import type { DiaryRegion } from '@/lib/types/diary'
+import type { DiaryRegion } from '@/lib/types/diary/diary'
 import { cn } from '@/lib/utils'
 
 import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'

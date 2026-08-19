@@ -15,7 +15,7 @@
  * this module accepts a `baseUrl` override if you need to point elsewhere
  * (e.g. directly at the wiki API during testing).
  */
-import { WikiError } from '@/lib/types/osrs-wiki'
+import { WikiError } from '@/lib/types/osrs-wiki/osrs-wiki'
 
 export const DEFAULT_BASE_URL = '/api/osrs-wiki'
 

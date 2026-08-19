@@ -1,6 +1,6 @@
 import Home from '@/app/page'
 import { skills } from '@/lib/fixtures'
-import type { OsrsHiscores, SkillEntry } from '@/lib/types/osrs-hiscores'
+import type { OsrsHiscores, SkillEntry } from '@/lib/types/osrs-hiscores/osrs-hiscores'
 import { render, screen } from '@testing-library/react'
 
 import { SettingsDrawerProvider } from '@/components/layout/header/settings-drawer-context'
