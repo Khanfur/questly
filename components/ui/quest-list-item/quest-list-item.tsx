@@ -1,4 +1,4 @@
-import type { Quest } from '@/lib/types/quest'
+import type { Quest, QuestStatus } from '@/lib/types/quest'
 import { cn } from '@/lib/utils'
 import { ChevronRight, Sparkles } from 'lucide-react'
 
@@ -19,13 +19,22 @@ const STATUS_LABEL_CLASSNAME: Record<Quest['status'], string> = {
   'not-started': 'text-muted-foreground',
 }
 
+// Clicking the status icon cycles a quest through its lifecycle.
+const NEXT_STATUS: Record<QuestStatus, QuestStatus> = {
+  'not-started': 'in-progress',
+  'in-progress': 'completed',
+  completed: 'not-started',
+}
+
 interface QuestListItemProps {
   quest: Quest
   className?: string
+  /** Called with the next status when the status icon is clicked, to cycle it. */
+  onStatusChange?: (status: QuestStatus) => void
 }
 
 /** A single row in the Quest Log: status, name, requirements, points and status label. */
-export function QuestListItem({ quest, className }: QuestListItemProps) {
+export function QuestListItem({ quest, className, onStatusChange }: QuestListItemProps) {
   const { name, difficulty, status, questPoints, requires, note } = quest
 
   return (
@@ -37,7 +46,15 @@ export function QuestListItem({ quest, className }: QuestListItemProps) {
     >
       <div className="flex items-start justify-between gap-3">
         <div className="flex min-w-0 items-start gap-3">
-          <QuestStatusIcon status={status} className="mt-0.5 shrink-0" />
+          <QuestStatusIcon
+            status={status}
+            className="mt-0.5 shrink-0"
+            onClick={onStatusChange ? () => onStatusChange(NEXT_STATUS[status]) : undefined}
+            label={
+              onStatusChange ? `Mark "${name}" as ${STATUS_LABEL[NEXT_STATUS[status]]}` : undefined
+            }
+          />
+
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">

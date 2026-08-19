@@ -47,6 +47,17 @@ noteworthy-packages table.
 - `lib/fixtures/` — dummy data for development and Storybook. Organized by domain: `skills.ts`,
   `quests.ts`, `quest-log.ts`, `diary-regions.ts`, `sage-suggestions.ts`, `skill-names.ts`,
   `activity-names.ts`, etc.
+- `lib/data/` — generated (not hand-edited) data snapshots fetched from external OSRS APIs, checked
+  into the repo for use without a live network call:
+  - `quest-list.ts` — every OSRS quest title/page id (`questList: WikiQuestListItem[]`), produced by
+    `scripts/fetch-quest-list.mjs` via `npm run fetch:quests`.
+  - `quest-details.ts` — full per-quest metadata (`questDetails: WikiQuestDetails[]` — difficulty,
+    length, members, series, quest points, start, description, requirements, enemies to defeat, items
+    required, wiki link), produced by `scripts/fetch-quest-details.mjs` via `npm run fetch:quest-details`
+    (refetches every quest, ~196 requests with a short delay between them) or
+    `npm run fetch:quest-details -- --title "Quest Name"` (fetches/updates just that one quest,
+    upserting it into the existing array by `pageId`). Re-run either script to pick up newly
+    released quests or refresh stale data.
 - `lib/integrations/` — external service integration code, one folder per service, each split into
   `client.ts` (fetch logic), per-feature files (e.g. `hook.ts`/`search.ts`/`summary.ts`/`quests.ts`)
   exposing a `fetchX`/`useX` pair, and an `index.ts` barrel re-exporting the public API + types:
@@ -54,9 +65,16 @@ noteworthy-packages table.
     `calculateCombatLevel(skills)` (`combat-level.ts`) implementing the official
     [combat level formula](https://oldschool.runescape.wiki/w/Combat_level).
   - `osrs-wiki/` — OSRS Wiki (MediaWiki) API; `searchWiki`/`useWikiSearch`,
-    `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList`.
+    `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList` (quest titles/ids via
+    `list=embeddedin`), `fetchQuestDetails`/`useQuestDetails` (per-quest difficulty/length/members/
+    series/quest points/start/description/requirements/enemies/items required/wiki link, scraped from a page's
+    `{{Quest details}}`/`{{Quest rewards}}` wikitext via `action=parse`; one request per quest, so
+    used on demand rather than in bulk).
     Both integrations default to routing through same-origin proxy routes under `app/api/` (to dodge
     CORS/User-Agent restrictions) but accept a `baseUrl` override for testing or self-hosted proxies.
+- `scripts/` — standalone Node scripts run outside the Next.js app, invoked directly with `node` (not
+  through the Next.js dev/build pipeline): `fetch-quest-list.mjs` and `fetch-quest-details.mjs` (see
+  `lib/data/` above), sharing wikitext-parsing helpers via `scripts/lib/wiki-quest-parser.mjs`.
 - `e2e/` — Playwright end-to-end specs (`home.spec.ts`, `navigation.spec.ts`, `style-guide.spec.ts`).
   `style-guide.spec.ts` asserts every documented style-guide section renders — add a new section
   title to its `sectionTitles` list whenever a component is added to the style guide.
@@ -87,6 +105,9 @@ noteworthy-packages table.
 - `npm run lint` — ESLint. `npm run format` / `format:check` — Prettier.
 - `npm run storybook` / `build-storybook` — Storybook dev server / static build.
 - `npm run build` — production build.
+- `npm run fetch:quests` — regenerates `lib/data/quest-list.ts` from the live OSRS Wiki API.
+- `npm run fetch:quest-details` — regenerates `lib/data/quest-details.ts` (full metadata) for every
+  quest; add `-- --title "Quest Name"` to fetch/update a single quest instead.
 
 CI (`.github/workflows/ci.yml`) runs format check → lint → test → build on every push/PR to
 `master`; match that order locally before pushing.

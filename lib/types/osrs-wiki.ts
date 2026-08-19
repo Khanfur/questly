@@ -2,6 +2,7 @@
  * Types for the OSRS Wiki (MediaWiki) API integration.
  * See `lib/integrations/osrsWiki.tsx` for usage.
  */
+import type { QuestDifficulty } from '@/lib/types/quest'
 
 export interface WikiSearchResult {
   pageId: number
@@ -49,6 +50,44 @@ export interface UseWikiPageResult {
 
 export interface UseQuestListResult {
   data: WikiQuestListItem[] | null
+  loading: boolean
+  error: WikiError | null
+  refetch: () => void
+}
+
+/**
+ * Quest metadata scraped from a page's `{{Infobox Quest}}`, `{{Quest details}}`,
+ * and `{{Quest rewards}}` templates. Unlike `WikiQuestListItem` (from the
+ * `embeddedin` list), this requires a per-page `action=parse` request, so it's
+ * fetched on demand (e.g. quest detail view) rather than for the whole list.
+ * Any field can be `null` if the page's wikitext doesn't include it.
+ */
+export interface WikiQuestDetails {
+  pageId: number
+  title: string
+  difficulty: QuestDifficulty | null
+  /** e.g. "Very Short", "Short", "Medium", "Long", "Very Long". */
+  length: string | null
+  members: boolean
+  /** e.g. "Dragonkin, #3", or null if the quest isn't part of a series. */
+  series: string | null
+  questPoints: number | null
+  /** Plain-text summary of how to start the quest, with wiki markup stripped. */
+  start: string | null
+  /** Plain-text description/synopsis of the quest, with wiki markup stripped. */
+  description: string | null
+  /** Plain-text summary of the quest's requirements, with wiki markup stripped. */
+  requirements: string | null
+  /** Enemies the player must defeat during the quest (e.g. "Vorkath (level 392)"), if any. */
+  enemies: string[] | null
+  /** Items required to start/complete the quest (e.g. "A pickaxe"), if any. */
+  itemsRequired: string[] | null
+  /** Direct link to the quest's page on the OSRS Wiki. */
+  wikiUrl: string
+}
+
+export interface UseQuestDetailsResult {
+  data: WikiQuestDetails | null
   loading: boolean
   error: WikiError | null
   refetch: () => void

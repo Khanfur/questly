@@ -14,7 +14,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "fetch:quests": "node scripts/fetch-quest-list.mjs",
+    "fetch:quest-details": "node scripts/fetch-quest-details.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

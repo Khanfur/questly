@@ -7,6 +7,7 @@
  *   mode=search  &q=<term>     -> action=query&list=search
  *   mode=summary &title=<page> -> action=query&prop=extracts (intro only)
  *   mode=quests                -> action=query&list=embeddedin (Infobox Quest)
+ *   mode=details &title=<page> -> action=parse&prop=wikitext (Quest details/rewards)
  *
  * See `build-wiki-params.ts` for how each mode maps to upstream params.
  */

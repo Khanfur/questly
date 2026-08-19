@@ -48,6 +48,16 @@ export function buildWikiParams(
     return { params }
   }
 
+  if (mode === 'details') {
+    const title = searchParams.get('title')
+    if (!title) return errorResponse('Missing title parameter')
+
+    params.set('action', 'parse')
+    params.set('page', title)
+    params.set('prop', 'wikitext')
+    return { params }
+  }
+
   if (mode === 'quests') {
     const continueToken = searchParams.get('eicontinue')
 
@@ -63,6 +73,6 @@ export function buildWikiParams(
   }
 
   return errorResponse(
-    'Missing or invalid mode parameter (expected "search", "summary", or "quests")'
+    'Missing or invalid mode parameter (expected "search", "summary", "quests", or "details")'
   )
 }

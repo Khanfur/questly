@@ -2,7 +2,9 @@
 
 import { useMemo, useState } from 'react'
 
-import { questLog } from '@/lib/fixtures'
+import { questDetails } from '@/lib/data'
+import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
+import { buildQuestLog } from '@/lib/quest-log'
 import type { QuestStatus } from '@/lib/types/quest'
 import { Search } from 'lucide-react'
 
@@ -36,6 +38,12 @@ export default function QuestsPage() {
   const [search, setSearch] = useState('')
   const [statusFilter, setStatusFilter] = useState<QuestFilter>('All')
   const [membersOnly, setMembersOnly] = useState(false)
+  const { statusByQuest, setQuestStatus } = useQuestProgress()
+
+  const questLog = useMemo(
+    () => buildQuestLog(questDetails, statusByQuest),
+    [statusByQuest]
+  )
 
   const totalQuests = questLog.reduce((sum, tier) => sum + tier.quests.length, 0)
   const completedQuests = questLog.reduce(
@@ -69,7 +77,7 @@ export default function QuestsPage() {
         return true
       }),
     }))
-  }, [search, statusFilter, membersOnly])
+  }, [questLog, search, statusFilter, membersOnly])
 
   const hasResults = filteredQuestLog.some(({ quests }) => quests.length > 0)
 
@@ -131,7 +139,12 @@ export default function QuestsPage() {
           filteredQuestLog.map(
             ({ tier, quests }) =>
               quests.length > 0 && (
-                <QuestTierGroup key={tier.difficulty} tier={tier} quests={quests} />
+                <QuestTierGroup
+                  key={tier.difficulty}
+                  tier={tier}
+                  quests={quests}
+                  onStatusChange={setQuestStatus}
+                />
               )
           )
         ) : (
