@@ -16,7 +16,7 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 13262,
     title: "Alfred Grimhand's Barcrawl",
-    difficulty: "novice",
+    difficulty: 'novice',
     length: 'Medium',
     members: true,
     series: null,
@@ -32,7 +32,7 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 13547,
     title: 'Enter the Abyss',
-    difficulty: "intermediate",
+    difficulty: 'intermediate',
     length: 'Very Short',
     members: true,
     series: 'Order of Wizards, #2',
@@ -232,7 +232,7 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 79649,
     title: 'Family Pest',
-    difficulty: "intermediate",
+    difficulty: 'intermediate',
     length: 'Short',
     members: true,
     series: null,
