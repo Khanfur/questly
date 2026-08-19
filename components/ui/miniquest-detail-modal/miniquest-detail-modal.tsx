@@ -1,3 +1,5 @@
+import { useEffect, useRef } from 'react'
+
 import type { Miniquest } from '@/lib/types/quest/quest'
 import { ExternalLink } from 'lucide-react'
 
@@ -65,11 +67,20 @@ interface MiniquestDetailModalProps {
  * that field is omitted rather than shown as "Unknown".
  */
 export function MiniquestDetailModal({ miniquest, open, onOpenChange }: MiniquestDetailModalProps) {
+  const contentRef = useRef<HTMLDivElement>(null)
+
+  // The dialog's popup can stay mounted between opens (for close animations),
+  // so its scroll position otherwise carries over from the previous time it
+  // was opened. Reset it to the top each time the dialog opens.
+  useEffect(() => {
+    if (open) contentRef.current?.scrollTo({ top: 0 })
+  }, [open, miniquest])
+
   if (!miniquest) return null
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
+      <DialogContent ref={contentRef} className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
         <DialogHeader>
           <div className="flex flex-wrap items-center gap-2">
             <DialogTitle className="font-heading text-xl text-primary">
