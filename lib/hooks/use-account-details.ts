@@ -21,7 +21,10 @@ export function useAccountDetails() {
     ACCOUNT_DETAILS_STORAGE_KEY,
     DEFAULT_ACCOUNT_DETAILS
   )
-  const [hiscores, setHiscores] = useLocalStorage<OsrsHiscores | null>(HISCORES_STORAGE_KEY, null)
+  const [hiscores, setHiscores, hiscoresHydrated] = useLocalStorage<OsrsHiscores | null>(
+    HISCORES_STORAGE_KEY,
+    null
+  )
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -71,5 +74,13 @@ export function useAccountDetails() {
     }
   }, [accountDetails.username, setHiscores])
 
-  return { accountDetails, updateAccountDetails, hiscores, refetchHiscores, loading, error }
+  return {
+    accountDetails,
+    updateAccountDetails,
+    hiscores,
+    hiscoresHydrated,
+    refetchHiscores,
+    loading,
+    error,
+  }
 }
