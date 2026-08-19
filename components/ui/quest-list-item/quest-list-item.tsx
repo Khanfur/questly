@@ -1,0 +1,80 @@
+import type { Quest } from '@/lib/types/quest'
+import { cn } from '@/lib/utils'
+import { ChevronRight, Sparkles } from 'lucide-react'
+
+import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
+import { Progress } from '@/components/ui/shadcn/progress'
+
+import { QuestStatusIcon } from './quest-status-icon'
+
+const STATUS_LABEL: Record<Quest['status'], string> = {
+  completed: 'Completed',
+  'in-progress': 'In progress',
+  'not-started': 'Not started',
+}
+
+const STATUS_LABEL_CLASSNAME: Record<Quest['status'], string> = {
+  completed: 'text-secondary',
+  'in-progress': 'text-primary',
+  'not-started': 'text-muted-foreground',
+}
+
+interface QuestListItemProps {
+  quest: Quest
+  className?: string
+}
+
+/** A single row in the Quest Log: status, name, requirements, points and status label. */
+export function QuestListItem({ quest, className }: QuestListItemProps) {
+  const { name, difficulty, status, questPoints, requires, note } = quest
+
+  return (
+    <div
+      className={cn(
+        'flex flex-col gap-2 border-b border-border/60 py-3 last:border-b-0',
+        className
+      )}
+    >
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex min-w-0 items-start gap-3">
+          <QuestStatusIcon status={status} className="mt-0.5 shrink-0" />
+
+          <div className="min-w-0">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="truncate font-heading font-bold text-foreground">{name}</span>
+              <QuestDifficultyBadge difficulty={difficulty} />
+            </div>
+            <p className="mt-0.5 text-xs text-muted-foreground sm:text-sm">
+              Requires: {requires}
+              {note && (
+                <span className="ml-1.5 inline-flex items-center gap-1 text-primary">
+                  <Sparkles className="size-3" aria-hidden="true" />
+                  {note}
+                </span>
+              )}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+          <span className="stat-value whitespace-nowrap text-sm sm:text-base">
+            {questPoints} QP
+          </span>
+          <span
+            className={cn(
+              'label hidden whitespace-nowrap sm:inline',
+              STATUS_LABEL_CLASSNAME[status]
+            )}
+          >
+            {STATUS_LABEL[status]}
+          </span>
+          <ChevronRight className="size-4 text-muted-foreground" aria-hidden="true" />
+        </div>
+      </div>
+
+      {status === 'in-progress' && (
+        <Progress value={45} variant="default" className="ml-8" aria-label={`${name} progress`} />
+      )}
+    </div>
+  )
+}
