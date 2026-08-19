@@ -74,6 +74,12 @@ export interface WikiQuestDetails {
   questPoints: number | null
   /** Plain-text release date, e.g. "4 January 2001", with wiki markup stripped. */
   releaseDate: string | null
+  /**
+   * Whether the quest has actually been released yet — `false` for
+   * proposed/upcoming quests the wiki documents ahead of release (e.g. a
+   * blank or future `releaseDate`). Excluded from the Quest Log until true.
+   */
+  released: boolean
   /** Plain-text summary of how to start the quest, with wiki markup stripped. */
   start: string | null
   /** Plain-text description/synopsis of the quest, with wiki markup stripped. */

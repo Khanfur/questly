@@ -11,6 +11,7 @@ function detail(overrides: Partial<WikiQuestDetails>): WikiQuestDetails {
     series: null,
     questPoints: 1,
     releaseDate: null,
+    released: true,
     start: null,
     description: null,
     requirements: null,

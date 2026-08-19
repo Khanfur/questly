@@ -26,7 +26,9 @@ const DIFFICULTY_FALLBACK_BY_TITLE: Partial<Record<string, QuestDifficulty>> = {
  * Wiki sub-pages that transclude `{{Infobox Quest}}` but aren't standalone quests
  * (e.g. `Recipe for Disaster/Freeing Pirate Pete`, `Recipe for Disaster/Full guide`)
  * are identified by their `/` and excluded, along with any quest whose difficulty
- * still can't be resolved.
+ * still can't be resolved. Quests not yet released (proposed/upcoming quests the
+ * wiki documents ahead of time, e.g. "The Graveyard") are also excluded, so they
+ * don't appear in the list or count towards quest/quest point totals.
  */
 export function buildQuestLog(
   questDetails: WikiQuestDetails[],
@@ -36,6 +38,7 @@ export function buildQuestLog(
     difficulty: tierDifficulty,
     quests: questDetails
       .filter((details) => !details.title.includes('/'))
+      .filter((details) => details.released)
       .filter(
         (details) =>
           (details.difficulty ?? DIFFICULTY_FALLBACK_BY_TITLE[details.title]) === tierDifficulty

@@ -28,6 +28,49 @@ const DIFFICULTY_BY_NAME: Record<string, QuestDifficulty> = {
   grandmaster: 'grandmaster',
 }
 
+const MONTH_NAMES = [
+  'january',
+  'february',
+  'march',
+  'april',
+  'may',
+  'june',
+  'july',
+  'august',
+  'september',
+  'october',
+  'november',
+  'december',
+]
+
+/**
+ * Determines whether a quest has actually been released yet, from its
+ * infobox `release` field (already run through `stripWikitext`, e.g.
+ * "4 January 2001", "September 2026", or `""` for quests still in
+ * development). The wiki documents proposed/upcoming quests (e.g. "The
+ * Graveyard", "Crab Quest", "A Ruff Situation") ahead of release, often with
+ * a blank or future `release` date, so those shouldn't be counted as part of
+ * the quest log yet.
+ */
+function isQuestReleased(releaseDateText: string | null, now: Date = new Date()): boolean {
+  const text = (releaseDateText ?? '').trim()
+  if (!text) return false
+
+  const yearMatch = /\b(\d{4})\b/.exec(text)
+  if (!yearMatch) return false
+  const year = Number(yearMatch[1])
+
+  const currentYear = now.getFullYear()
+  if (year > currentYear) return false
+  if (year < currentYear) return true
+
+  const monthMatch = new RegExp(`\\b(${MONTH_NAMES.join('|')})\\b`, 'i').exec(text)
+  if (!monthMatch) return true // Same year, no month found — assume already released.
+
+  const month = MONTH_NAMES.indexOf(monthMatch[1].toLowerCase())
+  return month <= now.getMonth()
+}
+
 /**
  * Extracts the raw wikitext of the first `{{TemplateName ... }}` transclusion
  * in `wikitext`, matching nested `{{ }}` pairs so multi-line templates (which
@@ -196,10 +239,11 @@ function buildWikiUrl(title: string): string {
 
 /**
  * Fetches quest metadata (difficulty, length, members, series, quest points,
- * release date, start, description, requirements, enemies, items required,
- * wiki link) by scraping the `{{Infobox Quest}}`, `{{Quest details}}`, and
- * `{{Quest rewards}}` templates out of a quest page's raw wikitext. Unlike
- * `fetchQuestList`, this requires one `action=parse` request per page —
+ * release date, released status, start, description, requirements, enemies,
+ * items required, wiki link) by scraping the `{{Infobox Quest}}`,
+ * `{{Quest details}}`, and `{{Quest rewards}}` templates out of a quest
+ * page's raw wikitext. Unlike `fetchQuestList`, this requires one
+ * `action=parse` request per page —
  * there's no MediaWiki/Cargo query endpoint on this wiki that returns
  * structured quest data across many pages at once.
  */
@@ -233,6 +277,7 @@ export async function fetchQuestDetails(
   const series =
     infoboxFields.series && infoboxFields.series !== 'None' ? infoboxFields.series : null
   const questPoints = rewardsFields.qp ? Number(rewardsFields.qp) : null
+  const releaseDate = infoboxFields.release ? stripWikitext(infoboxFields.release) : null
 
   return {
     pageId: json.parse.pageid,
@@ -242,7 +287,8 @@ export async function fetchQuestDetails(
     members: infoboxFields.members?.toLowerCase() === 'yes',
     series: series ? stripWikitext(series) : null,
     questPoints: questPoints !== null && !Number.isNaN(questPoints) ? questPoints : null,
-    releaseDate: infoboxFields.release ? stripWikitext(infoboxFields.release) : null,
+    releaseDate,
+    released: isQuestReleased(releaseDate),
     start: detailsFields.start ? stripWikitext(detailsFields.start) : null,
     description: detailsFields.description ? stripWikitext(detailsFields.description) : null,
     requirements: detailsFields.requirements ? parseRequirements(detailsFields.requirements) : null,
