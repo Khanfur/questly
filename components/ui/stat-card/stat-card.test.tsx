@@ -32,4 +32,14 @@ describe('StatCard', () => {
     expect(screen.queryByText('112')).not.toBeInTheDocument()
     expect(screen.getByText('Combat Level')).toBeInTheDocument()
   })
+
+  it('renders a caption when provided', () => {
+    render(<StatCard label="In Progress" stat={1} caption="Dragon Slayer II" />)
+    expect(screen.getByText('Dragon Slayer II')).toBeInTheDocument()
+  })
+
+  it('does not render a caption when not provided', () => {
+    render(<StatCard label="Combat Level" stat={112} />)
+    expect(screen.queryByText('Dragon Slayer II')).not.toBeInTheDocument()
+  })
 })
