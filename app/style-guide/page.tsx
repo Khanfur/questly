@@ -1,5 +1,7 @@
 'use client'
 
+import { useState } from 'react'
+
 import { diaryRegions, questLog } from '@/lib/fixtures'
 
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
@@ -50,6 +52,8 @@ import { SpacingScale } from './_components/spacing-scale'
 import { Swatch } from './_components/swatch'
 
 export default function StyleGuide() {
+  const [activeFilter, setActiveFilter] = useState('All')
+
   return (
     <>
       <h1>Style Guide</h1>
@@ -333,7 +337,8 @@ export default function StyleGuide() {
       <Section title="Filter Pill Group">
         <FilterPillGroup
           items={['All', 'Not started', 'In progress', 'Completed']}
-          activeItem="All"
+          activeItem={activeFilter}
+          onSelect={setActiveFilter}
         />
       </Section>
 

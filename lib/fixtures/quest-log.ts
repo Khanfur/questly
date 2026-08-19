@@ -12,6 +12,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 1,
         requires: 'None',
+        members: false,
       },
       {
         name: 'Sheep Shearer',
@@ -19,6 +20,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 1,
         requires: 'None',
+        members: false,
       },
       {
         name: "Witch's Potion",
@@ -26,6 +28,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 1,
         requires: 'None',
+        members: false,
       },
       {
         name: 'X Marks the Spot',
@@ -33,6 +36,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 1,
         requires: 'None',
+        members: false,
       },
       {
         name: 'The Restless Ghost',
@@ -41,6 +45,7 @@ export const questLog: QuestTier[] = [
         questPoints: 1,
         requires: 'None',
         note: 'Ten minutes, tops. Stop putting it off.',
+        members: false,
       },
     ],
   },
@@ -53,6 +58,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 3,
         requires: 'None',
+        members: false,
       },
       {
         name: 'Priest in Peril',
@@ -60,6 +66,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 1,
         requires: 'None',
+        members: true,
       },
       {
         name: 'Death Plateau',
@@ -67,6 +74,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 1,
         requires: 'None',
+        members: true,
       },
       {
         name: 'Troll Stronghold',
@@ -74,6 +82,7 @@ export const questLog: QuestTier[] = [
         status: 'not-started',
         questPoints: 1,
         requires: 'Death Plateau',
+        members: true,
       },
       {
         name: 'Waterfall Quest',
@@ -81,6 +90,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 1,
         requires: 'None',
+        members: false,
       },
     ],
   },
@@ -93,6 +103,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 3,
         requires: 'Tree Gnome Village, The Grand Tree',
+        members: true,
       },
       {
         name: 'Desert Treasure I',
@@ -100,6 +111,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 3,
         requires: 'Temple of Ikov, The Dig Site',
+        members: true,
       },
       {
         name: "Legends' Quest",
@@ -107,6 +119,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 4,
         requires: '107 Quest Points, several skills 50+',
+        members: true,
       },
       {
         name: 'Barbarian Training',
@@ -115,6 +128,7 @@ export const questLog: QuestTier[] = [
         questPoints: 0,
         requires: "Alfred Grimhand's Barcrawl",
         note: 'No QP, but your Fishing level will thank you.',
+        members: true,
       },
       {
         name: 'Recipe for Disaster',
@@ -123,6 +137,7 @@ export const questLog: QuestTier[] = [
         questPoints: 2,
         requires: 'Nine sub-quests, varies',
         note: "The one you've been avoiding for two years.",
+        members: true,
       },
     ],
   },
@@ -135,6 +150,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 2,
         requires: 'None',
+        members: false,
       },
       {
         name: "Heroes' Quest",
@@ -142,6 +158,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 1,
         requires: 'Level 55 combined skills',
+        members: true,
       },
       {
         name: 'While Guthix Sleeps',
@@ -149,6 +166,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 4,
         requires: '107 Quest Points, several skills',
+        members: true,
       },
       {
         name: 'Ratcatchers',
@@ -156,6 +174,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 2,
         requires: "Jungle Potion, Icthlarin's Little Helper",
+        members: true,
       },
       {
         name: 'Below Ice Mountain',
@@ -163,6 +182,7 @@ export const questLog: QuestTier[] = [
         status: 'not-started',
         questPoints: 1,
         requires: 'None',
+        members: false,
       },
     ],
   },
@@ -175,6 +195,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 4,
         requires: 'Monkey Madness I, Client of Kourend',
+        members: true,
       },
       {
         name: 'Sins of the Father',
@@ -182,6 +203,7 @@ export const questLog: QuestTier[] = [
         status: 'completed',
         questPoints: 4,
         requires: 'A Taste of Hope, Vampyre Slayer',
+        members: true,
       },
       {
         name: 'Dragon Slayer II',
@@ -189,6 +211,7 @@ export const questLog: QuestTier[] = [
         status: 'in-progress',
         questPoints: 5,
         requires: 'Level 200 Quest Points, several skills 50-75',
+        members: true,
       },
       {
         name: 'Song of the Elves',
@@ -197,6 +220,7 @@ export const questLog: QuestTier[] = [
         questPoints: 4,
         requires: "Mourning's End Part II, 90+ combined skills",
         note: 'Last one on the list. No pressure.',
+        members: true,
       },
     ],
   },

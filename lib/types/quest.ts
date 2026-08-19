@@ -18,6 +18,8 @@ export type Quest = {
   requires: string
   /** Optional flavour note shown next to the requirements, e.g. "Ten minutes, tops." */
   note?: string
+  /** Whether this quest requires a members (P2P) account. */
+  members: boolean
 }
 
 /** A difficulty tier (Novice, Intermediate, ...) and the quests within it. */

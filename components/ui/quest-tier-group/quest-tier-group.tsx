@@ -14,11 +14,17 @@ const DIFFICULTY_LABEL: Record<QuestDifficulty, string> = {
 
 interface QuestTierGroupProps {
   tier: QuestTier
+  /**
+   * Quests to render in the list, e.g. after applying search/status/members filters.
+   * Defaults to `tier.quests`. Completion progress always reflects the full, unfiltered
+   * `tier.quests` so it keeps representing overall tier progress.
+   */
+  quests?: QuestTier['quests']
   className?: string
 }
 
 /** A difficulty tier heading (with completion progress) and its list of quests. */
-export function QuestTierGroup({ tier, className }: QuestTierGroupProps) {
+export function QuestTierGroup({ tier, quests = tier.quests, className }: QuestTierGroupProps) {
   const completed = tier.quests.filter((quest) => quest.status === 'completed').length
   const total = tier.quests.length
   const percentComplete = total > 0 ? (completed / total) * 100 : 0
@@ -35,11 +41,13 @@ export function QuestTierGroup({ tier, className }: QuestTierGroupProps) {
         <Progress value={percentComplete} variant="secondary" className="w-24 sm:w-40" />
       </div>
 
-      <div className="rounded-sm border border-border bg-card px-4">
-        {tier.quests.map((quest) => (
-          <QuestListItem key={quest.name} quest={quest} />
-        ))}
-      </div>
+      {quests.length > 0 && (
+        <div className="rounded-sm border border-border bg-card px-4">
+          {quests.map((quest) => (
+            <QuestListItem key={quest.name} quest={quest} />
+          ))}
+        </div>
+      )}
     </section>
   )
 }

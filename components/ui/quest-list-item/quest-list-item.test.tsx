@@ -9,6 +9,7 @@ const COMPLETED_QUEST: Quest = {
   status: 'completed',
   questPoints: 1,
   requires: 'None',
+  members: false,
 }
 
 const IN_PROGRESS_QUEST: Quest = {
@@ -17,6 +18,7 @@ const IN_PROGRESS_QUEST: Quest = {
   status: 'in-progress',
   questPoints: 5,
   requires: 'Level 200 Quest Points, several skills 50-75',
+  members: true,
 }
 
 const NOT_STARTED_QUEST_WITH_NOTE: Quest = {
@@ -26,6 +28,7 @@ const NOT_STARTED_QUEST_WITH_NOTE: Quest = {
   questPoints: 1,
   requires: 'None',
   note: 'Ten minutes, tops. Stop putting it off.',
+  members: false,
 }
 
 describe('QuestListItem', () => {

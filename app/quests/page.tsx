@@ -1,4 +1,9 @@
+'use client'
+
+import { useMemo, useState } from 'react'
+
 import { questLog } from '@/lib/fixtures'
+import type { QuestStatus } from '@/lib/types/quest'
 import { Search } from 'lucide-react'
 
 import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'
@@ -18,8 +23,20 @@ const VIEW_TOGGLE_ITEMS = [
 ] as const
 
 const FILTERS = ['All', 'Not started', 'In progress', 'Completed'] as const
+type QuestFilter = (typeof FILTERS)[number]
+
+const FILTER_STATUS: Record<QuestFilter, QuestStatus | null> = {
+  All: null,
+  'Not started': 'not-started',
+  'In progress': 'in-progress',
+  Completed: 'completed',
+}
 
 export default function QuestsPage() {
+  const [search, setSearch] = useState('')
+  const [statusFilter, setStatusFilter] = useState<QuestFilter>('All')
+  const [membersOnly, setMembersOnly] = useState(false)
+
   const totalQuests = questLog.reduce((sum, tier) => sum + tier.quests.length, 0)
   const completedQuests = questLog.reduce(
     (sum, tier) => sum + tier.quests.filter((quest) => quest.status === 'completed').length,
@@ -38,6 +55,23 @@ export default function QuestsPage() {
     (sum, tier) => sum + tier.quests.reduce((s, q) => s + q.questPoints, 0),
     0
   )
+
+  const filteredQuestLog = useMemo(() => {
+    const query = search.trim().toLowerCase()
+    const requiredStatus = FILTER_STATUS[statusFilter]
+
+    return questLog.map((tier) => ({
+      tier,
+      quests: tier.quests.filter((quest) => {
+        if (query && !quest.name.toLowerCase().includes(query)) return false
+        if (requiredStatus && quest.status !== requiredStatus) return false
+        if (membersOnly && !quest.members) return false
+        return true
+      }),
+    }))
+  }, [search, statusFilter, membersOnly])
+
+  const hasResults = filteredQuestLog.some(({ quests }) => quests.length > 0)
 
   return (
     <>
@@ -67,22 +101,44 @@ export default function QuestsPage() {
             className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground"
             aria-hidden="true"
           />
-          <Input placeholder="Search quests…" className="pl-8" />
+          <Input
+            placeholder="Search quests…"
+            className="pl-8"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-          <FilterPillGroup items={FILTERS} activeItem="All" />
+          <FilterPillGroup
+            items={FILTERS}
+            activeItem={statusFilter}
+            onSelect={(item) => setStatusFilter(item as QuestFilter)}
+          />
           <div className="flex items-center gap-2">
-            <Checkbox id="members-quests" defaultChecked />
+            <Checkbox
+              id="members-quests"
+              checked={membersOnly}
+              onCheckedChange={(checked) => setMembersOnly(checked)}
+            />
             <Label htmlFor="members-quests">Members quests</Label>
           </div>
         </div>
       </div>
 
       <div className="flex flex-col gap-8">
-        {questLog.map((tier) => (
-          <QuestTierGroup key={tier.difficulty} tier={tier} />
-        ))}
+        {hasResults ? (
+          filteredQuestLog.map(
+            ({ tier, quests }) =>
+              quests.length > 0 && (
+                <QuestTierGroup key={tier.difficulty} tier={tier} quests={quests} />
+              )
+          )
+        ) : (
+          <p className="text-center text-muted-foreground">
+            No quests match your filters. Try broadening your search.
+          </p>
+        )}
       </div>
     </>
   )
