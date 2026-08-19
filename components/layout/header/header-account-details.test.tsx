@@ -1,11 +1,35 @@
-import { render, screen } from '@testing-library/react'
+import { useEffect } from 'react'
+
+import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
 import { HeaderAccountDetails } from '@/components/layout/header/header-account-details'
-import { SettingsDrawerProvider } from '@/components/layout/header/settings-drawer-context'
+import {
+  SettingsDrawerProvider,
+  useSettingsDrawer,
+} from '@/components/layout/header/settings-drawer-context'
 
 const renderWithContext = (component: React.ReactNode) => {
   return render(<SettingsDrawerProvider>{component}</SettingsDrawerProvider>)
+}
+
+// Opens the drawer on mount (mimicking a user clicking the settings cog),
+// then renders `HeaderAccountDetails` alongside a visible open/closed
+// indicator so tests can assert the drawer doesn't get closed out from under
+// the user.
+function OpenedDrawerHarness() {
+  const { open, setOpen } = useSettingsDrawer()
+
+  useEffect(() => {
+    setOpen(true)
+  }, [setOpen])
+
+  return (
+    <>
+      <span data-testid="drawer-state">{open ? 'open' : 'closed'}</span>
+      <HeaderAccountDetails />
+    </>
+  )
 }
 
 describe('HeaderAccountDetails', () => {
@@ -81,5 +105,22 @@ describe('HeaderAccountDetails', () => {
     await user.click(screen.getByRole('button', { name: 'Fetch' }))
 
     expect(screen.getByText('Please enter a username first')).toBeInTheDocument()
+  })
+
+  it('does not auto-close the drawer on mount for a returning user with a saved username', async () => {
+    window.localStorage.setItem(
+      'questly:account-details',
+      JSON.stringify({ username: 'Woox', membership: 'member', accountType: 'main' })
+    )
+
+    render(
+      <SettingsDrawerProvider>
+        <OpenedDrawerHarness />
+      </SettingsDrawerProvider>
+    )
+
+    await waitFor(() => expect(screen.getByLabelText('RuneScape username')).toHaveValue('Woox'))
+
+    expect(screen.getByTestId('drawer-state')).toHaveTextContent('open')
   })
 })

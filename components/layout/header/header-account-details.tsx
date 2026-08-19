@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import React from 'react'
 
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
@@ -18,9 +18,18 @@ export function HeaderAccountDetails() {
     useAccountDetails()
   const { setOpen } = useSettingsDrawer()
 
-  // Close drawer when hiscores fetch succeeds (loading ends with no error)
+  // Close the drawer only when a fetch *just finished* successfully (a
+  // loading -> not-loading transition with no error), not merely because
+  // the component mounted with a previously-saved username and no error —
+  // otherwise returning users would have the drawer close itself the
+  // instant they opened it.
+  const wasLoadingRef = useRef(loading)
+
   useEffect(() => {
-    if (!loading && !error && accountDetails.username) {
+    const wasLoading = wasLoadingRef.current
+    wasLoadingRef.current = loading
+
+    if (wasLoading && !loading && !error && accountDetails.username) {
       setOpen(false)
     }
   }, [loading, error, accountDetails.username, setOpen])
