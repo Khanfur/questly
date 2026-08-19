@@ -40,10 +40,7 @@ export default function QuestsPage() {
   const [membersOnly, setMembersOnly] = useState(false)
   const { statusByQuest, setQuestStatus } = useQuestProgress()
 
-  const questLog = useMemo(
-    () => buildQuestLog(questDetails, statusByQuest),
-    [statusByQuest]
-  )
+  const questLog = useMemo(() => buildQuestLog(questDetails, statusByQuest), [statusByQuest])
 
   const totalQuests = questLog.reduce((sum, tier) => sum + tier.quests.length, 0)
   const completedQuests = questLog.reduce(

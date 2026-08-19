@@ -1,5 +1,5 @@
 import type { Quest } from '@/lib/types/quest'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'
 
@@ -54,5 +54,26 @@ describe('QuestListItem', () => {
   it('renders the optional flavour note when provided', () => {
     render(<QuestListItem quest={NOT_STARTED_QUEST_WITH_NOTE} />)
     expect(screen.getByText(/Ten minutes, tops/)).toBeInTheDocument()
+  })
+
+  it('does not render the status icon as a button when onStatusChange is omitted', () => {
+    render(<QuestListItem quest={COMPLETED_QUEST} />)
+    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+  })
+
+  it('calls onStatusChange with the next status in the cycle when the status icon is clicked', () => {
+    const onStatusChange = jest.fn()
+    render(<QuestListItem quest={NOT_STARTED_QUEST_WITH_NOTE} onStatusChange={onStatusChange} />)
+
+    fireEvent.click(screen.getByRole('button'))
+    expect(onStatusChange).toHaveBeenCalledWith('in-progress')
+  })
+
+  it('cycles completed quests back to not-started when clicked', () => {
+    const onStatusChange = jest.fn()
+    render(<QuestListItem quest={COMPLETED_QUEST} onStatusChange={onStatusChange} />)
+
+    fireEvent.click(screen.getByRole('button'))
+    expect(onStatusChange).toHaveBeenCalledWith('not-started')
   })
 })

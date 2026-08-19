@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { fireEvent, render } from '@testing-library/react'
 
 import { QuestStatusIcon } from '@/components/ui/quest-list-item/quest-status-icon'
 
@@ -23,5 +23,20 @@ describe('QuestStatusIcon', () => {
   it('merges custom className onto the wrapper', () => {
     const { container } = render(<QuestStatusIcon status="not-started" className="custom-class" />)
     expect(container.firstChild).toHaveClass('custom-class')
+  })
+
+  it('renders as a button with an accessible label when onClick is provided', () => {
+    const onClick = jest.fn()
+    const { getByRole } = render(
+      <QuestStatusIcon status="not-started" onClick={onClick} label="Mark as in progress" />
+    )
+    const button = getByRole('button', { name: 'Mark as in progress' })
+    fireEvent.click(button)
+    expect(onClick).toHaveBeenCalledTimes(1)
+  })
+
+  it('renders as a static, non-interactive span when onClick is not provided', () => {
+    const { container } = render(<QuestStatusIcon status="not-started" />)
+    expect(container.querySelector('button')).not.toBeInTheDocument()
   })
 })

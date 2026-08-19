@@ -32,23 +32,25 @@ export function buildQuestLog(
   questDetails: WikiQuestDetails[],
   statusByQuest: Record<string, QuestStatus>
 ): QuestTier[] {
-  return DIFFICULTY_ORDER.map((difficulty) => ({
-    difficulty,
+  return DIFFICULTY_ORDER.map((tierDifficulty) => ({
+    difficulty: tierDifficulty,
     quests: questDetails
       .filter((details) => !details.title.includes('/'))
       .filter(
-        (details) => (details.difficulty ?? DIFFICULTY_FALLBACK_BY_TITLE[details.title]) === difficulty
+        (details) =>
+          (details.difficulty ?? DIFFICULTY_FALLBACK_BY_TITLE[details.title]) === tierDifficulty
       )
-      .map((details) => toQuest(details, statusByQuest[details.title] ?? 'not-started')),
+      .map((details) =>
+        toQuest(details, tierDifficulty, statusByQuest[details.title] ?? 'not-started')
+      ),
   }))
 }
 
-function toQuest(details: WikiQuestDetails, status: QuestStatus): Quest {
-  const difficulty = details.difficulty ?? DIFFICULTY_FALLBACK_BY_TITLE[details.title]
-  if (!difficulty) {
-    throw new Error(`Quest "${details.title}" has no resolvable difficulty.`)
-  }
-
+function toQuest(
+  details: WikiQuestDetails,
+  difficulty: QuestDifficulty,
+  status: QuestStatus
+): Quest {
   return {
     name: details.title,
     difficulty,

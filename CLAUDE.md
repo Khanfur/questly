@@ -12,9 +12,13 @@ noteworthy-packages table.
   list/quests/stats but overlays real values from `useAccountDetails()`'s `hiscores` when present
   (skill levels, `Total Level`, and a computed `Combat Level` via `calculateCombatLevel`), showing a
   skeleton (`loading` prop on `SkillCard`/`StatCard`) until `hiscoresHydrated` is `true` to avoid
-  flashing placeholder data. `app/quests/` is the Quest Log page and `app/quests/diaries/` is the
-  Achievement Diaries page — both are currently static (fixture-driven, no filtering wired up yet)
-  and share the `PageHero`/`ViewToggle` layout. `app/style-guide/` hosts the internal component style
+  flashing placeholder data. `app/quests/` is the Quest Log page — it builds the real, full quest
+  list from `lib/data/questDetails` via `buildQuestLog` (`lib/quest-log.ts`), grouped by difficulty
+  tier, with each quest's completion status merged in from `useQuestProgress` (locally-tracked in
+  `localStorage`, since there's no OSRS API for per-quest completion). Clicking a quest's status
+  icon cycles it not-started → in-progress → completed → not-started. `app/quests/diaries/` is the
+  Achievement Diaries page — still static (fixture-driven, no filtering wired up yet) — and both
+  share the `PageHero`/`ViewToggle` layout. `app/style-guide/` hosts the internal component style
   guide (visit `/style-guide` while `npm run dev` is running).
 - `components/layout/` — structural chrome: `container`, `header` (incl. a settings drawer, see
   `useSettingsDrawer`), `footer`.
@@ -27,6 +31,11 @@ noteworthy-packages table.
   these rather than hand-rolling new primitives.
 - `lib/utils.ts` — shared helpers, notably `cn()` (clsx + tailwind-merge) for conditional class
   names, and `isLocalhost()`.
+- `lib/quest-log.ts` — `buildQuestLog(questDetails, statusByQuest)` merges the generated
+  `lib/data/questDetails` (196 quests scraped from the wiki) with locally-tracked completion status
+  into `QuestTier[]`, grouped by difficulty. Excludes wiki sub-pages (titles containing `/`, e.g.
+  Recipe for Disaster's individual sub-quest/guide pages) and falls back non-standard wiki difficulty
+  ratings (e.g. Recipe for Disaster's "Special") to a sensible `QuestDifficulty` tier.
 - `lib/hooks/` — reusable client-side hooks:
   - `useLocalStorage` — generic, JSON-serialized, SSR-safe state synced to `window.localStorage`.
     Returns `[value, setValue, isHydrated]`. The initial read happens in a layout effect (before
@@ -42,6 +51,9 @@ noteworthy-packages table.
   - `useAccountDetails` — persists the user's OSRS account details (username, membership, account
     type) and fetched `hiscores` via `useLocalStorage`, exposing `hiscoresHydrated` alongside
     `hiscores`.
+  - `useQuestProgress` — persists a `Record<questTitle, QuestStatus>` map to `localStorage`
+    (`questly:quest-progress`) via `useLocalStorage`, exposing `statusByQuest` and `setQuestStatus`.
+    Used by the Quest Log page (`app/quests/page.tsx`) since OSRS has no API for per-quest completion.
 - `lib/types/` — shared TypeScript types and interfaces. Organized by domain: `skill.ts`, `quest.ts`,
   `diary.ts`, `sage.ts`, `hiscores.ts`, `activity.ts`, `osrs-hiscores.ts`, `account.ts`, etc.
 - `lib/fixtures/` — dummy data for development and Storybook. Organized by domain: `skills.ts`,

@@ -1,5 +1,5 @@
 import type { QuestTier } from '@/lib/types/quest'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 import { QuestTierGroup } from '@/components/ui/quest-tier-group/quest-tier-group'
 
@@ -49,5 +49,13 @@ describe('QuestTierGroup', () => {
     render(<QuestTierGroup tier={TIER} quests={[]} />)
     expect(screen.queryByText("Cook's Assistant")).not.toBeInTheDocument()
     expect(screen.queryByText('The Restless Ghost')).not.toBeInTheDocument()
+  })
+
+  it('calls onStatusChange with the clicked quest name and next status', () => {
+    const onStatusChange = jest.fn()
+    render(<QuestTierGroup tier={TIER} onStatusChange={onStatusChange} />)
+
+    fireEvent.click(screen.getAllByRole('button')[1])
+    expect(onStatusChange).toHaveBeenCalledWith('The Restless Ghost', 'in-progress')
   })
 })
