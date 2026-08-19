@@ -7,7 +7,7 @@
  * GENERATED FILE — do not hand-edit.
  * Regenerate all: npm run fetch:quest-details
  * Update one: npm run fetch:quest-details -- --title "Quest Name"
- * Last generated: 2026-08-19T16:52:36.740Z
+ * Last generated: 2026-08-19T18:31:11.644Z
  * Count: 196 quests
  */
 import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
@@ -56,8 +56,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Aris in the tent on the western side of Varrock Square.',
     description:
       'A mighty demon is being summoned to destroy the city of Varrock. You find out you are the one destined to stop him (or at least try).',
-    requirements:
-      'The ability to defeat a level 27 demon aided by three level 20 Dark wizards and two level 7 Dark wizards using the Silverlight in melee.',
+    requirements: null,
     enemies: [],
     itemsRequired: [
       'A water container, such as a bucket of water (obtainable during the quest)',
@@ -78,8 +77,9 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Reldo in the Varrock library, located within the northern end of Varrock Castle.',
     description:
       'Varrockian literature tells of a valuable shield, stolen long ago from the museum of Varrock, by a gang of professional thieves. See if you can track down this shield and return it to the museum. You will need a friend to help you complete this quest.',
-    requirements:
-      '* A trustworthy friend or partner. Players can join the official chat-channel "OSRS SOA" to look for a partner.',
+    requirements: [
+      'A trustworthy friend or partner. Players can join the official chat-channel "OSRS SOA" to look for a partner.',
+    ],
     enemies: [
       'Black Arm Gang: Weaponsmaster (level 23)',
       'Phoenix Gang: Jonny the Beard (level 2)',
@@ -117,7 +117,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Father Aereck in the chapel south-east of Lumbridge Castle.',
     description:
       'A ghost is haunting Lumbridge graveyard. The priest of the Lumbridge church of Saradomin wants you to find out how to get rid of it.',
-    requirements: 'Capable of killing or running away from a combat level 13 skeleton.',
+    requirements: null,
     enemies: [],
     itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Restless_Ghost',
@@ -133,7 +133,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Veronica, south of Draynor Manor by the gate.',
     description:
       "Veronica is very worried. Her fiancé went into the big spooky manor house to ask for directions. An hour later and he's still not out yet.",
-    requirements: '*The ability to defend from a level 22 Skeleton.',
+    requirements: ['The ability to defend from a level 22 Skeleton.'],
     enemies: null,
     itemsRequired: [
       'Spade (obtainable during the quest)',
@@ -153,7 +153,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to Morgan in his house in Draynor Village, just north of Ned's house.",
     description:
       'The people of Draynor Village live in constant terror. Their numbers are dwindling, all due to the foul creature lurking in the manor to the north known as a vampyre.',
-    requirements: 'Able to defeat a combat level 34 vampyre with a very high health recovery rate.',
+    requirements: null,
     enemies: [],
     itemsRequired: [
       'Hammer (can be bought from the general store just north of the Blue Moon Inn for 1 coin)',
@@ -189,7 +189,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Hassan in the palace at Al Kharid.',
     description:
       'Prince Ali of Al Kharid has been kidnapped by the scheming Lady Keli. You are hired to stage a rescue mission.',
-    requirements: 'The ability to get past aggressive combat level 26 jail guards.',
+    requirements: null,
     enemies: [],
     itemsRequired: [
       'Soft clay',
@@ -219,7 +219,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Doric in the small house north of Falador, just outside the east gate of Taverley.',
     description:
       'Doric the dwarf is happy to let you use his anvils but first he would like you to run an errand for him.',
-    requirements: 'None',
+    requirements: null,
     enemies: null,
     itemsRequired: ['6 clay (not soft clay)', '4 copper ores', '2 iron ores'],
     wikiUrl: "https://oldschool.runescape.wiki/w/Doric's_Quest",
@@ -236,7 +236,7 @@ export const questDetails: WikiQuestDetails[] = [
       "Talk to Sir Amik Varze on the  of the White Knights' Castle's western tower in Falador.",
     description:
       'The Black Knights are up to no good. You are hired by the white knights to spy on them and destroy their secret weapon.',
-    requirements: '*  Quest points  * The ability to evade level 33 Black Knights',
+    requirements: ['12 Quest Points Quest points', 'The ability to evade level 33 Black Knights'],
     enemies: [],
     itemsRequired: [
       'Cabbage (can be obtained from the cabbage patch in Edgeville Monastery and South Falador Farm, as well as Lumbridge cellar. Cabbages obtained from Draynor Manor CANNOT be used)',
@@ -277,8 +277,10 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to the squire in the courtyard of the White Knights' Castle in Falador.",
     description:
       "Sir Vyvin's squire is in trouble. He has accidentally lost Sir Vyvin's ceremonial sword. Help him find a replacement without Sir Vyvin finding out.",
-    requirements:
-      '*    * The ability to run from level 57 ice warriors and level 53 ice giants could help.',
+    requirements: [
+      'Mining level 10',
+      'The ability to run from level 57 ice warriors and level 53 ice giants could help.',
+    ],
     enemies: null,
     itemsRequired: [
       'Redberry pie (not half a redberry pie)',
@@ -320,7 +322,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Redbeard Frank at the northernmost dock at Port Sarim, just outside The Rusty Anchor.',
     description:
       "Redbeard Frank knows the location of pirate treasure, but he'll only part with the knowledge for a bottle of Karamjan rum.",
-    requirements: 'Able to defeat or run away from a Combat level 4 gardener.',
+    requirements: null,
     enemies: [],
     itemsRequired: [
       'Karamjan rum (obtainable during the quest for 30 coins)',
@@ -342,8 +344,10 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to the Guildmaster in the Champions' Guild.",
     description:
       'Prove yourself a true champion. Kill the mighty dragon Elvarg of Crandor and earn the right to buy and wear the Rune platebody.',
-    requirements:
-      "*  Quest points to enter the Champions' Guild   * The ability to defeat a level 83 dragon",
+    requirements: [
+      "32 Quest Points Quest points to enter the Champions' Guild",
+      'The ability to defeat a level 83 dragon',
+    ],
     enemies: [
       'Zombie rats (level 3)*',
       'Ghosts (level 19)*',
@@ -355,14 +359,14 @@ export const questDetails: WikiQuestDetails[] = [
       'Elvarg (level 83)',
     ],
     itemsRequired: [
-      "Unfired bowl (can be made with soft clay on a Potter's Wheel with  Crafting)",
+      "Unfired bowl (can be made with soft clay on a Potter's Wheel with Crafting level 8 Crafting)",
       "Wizard's mind bomb (can be bought in the Rising Sun Inn in Falador or The Toad and Chicken in Burthorpe)",
       'Lobster pot (can be bought from any fishing shop)',
-      'Silk (can be bought from Thessalia for 30 coins or the Al Kharid silk stall for 3 coins -- members can steal it from the Ardougne silk stall with  Thieving)',
+      'Silk (can be bought from Thessalia for 30 coins or the Al Kharid silk stall for 3 coins -- members can steal it from the Ardougne silk stall with Thieving level 20 Thieving)',
       'Magic/ranged weapon as well as a law and air rune (to cast Telekinetic Grab if your Magic level is 33 or higher) or 10,000 coins',
       'Hammer',
       'Anti-dragon shield (obtainable during the quest)',
-      '90 steel nails (Members can buy these from the Sawmill operator north-east of Varrock, they can also be smithed at  Smithing using 6 steel bars by all players)',
+      '90 steel nails (Members can buy these from the Sawmill operator north-east of Varrock, they can also be smithed at Smithing level 34 Smithing using 6 steel bars by all players)',
       '3 planks (only normal planks work)',
       '2,000 coins',
     ],
@@ -394,8 +398,11 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 3,
     start: 'Talk to the warrior in the north-western corner of the Lumbridge Swamp.',
     description: 'Can you find the legendary lost city of Zanaris?',
-    requirements:
-      '*   *   *Ability to kill a level 101 Tree spirit with limited armour and weapons.',
+    requirements: [
+      'Crafting level 31',
+      'Woodcutting level 36',
+      'Ability to kill a level 101 Tree spirit with limited armour and weapons.',
+    ],
     enemies: [
       'Tree Spirit (level 101) (Safespottable)',
       'Multiple Zombies (level 25) (for a bronze axe)',
@@ -417,7 +424,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the boy near the gate entrance of Taverley.',
     description:
       'A young boy who lives in Taverley has kicked his ball into the garden of a scary old lady. He asks you to get it back for him. This proves more difficult than it first sounds.',
-    requirements: '* The ability to defeat 4 monsters from level 19 to 53 without a break.',
+    requirements: ['The ability to defeat 4 monsters from level 19 to 53 without a break.'],
     enemies: ["Witch's experiment (level 19, 30, 42 and 53)"],
     itemsRequired: [
       "Cheese (You may wish to bring several in case you mess up. One source is in Draynor Village - Aggie's house)",
@@ -436,8 +443,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Arthur in Camelot.',
     description:
       "The wizard Merlin has been trapped in a magical crystal by the witch Morgan Le Faye. So far, King Arthur hasn't been able to figure out how to free his mentor from his crystal prison. Can you help?",
-    requirements:
-      "Must be able to defeat a level 39 enemy. You do not need to have an Attack level of 20 to free Merlin, you can 'Use' Excalibur on the crystal to free him.",
+    requirements: null,
     enemies: ['Sir Mordred (level 39)', 'Giant bat (level 27) (optional, to acquire bat bones)'],
     itemsRequired: [
       'Bread',
@@ -459,8 +465,18 @@ export const questDetails: WikiQuestDetails[] = [
       "Talk to Achietties by the entrance to the Heroes' Guild, between Taverley and Burthorpe.",
     description:
       "Prove you are worthy to enter the Heroes' Guild. To prove your status as a hero you will need to obtain a number of items. There are many challenges standing between you and these items.",
-    requirements:
-      "* A partner *   *    *    *    *    * Completion of the following quests: ** Shield of Arrav ** Lost City ** Merlin's Crystal ** Dragon Slayer I",
+    requirements: [
+      'A partner',
+      '55 Quest Points',
+      'Cooking level 53',
+      'Fishing level 53',
+      'Herblore level 25',
+      'Mining level 50',
+      'Completion of Shield of Arrav',
+      'Completion of Lost City',
+      "Completion of Merlin's Crystal",
+      'Completion of Dragon Slayer I',
+    ],
     enemies: [
       'Ice Queen (level 111) (unless you already have Ice Gloves)',
       'Entrana firebird (level 2)',
@@ -493,12 +509,15 @@ export const questDetails: WikiQuestDetails[] = [
       "Talk to Thormac at the top floor of the Sorcerer's Tower, south-east of the Ranging Guild.",
     description:
       'Thormac the Sorcerer has a hobby involving scorpions. Unfortunately, three of them have escaped and managed to run far away. If you manage to find them all, he may just be able to perform an important service for you.',
-    requirements:
-      "*    * Completion of Alfred Grimhand's Barcrawl  * The ability to run past level 172 black demons and level 64 poison spiders",
+    requirements: [
+      'Prayer level 31',
+      "Completion of Alfred Grimhand's Barcrawl",
+      'The ability to run past level 172 black demons and level 64 poison spiders',
+    ],
     enemies: [
       'Jailer (level 47) if you need to acquire the dusty key (alternatively, you can skip this if you have access to the Legends Guild Shop of Useful Items, where the key is sold)',
     ],
-    itemsRequired: ['Dusty key (obtainable during the quest) or  .'],
+    itemsRequired: ['Dusty key (obtainable during the quest) or Agility level 70 .'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Scorpion_Catcher',
   },
   {
@@ -512,8 +531,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Dimintheis in south-eastern Varrock.',
     description:
       "There is a man in Varrock who needs a bit of help. He is of noble heritage, but without his family's crest, he can't prove it. Unfortunately, his three sons took the crest with them when they left, scattering all across Gielinor.",
-    requirements:
-      '*    *    *    *    * The ability to defeat a level 170 demon (can be safespotted)',
+    requirements: [
+      'Mining level 40',
+      'Smithing level 40',
+      'Magic level 59',
+      'Crafting level 40',
+      'The ability to defeat a level 170 demon (can be safespotted)',
+    ],
     enemies: ['Chronozon (level 170) (can be safespotted)'],
     itemsRequired: [
       'Shrimps',
@@ -542,7 +566,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Austri east of White Wolf Mountain or Vestri to the west of it, by either tunnel entrance.',
     description:
       "The mountain Dwarves' home would be an ideal way to get across White Wolf Mountain safely. However, the Dwarves aren't too fond of strangers. They will let you through if you can bring them a trophy. The trophy is the prize for the annual Hemenster fishing competition.",
-    requirements: '*',
+    requirements: ['Fishing level 10'],
     enemies: null,
     itemsRequired: [
       'Spade',
@@ -564,7 +588,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Kangai Mau at The Shrimp and Parrot restaurant in Brimhaven.',
     description:
       'Lord Handelmort of Ardougne is a collector of exotic artefacts. A recent addition to his private collection is a strange looking totem from Karamja. The Rantuki tribe are not happy about the recent disappearance of their totem.',
-    requirements: '*',
+    requirements: ['Thieving level 21'],
     enemies: null,
     itemsRequired: [],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Tribal_Totem',
@@ -580,7 +604,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Brother Omad at the Ardougne Monastery south of East Ardougne.',
     description:
       "A monk's child has had their blanket stolen. Find the thieves' den and return the blanket, then help Brother Omad organise the drinks for the child's birthday party.",
-    requirements: 'The ability to run past two level 14 thieves, and one level 26.',
+    requirements: null,
     enemies: null,
     itemsRequired: ['Jug of water', 'Regular logs or a regular plank'],
     wikiUrl: "https://oldschool.runescape.wiki/w/Monk's_Friend",
@@ -596,8 +620,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Lucien at the Flying Horse Inn in the north-western corner of East Ardougne.',
     description:
       "A mysterious stranger called Lucien asks you to go on a mission deep under the Temple of Ikov in central Kandarin. He wants you to retrieve an artefact known as the Staff of Armadyl. After you retrieve it, the quest doesn't stop there... Are you on the side of good or evil?",
-    requirements:
-      '*    *    - bypassable <ref>This requirement can be bypassed - see below</ref> * The ability to defeat a level 84 enemy with Ranged',
+    requirements: [
+      'Thieving level 42',
+      'Ranged level 40   - bypassable <ref>This requirement can be bypassed - see below</ref>',
+      'The ability to defeat a level 84 enemy with Ranged',
+    ],
     enemies: [
       'Fire Warrior of Lesarkus (level 84)',
       'Guardian of Armadyl (level 43) (Safespottable) - only if siding with Lucien',
@@ -621,7 +648,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Brother Kojo in the Clock Tower south of East Ardougne.',
     description:
       'Help the confused Brother Kojo find the missing cogs and fix his clock tower. Search the dungeon using brawn and brains to correctly place the four cogs.',
-    requirements: 'The ability to run past level 53 Ogres',
+    requirements: null,
     enemies: null,
     itemsRequired: ['Bucket of water (obtainable during quest)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Clock_Tower',
@@ -637,8 +664,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Arthur in Camelot.',
     description:
       'King Arthur is sending out his knights on a quest for the famous Holy Grail. If you are a Knight of the Round Table go to King Arthur for further orders.',
-    requirements:
-      "*Completion of the following quests: **Merlin's Crystal *   *Must be able to defeat a level 120 Black Knight Titan (can be safespotted or flinched)",
+    requirements: [
+      "Completion of Merlin's Crystal",
+      'Attack level 20',
+      'Must be able to defeat a level 120 Black Knight Titan (can be safespotted or flinched)',
+    ],
     enemies: [],
     itemsRequired: ['Excalibur'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Holy_Grail',
@@ -654,7 +684,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Bolren at the centre of the Tree Gnome Village maze.',
     description:
       "The tree gnomes are in trouble. General Khazard's forces are hunting them to extinction. Find your way through the hedge maze to the gnomes secret treetop village. Then help the gnomes fight Khazard and retrieve the orbs of protection.",
-    requirements: '* The ability to defeat a level 112 Khazard warlord',
+    requirements: ['The ability to defeat a level 112 Khazard warlord'],
     enemies: ['Khazard warlord (level 112) (can be safespotted)'],
     itemsRequired: [
       '6 normal logs (or an axe, obtainable during the quest by killing goblins in the Tree Gnome Village maze, or retrievable from the canoe station near the north entrance to the maze, if you have one stored)',
@@ -675,7 +705,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Lady Servil west of the Ardougne Monastery, just outside the north-eastern corner of the Gnome Maze.',
     description:
       'The prosperous Servil family have been abducted by the infamous General Khazard. He plans to have the family battle for his entertainment in the Fight Arena. Can you rescue the Servils before the tyrant has these innocent (not to mention wealthy) civilians slain?',
-    requirements: 'The ability to defeat level 44, 63 and 137 enemies (all can be safespotted)',
+    requirements: null,
     enemies: [
       'Khazard scorpion (level 44)',
       'Khazard ogre (level 63)',
@@ -696,8 +726,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Ceril Carnillean in East Ardougne, just north of the Clock Tower.',
     description:
       'Discover the truth behind the Carnillean family fortune. Decide for yourself whether to aid the Carnilleans in retrieving stolen goods, or join the Hazeel cult members in their mission to resurrect the infamous Lord Hazeel.',
-    requirements:
-      "Able to defeat a level 13 cultist (this applies only if you're taking Ceril's side)",
+    requirements: null,
     enemies: [],
     itemsRequired: [],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Hazeel_Cult',
@@ -751,7 +780,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Caroline just north of Witchaven.',
     description:
       "Something strange is happening on the Fishing Platform. Missing fishermen and the presence of dozens of strange sea creatures gives cause for concern. Investigate the platform, discover the truth before it's too late.",
-    requirements: '*',
+    requirements: ['Firemaking level 30'],
     enemies: null,
     itemsRequired: [
       'Swamp paste (made by mixing flour with swamp tar then cooking the mixture on a fire; can also be bought from a Trader crewmember for 75 coins, from Rasolo for 60 coins west of the Fishing Guild, or from the Khazard General Store for 42 coins at full stock)',
@@ -769,8 +798,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Almera in her house north-east of Baxtorian Falls.',
     description:
       "Investigate the death of elven leaders of old. Search for the elf King Baxtorian's tomb and discover the mysterious hidden treasure of the waterfall.",
-    requirements:
-      'The ability to withstand and evade attacks from level 86 Fire Giants and level 84 Moss Guardian without any equipment.',
+    requirements: null,
     enemies: null,
     itemsRequired: ['6 Air runes', '6 Earth runes', '6 Water runes', 'Rope'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Waterfall_Quest',
@@ -786,16 +814,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Trufitus in Tai Bwo Wannai.',
     description:
       'Trufitus Shakaya of the Tai Bwo Wannai Village requires that you collect five special jungle herbs for a potion so he can commune with his gods.',
-    requirements:
-      '* Completion of Druidic Ritual *    * The ability to defend against level 53 Jogres and level 46 Harpie Bug Swarms.',
-    enemies: null,
-    itemsRequired: [
-      '1-2 antidote++ or other antipoison potions',
-      'Food',
-      'Stamina potions',
-      'Combat equipment to kill a level 53 Jogre for an easy Karamja Diary task',
-      "Fast travel to Tai Bwo Wannai Village to start the quest - Brimhaven teleport, Teleport to House (Brimhaven), Captain Barnaby's ship from Ardougne to Brimhaven, fairy ring  or amulet of glory to Karamja",
+    requirements: [
+      'Completion of Druidic Ritual',
+      'Herblore level 3',
+      'The ability to defend against level 53 Jogres and level 46 Harpie Bug Swarms.',
     ],
+    enemies: null,
+    itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/Jungle_Potion',
   },
   {
@@ -809,8 +834,10 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Narnode Shareen in the Grand Tree.',
     description:
       'The Grand Tree, which shelters the majority of the small gnome population of Gielinor, is dying. Is it human sabotage or an inside job? Help King Shareen to find the true cause and save the tree gnomes from an uncertain fate.',
-    requirements:
-      '*    * The ability to defeat a level 172 Black demon (safespottable for Ranged and Magic or melee using a halberd).',
+    requirements: [
+      'Agility level 25',
+      'The ability to defeat a level 172 Black demon (safespottable for Ranged and Magic or melee using a halberd).',
+    ],
     enemies: ['Black demon (level 172) (can be safespotted)'],
     itemsRequired: [
       '1,000 coins if you previously chose not to help Femi on your first entry to the Tree Gnome Stronghold (not required if you never used the gate entrance)',
@@ -828,7 +855,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Lathas on the  of Ardougne Castle.',
     description:
       "There are rumours of a secret passageway that can be used to get to the other side of the mountains west of Ardougne. Now it's just a matter of finding it.",
-    requirements: '*   * Completion of the following quests: ** Biohazard *** Plague City',
+    requirements: ['Ranged level 25', 'Completion of Biohazard'],
     enemies: [
       '3 demons Doomion, Othainian, and Holthion (level 91) (easily safespottable)',
       '3 Paladins (level 62) (easily safespottable)',
@@ -857,7 +884,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to the Observatory professor in the Observatory Reception Room north of Castle Wars.',
     description:
       'The Observatory in south-west Ardougne has been ransacked by a family of nearby goblins. Can you help the professor to rebuild it?',
-    requirements: 'None',
+    requirements: null,
     enemies: ['Goblin guard (level 42) (Optional – can simply be trapped behind a column)'],
     itemsRequired: ['3 normal planks', 'Bronze bar', 'Molten glass'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Observatory_Quest',
@@ -873,7 +900,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Irena by the Shantay Pass, south of Al Kharid.',
     description:
       'South of Al Kharid a new desert pass has opened up, leading to the dangers of the Kharid desert. Equip your desert garb and make sure your waterskin is full before heading off into the trackless dunes in search of desert adventure.',
-    requirements: '*    *    * The ability to defeat a level 47 enemy',
+    requirements: [
+      'Fletching level 10',
+      'Smithing level 20',
+      'The ability to defeat a level 47 enemy',
+    ],
     enemies: ['Mercenary Captain (level 47) - safespottable'],
     itemsRequired: [
       'Desert shirt, robe, and boots (black versions do not work)',
@@ -896,8 +927,14 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to the Watchtower Wizard in the Watchtower north of Yanille; you must climb the trellis on the north side of the tower.',
     description:
       'The Wizards of the Yanille Watch Tower have been reporting increased ogre sightings recently. Use a wide variety of your skills to help the wizards recover their stolen power crystals and stop the advance of the ogre hordes!',
-    requirements:
-      '*    *    *    <ref name="Note">Climbing the trellis to begin the quest requires 18 Agility.</ref> *    *    * The ability to defeat a level 68 Ogre and run past level 111 Blue dragons',
+    requirements: [
+      'Magic level 14',
+      'Thieving level 15',
+      'Agility level 25   <ref name="Note">Climbing the trellis to begin the quest requires 18 Agility.</ref>',
+      'Herblore level 14',
+      'Mining level 40',
+      'The ability to defeat a level 68 Ogre and run past level 111 Blue dragons',
+    ],
     enemies: [
       'Gorad (level 68) (safespottable)',
       'Giant bat (level 27) (only if bat bones are needed)',
@@ -961,7 +998,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to an examiner in the Exam Centre south of the Digsite.',
     description:
       'Feeling uneducated? Desperate for buried treasure? "There\'s gold in them there hills" (well stream actually) as well as many other items that can be found at the digsite. Join the students in their attempt to be a qualified archaeologist, and become experienced in making the earth move! Have you got what it takes to unearth the hidden altar to one of Gielinor\'s lesser-known Gods?',
-    requirements: '*    *    *',
+    requirements: ['Agility level 10', 'Herblore level 10', 'Thieving level 25'],
     enemies: null,
     itemsRequired: [
       'Pestle and mortar',
@@ -1009,8 +1046,25 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to the Legends' Guards just outside of the Legends' Guild.",
     description:
       "Only the elite are allowed to call themselves a member of the Legends' Guild. Do you have what it takes to make it in?",
-    requirements:
-      "*   *    *    *    *    *    *    *    *    *    *    * Completion of the following quests: ** Family Crest ** Heroes' Quest *** Shield of Arrav *** Lost City *** Merlin's Crystal *** Dragon Slayer I ** Shilo Village *** Jungle Potion **** Druidic Ritual ** Underground Pass *** Biohazard **** Plague City ** Waterfall Quest * The ability to defeat a level 187 demon",
+    requirements: [
+      '107 Quest Points',
+      'Agility level 50',
+      'Crafting level 50',
+      'Herblore level 45',
+      'Magic level 56',
+      'Mining level 52',
+      'Prayer level 42',
+      'Smithing level 50',
+      'Strength level 50',
+      'Thieving level 50',
+      'Woodcutting level 50',
+      'Completion of Family Crest',
+      "Completion of Heroes' Quest",
+      'Completion of Shilo Village',
+      'Completion of Underground Pass',
+      'Completion of Waterfall Quest',
+      'The ability to defeat a level 187 demon',
+    ],
     enemies: [
       'Ranalph Devere (level 92) — 2 times',
       'Irvig Senay (level 100) — 2 times',
@@ -1050,9 +1104,9 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Duke Horacio on the  of Lumbridge Castle.',
     description:
       "After the first Wizards' Tower burned down a hundred years ago, the incantation allowing teleportation to the rune essence mine was lost. However, after much research from the Order of Wizards, the incantation is on the verge of rediscovery...",
-    requirements: '|items = *Air talisman (is given for free at the start of the quest)',
+    requirements: null,
     enemies: null,
-    itemsRequired: null,
+    itemsRequired: ['Air talisman (is given for free at the start of the quest)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Rune_Mysteries',
   },
   {
@@ -1088,8 +1142,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Sanfew  on the  of the herbalist shop in Taverley.',
     description:
       'Sanfew requires a rare herb for the next part of the purifying ritual. Travel back to the Troll Stronghold to find this herb that the trolls use as an ingredient for their favourite dish.',
-    requirements:
-      '* Completion of the following quests: ** Druidic Ritual ** Troll Stronghold *** Death Plateau *',
+    requirements: [
+      'Completion of Druidic Ritual',
+      'Completion of Troll Stronghold',
+      'Herblore level 31',
+    ],
     enemies: null,
     itemsRequired: [
       'Climbing boots (or 12 coins to buy from Tenzing)',
@@ -1114,12 +1171,16 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Rantz by the eastern coast of Feldip Hills, east of fairy ring .',
     description:
       "Rantz the Ogre needs to feed his demanding children, Fycie and Bugs, so he wants to go Big Chompy Bird hunting. Problem is, he's all fingers and thumbs when it comes to making ogre arrows. Could someone please give him a hand?",
-    requirements:
-      '*    *    *    * The ability to defend against level 64 wolves and level 53 ogres',
+    requirements: [
+      'Fletching level 5',
+      'Cooking level 30',
+      'Ranged level 30',
+      'The ability to defend against level 64 wolves and level 53 ogres',
+    ],
     enemies: ['Chompy bird (level 6)', 'Wolves (level 64) (optional)'],
     itemsRequired: [
       'Any axe that you can use (Blessed axe does not work)',
-      'Feathers (100 to be safe; coloured feathers from  work)',
+      'Feathers (100 to be safe; coloured feathers from Hunter work)',
       'Knife (or  to buy a knife and chisel from Bugs)',
       'Chisel (or  to buy a knife and chisel from Bugs)',
       '4 wolf bones (obtainable during the quest from level 65 wolves or from level 14 wolves in the Stronghold of Security)',
@@ -1143,7 +1204,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Search the bookcase in the house immediately south-west of the Seers' Village bank.",
     description:
       'Hundreds of years ago, a mineral was found that had the ability to change the property of Magic. The magicians, fearing the effect this may have on their profession, sealed this Workshop forever; or so they had hoped. See if you can rediscover the lost knowledge of elemental ore.',
-    requirements: '*     *    *',
+    requirements: ['Mining level 20', 'Smithing level 20', 'Crafting level 20'],
     enemies: ['Earth elemental (level 35)'],
     itemsRequired: [
       'Knife (obtainable during the quest) or a slash weapon (e.g. dagger or scimitar)',
@@ -1168,7 +1229,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Drezel in the basement of the Paterdomus Temple by the northern end of the River Salve.',
     description:
       "After saving the holy man Drezel, he's seeking some assistance again. This time he has a special request for any adventurous sorts to search for the Druid 'Filliman Tarlock' and brave the terrors that infest the swamp of Mort Myre.",
-    requirements: '* Completion of Priest in Peril * Completion of The Restless Ghost',
+    requirements: ['Completion of Priest in Peril', 'Completion of The Restless Ghost'],
     enemies: ['3 Ghasts (level 30)'],
     itemsRequired: ['Silver sickle', 'Ghostspeak amulet', '6 empty inventory spaces'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Nature_Spirit',
@@ -1206,15 +1267,19 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Lathas on the  of Ardougne Castle.',
     description:
       "Continuing the Plague City series, the Regicide Quest takes you beyond the 'Well of Voyage' to a new realm. King Lathas will employ you once again, this time for the grim task of disposing of his brother. Upon travelling to the realm you will find yourself surrounded by new and strange plants, animals and even a new race. Once there, you will see that everything is not as serene as it first appears.",
-    requirements:
-      '* Completion of the following quests: ** Underground Pass *** Biohazard **** Plague City *    *    * The ability to defeat a level 110 Tyras guard (can be safespotted)',
+    requirements: [
+      'Completion of Underground Pass',
+      'Crafting level 10',
+      'Agility level 56',
+      'The ability to defeat a level 110 Tyras guard (can be safespotted)',
+    ],
     enemies: ['Tyras guard (level 110) Safespottable'],
     itemsRequired: [
       '5 coal in the bank (although at least 25 is recommended; you may bring the coal noted to save you a bank trip)',
       'Bow and some arrows (or lit fire arrows if you already have some.)',
       '2 ropes (3 in case you fail)',
       'Spade',
-      'Limestone (or a pickaxe and ). Note that limestone bricks will not work.',
+      'Limestone (or a pickaxe and Mining). Note that limestone bricks will not work.',
       'Tinderbox',
       'Strip of cloth (made on a loom with 4 balls of wool; not a bolt of cloth - you can use the loom at the Iorwerth Camp or at the Falador farm)',
       'Pestle and mortar',
@@ -1235,8 +1300,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Timfraku in his house in Tai Bwo Wannai.',
     description:
       'In Jungle Potion, the Shaman Trufitus communed with the gods to determine the fate of his people. Now, Timfraku, the Chief of Tai Bwo Wannai, wishes to see his people and family return to the abandoned village. Help a depressed fisherman, encourage a raging hunter and satiate an eccentric priest in this extreme test of aptitude and patience!',
-    requirements:
-      '* <!--DO NOT ADD 30 FIREMAKING, IT IS ONLY RECOMMENDED AND ALTERNATIVES ARE MENTIONED ON THIS PAGE-->   *    *    <ref>Level 65 is required if you wish to catch the Raw karambwan yourself.</ref><!--Do not add 30 Firemaking--> * Completion of the following quests: ** Jungle Potion *** Druidic Ritual',
+    requirements: [
+      '<!--DO NOT ADD 30 FIREMAKING, IT IS ONLY RECOMMENDED AND ALTERNATIVES ARE MENTIONED ON THIS PAGE-->Agility level 15',
+      'Cooking level 30',
+      'Fishing level 5   <ref>Level 65 is required if you wish to catch the Raw karambwan yourself.</ref><!--Do not add 30 Firemaking-->',
+      'Completion of Jungle Potion',
+    ],
     enemies: ['Monkey (level 3)'],
     itemsRequired: [
       'Knife or bladed weapon, such as a Sword or a Spear',
@@ -1265,12 +1334,15 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Denulth in Burthorpe.',
     description:
       "The Imperial Guard raid was a failure, and Dunstan's son has been captured by the trolls! Journey through Trollheim to the Troll Stronghold, and rescue him!",
-    requirements:
-      '* Completion of  Death Plateau *    (47 is recommended) * The ability to defeat a level 113 Troll General (can be safespotted)',
+    requirements: [
+      'Completion of Quest Death Plateau',
+      'Agility level 15   (47 is recommended)',
+      'The ability to defeat a level 113 Troll General (can be safespotted)',
+    ],
     enemies: [
       'Dad (level 101) (can be safespotted)',
       'Troll General (level 113) (can be safespotted)',
-      'Berry and Twig (both level 71) (can be safespotted) Only if you have less than  or fail to pickpocket them (can be safespotted)',
+      'Berry and Twig (both level 71) (can be safespotted) Only if you have less than Thieving level 30 or fail to pickpocket them (can be safespotted)',
     ],
     itemsRequired: ['Climbing boots or 12 coins to buy them'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Troll_Stronghold',
@@ -1286,8 +1358,15 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Search the shelf in the southern-western house of Mort'ton.",
     description:
       "The townsfolk of Mort'ton have some form of strange affliction and the town is full of Shades. Can you find some way to reverse this?",
-    requirements:
-      "* Completion of the following quests: ** Priest in Peril *    *    *     * Must be able to defeat 5 level-40 Loar Shades. * Must be able to survive an onslaught when rebuilding the Temple (Being surrounded by many players makes this much easier). * Access to Mort'ton",
+    requirements: [
+      'Completion of Priest in Peril',
+      'Crafting level 20',
+      'Herblore level 15',
+      'Firemaking level 5',
+      'Must be able to defeat 5 level-40 Loar Shades.',
+      'Must be able to survive an onslaught when rebuilding the Temple (Being surrounded by many players makes this much easier).',
+      "Access to Mort'ton",
+    ],
     enemies: ['5 Loar Shades (level 40)'],
     itemsRequired: [
       '1000+ coins (bring plenty of money just in case)',
@@ -1310,8 +1389,10 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Brundt the Chieftain in the Rellekka longhall.',
     description:
       'Council workmen have at last found the time to make repairs to the footbridge that connects Kandarin with the Barbarian town of Rellekka. Do you have what it takes to impress the barbarians who live there, and perhaps be welcomed as an honorary member of their clan?',
-    requirements:
-      '* Ability to defeat a level-69 Draugen * Ability to defeat a fairly strong warrior without armour, weapons, or spells',
+    requirements: [
+      'Ability to defeat a level-69 Draugen',
+      'Ability to defeat a fairly strong warrior without armour, weapons, or spells',
+    ],
     enemies: [
       'Koschei the deathless (first three forms)',
       'Draugen (level 69)',
@@ -1337,7 +1418,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Larrissa outside the Lighthouse north of Barbarian Outpost.',
     description:
       "The lighthouse protecting Kandarin's north-western coastline has mysteriously stopped operating, and contact with the lighthouse keeper Jossik has been lost. The Council would greatly appreciate it if somebody could discover for them what has happened to this most vital landscape feature.",
-    requirements: "*    * Completion of  Alfred Grimhand's Barcrawl",
+    requirements: ['Agility level 35', "Completion of Quest Alfred Grimhand's Barcrawl"],
     enemies: [
       'Dagannoth (Horror from the Deep) (level 100)  (can be completely safespotted)',
       'Dagannoth Mother (level 100)  (with use of a safespot and Protect from Missiles, all damage can be negated)',
@@ -1370,8 +1451,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Vargas in the Miscellania Castle.',
     description:
       'Rumours have been coming back from Miscellania that all is not well, it is said that the king has been turned into a monster! An exceptional hero is required to investigate. Experience in ruling kingdoms, wooing royalty, and negotiating peace would be an advantage.',
-    requirements:
-      "* Completion of the following quests: ** Heroes' Quest *** Shield of Arrav *** Lost City *** Merlin's Crystal *** Dragon Slayer I ** The Fremennik Trials",
+    requirements: ["Completion of Heroes' Quest", 'Completion of The Fremennik Trials'],
     enemies: null,
     itemsRequired: [
       'Iron bar',
@@ -1392,8 +1472,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Narnode Shareen in the Grand Tree.',
     description:
       'The King of the northern Gnomes, Narnode Shareen, is once again in need of your help. He recently decided to send an envoy of his Royal Guard, the 10th squad, to oversee the decommissioning of the Gnome owned ship-building facilities on the eastern coast of Karamja. It has been quite some time since the 10th squad were dispatched and they have been deemed missing in action. It will be up to you, should you decide to help, to find out what fate befell the 10th squad and if possible, track them down. If only it were so simple. Sinister forces have begun to spread through the Gnome hierarchy and threaten to unleash an unknown terror upon the world. Far across the land, the fires of vengeance are being stoked once again. Can you unravel the mystery behind the deception? Can you separate the truth from the lies? Can you decide for yourself what is real and what is not?',
-    requirements:
-      '* Completion of the following quests: ** The Grand Tree ** Tree Gnome Village * The ability to defeat a level 195 Jungle Demon',
+    requirements: [
+      'Completion of The Grand Tree',
+      'Completion of Tree Gnome Village',
+      'The ability to defeat a level 195 Jungle Demon',
+    ],
     enemies: ['Jungle Demon (level 195)'],
     itemsRequired: [
       'A gold bar',
@@ -1415,8 +1498,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the Zealot by the Abandoned Mine in the south-western corner of Morytania.',
     description:
       "Recent forays into Morytania by some of Saradomin's more fanatical supporters have unearthed murky rumours concerning an abandoned mine in the south. Legend speaks of an unusual material, hidden in the depths of the mines, that is somehow linked to the desolation and fear that now surrounds the place. Do you have the nerve to find out more, and enter the haunted mines of Morytania?",
-    requirements:
-      '* Completion of the following quests: ** Priest in Peril *    * The ability to defeat a level 95 enemy * Access to Abandoned Mine',
+    requirements: [
+      'Completion of Priest in Peril',
+      'Crafting level 35',
+      'The ability to defeat a level 95 enemy',
+      'Access to Abandoned Mine',
+    ],
     enemies: ['Treus Dayth (level 95)'],
     itemsRequired: ['A chisel (obtainable during the quest)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Haunted_Mine',
@@ -1432,8 +1519,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Ug at the Troll Stronghold.',
     description:
       "Ug loves Aga, but Aga is together with Arrg. Since Arrg is a lot stronger than Ug, Ug can't follow the regular mating ritual, which involves ripping the opponent into pieces. Will you be able to find out what will impress the troll female more than a display of violence? Will you survive the journey to help a lonely troll find love?",
-    requirements:
-      '*    * Completion of the following quests: ** Troll Stronghold *** Death Plateau * The ability to defeat a level 113 troll',
+    requirements: [
+      'Agility level 28',
+      'Completion of Troll Stronghold',
+      'The ability to defeat a level 113 troll',
+    ],
     enemies: [],
     itemsRequired: [
       'An iron bar',
@@ -1455,8 +1545,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Vanstrom Klause at the Hair of the Dog tavern in Canifis.',
     description:
       'Canifis is experiencing an upsurge in new faces and a new stranger has appeared with a job to track down some local heroes known only as "The Myreque". The Myreque are fighting a desperate battle against the darkness of Morytania and he wishes to take them weapons to aid in the battle. Can you help him out?',
-    requirements:
-      '* Completion of the following quests: ** Nature Spirit *** Priest in Peril *** The Restless Ghost *    * The ability to defeat a level 97 foe (safespottable)',
+    requirements: [
+      'Completion of Nature Spirit',
+      'Agility level 25',
+      'The ability to defeat a level 97 foe (safespottable)',
+    ],
     enemies: ['Skeleton Hellhound (level 97) - safespottable'],
     itemsRequired: [
       'A steel longsword',
@@ -1483,8 +1576,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Read the signpost in the middle of Canifis.',
     description:
       'Dr Fenkenstrain, master and sole occupant of the castle to the north-east of Canifis, needs a new servant to go on a dark errand for him. Do you have the stomach to help Fenkenstrain complete his twisted purpose?',
-    requirements:
-      '* Completion of Priest in Peril * Partial completion of The Restless Ghost *    *    * Able to defeat a level 51 monster and run past level 72 monsters',
+    requirements: [
+      'Completion of Priest in Peril',
+      'Partial completion of The Restless Ghost',
+      'Crafting level 20',
+      'Thieving level 25',
+      'Able to defeat a level 51 monster and run past level 72 monsters',
+    ],
     enemies: ['Experiment (level 51) - can be safespotted or flinched'],
     itemsRequired: [
       'Ghostspeak amulet',
@@ -1493,7 +1591,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Needle (costume needle does not work)',
       '5 thread',
       'Spade',
-      '50 coins OR 1 law & 1 air rune for Telekinetic Grab (requires )',
+      '50 coins OR 1 law & 1 air rune for Telekinetic Grab (requires Magic level 33)',
     ],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Creature_of_Fenkenstrain',
   },
@@ -1508,8 +1606,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Islwyn inside the elven woods of Isafdar.',
     description:
       "Deep in the elven forests of Isafdar, live a duo of roving elves: Islwyn, a grumpy, old elf who dislikes humans and his companion, Eluned, who is a beautiful, friendly, young female elf with a kind heart. In this quest, you are challenged to overcome Islwyn's prejudice against humans and alleviate the burdens of the past.",
-    requirements:
-      '* Completion of the following quests: ** Regicide *** Underground Pass **** Biohazard ***** Plague City ** Waterfall Quest * The ability to defeat a level 84 enemy unarmed, with heavy restrictions *   , unless travelling with a charter ship to the elven woods',
+    requirements: [
+      'Completion of Regicide',
+      'Completion of Waterfall Quest',
+      'The ability to defeat a level 84 enemy unarmed, with heavy restrictions',
+      'Agility level 56  , unless travelling with a charter ship to the elven woods',
+    ],
     enemies: ['Moss Guardian (level 84) (has to be killed with restricted items, can be flinched)'],
     itemsRequired: [
       "Glarial's pebble (obtainable during the quest)",
@@ -1530,7 +1632,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Velorina in Port Phasmatys.',
     description:
       "East of Canifis is a ghost port. Not meaning that it's deserted. It's full of ghosts! For some reason, they're unable to pass on to the afterlife, but some aren't happy with that. Can you help?",
-    requirements: '* Completed Priest in Peril * Completed The Restless Ghost *    *',
+    requirements: [
+      'Completed Priest in Peril',
+      'Completed The Restless Ghost',
+      'Agility level 25',
+      'Cooking level 20',
+    ],
     enemies: ['Giant lobster (level 32) Can be safespotted.'],
     itemsRequired: [
       'Some amount of Ecto-tokens:',
@@ -1559,8 +1666,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Yanni Salika in Shilo Village.',
     description:
       "If you're new to Shilo Village after solving the mystery (or even if you did it some time ago), you may like to check out Yanni Salika's antiques shop. He's a busy chap, revamping antique items, checking out new stock from potential adventurers and maybe he'll have a small<sup>(1)</sup> favour to ask of you? Probably nothing particularly large, Yanni isn't a demanding<sup>(2)</sup> person, should hardly take you any time<sup>(3)</sup> at all really, something to do when you have a spare moment. That's assuming there aren't any complications. 1: - Perception of the word \"small\" may be open to interpretation. 2: - In a recent vote, Yanni Salika was only voted the second most demanding person in Shilo Village. 3: - As everyone knows, time is relative.",
-    requirements:
-      '* Completion of the following quests: ** Rune Mysteries ** Shilo Village *** Jungle Potion **** Druidic Ritual *    *    *    *',
+    requirements: [
+      'Completion of Rune Mysteries',
+      'Completion of Shilo Village',
+      'Agility level 36',
+      'Crafting level 25',
+      'Herblore level 18',
+      'Smithing level 30',
+    ],
     enemies: ['Slagilith (level 92)', 'Dwarf gang members (level 44/48/49) (Multicombat area)'],
     itemsRequired: [
       '4 steel bars',
@@ -1587,8 +1700,10 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Hamal the Chieftain in the Mountain Camp east of Rellekka (to access the camp, see below)',
     description:
       'Ages ago, a small tribe of people split off from the Fremennik in Rellekka and decided to inhabit the mountains to the east of town. There they lived as nomads for many years, but now the chieftain of the camp has lost his daughter and will not move on before she has been found. Has she run away, has she been eaten by trolls, or is there something more sinister going on? Only you can find out.',
-    requirements:
-      '*    <ref>Entering the Mountain Camp initially requires 10 Agility.</ref> * The ability to defeat a level 70 monster (can be safespotted)',
+    requirements: [
+      'Agility level 20   <ref>Entering the Mountain Camp initially requires 10 Agility.</ref>',
+      'The ability to defeat a level 70 monster (can be safespotted)',
+    ],
     enemies: ['The Kendal (level 70)'],
     itemsRequired: [
       'Rope',
@@ -1611,8 +1726,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Dondakan the Dwarf at the Keldagrim south-west mine.',
     description:
       "Hidden away from the fearsome trolls and the roaming Fremennik, the dwarves delve deep beneath the mountains in search for the ore they need to support their home of Keldagrim. One dwarf in particular, however, has for years been trying to crack open a rock that seems to be impervious to any material that he's tried on it. Convinced that solving the riddle of the rock will lead him to unimaginable wealth, he has spent the later part of his life on just this lump of stone. Help him out, but take care you don't end up in a tight spot!",
-    requirements:
-      '* Completion of the following quests: ** Dwarf Cannon ** Fishing Contest *    *    *    * The ability to defeat a level 75-125 enemy (depends on how much gold you mine)',
+    requirements: [
+      'Completion of Dwarf Cannon',
+      'Completion of Fishing Contest',
+      'Defence level 30',
+      'Mining level 40',
+      'Smithing level 50',
+      'The ability to defeat a level 75-125 enemy (depends on how much gold you mine)',
+    ],
     enemies: ['Scorpion(s) (level 14)', 'Arzinian Being of Bordanzan (level 75-125)'],
     itemsRequired: [
       'A pickaxe',
@@ -1634,8 +1755,10 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Ali Morrisane east of the Gem Trader in northern Al Kharid.',
     description:
       "Ali Morrisane - Gielinor's self proclaimed 'greatest merchant' - is having difficulties. He is selling things at such a rate that he cannot keep his market stall in stock. Word has it that he is on the lookout for someone; someone who can recruit some help from his home town Pollnivneach - a somewhat anarchic place, south of the Shantay Pass.",
-    requirements:
-      '*    * The ability to kill a level 70 bandit and a level 75 Menaphite (both can be safespotted).',
+    requirements: [
+      'Thieving level 30',
+      'The ability to kill a level 70 bandit and a level 75 Menaphite (both can be safespotted).',
+    ],
     enemies: ['Bandit champion (level 70)', 'Tough Guy (level 75)'],
     itemsRequired: [
       '501+ coins',
@@ -1661,7 +1784,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to the clay golem in the ruins of Uzer, east of the Shantay Pass in the Kharidian Desert.',
     description:
       'Deep in the desert stand the ruins of the once great city of Uzer, where a lone survivor, an ancient clay golem, forever paces back and forth. It is badly damaged, and its mind cannot rest until it has completed the task for which it was created. It is up to you to uncover the secret of the lost city, and add the final chapter to a story started in the violence of the Third Age.',
-    requirements: '*    *',
+    requirements: ['Crafting level 20', 'Thieving level 25'],
     enemies: null,
     itemsRequired: [
       'Vial',
@@ -1684,8 +1807,19 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Asgarnia Smith at the Bedabin Camp.',
     description:
       'Rumours abound throughout Varrock and Al Kharid that an archaeologist has discovered clues to a hoard of treasure hidden deep in the desert, south of Al Kharid. Anybody prepared to offer him assistance in his treasure hunting could well find themselves benefitting from a very large reward indeed...',
-    requirements:
-      '* Completion of the following quests: ** The Dig Site ** Temple of Ikov ** The Tourist Trap ** Troll Stronghold *** Death Plateau ** Priest in Peril ** Waterfall Quest *    *    *    *     or the gas mask from Plague City * Access to Morytania Graveyard',
+    requirements: [
+      'Completion of The Dig Site',
+      'Completion of Temple of Ikov',
+      'Completion of The Tourist Trap',
+      'Completion of Troll Stronghold',
+      'Completion of Priest in Peril',
+      'Completion of Waterfall Quest',
+      'Thieving level 53',
+      'Magic level 50',
+      'Firemaking level 50',
+      'Slayer level 10    or the gas mask from Plague City',
+      'Access to Morytania Graveyard',
+    ],
     enemies: [
       'Dessous (level 139)',
       '5 ice trolls (level 120-124)',
@@ -1727,7 +1861,10 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the wanderer in the camp west of the Agility Pyramid.',
     description:
       "In the deep south of the desert, unrest is brewing... The cities of the Menaphites have barred their gates to all. An unsettling desert wanderer may know of a secret entrance though, to Sophanem - the city of the dead. Will you become Icthlarin's Little Helper by entering? Enter into a titanic struggle for the soul of the high priest of Icthlarin in a land where the cat is top dog.",
-    requirements: "* Completion of  Gertrude's Cat * The ability to defeat a level 91 monster.",
+    requirements: [
+      "Completion of Quest Gertrude's Cat",
+      'The ability to defeat a level 91 monster.',
+    ],
     enemies: [
       'Possessed Priest (level 91)',
       'One of the level 75–81 guardians (chosen based on your stats):',
@@ -1755,8 +1892,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Juna, deep inside the Lumbridge Swamp Caves.',
     description:
       'Deep in the caves in the Lumbridge Swamp is an enchanted place where the tears shed by Guthix when it saw the destruction Saradomin and Zamorak had caused with their wars flow from the very walls. These tears are said to have magical properties to help players gain deeper understanding of the world. However, the cave is guarded by a loyal serpent named Juna who blocks passage from everyone. However, she has grown bored from three thousand years of sitting in the dark cave and wishes to hear stories of life above. Maybe you could come to some sort of arrangement...?',
-    requirements:
-      '*   *    *    <ref>Adding the sapphire lens to a Bullseye lantern (unf) is boostable. Adding it to a Bullseye lantern (empty) or Bullseye lantern is not boostable.</ref> *',
+    requirements: [
+      '43 Quest Points',
+      'Firemaking level 49',
+      'Crafting level 20   <ref>Adding the sapphire lens to a Bullseye lantern (unf) is boostable. Adding it to a Bullseye lantern (empty) or Bullseye lantern is not boostable.</ref>',
+      'Mining level 20',
+    ],
     enemies: null,
     itemsRequired: [
       'Lit sapphire lantern or the materials to make one',
@@ -1777,8 +1918,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Sigmund in Lumbridge Castle.',
     description:
       'Sigmund is the advisor to the Duke of Lumbridge, but the Duke does not always take his advice. When part of the cellar wall collapses the Duke insists the damage was caused by an earthquake, but Sigmund is worried about a monster attack. If you investigate this mystery it will lead you through treacherous caves to uncover something lost by the Gods for thousands of years.',
-    requirements:
-      '* Completion of the following quests: ** Goblin Diplomacy ** Rune Mysteries *    *    *',
+    requirements: [
+      'Completion of Goblin Diplomacy',
+      'Completion of Rune Mysteries',
+      'Agility level 13',
+      'Thieving level 13',
+      'Mining level 17',
+    ],
     enemies: null,
     itemsRequired: [
       'Pickaxe',
@@ -1798,7 +1944,12 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to the Dwarven Boatman by the underground River Kelda, accessible through the Keldagrim entrance east of Rellekka, in the cave beyond the statues.',
     description:
       "Five hundred years have passed since the rule of King Alvis, saviour of Keldagrim and victim of his own inventions. He founded the Consortium: the gathering of Mining companies that were to serve the monarchy. But, eventually, the monarchy came to serve the Consortium. By the time of his death, the monarchy was all but abolished. Now the Kings in Keldagrim are but a distant memory... with only the statue of King Alvis to remind the people of the old days, the dark days. So begins the Rise of the Red Axe, the new multi-part storyline centred around the dwarves and their capital of Keldagrim. The first quest, The Giant Dwarf, introduces the city and the powerful business Consortium that rules the dwarven realm. Discover weird goings-on, narrowly escape from falling chunks of rock, ride around in minecarts and... make sure you don't bump into the wrong person on the way to the city!",
-    requirements: '*    *    *    *',
+    requirements: [
+      'Crafting level 12',
+      'Firemaking level 16',
+      'Magic level 33',
+      'Thieving level 14',
+    ],
     enemies: null,
     itemsRequired: [
       '200 coins for the clothes',
@@ -1825,9 +1976,9 @@ export const questDetails: WikiQuestDetails[] = [
       "Talk to Sir Amik Varze on the  of the White Knights' Castle's western tower in Falador.",
     description:
       "The Temple Knights of Saradomin, a secret organisation founded many centuries ago by Saradomin himself, are currently looking to expand their ranks with some new blood. After the successful thwarting of the Black Knights' plans to take over Asgarnia, and with the personal recommendation of Sir Amik, you have now been offered the chance to apply for membership in this organisation... but are you up to the challenge?",
-    requirements: "*Completion of the following quests: **Black Knights' Fortress **Druidic Ritual",
+    requirements: ["Completion of Black Knights' Fortress", 'Completion of Druidic Ritual'],
     enemies: [],
-    itemsRequired: [],
+    itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/Recruitment_Drive',
   },
   {
@@ -1841,8 +1992,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Eluned inside the elven woods of Isafdar.',
     description:
       "It seems at last Arianwyn has need of your skills. He believes there is more to the Mourners than meets the eye and he wishes for you to find out just what they're up to. Can you gain the trust of the Mourners?",
-    requirements:
-      '*   *   *The ability to defeat a level 11 enemy with your combat stats set to 20 each. *Completion of the following quests: **Roving Elves ***Regicide ****Underground Pass *****Biohazard ******Plague City ***Waterfall Quest **Big Chompy Bird Hunting **Sheep Herder',
+    requirements: [
+      'Ranged level 60',
+      'Thieving level 50',
+      'The ability to defeat a level 11 enemy with your combat stats set to 20 each.',
+      'Completion of Roving Elves',
+      'Completion of Big Chompy Bird Hunting',
+      'Completion of Sheep Herder',
+    ],
     enemies: [],
     itemsRequired: [
       "Bear fur (obtainable during the quest near Jorral's Outpost)",
@@ -1871,8 +2028,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Commander Veldaban in the Dwarven Black Guard headquarters in Keldagrim.',
     description:
       "Forgettable Tale of a Drunken Dwarf is part 2 in the Rise of the Red Axe series, focusing on the dwarves and their capital city of Keldagrim. After the events in The Giant Dwarf, the Red Axe mining company has departed the city and set up a new headquarters in a remote underground location. Veldaban, the Commander of the Dwarven Black Guard in Keldagrim, wants you to investigate the case and find out if the Red Axe is planning anything nefarious. The problem is, the only lead he's got is an extremely drunken and kebab obsessed dwarf. Use your farming and brewing abilities to your advantage, then prepare to be perplexed by puzzles as you follow the trail to the Red Axe...",
-    requirements:
-      '*    *   *Completion of the following quests: **The Giant Dwarf **Fishing Contest',
+    requirements: [
+      'Cooking level 22',
+      'Farming level 17',
+      'Completion of The Giant Dwarf',
+      'Completion of Fishing Contest',
+    ],
     enemies: null,
     itemsRequired: [
       '~400 coins',
@@ -1899,8 +2060,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Queen Ellamaria in the garden of Varrock Palace.',
     description:
       "'Queen of Varrock seeks experienced gardener to help construct a garden of peace and serenity as surprise for husband. Only serious Farmers need apply. Peasants welcome (although not that welcome). Tools not supplied. Please note: under no circumstances are the contents of this message to be disclosed to Rollie – um, one means King Roald.'",
-    requirements:
-      '*   *Completion of the following quests: **Creature of Fenkenstrain ***Priest in Peril ***The Restless Ghost',
+    requirements: ['Farming level 25', 'Completion of Creature of Fenkenstrain'],
     enemies: null,
     itemsRequired: [
       'Ring of charos',
@@ -1928,14 +2088,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Unferth at his house in Burthorpe.',
     description:
       'Missing: small black cat, answers to the name of Bob. Last seen on the 19th of Bennath. Please contact Unferth in Burthorpe.',
-    requirements:
-      "*Completion of the following quests: **Icthlarin's Little Helper ***Gertrude's Cat",
+    requirements: ["Completion of Icthlarin's Little Helper"],
     enemies: null,
     itemsRequired: [
       "Cat or kitten (hellcats work. Be sure to bring fish for your kitten if you're using one.)",
       'Catspeak amulet',
       '5 death runes',
-      'Chocolate cake (made with cake and chocolate bar or chocolate dust with 50 )',
+      'Chocolate cake (made with cake and chocolate bar or chocolate dust with 50 Cooking)',
       'Logs (other common types of logs such as willow, maple etc. will work too)',
       'Tinderbox',
       'Bucket of milk (or one use of the bottomless milk bucket)',
@@ -1959,8 +2118,14 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to Sir Tiffy Cashien in Falador Park.',
     description: 'A wanted man is on the loose. Can you track him down?',
-    requirements:
-      "*  *Completion of the following quests: **Recruitment Drive ***Black Knights' Fortress ***Druidic Ritual **The Lost Tribe ***Rune Mysteries ***Goblin Diplomacy **Priest in Peril **Enter the Abyss *The ability to defeat a level 32 Black Knight.",
+    requirements: [
+      '32 Quest Points',
+      'Completion of Recruitment Drive',
+      'Completion of The Lost Tribe',
+      'Completion of Priest in Peril',
+      'Completion of Enter the Abyss',
+      'The ability to defeat a level 32 Black Knight.',
+    ],
     enemies: ['Black Knight (level 32)', 'Solus Dellagar'],
     itemsRequired: [
       '10,000 coins, or:',
@@ -1980,8 +2145,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Arianwyn in Lletya.',
     description:
       'This chapter of the quest takes our hero deep under the mountains of Arandar to put a stop to the evil plans of the mourners. If our hero is to succeed, they must solve one of the most complicated puzzles in all of Gielinor.',
-    requirements:
-      "*Completion of the following quests: **Mourning's End Part I ***Roving Elves ****Regicide *****Underground Pass ******Biohazard *******Plague City ****Waterfall Quest ***Big Chompy Bird Hunting ***Sheep Herder",
+    requirements: ["Completion of Mourning's End Part I"],
     enemies: [],
     itemsRequired: [
       'Full mourner clothes',
@@ -2002,8 +2166,16 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Pirate Pete on the dock north of Port Phasmatys.',
     description:
       "Zombie pirates have arisen on Braindeath Island, and they don't look friendly! Production of 'rum' has stopped, and the pirate brewers are running scared. Can you overcome the horde of drunken, undead pirates? Can you even get to the island without getting a splitting headache?",
-    requirements:
-      '*Completion of the following quests: **Zogre Flesh Eaters ***Big Chompy Bird Hunting ***Jungle Potion ****Druidic Ritual **Priest in Peril *   *   *   *   *   <ref>Fishing requirement can be bypassed if obtaining 5 Karamthulhus from Zombie swabs or Zombie pirates</ref> *The ability to kill a combat level 150 monster (can be safespotted)',
+    requirements: [
+      'Completion of Zogre Flesh Eaters',
+      'Completion of Priest in Peril',
+      'Crafting level 42',
+      'Farming level 40',
+      'Prayer level 47',
+      'Slayer level 42',
+      'Fishing level 50   <ref>Fishing requirement can be bypassed if obtaining 5 Karamthulhus from Zombie swabs or Zombie pirates</ref>',
+      'The ability to kill a combat level 150 monster (can be safespotted)',
+    ],
     enemies: ['Evil spirit (level 150) (safespottable)', 'Fever spider (level 49) (safespottable)'],
     itemsRequired: [
       'Rake (obtainable during the quest)',
@@ -2024,8 +2196,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Father Reen south of Al Kharid bank.',
     description:
       'A sinister group of dark wizards is attempting to summon Agrith-Naar, a demon of exceptional mystical power. Rather than try to prevent them, a Saradominist priest asks the player to help summon the demon and then kill it once and for all. But all is not as it seems...',
-    requirements:
-      '*   *Completion of the following quests: **The Golem **Demon Slayer *The ability to defeat a level 100 demon',
+    requirements: [
+      'Crafting level 30',
+      'Completion of The Golem',
+      'Completion of Demon Slayer',
+      'The ability to defeat a level 100 demon',
+    ],
     enemies: [],
     itemsRequired: [
       'Silverlight (obtainable at start of quest)',
@@ -2048,7 +2224,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Jorral in the outpost north-west of West Ardougne.',
     description:
       'A secluded outpost has served the City of Ardougne for generations, playing stage to many exceptional events. Its current occupant wants to employ your skills to construct its true history before time runs out and history itself is wiped away!',
-    requirements: '*Completion of the following quests: **Priest in Peril **The Restless Ghost',
+    requirements: ['Completion of Priest in Peril', 'Completion of The Restless Ghost'],
     enemies: null,
     itemsRequired: [
       'Spade',
@@ -2069,8 +2245,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Gertrude west of Varrock.',
     description:
       "Gertrude knows of some ratcatchers in Varrock, pay her a visit and she may tell you of their whereabouts. Perhaps they could show you and your cat a few pointers about rat catching. Enter the subterranean world of the rat catchers and discover more of your cat's true potential.",
-    requirements:
-      "*Completion of the following quests: **Icthlarin's Little Helper ***Gertrude's Cat *Access to Keldagrim  **The Giant Dwarf started",
+    requirements: ["Completion of Icthlarin's Little Helper", 'Access to Keldagrim'],
     enemies: [],
     itemsRequired: [
       'Any type of cat or hellcat (for most of the quest, a cat with a high successful rat catch rate is recommended, and overgrown cats cannot be used there -- during the Hooknosed Jack part of the quest, any cat with strong combat stats is recommended)',
@@ -2099,7 +2274,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Awusah the Mayor in Nardah.',
     description:
       'The people in the desert village of Nardah have a problem. Their town well has dried up and any water they try to bring back to the town from the river mysteriously disappears before they can get it back. The villagers suspect they have been cursed in some way. Can you unravel what is going on and save the village?',
-    requirements: '*   *   *   *   *Ability to defeat three level 75 golems',
+    requirements: [
+      'Magic level 33',
+      'Ranged level 37',
+      'Mining level 37',
+      'Thieving level 37',
+      'Ability to defeat three level 75 golems',
+    ],
     enemies: ['Black golem (level 75)', 'Grey golem (level 75)', 'White golem (level 75)'],
     itemsRequired: [
       'Runes for Telekinetic Grab (One law and one air rune)',
@@ -2128,8 +2309,14 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to the monk outside the Paterdomus Temple, at the northern end of the River Salve.',
     description:
       'No-one likes to miss a good ceremony, least of all a poor lowly monk who needs your assistance! Will you be able to aid him and make his dreams come true?',
-    requirements:
-      "*   *   *   *Completion of the following quests: **Wanted! ***Recruitment Drive ****Black Knights' Fortress ****Druidic Ritual ***The Lost Tribe ****Goblin Diplomacy ****Rune Mysteries ***Priest in Peril ***Enter the Abyss **Troll Stronghold ***Death Plateau **Doric's Quest",
+    requirements: [
+      'Smithing level 65',
+      'Runecraft level 50',
+      'Fletching level 50',
+      'Completion of Wanted!',
+      'Completion of Troll Stronghold',
+      "Completion of Doric's Quest",
+    ],
     enemies: [],
     itemsRequired: ['A mithril 2h sword', 'A bow string', 'A non-degraded large or colossal pouch'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Devious_Minds',
@@ -2145,7 +2332,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Bert in Yanille, near the sand pit.',
     description:
       "Bert the Sandman in Yanille is in a spot of bother. A mysterious severed hand has appeared in his sand box. Help find out whose hand it is and, more to the point, how it got in Bert's sand box.",
-    requirements: '*   *',
+    requirements: ['Thieving level 17', 'Crafting level 49'],
     enemies: null,
     itemsRequired: [
       'Beer (obtainable during the quest)',
@@ -2170,7 +2357,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Lazim just north-east of the Desert Quarry.',
     description:
       "Lazim the sculptor has a sad tale to tell - his days of making art are over, and now all he can do is carp at adventurers as they make a statue for him in the desert. Although, isn't just south of the Bandit Camp an odd place to be putting up a statue? Help Lazim out with his artistic endeavours, and learn more as this quest goes deeper into the history of Gielinor than you might expect...",
-    requirements: '*   *    *   *   *Must be on the standard spellbook',
+    requirements: [
+      'Crafting level 50',
+      'Firemaking level 45',
+      'Prayer level 43',
+      'Magic level 39',
+      'Must be on the standard spellbook',
+    ],
     enemies: null,
     itemsRequired: [
       'Chisel',
@@ -2183,9 +2376,9 @@ export const questDetails: WikiQuestDetails[] = [
       'Maple logs',
       'Pickaxe (unless you already have the required items)',
       'Soft clay (obtainable during quest if you bring a pickaxe and bucket, vial or jug of water)',
-      'Coal (obtainable during quest with level  from the quarry)',
-      '52&nbsp;kg of sandstone (obtainable during quest with level  )',
-      'Two 5&nbsp;kg pieces of granite (obtainable during quest with level  )',
+      'Coal (obtainable during quest with level Mining level 30 from the quarry)',
+      '52&nbsp;kg of sandstone (obtainable during quest with level Mining level 35 )',
+      'Two 5&nbsp;kg pieces of granite (obtainable during quest with level Mining level 45 )',
       'Runes to cast Fire Bolt, Fire Blast or Fire Wave',
       'Runes to cast Wind Bolt, Wind Blast or Wind Wave',
       'Runes to cast Crumble Undead (multiple casts recommended in case of splashing)',
@@ -2204,8 +2397,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Bill Teach at The Green Ghost inn in Port Phasmatys.',
     description:
       "It's war on the high seas as Bill Teach tries to make the journey from Port Phasmatys to the pirate enclave of Mos Le'Harmless! With his crew heading for the hills, he's looking to recruit anyone eager to become a pirate to help him sink the enemy before he ends up swimming home. He's offering a lot more than a shilling to join his crew. Have you got what it takes to be a pirate?",
-    requirements:
-      "*Completion of the following quests: ** Pirate's Treasure ** Rum Deal *** Zogre Flesh Eaters **** Big Chompy Bird Hunting **** Jungle Potion ***** Druidic Ritual *** Priest in Peril *    *    *    *",
+    requirements: [
+      "Completion of Pirate's Treasure",
+      'Completion of Rum Deal',
+      'Agility level 42',
+      'Crafting level 45',
+      'Smithing level 50',
+      'Ranged level 40',
+    ],
     enemies: ['Pirates (level 57)'],
     itemsRequired: [],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Cabin_Fever',
@@ -2221,8 +2420,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Martin the Master Gardener by the pig pen in Draynor Village.',
     description:
       "Recently, farmers around Gielinor have been noticing some trouble with their farming patches. They just don't seem to have the same yields as before. What could be the source of this malady?",
-    requirements:
-      '*Completion of the following quests: **Lost City **Nature Spirit ***Priest in Peril ***The Restless Ghost *The ability to defeat a level 111 Tanglefoot with limited weaponry <!--Level 30 Farming is not required - the in game guide only states that 30 Farming is recommended-->',
+    requirements: [
+      'Completion of Lost City',
+      'Completion of Nature Spirit',
+      'The ability to defeat a level 111 Tanglefoot with limited weaponry',
+    ],
     enemies: [],
     itemsRequired: [
       "Secateurs (obtainable in Sarah's Farming shop north-west of the quest start for 5 coins)",
@@ -2245,8 +2447,27 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
     description:
       "The cook in Lumbridge has a surprisingly small number of ingredients on hand in his kitchen, possibly as a result of an endless stream of newcomers with light fingers, taking anything that isn't nailed down from his kitchen. Luckily, in the past, a kind Cook's Assistant was willing to help him in his culinary duties, but a problem has now appeared that could spell... a Recipe For Disaster! Almost all members may attempt to solve his tricky predicament, and be rewarded accordingly, but only the very elite of Questers will be able to put an end to his problem permanently!",
-    requirements:
-      "To start the quest and finish the first chapter: *  *Completion of Cook's Assistant To complete all chapters of the quest: *All prerequisite quest requirements * (9 are earned for the other parts of the quest, and 79 are gained by completing all required quests) *  *  *  *  *  * <!-- You do not need to complete the Legends' Quest for RfD. --> *  * <!-- You do not need to complete the Legends' Quest for RfD. --> *  *  * <!-- You do not need to complete the Legends' Quest for RfD. --> *  * <!-- You do not need to complete the Legends' Quest for RfD. --> *The ability to defeat high leveled monsters, several of which have to be defeated without using   *Completion (or partial completion where stated) of the following quests: **Fishing Contest **Goblin Diplomacy **Big Chompy Bird Hunting **Murder Mystery **Nature Spirit ***Priest in Peril ***The Restless Ghost **Witch's House **Gertrude's Cat **Shadow of the Storm ***Demon Slayer ***The Golem **Started Legends' Quest up until gaining access to the Kharazi Jungle ***Family Crest ***Heroes' Quest ****Shield of Arrav ****Lost City ****Merlin's Crystal ****Dragon Slayer I ***Shilo Village ****Jungle Potion *****Druidic Ritual ***Underground Pass ****Biohazard *****Plague City **Monkey Madness I ***The Grand Tree ***Tree Gnome Village **Desert Treasure I ***The Dig Site ***The Tourist Trap ***Temple of Ikov ***Waterfall Quest ***Troll Stronghold ****Death Plateau **Horror from the Deep ***Alfred Grimhand's Barcrawl",
+    requirements: [
+      'Cooking level 10',
+      "Completion of Cook's Assistant",
+      'All prerequisite quest requirements',
+      '175 Quest Points (9 are earned for the other parts of the quest, and 79 are gained by completing all required quests)',
+      'Cooking level 70',
+      'Agility level 48',
+      'Mining level 50',
+      'Fishing level 53',
+      'Thieving level 53',
+      "Herblore level 25 <!-- You do not need to complete the Legends' Quest for RfD. -->",
+      'Magic level 59',
+      "Smithing level 40 <!-- You do not need to complete the Legends' Quest for RfD. -->",
+      'Firemaking level 50',
+      'Ranged level 40',
+      "Crafting level 40 <!-- You do not need to complete the Legends' Quest for RfD. -->",
+      'Fletching level 10',
+      "Woodcutting level 36 <!-- You do not need to complete the Legends' Quest for RfD. -->",
+      'The ability to defeat high leveled monsters, several of which have to be defeated without using Prayer',
+      'Completion (or partial completion where stated) of the following quests:',
+    ],
     enemies: [
       'Icefiend (level 13) (only if you lack ice gloves)',
       '5 Mudskippers (level 30/31)',
@@ -2326,8 +2547,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to to Veliaf Hurtz in the Myreque Hideout below the Canifis pub.',
     description:
       "After the attack on the Myreque by Vanstrom Klause and with the deaths of both Sani and Harold, Veliaf is counting on you to help. Now that the Myreque freedom fighters' base camp has been revealed, they'll need to move on and set up base somewhere else. Veliaf has heard of a little known village south of Mort'ton, referred to as 'Burgh de Rott'. This could be just the place to set up operations to strike back against the evil of Lowerniel Vergidiyad Drakan and his Vampyric overlordship in Morytania. And who knows what other secrets about Morytania and its dark past will be revealed?",
-    requirements:
-      '*Completion of the following quests: **In Search of the Myreque ***Nature Spirit ****Priest in Peril ****The Restless Ghost *   *   *   *',
+    requirements: [
+      'Completion of In Search of the Myreque',
+      'Agility level 25',
+      'Crafting level 25',
+      'Mining level 15',
+      'Magic level 7',
+    ],
     enemies: [
       'Gadderanks (level 35) (safespottable)',
       '2 Vampyre Juvinates (level 54) (safespottable)',
@@ -2369,7 +2595,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Launa east of Varrock, just south of the Earth Altar.',
     description:
       'A rift in the ground has opened up releasing all manner of strange monsters into the lands near the Digsite. A sorrowful mother waits at the top of the rift for her long lost son, who has been missing for 25 years. You can journey down into the rift for an adventure full of twisted monsters all created from the mind of a young boy driven to madness through incarceration.',
-    requirements: 'The ability to defeat level 45+ enemies.',
+    requirements: null,
     enemies: [
       '7-8 angry unicorns, angry bears, angry giant rats, and/or angry goblins',
       '5 fear reapers (level 42)',
@@ -2391,7 +2617,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the Odd Old Man in Silvarea north-east of Varrock, by the Limestone Mine.',
     description:
       'Everybody needs some body, and the Odd Old Man knows exactly which bits of those bodies he needs. Can you help him finish his extensive and extremely creepy collection?',
-    requirements: 'None',
+    requirements: null,
     enemies: [],
     itemsRequired: [
       '8 coins for 8 pots of vinegar (bring 68 coins if walking to and from Karamja for boat fare)',
@@ -2413,8 +2639,18 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Herman Caranos in the Piscatoris Fishing Colony, accessed via a boat trip from the river to the west of the Tree Gnome Stronghold.',
     description:
       "Out on the edge of the known world, the Piscatoris Fishing Colony stands on the brink of disaster. Angry sea trolls are emerging from the sea and attacking the colonists, preventing them from harvesting the valuable monkfish that live in those waters. A highly experienced adventurer will be needed to drive back the trolls for good. The Colony's director, Herman Caranos, has a particular adventurer in mind: the notoriously amoral Wise Old Man of Draynor Village (allegations of his involvement in a spectacular bank robbery have never been substantiated). If you're in the mood for a bit of combat, jump on the boat on the west side of the Gnome Stronghold, speak to the Colony's director and prepare to fight alongside the Wise Old Man as he embarks on his final adventure - his swan song.",
-    requirements:
-      '*  *   *   *   *   *   *   *Completion of the following quests: **One Small Favour ***Rune Mysteries ***Shilo Village ****Jungle Potion *****Druidic Ritual **Garden of Tranquillity ***Creature of Fenkenstrain ****Priest in Peril ****The Restless Ghost *The ability to defeat a combat level 170 monster, which is able to use Magic, Melee and can drain Prayer.',
+    requirements: [
+      '100 Quest Points',
+      'Magic level 66',
+      'Cooking level 62',
+      'Fishing level 62',
+      'Smithing level 45',
+      'Firemaking level 42',
+      'Crafting level 40',
+      'Completion of One Small Favour',
+      'Completion of Garden of Tranquillity',
+      'The ability to defeat a combat level 170 monster, which is able to use Magic, Melee and can drain Prayer.',
+    ],
     enemies: [
       '11 Sea trolls (1 each of levels 65/87/101 and 8 of level 79)',
       'Sea Troll Queen (level 170)',
@@ -2445,8 +2681,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Advisor Ghrim in Miscellania Castle.',
     description:
       "It's tough being a regent of a small island kingdom, especially when the king has declared war while you were adventuring. Something is up in Miscellania and Etceteria, so you'd better find out what before both kingdoms end up in royal trouble.",
-    requirements:
-      "*   *   * Completion of the following quests: ** Throne of Miscellania *** Heroes' Quest **** Shield of Arrav **** Lost City **** Merlin's Crystal **** Dragon Slayer I *** The Fremennik Trials",
+    requirements: ['Agility level 40', 'Slayer level 40', 'Completion of Throne of Miscellania'],
     enemies: [],
     itemsRequired: [
       '5 coal (obtainable during the quest with a pickaxe, which will also be obtainable)',
@@ -2466,8 +2701,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Mistag in the Dorgesh-Kaan mine.',
     description:
       'Humans have been visiting the Dorgeshuun mines for some time now, but no Dorgeshuun has visited the surface since the signing of the Lumbridge-Dorgeshuun treaty. The Dorgeshuun Council fears that the H.A.M. group may be planning another attack, and want to send an agent to the surface to investigate. But they do not want to send someone to the surface without a guide...',
-    requirements:
-      '*Completion of the following quests: **The Lost Tribe ***Goblin Diplomacy ***Rune Mysteries *   *   *The ability to defeat a level 50 enemy with Melee or Magic',
+    requirements: [
+      'Completion of The Lost Tribe',
+      'Agility level 23',
+      'Thieving level 23',
+      'The ability to defeat a level 50 enemy with Melee or Magic',
+    ],
     enemies: ['Sigmund (level 50)', '3 H.A.M. Guards (level 22) (optional)'],
     itemsRequired: [
       'Any light source (lanterns are recommended - open light sources such as a candle can cause gas explosions and require a tinderbox)',
@@ -2487,8 +2726,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Martin the Master Gardener by the pig pen in Draynor Village.',
     description:
       "The Fairy Queen should be awake and back in charge of the Lost City by now, but what is happening in Zanaris? Why hasn't the Fairy Godfather abdicated the throne? What is happening to all the fairy inhabitants and where has Fairy Nuff gone? Can you rise to the challenge of using the fairy rings to search the other planes and Cure a Queen, in the second part of the Fairy Tale trilogy?",
-    requirements:
-      '*Completion of the following quests: **Fairytale I - Growing Pains ***Lost City ***Nature Spirit ****The Restless Ghost ****Priest in Peril Note: The following skill levels are required to complete the quest. These skills are not required to unlock access to fairy rings, for which you only need to progress the quest up to a certain point. However, building fairy rings in the player-owned house requires full quest completion. *   *   *',
+    requirements: [
+      'Completion of Fairytale I - Growing Pains',
+      'Thieving level 40',
+      'Farming level 49',
+      'Herblore level 57',
+    ],
     enemies: [
       'Several Goraks (level 145) (can be safespotted, protection prayers are ineffective)',
     ],
@@ -2511,8 +2754,21 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Lokar Searunner at the westernmost dock of Rellekka.',
     description:
       'Can you make it to Moonclan Island and make peace between the Moonclan and the Fremenniks?',
-    requirements:
-      '*Completion of the following quests: ** The Fremennik Trials ** Lost City ** Rune Mysteries ** Shilo Village *** Jungle Potion **** Druidic Ritual *   *   *   *   *   *   *   *The ability to kill multiple level 111 monsters. *Access to each of the elemental runic altars (Air, Fire, Water, Earth)',
+    requirements: [
+      'Completion of The Fremennik Trials',
+      'Completion of Lost City',
+      'Completion of Rune Mysteries',
+      'Completion of Shilo Village',
+      'Herblore level 5',
+      'Crafting level 61',
+      'Defence level 40',
+      'Firemaking level 49',
+      'Magic level 65',
+      'Mining level 60',
+      'Woodcutting level 55',
+      'The ability to kill multiple level 111 monsters.',
+      'Access to each of the elemental runic altars (Air, Fire, Water, Earth)',
+    ],
     enemies: ['Multiple Suqah (level 111)', 'Me (level 79)'],
     itemsRequired: [
       'A tinderbox',
@@ -2544,7 +2800,7 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to Brimstail in his cave south-west side of the Tree Gnome Stronghold, directly west of the bank near the Stronghold Slayer Cave.',
     description:
       "After you foiled a plan to destroy the Grand Tree things have been quiet in the gnome world. Brimstail has found a strange machine, though, built by Oaknock the Engineer during the Gnomes' Golden Age. What does the weird device do? Why on Gielinor was it built? If you agree to help this bookworm gnome get this confusing device working, you will learn a little about gnome magicks, gnome history, and you will start to uncover a new threat (or is it an old one?) to gnome security - a threat that is a lot harder to see ...",
-    requirements: '*Completed The Grand Tree quest *   *',
+    requirements: ['Completed The Grand Tree quest', 'Construction level 5', 'Magic level 46'],
     enemies: [],
     itemsRequired: [
       'Bucket of sap (If you do not have one, you can use a knife on any tree that looks pointy (evergreen shaped trees) with a bucket in your inventory)',
@@ -2568,8 +2824,17 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Veliaf Hurtz in the basement of the Burgh de Rott inn.',
     description:
       "Fighting tooth and nail against the vampyre overlord, Drakan, the Myreque have moved their secret base camp to Burgh de Rott. Now the fight starts in earnest! Veliaf needs someone to make their way into the Sanguinesti region, the eastern side of Morytania cut off from the west behind an impenetrably huge wall. Will the fight be supported by Myreque resistance inside the vampyres' domain? What grim discoveries are to be found behind that dread wall? And what of the Vyrewatch - deadly sky-bound patrollers of the blood-tithed lands of Meiyerditch? Only a daring, quick-witted agent with an eye for detail can hope to pick their way through the tumbled down slums of Meiyerditch.",
-    requirements:
-      '*Completion of the following quests: **In Aid of the Myreque ***In Search of the Myreque ****Nature Spirit *****Priest in Peril *****The Restless Ghost *   *   *   <ref>The level 22 Thieving requirement to begin the quest is boostable, but unhooking the latch in Meiyerditch has an unboostable requirement of 22 Thieving.</ref> *   <ref>The level 26 Agility requirement to begin the quest is boostable, but the obstacles within Meiyerditch have an unboostable requirement of 25 Agility.</ref> *   *   *   *The ability to withstand several melee attacks from a level 169 enemy.',
+    requirements: [
+      'Completion of In Aid of the Myreque',
+      'Construction level 5',
+      'Mining level 20',
+      'Thieving level 22   <ref>The level 22 Thieving requirement to begin the quest is boostable, but unhooking the latch in Meiyerditch has an unboostable requirement of 22 Thieving.</ref>',
+      'Agility level 26   <ref>The level 26 Agility requirement to begin the quest is boostable, but the obstacles within Meiyerditch have an unboostable requirement of 25 Agility.</ref>',
+      'Crafting level 32',
+      'Magic level 33',
+      'Strength level 40',
+      'The ability to withstand several melee attacks from a level 169 enemy.',
+    ],
     enemies: [],
     itemsRequired: [
       '8 nails',
@@ -2591,8 +2856,16 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Sir Tiffy Cashien in Falador Park.',
     description:
       'The small village of Witchaven was all but deserted when the Fishing Platform was built a short ways off the coast. Now, some of the inhabitants of the village have been acting somewhat strangely....',
-    requirements:
-      "*Completion of the following quests: **Wanted! ***Recruitment Drive ****Black Knights' Fortress ****Druidic Ritual ***The Lost Tribe ****Rune Mysteries ****Goblin Diplomacy ***Enter the Abyss ***Priest in Peril **Sea Slug *   *   *   *   *The ability to defeat a level 62 enemy with Melee. *You must have the Commorb in your inventory to start the quest.",
+    requirements: [
+      'Completion of Wanted!',
+      'Completion of Sea Slug',
+      'Crafting level 30',
+      'Runecraft level 30',
+      'Slayer level 30',
+      'Thieving level 30',
+      'The ability to defeat a level 62 enemy with Melee.',
+      'You must have the Commorb in your inventory to start the quest.',
+    ],
     enemies: [],
     itemsRequired: [
       'Commorb (can get another by speaking to Sir Tiffy)',
@@ -2618,7 +2891,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Search the bookcases in the Exam Centre's library.",
     description:
       "Among the ancient scrolls and papers held at the Dig Site's Examination Centre, scholars have discovered more references to the mysterious elemental ore. Recently they have uncovered a beaten book detailing long-lost uses for this odd material. Can you decrypt the code that will lead you to the deeper depths of the Elemental Workshop? Can you get your head around fixing the mind-bending machinery, or will you fry your brain in the attempt?",
-    requirements: '*   *   *Completion of Elemental Workshop I',
+    requirements: ['Magic level 20', 'Smithing level 30', 'Completion of Elemental Workshop I'],
     enemies: [],
     itemsRequired: [
       'Pickaxe (if obtaining elemental ore during quest)',
@@ -2639,8 +2912,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Burntmeat in the Troll Stronghold kitchen.',
     description:
       "Trolls love goutweed. They love it so much that they've picked it all, and now they can't get any more. However, in his smelly kitchen in the Troll Stronghold, Burntmeat the cook has heard a rumour that goutweed is growing once again, for anyone who's got the skill to farm it. Can you teach his young assistant - a simple troll known as My Arm - to grow the precious goutweed? Will you overcome My Arm's stubbornness and ignorance to earn yourself Burntmeat's reward? Dare you accompany My Arm on this uniquely trollish expedition?",
-    requirements:
-      "*   *    <ref>Needed to cut thatches and repair the fence for Tai Bwo Wannai favour, otherwise you will have to kill monsters spawned by other players (or nearby jungle spiders)</ref> *Completion of the following quests: **Eadgar's Ruse ***Druidic Ritual ***Troll Stronghold ****Death Plateau **The Feud **Jungle Potion *At least 60% favour in the Tai Bwo Wannai Cleanup minigame before starting this quest - this will be subtracted from the total favour **Acquiring 100% Tai Bwo Favour rating is a requirement for the Medium Karamja Diary. If completion of the medium diary is desired, it is recommended to get 100% prior to starting this quest",
+    requirements: [
+      'Farming level 29',
+      'Woodcutting level 10    <ref>Needed to cut thatches and repair the fence for Tai Bwo Wannai favour, otherwise you will have to kill monsters spawned by other players (or nearby jungle spiders)</ref>',
+      "Completion of Eadgar's Ruse",
+      'Completion of The Feud',
+      'Completion of Jungle Potion',
+      'At least 60% favour in the Tai Bwo Wannai Cleanup minigame before starting this quest - this will be subtracted from the total favour',
+    ],
     enemies: ['Baby Roc (level 75)', 'Giant Roc (level 172)'],
     itemsRequired: [
       'Bucket (can be obtained during the quest, south of the cooking pot on Death Plateau)',
@@ -2661,7 +2940,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Auguste on Entrana.',
     description:
       "On the peaceful island of Entrana, a lone monk has tired of his life of simplicity and quiet reflection. Auguste wants to boldly write his name in the history books; to craftily defeat the laws of physics; to miraculously sail through the air... preferably not to horribly explode into a ball of flaming death. Of course, to do all this, he'll need the help of a worldly adventurer: are you bold enough to merrily laugh in the face of the unknown?",
-    requirements: '*  *   *   *',
+    requirements: [
+      '20 Quest Points',
+      'Firemaking level 20',
+      'Farming level 30',
+      'Crafting level 36',
+    ],
     enemies: null,
     itemsRequired: ['TRIP 1 (starting the quest):', 'TRIP 2 (building the third balloon)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Enlightened_Journey',
@@ -2677,7 +2961,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Charlie at the Ardougne Zoo.',
     description:
       "The Ardougne Zoo is always looking for new specimens, but one of their anticipated new attractions - a ferret from the north - has been proving elusive. One of the Zoo's more eccentric freelance specimen hunters is reported to be on the case, but after setting out for the far western reaches, somewhere between the Piscatoris Fishing Colony and the Tree Gnome Stronghold, nothing more has been heard from him. Will you be able to use your skills as a Hunter to track him down? What else will you discover at the mountain known as Eagles' Peak?",
-    requirements: '*',
+    requirements: ['Hunter level 27'],
     enemies: [],
     itemsRequired: ['Yellow dye', 'Swamp tar', '50 Coins'],
     wikiUrl: "https://oldschool.runescape.wiki/w/Eagles'_Peak",
@@ -2693,8 +2977,15 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Ava in Draynor Manor.',
     description:
       "Draynor Manor has a new resident and, adventurers rejoice, she is a damsel in distress. Far from being Sleeping Beauty, she finds the Manor's beds not to her liking and is suffering from insomniac nights. If you fancy yourself able to aid Ava in her search for a good night's sleep, who knows what the budding scientist will produce as a reward?",
-    requirements:
-      '*Completion of the following quests: **The Restless Ghost **Ernest the Chicken **Priest in Peril *   *   *   *',
+    requirements: [
+      'Completion of The Restless Ghost',
+      'Completion of Ernest the Chicken',
+      'Completion of Priest in Peril',
+      'Slayer level 18',
+      'Crafting level 19',
+      'Ranged level 30',
+      'Woodcutting level 35',
+    ],
     enemies: null,
     itemsRequired: [
       'Mithril axe (required to obtain the blessed axe; no other type of axe will do)',
@@ -2719,8 +3010,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the High Priest of Icthlarin in Sophanem.',
     description:
       'The High Priest of Icthlarin has problems again - this time with the inhabitants of Menaphos. Sophanem is recovering from the plague, yet most of its citizens are still trapped on the other side of the river. Diplomacy has failed and subterfuge beckons. Clearly, this is the sort of job that a shifty adventurer could excel in.',
-    requirements:
-      "*Completion of the following quests: **Prince Ali Rescue **Icthlarin's Little Helper ***Gertrude's Cat",
+    requirements: ['Completion of Prince Ali Rescue', "Completion of Icthlarin's Little Helper"],
     enemies: ['Giant Scarab (level 191)', 'Summoned by the Giant Scarab:'],
     itemsRequired: [
       "A light source (Kandarin headgear, Firemaking cape, Abyssal lantern, or a bruma torch are strongly recommended as they can't be extinguished by traps in the dungeon). If you don't have one, the Sophanem guard under the temple of the lesser deities will sell you an unlit torch for 200 coins.",
@@ -2739,8 +3029,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Larry at Ardougne Zoo.',
     description:
       "At the Ardougne Zoo, one of the zookeepers has become a bit preoccupied by penguins. In fact, he's downright paranoid about them. He needs your help to observe their habits on the iceberg in the Lunar Sea. What begins as a peaceful bird-watching expedition opens a new world of espionage and bad musicians.",
-    requirements:
-      '*   *   *   <ref>30 Crafting can be boosted to start the quest and to make the penguin suit, but crafting the drums requires unboosted 30 Crafting. The agility course can be unlocked before this is required.</ref> *   *   *Access to a crafting table 3',
+    requirements: [
+      'Hunter level 10',
+      'Agility level 30',
+      'Crafting level 30   <ref>30 Crafting can be boosted to start the quest and to make the penguin suit, but crafting the drums requires unboosted 30 Crafting. The agility course can be unlocked before this is required.</ref>',
+      'Construction level 34',
+      'Thieving level 15',
+      'Access to a crafting table 3',
+    ],
     enemies: [],
     itemsRequired: [
       '10 oak planks',
@@ -2770,13 +3066,16 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Mord Gunnars at the northernmost dock of Rellekka.',
     description:
       'Sibling rivalry can get messy - more so when the siblings are Fremennik princes with a point to prove. The islands of Jatizso and Neitiznot were set up by two brothers who hated each other, and they have been at loggerheads ever since. But now there is a new threat from trolls in the north... Can you prove your loyalty to both brothers and save the islanders from a fate as troll food? Your skills as a Fremennik warrior, a bridge builder and... a jester will be tested on the islands.',
-    requirements:
-      '*Completion of The Fremennik Trials *    <ref>Only required to fix the bridges later in the quest.</ref> *The ability to kill a level 122 Troll King (Damage can be reduced) and, separately, 10 rock throwing ice trolls in a multicombat area.',
+    requirements: [
+      'Completion of The Fremennik Trials',
+      'Construction level 20    <ref>Only required to fix the bridges later in the quest.</ref>',
+      'The ability to kill a level 122 Troll King (Damage can be reduced) and, separately, 10 rock throwing ice trolls in a multicombat area.',
+    ],
     enemies: ['10 Ice Trolls (level 74-82)', 'Ice Troll King (level 122)'],
     itemsRequired: [
       'A raw tuna (obtainable during quest, with 35 fishing or bought from the shop)',
       'Either 8 tin ores, 7 pieces of coal, or 6 mithril ores (depends on your Mining level; level 1 will require tin ore, 2-54 will require coal, and 55-99 require mithril ore). Note: The ores can be noted.',
-      '9 ropes (obtainable during quest with )',
+      '9 ropes (obtainable during quest with Crafting level 30)',
       'A knife',
       '8 split logs (obtainable during the quest with 56 Woodcutting and an axe)',
       'a Neitiznot shield (or 56 Woodcutting, a hammer and a bronze nail)',
@@ -2797,8 +3096,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to Brother Tranquility in Mos Le'Harmless.",
     description:
       "The peaceful contemplation of the monks of Harmony Island has been disturbed by such rude interruptions as an invasion of zombie pirates and the theft of their brains! The evil zombie pirates have returned with a new scheme, and it's up to you to try to re-mind these poor priests before the sinister Mi-Gor completes his experiments...",
-    requirements:
-      "*   <ref>A prerequisite quest, Cabin Fever, requires 45 Crafting.</ref> *   *   *Must have completed the following quests: **Creature of Fenkenstrain **Cabin Fever ***Pirate's Treasure ***Rum Deal ****Priest in Peril ****Zogre Flesh Eaters *****Big Chompy Bird Hunting *****Jungle Potion ******Druidic Ritual **Recipe for Disaster/Freeing Pirate Pete ***Recipe for Disaster/Another Cook's Quest ****Cook's Assistant *Access to a player-owned house workshop and crafting table or the Grand Exchange *Be able to kill a level 190 monster that can disable Prayers (can be safespotted without taking damage).",
+    requirements: [
+      'Crafting level 16   <ref>A prerequisite quest, Cabin Fever, requires 45 Crafting.</ref>',
+      'Construction level 30',
+      'Prayer level 50',
+      'Must have completed the following quests:',
+      'Access to a player-owned house workshop and crafting table or the Grand Exchange',
+      'Be able to kill a level 190 monster that can disable Prayers (can be safespotted without taking damage).',
+    ],
     enemies: ['Barrelchest (level 190)', '4 Sorebones (level 57)'],
     itemsRequired: [
       'Equipment to breathe underwater:',
@@ -2822,7 +3127,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Rat Burgiss south of Varrock.',
     description:
       "A travelling trader has been stranded south of Varrock after his cart was attacked by local outlaws. He needs the help of a hero to recover his lost documents, but that's not all... The Varrock Palace Secret Guard (VPSG) are on the trail of treacherous dealings with the Monks of Zamorak. Will you be able to help the VPSG and uncover what lies below?",
-    requirements: '*Completion of the following quests: **Rune Mysteries *',
+    requirements: ['Completion of Rune Mysteries', 'Runecraft level 35'],
     enemies: ['5 Outlaws (level 32)', 'King Roald (level 47)'],
     itemsRequired: [
       'Empty bowl',
@@ -2842,8 +3147,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Olaf Hradson east of Rellekka, just south of the Rellekka Hunter area.',
     description:
       "Poor Olaf Hradson. He has to live up to such expectations. His ancestors sailed all over the world, and now he has to go out and prove himself their equal. If only he could read a map... If only he could sail... If only he hadn't crashed! Can you help a depressed and soggy Fremennik regain his pride, and possibly the lost treasure of his grandfather?",
-    requirements:
-      '*Completion of The Fremennik Trials *   *   *The ability to defeat a level 100 monster',
+    requirements: [
+      'Completion of The Fremennik Trials',
+      'Firemaking level 40',
+      'Woodcutting level 50',
+      'The ability to defeat a level 100 monster',
+    ],
     enemies: ['Skeleton fremennik (level 40)', 'Ulfric (level 100) (safespottable)'],
     itemsRequired: [
       'Any woodcutting axe',
@@ -2865,8 +3174,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Ur-tag in Dorgesh-Kaan.',
     description:
       "The dwarves are building a new underground rail link between their city of Keldagrim and the cave goblins' Dorgesh-Kaan, but work is being held up by the discovery of ancient goblin artefacts, and they need the help of a qualified archaeologist. Helping them out should be simple enough - unless you stumble upon another H.A.M. plot against the city.",
-    requirements:
-      '*   *   *Completion of the following quests: **Death to the Dorgeshuun ***The Lost Tribe ****Goblin Diplomacy ****Rune Mysteries **The Giant Dwarf **The Dig Site *The ability to defeat a level 64 (using any combat style) and two level 30 enemies using either Ranged or Magic.',
+    requirements: [
+      'Attack level 15',
+      'Prayer level 25',
+      'Completion of Death to the Dorgeshuun',
+      'Completion of The Giant Dwarf',
+      'Completion of The Dig Site',
+      'The ability to defeat a level 64 (using any combat style) and two level 30 enemies using either Ranged or Magic.',
+    ],
     enemies: ['H.A.M. Archer (level 30)', 'H.A.M. Mage (level 30)', 'Sigmund (level 64)'],
     itemsRequired: [
       'A light source',
@@ -2887,8 +3202,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the fallen man in the small cave in the Lunar Isle mine.',
     description:
       "Gielinor is not the safest place to live - dragons, trolls, demons... dangerous and despicable monsters of all sorts roam free. In this quest, you must help a fellow adventurer that doesn't do so well against these threats. With perseverance and the magical help of the Moon Clan, there should be no monster that can't be beaten. But is that really true? How about the monsters in your dreams? How about your own inescapable fears? How would you defeat them? Well, you'll soon find out as a tough and often bizarre quest awaits those of a strong will!",
-    requirements:
-      "* Combat  *Completion of the following quests: **Lunar Diplomacy ***The Fremennik Trials ***Lost City ***Rune Mysteries ***Shilo Village ****Jungle Potion **Eadgar's Ruse ***Druidic Ritual ***Troll Stronghold ****Death Plateau *The ability to defeat 4 powerful monsters without the use of prayer",
+    requirements: [
+      'Combat level 85 Combat',
+      'Completion of Lunar Diplomacy',
+      "Completion of Eadgar's Ruse",
+      'The ability to defeat 4 powerful monsters without the use of prayer',
+    ],
     enemies: [
       'The Inadequacy (level 343)',
       'The Everlasting (level 223)',
@@ -2918,8 +3237,15 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Sylas in Taverley, just south of the house portal.',
     description:
       '"Once upon a time in a land far, far away..." Sylas, a collector of items both wondrous and unusual seeks out the latest additions to his trove with a somewhat unusual prize for the finder. Terrors and towers await; fierce battles with giant beasts; striding boldly to rescue a dwarf in distress! Not a quest for the meek or faint-hearted, prepare yourself for a feast of fairy-tale fun with rewards a-plenty! The Brothers Grimm could never have foretold a tale such as this...',
-    requirements:
-      "*Completion of the following quests: **Witch's House *   *   *   *    <ref>If boosting, note that there are two skill checks.</ref> *   *Ability to defeat a level 138 cloud giant—Glod",
+    requirements: [
+      "Completion of Witch's House",
+      'Farming level 45',
+      'Herblore level 52',
+      'Thieving level 58',
+      'Agility level 59    <ref>If boosting, note that there are two skill checks.</ref>',
+      'Woodcutting level 71',
+      'Ability to defeat a level 138 cloud giant—Glod',
+    ],
     enemies: [],
     itemsRequired: [
       '2 Tarromin potion (unf) or 2 vials of water and 2 tarromins',
@@ -2943,8 +3269,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the Gossip outside Sinclair Mansion.',
     description:
       "Life has been quiet at the Sinclair Mansion since you discovered the murderer... too quiet. So quiet, in fact, that the family has gone! Suspicions are running high that the Sinclairs' recent departure is tied to the disappearance of King Arthur and his knights. But time is running short and clues are scarce, will you crack the case in time?",
-    requirements:
-      "*   *   *Completion of the following quests: **Black Knights' Fortress **Holy Grail ***Merlin's Crystal **Murder Mystery **One Small Favour ***Rune Mysteries ***Shilo Village ****Jungle Potion *****Druidic Ritual",
+    requirements: [
+      'Magic level 45',
+      'Defence level 65',
+      "Completion of Black Knights' Fortress",
+      'Completion of Holy Grail',
+      'Completion of Murder Mystery',
+      'Completion of One Small Favour',
+    ],
     enemies: null,
     itemsRequired: [
       'Granite (any size)',
@@ -2967,8 +3299,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Mosol Rei outside of Shilo Village in the south part of Karamja.',
     description:
       'A foul mist and a plague of undead have overtaken Shilo Village. Can you stop the queen of the dead and save the village?',
-    requirements:
-      '* Completion of the following quests: ** Jungle Potion *** Druidic Ritual *    *    * Must be able to defend from many Undead ones (level 61-73) and able to defeat three monsters that are about level 90.',
+    requirements: [
+      'Completion of Jungle Potion',
+      'Crafting level 20',
+      'Agility level 32',
+      'Must be able to defend from many Undead ones (level 61-73) and able to defeat three monsters that are about level 90.',
+    ],
     enemies: ['Nazastarool in 3 forms, levels 91, 68, and 93. (safespottable)'],
     itemsRequired: [
       'Spade (can be purchased at the store north of Tai Bwo Wannai for 4 coins)',
@@ -2991,7 +3327,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Elena in her house in East Ardougne.',
     description:
       "This is the second part of an ongoing adventure. Help Elena discover the truth about the infamous Ardougne plague. Smuggle test samples across Ardougne to Elena's old mentor.",
-    requirements: '*Completion of Plague City',
+    requirements: ['Completion of Plague City'],
     enemies: ['Mourner (level 13)'],
     itemsRequired: [
       'Priest gown top and bottom (can be obtained for free during the quest)',
@@ -3010,7 +3346,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Effigy at the Tower of Life just east of the Ardougne Monastery.',
     description:
       "The construction of a mysterious tower is almost complete, but the builders working on it have gone on strike. Losing patience, the alchemists that hired them are looking for anybody to help them. When the world of magic and the world of logic combine you can expect dangerous results, but a true adventurer would cherish such things... wouldn't they?",
-    requirements: '*',
+    requirements: ['Construction level 10'],
     enemies: null,
     itemsRequired: [
       'Hammer (or Imcando hammer)',
@@ -3030,8 +3366,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the Odd Old Man in Silvarea north-east of Varrock, by the Limestone Mine.',
     description:
       'An archeological bone gathering quest. Requires the start and/or completion of multiple quests. Lots of creatures and animals necessary to be scavenged for specific bones, that will then need to be cleaned and given to the Odd Old Man for his marvelous collection of bone remains.',
-    requirements:
-      '*   *   to wield a mirror shield to kill a basilisk (though not necessary; see below) *Completed Rag and Bone Man I  *Completed Skippy and the Mogres  *Partial completion of Creature of Fenkenstrain  *The ability to kill several high-level monsters',
+    requirements: [
+      'Slayer level 40',
+      'Defence level 20   to wield a mirror shield to kill a basilisk (though not necessary; see below)',
+      'Completed Rag and Bone Man I',
+      'Completed Skippy and the Mogres',
+      'Partial completion of Creature of Fenkenstrain',
+      'The ability to kill several high-level monsters',
+    ],
     enemies: [],
     itemsRequired: [
       '27 pots',
@@ -3039,7 +3381,7 @@ export const questDetails: WikiQuestDetails[] = [
       "27 sets of logs (any logs - normal logs can be obtained on the path just below the Odd Old Man's hut if you bring an axe).",
       'Tinderbox',
       'Light source',
-      'Dusty key (if under )',
+      'Dusty key (if under Agility level 70)',
       'Rope',
       'Combat gear to kill zogres (an ogre composite bow with brutal arrows or runes for Crumble Undead casts is advised)',
       'Ice coolers',
@@ -3059,8 +3401,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Grubfoot in the Dorgesh-Kaan mine.',
     description:
       "The most ancient goblin legends speak of Yu'biusk, the far-off land that saw the origin of the goblin race. Now, one goblin has had a vision of this land and believes it is Zanik's destiny to lead all goblins to live there in peace and safety - but Zanik will not be able to realise her destiny without your help.",
-    requirements:
-      '*Completion of the following quests: **Another Slice of H.A.M. ***Death to the Dorgeshuun ****The Lost Tribe *****Goblin Diplomacy *****Rune Mysteries ***The Giant Dwarf ***The Dig Site **Fishing Contest *   *   *   *',
+    requirements: [
+      'Completion of Another Slice of H.A.M.',
+      'Completion of Fishing Contest',
+      'Agility level 38',
+      'Fishing level 40',
+      'Thieving level 45',
+      'Herblore level 48',
+    ],
     enemies: [
       'Snothead (level 32)',
       'Snailfeet (level 56)',
@@ -3094,8 +3442,27 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Ivy Sophista in Taverley.',
     description:
       "This Grandmaster quest sees you continue the Mahjarrat storyline, hunting down one of the most powerful artefacts in existence while ensuring it doesn't fall into the wrong hands. This artefact is known by many names – most recently, the Stone of Jas. It has shaped the course of Gielinor’s history, from the creation of the first Runes to the fall of Zaros. It was last seen at the devastating end of the God Wars, when Zamorak, in a fit of rage, used it to reduce the land of Forinthry to the Wilderness we know today. Angered by Zamorak’s actions, Guthix rose from his age-long slumber and banished the gods. He hid the Stone of Jas far underground, where it could never disturb the balance again... But while Guthix sleeps, nefarious forces have been gathering: the Mahjarrat. Shaped by war and deadly ritual, their plans for the Stone can only lead to catastrophe. Facing off against the Mahjarrat is nothing new for dedicated adventurers – at every turn, they seem to grow in power and wage war against the people of Gielinor. In their last attempt, we saw them set out to tear Varrock apart with an undead army in Defender of Varrock. What are they plotting now?",
-    requirements:
-      "*   *    *    *    *    *    *    *  (To light the Sapphire Lantern) * Ability to enter the Warriors' Guild (the sum of your Attack and Strength must be at or above 130; OR , OR )   *Completion of the following quests: **Defender of Varrock ***Shield of Arrav ***Temple of Ikov ***Below Ice Mountain ***Family Crest ***What Lies Below ***Romeo & Juliet ***Demon Slayer ***Garden of Tranquillity ****Creature of Fenkenstrain *****Priest in Peril *****The Restless Ghost **The Path of Glouphrie *** The Eyes of Glouphrie **** The Grand Tree *** Waterfall Quest *** Tree Gnome Village **Fight Arena **Dream Mentor ***Eadgar's Ruse ****Druidic Ritual ****Troll Stronghold *****Death Plateau ***Lunar Diplomacy ****The Fremennik Trials ****Lost City ****Rune Mysteries ****Shilo Village *****Jungle Potion **The Hand in the Sand **Wanted! ***Recruitment Drive ****Black Knights' Fortress ****Druidic Ritual ***The Lost Tribe ****Goblin Diplomacy **Temple of the Eye ***Enter the Abyss ****Rune Mysteries **Tears of Guthix **Nature Spirit ***Priest in Peril ***The Restless Ghost **A Tail of Two Cats ***Icthlarin's Little Helper ****Gertrude's Cat",
+    requirements: [
+      '180 Quest Points',
+      'Thieving level 72',
+      'Magic level 67',
+      'Agility level 66',
+      'Farming level 65',
+      'Herblore level 65',
+      'Hunter level 62',
+      'Firemaking level 49 (To light the Sapphire Lantern)',
+      "Ability to enter the Warriors' Guild (the sum of your Attack and Strength must be at or above 130; OR Attack level 99, OR Strength level 99)",
+      'Completion of Defender of Varrock',
+      'Completion of The Path of Glouphrie',
+      'Completion of Fight Arena',
+      'Completion of Dream Mentor',
+      'Completion of The Hand in the Sand',
+      'Completion of Wanted!',
+      'Completion of Temple of the Eye',
+      'Completion of Tears of Guthix',
+      'Completion of Nature Spirit',
+      'Completion of A Tail of Two Cats',
+    ],
     enemies: [
       '2 Assassins (level 167)',
       '2 Mercenary axemen (level 131)',
@@ -3139,8 +3506,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Grish in Jiggig, just south of Castle Wars.',
     description:
       'Run for your lives...the zombie ogres are here for your flesh! An ogre ceremonial dance area, used to communicate with ancient ogrish ancestors, has been overrun with diseased undead ogres. How could something like this have happened? And what sort of rewards could an enterprising adventurer gain from exploring the tombs of such a place?',
-    requirements:
-      '* Completion of the following quests: ** Big Chompy Bird Hunting ** Jungle Potion *** Druidic Ritual * You must be able to defeat a level 111 enemy. *    *    *',
+    requirements: [
+      'Completion of Big Chompy Bird Hunting',
+      'Completion of Jungle Potion',
+      'You must be able to defeat a level 111 enemy.',
+      'Smithing level 4',
+      'Herblore level 8',
+      'Ranged level 30',
+    ],
     enemies: ['Slash Bash (level 111) (can be safespotted)', 'Zombie (level 39)'],
     itemsRequired: [
       '5 free inventory spaces are needed to receive items near the start of the quest',
@@ -3160,8 +3533,19 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to King Narnode Shareen in the Grand Tree.',
     description:
       'Glough, the war criminal set on eradicating humans and overthrowing Gielinor, has escaped the watch of the Grand Tree gnomes. With a history of leaving large-scale conflicts and warfare in his wake, Glough must be tracked down and stopped. King Narnode Shareen needs your help.',
-    requirements:
-      '*Completion of the following quests: **Enlightened Journey ***Balloon flight route to Gnome Stronghold must be unlocked to start the quest. **The Eyes of Glouphrie **Recipe for Disaster (Freeing King Awowogei) ***Monkey Madness I ****The Grand Tree ****Tree Gnome Village **Troll Stronghold ***Death Plateau **Watchtower *   *   *   *   *   *   (for Gnome Stronghold Route) It is beneficial to have a high Combat and Agility level.',
+    requirements: [
+      'Completion of Enlightened Journey',
+      'Completion of The Eyes of Glouphrie',
+      'Completion of Recipe for Disaster (Freeing King Awowogei)',
+      'Completion of Troll Stronghold',
+      'Completion of Watchtower',
+      'Slayer level 69',
+      'Crafting level 70',
+      'Hunter level 60',
+      'Agility level 55',
+      'Thieving level 55',
+      'Firemaking level 60   (for Gnome Stronghold Route)',
+    ],
     enemies: [
       'Kruk (level 207)',
       'Keef (level 178)',
@@ -3219,8 +3603,8 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to Veos at Port Piscarilius.',
     description: 'Will you help Veos handle a mysterious client?',
-    requirements: '*Completion of the following quest: **X Marks the Spot',
-    enemies: [],
+    requirements: ['Completion of X Marks the Spot'],
+    enemies: null,
     itemsRequired: [
       'Feather (a stripy or coloured feather can also be used, but a magic gold feather cannot)',
     ],
@@ -3237,7 +3621,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Tomas Lawry outside the Port Piscarilius bank.',
     description:
       'The gangs of Kourend have recently been uniting under a mysterious figure called the Queen of Thieves, somewhere in Port Piscarilius. This novice quest tasks the player with infiltrating the gangs of Kourend in order to find the Queen of Thieves.',
-    requirements: '*Completion of the following quests: **Client of Kourend ***X Marks the Spot *',
+    requirements: ['Completion of Client of Kourend', 'Thieving level 20'],
     enemies: null,
     itemsRequired: [
       'Stew (Cooking ingredients can be obtained during quest for 6 coins. Requires 25 Cooking)',
@@ -3255,7 +3639,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Curator Haig Halen in the Varrock Museum.',
     description:
       'Curator Haig Halen needs your help to finish the construction of a barge fit to take the Varrock museum crew to an unexplored landmass to the east. There have been many attempts to reach the island, but none were successful. This quest will have you venturing across Gielinor, aiding the Varrock museum and making the success of the voyage a possibility.',
-    requirements: '*100 Kudos *Completion of the following quest: **The Dig Site',
+    requirements: ['100 Kudos', 'Completion of The Dig Site'],
     enemies: null,
     itemsRequired: ['2 vodka', 'Marrentill potion (unf)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Bone_Voyage',
@@ -3271,8 +3655,25 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to Alec Kincade outside the Myths' Guild.",
     description:
       "30 years prior to the fateful day a mighty adventurer awakened Elvarg from her slumber, Crandor was a thriving and very much alive island, with a great tradition of mages and adventurers. The history of Crandor is a bold one, enough so that many a Crandorian earned the right to be part of the Champions' Guild! The Crandor we know today is very different from that of the past and there are so many questions that remain unanswered - your chance to uncover the secrets of the past starts with Dragon Slayer II.",
-    requirements:
-      "*  *   *   *   *   *   (higher recommended) *   *   *   *Completion of the following quests: **Legends' Quest ***Family Crest ***Heroes' Quest ****Shield of Arrav ****Lost City ****Merlin's Crystal ****Dragon Slayer I ***Underground Pass ****Biohazard *****Plague City ***Waterfall Quest **Dream Mentor ***Lunar Diplomacy ****The Fremennik Trials ****Rune Mysteries ****Shilo Village *****Jungle Potion ***Eadgar's Ruse ****Druidic Ritual ****Troll Stronghold *****Death Plateau **A Tail of Two Cats ***Icthlarin's Little Helper ****Gertrude's Cat **Animal Magnetism ***Ernest the Chicken ***Priest in Peril ***The Restless Ghost **Ghosts Ahoy **Bone Voyage ***The Dig Site ***100 Kudos **Client of Kourend ***X Marks the Spot *Started the pyre ship portion of the Barbarian Training miniquest to gain access to the Ancient Cavern",
+    requirements: [
+      '200 Quest Points',
+      'Magic level 75',
+      'Smithing level 70',
+      'Mining level 68',
+      'Crafting level 62',
+      'Agility level 60   (higher recommended)',
+      'Thieving level 60',
+      'Construction level 50',
+      'Hitpoints level 50',
+      "Completion of Legends' Quest",
+      'Completion of Dream Mentor',
+      'Completion of A Tail of Two Cats',
+      'Completion of Animal Magnetism',
+      'Completion of Ghosts Ahoy',
+      'Completion of Bone Voyage',
+      'Completion of Client of Kourend',
+      'Started the pyre ship portion of the Barbarian Training miniquest to gain access to the Ancient Cavern',
+    ],
     enemies: [
       'Vorkath (level 392)',
       'Spawn (level 100)',
@@ -3325,10 +3726,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Lord Kandur Hosidius at his home in Hosidius, north-west of the Vinery.',
     description:
       'Artur Hosidius has gone missing, and Lord Kandur Hosidius needs your help to find his son and bring him home.',
-    requirements:
-      '*Completion of the following quests: **Client of Kourend ***X Marks the Spot *   *Ability to kill a level 36 Sand Snake',
-    enemies: null,
-    itemsRequired: [],
+    requirements: [
+      'Completion of Client of Kourend',
+      'Agility level 18',
+      'Ability to kill a level 36 Sand Snake',
+    ],
+    enemies: [],
+    itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Depths_of_Despair',
   },
   {
@@ -3342,7 +3746,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to the Cook in Lumbridge Castle's kitchen.",
     description:
       "The cook in Lumbridge has a surprisingly small number of ingredients to hand in his kitchen, possibly as a result of an endless stream of newcomers with light fingers taking anything that isn't nailed down from his kitchen. Luckily, in the past a kind Cook's Assistant was willing to help him in his culinary duties, but now a problem has appeared that could spell... a Recipe For Disaster! Almost all members may attempt to solve his tricky predicament, and be rewarded accordingly, but only the very elite of Questers will be able to put an end to his problem permanently!",
-    requirements: "*   *Completion of Cook's Assistant",
+    requirements: ['Cooking level 10', "Completion of Cook's Assistant"],
     enemies: null,
     itemsRequired: [
       'Eye of newt',
@@ -3364,8 +3768,10 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Inspect one of the goblin generals in the Lumbridge Castle dining room.',
     description:
       "The goblin generals need a food that they'll both eat. Find a chef in Goblin Village to learn how to make it.",
-    requirements:
-      "*Completion of the following quests: **Recipe for Disaster/Another Cook's Quest ***Cook's Assistant **Goblin Diplomacy",
+    requirements: [
+      "Completion of Recipe for Disaster/Another Cook's Quest",
+      'Completion of Goblin Diplomacy',
+    ],
     enemies: null,
     itemsRequired: [
       'Bread',
@@ -3389,8 +3795,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Inspect the frozen dwarf in the Lumbridge Castle dining room.',
     description:
       'To save the dwarf, you will need a special dwarven rock cake. Only his father in the tunnel under White Wolf Mountain knows how to make one.',
-    requirements:
-      "*Completion of the following quests: **Recipe for Disaster/Another Cook's Quest ***Cook's Assistant **Fishing Contest *The ability to defeat a level 13 icefiend if you don't have the ice gloves.",
+    requirements: [
+      "Completion of Recipe for Disaster/Another Cook's Quest",
+      'Completion of Fishing Contest',
+      "The ability to defeat a level 13 icefiend if you don't have the ice gloves.",
+    ],
     enemies: [],
     itemsRequired: [
       "Bucket of milk (can be bought from the Culinaromancer's Chest)",
@@ -3414,8 +3823,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Inspect Evil Dave in the Lumbridge Castle dining room.',
     description:
       "Evil Dave needs some kind of spicy stew. You will need Evil Dave's help for this one. He lives in his mother's basement...",
-    requirements:
-      "*Completion of the following quests: **Gertrude's Cat **Recipe for Disaster/Another Cook's Quest ***Cook's Assistant **Shadow of the Storm ***Demon Slayer ***The Golem",
+    requirements: [
+      "Completion of Gertrude's Cat",
+      "Completion of Recipe for Disaster/Another Cook's Quest",
+      'Completion of Shadow of the Storm',
+    ],
     enemies: null,
     itemsRequired: [
       'Any cat except an overgrown cat (note that each cat has a different effective rat catch rate -- kittens or lazy cats are not recommended)',
@@ -3434,8 +3846,11 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Inspect Pirate Pete in the Lumbridge Castle dining room.',
     description:
       'Pirate Pete needs a fishcake to be protected. Talk to the Lumbridge Cook to learn how to make one.',
-    requirements:
-      "*   * Completion of the following quests:  **Recipe for Disaster/Another Cook's Quest ***Cook's Assistant *The ability to defeat 5 level 30 monsters.",
+    requirements: [
+      'Cooking level 31',
+      "Completion of Recipe for Disaster/Another Cook's Quest",
+      'The ability to defeat 5 level 30 monsters.',
+    ],
     enemies: ['5 Mudskippers (level 30/31)', 'Crab (level 21/23)'],
     itemsRequired: [
       "A raw cod (It's highly recommended to get at least 3 of all the ingredients, as the Fishcake can burn)",
@@ -3459,8 +3874,16 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Inspect the Lumbridge Guide in the Lumbridge Castle dining room.',
     description:
       "You need a cake of guidance to protect the Lumbridge Guide. Wizard Traiborn in the Wizards' Tower can teach you how to make one.",
-    requirements:
-      "*   *Completion of the following quests: **Big Chompy Bird Hunting **Biohazard ***Plague City **Demon Slayer **Murder Mystery **Nature Spirit ***Priest in Peril ***The Restless Ghost **Recipe for Disaster/Another Cook's Quest ***Cook's Assistant **Witch's House",
+    requirements: [
+      'Cooking level 40',
+      'Completion of Big Chompy Bird Hunting',
+      'Completion of Biohazard',
+      'Completion of Demon Slayer',
+      'Completion of Murder Mystery',
+      'Completion of Nature Spirit',
+      "Completion of Recipe for Disaster/Another Cook's Quest",
+      "Completion of Witch's House",
+    ],
     enemies: null,
     itemsRequired: [
       'A bucket of milk',
@@ -3483,8 +3906,17 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Inspect Sir Amik Varze in the Lumbridge Castle dining room.',
     description:
       'Sir Amik Varze requires a crème brulee supreme. Talk to the Cook to learn how to make one in this complicated but fun subquest.',
-    requirements:
-      "*  *Access to the Kharazi Jungle **Started Legends' Quest *Completion of the following quests: **Family Crest **Heroes' Quest ***Shield of Arrav ***Lost City ***Merlin's Crystal ***Dragon Slayer I **Recipe for Disaster/Another Cook's Quest ***Cook's Assistant **Shilo Village ***Jungle Potion ****Druidic Ritual **Underground Pass ***Biohazard ****Plague City **Waterfall Quest *The ability to defeat a level 227 Black dragon",
+    requirements: [
+      '107 Quest Points',
+      'Access to the Kharazi Jungle',
+      'Completion of Family Crest',
+      "Completion of Heroes' Quest",
+      "Completion of Recipe for Disaster/Another Cook's Quest",
+      'Completion of Shilo Village',
+      'Completion of Underground Pass',
+      'Completion of Waterfall Quest',
+      'The ability to defeat a level 227 Black dragon',
+    ],
     enemies: ['Evil Chicken (level varies) (see below)', 'Black dragon (level 227)'],
     itemsRequired: [
       "Bucket of milk (can be bought from the Culinaromancer's Chest) or Bottomless milk bucket",
@@ -3510,8 +3942,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Inspect Awowogei in the Lumbridge Castle dining room.',
     description:
       'Awowogei needs his favourite food, but nobody seems to know what it is. Maybe you should go talk to him in his palace.',
-    requirements:
-      "*   *   *Completion of the following quests: **Monkey Madness I ***The Grand Tree ***Tree Gnome Village **Recipe for Disaster/Another Cook's Quest ***Cook's Assistant *The ability to defeat a level 84 Big Snake",
+    requirements: [
+      'Cooking level 70',
+      'Agility level 48',
+      'Completion of Monkey Madness I',
+      "Completion of Recipe for Disaster/Another Cook's Quest",
+      'The ability to defeat a level 84 Big Snake',
+    ],
     enemies: [
       'Big Snake (level 84) - (recommended to kill several as they burn often when cooking)',
       'To obtain the greegrees:',
@@ -3539,8 +3976,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Inspect Skrach Uglogwee in the Lumbridge Castle dining room.',
     description:
       'To protect Skrach Uglogwee from the Culinaromancer, you need to feed him a cooked jubbly bird, the most delicious type of Chompy in the Feldip Hills. You need to talk to Rantz to learn how to get one.',
-    requirements:
-      "*   *   *Completion of the following quests: **Big Chompy Bird Hunting **Recipe for Disaster/Another Cook's Quest ***Cook's Assistant",
+    requirements: [
+      'Cooking level 41',
+      'Firemaking level 20',
+      'Completion of Big Chompy Bird Hunting',
+      "Completion of Recipe for Disaster/Another Cook's Quest",
+    ],
     enemies: ['Jubbly bird (Level 11)'],
     itemsRequired: [
       'Axe (a blessed axe will not work)',
@@ -3582,10 +4023,9 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Captain Tock at the crossroads north of Port Sarim.',
     description:
       'From the newly revealed town of Corsair Cove, deep in the south of Feldip Hills, the captain of the Corsairs has sailed to Port Sarim seeking help. His crew is sick, and he suspects that a curse has been laid upon them. If you can unravel the fearful and conflicting tales of ogre relics, vengeful mermaids and demonic possession, maybe you can help his ailing crew overcome The Corsair Curse.',
-    requirements:
-      '|items = * Spade (obtainable during quest) * Tinderbox (obtainable during quest)',
+    requirements: null,
     enemies: [],
-    itemsRequired: null,
+    itemsRequired: ['Spade (obtainable during quest)', 'Tinderbox (obtainable during quest)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Corsair_Curse',
   },
   {
@@ -3599,8 +4039,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Garth in Ver Sinhaza by the entrance to the Theatre of Blood.',
     description:
       'For many years, the Myreque have fought back against the reign of the Drakans. To many, they act as a glimmer of hope in an otherwise miserable existence. In recent times, the Myreque have been beset by disaster, with numerous members meeting a gruesome end at the hands of Vanstrom Klause, the brutal henchman of the Drakans. However, while the Myreque may be in their darkest hour, hope still remains. Thanks to a recent discovery in the laboratories deep beneath Meiyerditch, the Myreque may have finally found a way to take the fight to the vampyres.',
-    requirements:
-      '*Completion of the following quests: **Darkness of Hallowvale ***In Aid of the Myreque ****In Search of the Myreque *****Nature Spirit ******Priest in Peril ******The Restless Ghost *   *   *   *   *',
+    requirements: [
+      'Completion of Darkness of Hallowvale',
+      'Crafting level 48',
+      'Agility level 45',
+      'Attack level 40',
+      'Herblore level 40',
+      'Slayer level 38',
+    ],
     enemies: [
       'Abomination (Level 149)',
       'Ranis Drakan (level 233) (must be fought using melee)',
@@ -3630,8 +4076,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Phileas Rimor in his house west of The Cloak and Stagger tavern in Shayzien.',
     description:
       'Over a thousand years ago, King Shayzien VII ordered an expedition to Mount Quidamortem. The expedition never returned and it was assumed that all members perished in the field. However, a recent discovery suggests this may not have been the case. Phileas Rimor is the descendant of the expedition leader and he is desperate to discover the truth. Join him and delve into a conspiracy a thousand years in the making in "Tale of the Righteous".',
-    requirements:
-      '*Completion of the following quests: **Client of Kourend ***X Marks the Spot *   *',
+    requirements: ['Completion of Client of Kourend', 'Strength level 16', 'Mining level 10'],
     enemies: [],
     itemsRequired: [
       'A pickaxe',
@@ -3653,8 +4098,17 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to Burntmeat in the Troll Stronghold's kitchen.",
     description:
       "My Arm, the troll from My Arm's Big Adventure, must embark on another journey of discovery. This time, you'll be escorting him to Weiss, a newly discovered troll town in the far north of the world, so he can share his wisdom *cough* with the inhabitants, in exchange for learning about their inventions. Life's journeys can take us to some strange places, but My Arm is about to face the greatest adventure of all - true love. Plus, they'd like him to kill the Wise Old Man of Draynor Village, which doesn't sound like a clever move. Can you help My Arm get a grip on the situation and woo the fair Snowflake over the objections of her father, Mother? Or will My Arm be left to a loveless life of loneliness?",
-    requirements:
-      "*   *   *   *   *It is beneficial to have a higher Agility level. *Completion of the following quests: **My Arm's Big Adventure ***Eadgar's Ruse ****Druidic Ritual ****Troll Stronghold *****Death Plateau ***The Feud ***Jungle Potion **Swan Song ***One Small Favour ****Rune Mysteries ****Shilo Village ***Garden of Tranquillity ****Creature of Fenkenstrain *****Priest in Peril *****The Restless Ghost **Cold War **Romeo & Juliet",
+    requirements: [
+      'Firemaking level 66',
+      'Mining level 72',
+      'Construction level 35',
+      'Agility level 68',
+      'It is beneficial to have a higher Agility level.',
+      "Completion of My Arm's Big Adventure",
+      'Completion of Swan Song',
+      'Completion of Cold War',
+      'Completion of Romeo & Juliet',
+    ],
     enemies: ["Don't Know What (Level 163)", 'Mother (level 198)'],
     itemsRequired: [
       'Saw',
@@ -3681,8 +4135,20 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Release each member of the council from the Culinaromancer's spell.",
     description:
       "The Culinaromancer has retreated through the portal back to his own dimension, where he'll be ready to cause more trouble. Aris has said that you too must go through the portal to finish him off.",
-    requirements:
-      "*  *Completion of the following quests: **Desert Treasure I ***The Dig Site ***Temple of Ikov ***The Tourist Trap ***Troll Stronghold ****Death Plateau ***Priest in Peril ***Waterfall Quest **Horror from the Deep ***Alfred Grimhand's Barcrawl miniquest **Freeing Evil Dave **Freeing the Goblin generals **Freeing the Lumbridge Guide **Freeing the Mountain Dwarf **Freeing Pirate Pete **Freeing Sir Amik Varze **Freeing Skrach Uglogwee **Freeing King Awowogei *The ability to defeat all enemies without Prayer",
+    requirements: [
+      '175 Quest Points',
+      'Completion of Desert Treasure I',
+      'Completion of Horror from the Deep',
+      'Completion of Freeing Evil Dave',
+      'Completion of Freeing the Goblin generals',
+      'Completion of Freeing the Lumbridge Guide',
+      'Completion of Freeing the Mountain Dwarf',
+      'Completion of Freeing Pirate Pete',
+      'Completion of Freeing Sir Amik Varze',
+      'Completion of Freeing Skrach Uglogwee',
+      'Completion of Freeing King Awowogei',
+      'The ability to defeat all enemies without Prayer',
+    ],
     enemies: [
       'Agrith-Na-Na (level 146)',
       'Flambeed (level 149)',
@@ -3711,8 +4177,19 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Edmond in East Ardougne, at his home north of the Flying Horse Inn.',
     description:
       "Our story begins with you, the hero, answering the call to adventure when Edmond, a resident of Ardougne, asks for your aid. By rescuing his daughter Elena from Plague City, the quarantined West Ardougne, you begin to unravel the mystery surrounding the disease. With her help, you discover the plague is a hoax - a plot by King Lathas to section off the West Ardougne. By confronting him, you find out this was done to protect the rest of Gielinor from the threat in the elven lands. The king sends you on a mission to travel through the Underground Pass and help his ally, Lord Iorwerth, in eradicating his brother King Tyras who threatens to revive the mysterious Dark Lord. After an arduous journey through the pass, you meet with Iorwerth and his forces to end Tyras' evil once and for all. Upon your return to Lathas you are intercepted by Arianwyn, a rebel elf who opposes Lord Iorwerth. He informs you of Lathas and Iorwerth's deception. They manipulated you into removing their final opposition and were now free to bring the Dark Lord back to Gielinor for their own intentions. You work with the elven rebellion to discover the purpose of the plague was to disguise the digsite of the long lost Temple of Light. An ancient place that is key to bringing back the Dark Lord. To make amends for your past mistakes and put a halt in King Lathas' and Lord Iorwerth's plans, you solve the intricate light puzzle designed to protect the Death Altar within the temple. After sealing off the temple and preventing the return of the Dark Lord, it's now time to turn your attention to King Lathas and Lord Iorwerth to end their schemes once and for all in Song of the Elves.",
-    requirements:
-      "*Completion of the following quests: **Mourning's End Part II ***Mourning's End Part I ****Big Chompy Bird Hunting ****Sheep Herder ****Roving Elves *****Waterfall Quest *****Regicide ******Underground Pass *******Biohazard ********Plague City **Making History ***Priest in Peril ***The Restless Ghost **Druidic Ritual *   *   *   *   *   *   *   *",
+    requirements: [
+      "Completion of Mourning's End Part II",
+      'Completion of Making History',
+      'Completion of Druidic Ritual',
+      'Agility level 70',
+      'Construction level 70',
+      'Farming level 70',
+      'Herblore level 70',
+      'Hunter level 70',
+      'Mining level 70',
+      'Smithing level 70',
+      'Woodcutting level 70',
+    ],
     enemies: [
       '21 Mourners (level 24, 51, and 106)',
       'Paladin (level 49 and 118)',
@@ -3763,7 +4240,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Mori in Arceuus.',
     description:
       'A long time ago, the citizens of Arceuus house gave up their human bodies and claimed immortality. This event was known as the Ascent of Arceuus and it marked the end of death within Arceuus house. Or so they believed. For the first time in a thousand years, a member of Arceuus house has fallen. You will need to solve the mystery of this death. However, time is of the essence and the fate of Arceuus house lies in your hands.',
-    requirements: '*Completion of the following quests: **Client of Kourend ***X Marks the Spot *',
+    requirements: ['Completion of Client of Kourend', 'Hunter level 12'],
     enemies: ['5 Tormented Souls (Level 16)', 'Trapped Soul (Level 30)'],
     itemsRequired: [],
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Ascent_of_Arceuus',
@@ -3779,7 +4256,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Lady Vulcana Lovakengj in Lovakengj.',
     description:
       'For thousands of years, the Wintertodt has remained safely sealed behind the great Doors of Dinh. Alas, despite the best attempts of the Lovakengj smiths and the Arceuus mages, the doors are failing. Only Dinh himself knew the secrets behind the creation of these doors. Without his knowledge, there may be nothing to stop the Wintertodt escaping and bringing ruin upon Kourend. It is up to you to recover this knowledge.',
-    requirements: '*Completion of the following quests: **Client of Kourend ***X Marks the Spot',
+    requirements: ['Completion of Client of Kourend'],
     enemies: [],
     itemsRequired: ['Tinderbox (obtainable during quest)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Forsaken_Tower',
@@ -3795,8 +4272,18 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Brundt the Chieftain in Rellekka.',
     description:
       "The Fremennik bards often sing tales of the past. Of great battles, deadly foes and heroes long gone. However, in recent years, things have been much quieter in the Province, as there's increasingly less to sing about. All that is about to change though, as what starts off as a simple investigation soon leads to one of the greatest threats the Fremennik have ever seen.",
-    requirements:
-      "*   *   *   *   *   *   *Completion of the following quests: **The Fremennik Isles ***The Fremennik Trials **Lunar Diplomacy ***Lost City ***Rune Mysteries ***Shilo Village ****Jungle Potion *****Druidic Ritual **Mountain Daughter **Heroes' Quest ***Dragon Slayer I ***Lost City ***Merlin's Crystal ***Shield of Arrav",
+    requirements: [
+      'Crafting level 65',
+      'Slayer level 60',
+      'Smithing level 60',
+      'Fishing level 60',
+      'Runecraft level 55',
+      'Mining level 60',
+      'Completion of The Fremennik Isles',
+      'Completion of Lunar Diplomacy',
+      'Completion of Mountain Daughter',
+      "Completion of Heroes' Quest",
+    ],
     enemies: [
       'Basilisk Youngling (level 53)',
       'Basilisk (level 61)',
@@ -3848,8 +4335,16 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Elias White at the Uzer Oasis.',
     description:
       'The icy waste to the north of the troll country is as mysterious as any land in Gielinor, no less because of the interest the Mahjarrat take in it. Elias White thinks that he might have found a way for you to discover more about this strange area to the north. Uncover more of the mysteries of the Mahjarrat and learn about the dark magic that was used to enslave Arrav for these last few millennia.',
-    requirements:
-      '*  *  *  *  *  *  *Completion of the following quests: ** Defender of Varrock *** Shield of Arrav *** Temple of Ikov *** Below Ice Mountain *** Family Crest *** Garden of Tranquillity **** Creature of Fenkenstrain ***** Priest in Peril ***** The Restless Ghost *** What Lies Below **** Rune Mysteries *** Romeo & Juliet *** Demon Slayer ** Troll Romance *** Troll Stronghold **** Death Plateau',
+    requirements: [
+      'Mining level 64',
+      'Ranged level 62',
+      'Thieving level 62',
+      'Agility level 61',
+      'Strength level 58',
+      'Slayer level 37',
+      'Completion of Defender of Varrock',
+      'Completion of Troll Romance',
+    ],
     enemies: ['Golem guard (level 141)', 'Arrav (level 339)'],
     itemsRequired: [
       '3 dwellberries',
@@ -3872,8 +4367,18 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Elias White in the Jolly Boar Inn.',
     description:
       'Long ago, one man wielding a magic shield stood against the undead armies of the Mahjarrat. His name was Arrav, and he was strong and noble, but the fates had spoken: his downfall at the hands of the evil necromancer Zemouregal was inevitable. In one last desperate act to save his people, Arrav flung the shield towards the town now known as Varrock, protecting it from further harm. In that very moment, Zemouregal struck him down. Standing over the fatally wounded hero, Zemouregal made a promise: "When I return, you shall lead my armies. You shall be my greatest champion, and suffer under the knowledge that while you hoped to save your people, you will instead be their doom." Now, there is fear in the air. Whispers of the dead rising. Could this be the time of the prophesied return?',
-    requirements:
-      '*    *    *Completion of the following quests: **Shield of Arrav **Temple of Ikov **Below Ice Mountain **Family Crest **Garden of Tranquillity ***Creature of Fenkenstrain ****Priest in Peril ****The Restless Ghost **What Lies Below ***Rune Mysteries **Romeo & Juliet **Demon Slayer',
+    requirements: [
+      'Smithing level 55',
+      'Hunter level 52',
+      'Completion of Shield of Arrav',
+      'Completion of Temple of Ikov',
+      'Completion of Below Ice Mountain',
+      'Completion of Family Crest',
+      'Completion of Garden of Tranquillity',
+      'Completion of What Lies Below',
+      'Completion of Romeo & Juliet',
+      'Completion of Demon Slayer',
+    ],
     enemies: ['At least six armoured zombies (level 85)', 'Multiple Chaos Golems (level 70)'],
     itemsRequired: [
       'Chaos core (obtainable during the quest)',
@@ -3892,8 +4397,17 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Veliaf Hurtz outside the church in Slepe.',
     description:
       'A darkness has fallen over Morytania. The Myreque freedom fighters have achieved their first major victory over the vampyres with the death of Ranis Drakan. However, their newly found hope is unlikely to last. After many years of absence, Lord Lowerniel Drakan, the vampyre overlord of Morytania, has finally emerged from his castle. He has but one goal. To avenge his brother and eradicate the Myreque once and for all.',
-    requirements:
-      '*Completion of the following quests: **Vampyre Slayer **A Taste of Hope ***Darkness of Hallowvale ****In Aid of the Myreque *****In Search of the Myreque ******Nature Spirit *******Priest in Peril *******The Restless Ghost *   *   *    *    *   *   *',
+    requirements: [
+      'Completion of Vampyre Slayer',
+      'Completion of A Taste of Hope',
+      'Woodcutting level 62',
+      'Fletching level 60',
+      'Crafting level 56',
+      'Agility level 52',
+      'Attack level 50',
+      'Slayer level 50',
+      'Magic level 49',
+    ],
     enemies: [
       'Kroy (level 133)',
       'Nail beast (level 143 & 67 twice)',
@@ -3925,8 +4439,20 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Martin Holt at the entrance to Kourend Castle in Kingstown.',
     description:
       "Great Kourend: a land of wealth, comfort and security. Across its five cities, the people of this Kingdom work to bring peace and prosperity. However, all is not as it seems. Beneath this delicate façade lies an uncomfortable truth: the kingdom of Great Kourend is A Kingdom Divided. Since the death of the last king, Great Kourend has been ruled by the Kourend Council. Under the watchful gaze of the Council, Kourend has enjoyed a golden age of progression. But not all of its citizens are happy, and, spurred by the recent arrest of Councillor Sophia Hughes, allegations of corruption are growing. However, the political games of the Council may be the least of Kourend's concerns. A darker power is gathering in the Kingdom - one that could change the face of Gielinor forever...",
-    requirements:
-      '*Completion of the following quests: **The Depths of Despair **The Queen of Thieves **The Ascent of Arceuus **The Forsaken Tower **Tale of the Righteous **The above quests all require the following quests to be completed: ***Client of Kourend ****X Marks the Spot *   *   *   *   *   *   *',
+    requirements: [
+      'Completion of The Depths of Despair',
+      'Completion of The Queen of Thieves',
+      'Completion of The Ascent of Arceuus',
+      'Completion of The Forsaken Tower',
+      'Completion of Tale of the Righteous',
+      'Agility level 54',
+      'Thieving level 52',
+      'Woodcutting level 52',
+      'Herblore level 50',
+      'Mining level 42',
+      'Crafting level 38',
+      'Magic level 35',
+    ],
     enemies: [
       'Judge of Yama (Level 168)',
       '2 Assassins (Level 132)',
@@ -3974,7 +4500,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Gordon on his farm south of the Farming Guild.',
     description:
       "Gordon and Mary are two small-town farmers with a big problem – some heinous beastie keeps taking their livestock! Luckily they've hit upon a solution. They just need some brave adventurer to venture into the creature's lair and bring them back its head. We can't envisage any complications with such a routine matter, right?",
-    requirements: '*   *',
+    requirements: ['Crafting level 30', 'Construction level 26'],
     enemies: [],
     itemsRequired: [
       'Bear fur, grey wolf fur, or Fur (a Grizzly bear and bear cub spawn west of the farm and two black bears spawn east of the farm)',
@@ -4002,7 +4528,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Willow on the path south of Ice Mountain.',
     description:
       "Willow, an energetic archaeologist (perhaps suspiciously so) is hunting for her next big discovery. She believes she has found the entrance to ancient underground ruins found to the west of Ice Mountain. There's a catch though - the entrance is sealed tight and she needs to re-unite her old crew to help her break in. Naturally, she has to stay close to the ruins in order to lay claim to the find, so it falls to you to bring her rag-tag group back together for one last caper and a final big pay-off. Burntof is an old dwarf with a penchant for demolition, Checkal is a well-built lifter of heavy things and Marley is a cunning thief with a knack for disarming traps. Together, they have the talents it will take to gain entry to the secret ruins. But persuading them might not be easy. See, the gang aren't all too keen on working with Willow again, and her intentions might not be as honourable as she claims...",
-    requirements: '*',
+    requirements: ['16 Quest Points'],
     enemies: [],
     itemsRequired: [
       'Cooked meat (obtainable during the quest)',
@@ -4023,8 +4549,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to the Mysterious Stranger inside Ver Sinhaza, south-east of Meiyerditch.',
     description:
       'The Mysterious Stranger lurks outside of the mighty Theatre of Blood, the centrepiece of Ver Sinhaza. This shadowy figure has a new request for you – to humiliate a vampyre noble by the name of Lady Verzik Vitur. Take on the challenges that lie within the Theatre to reach her and bring a blush to her bloodless face!',
-    requirements:
-      '*Completion of the following quests: **A Taste of Hope ***Darkness of Hallowvale ****In Aid of the Myreque *****In Search of the Myreque ******Nature Spirit *******Priest in Peril *******The Restless Ghost',
+    requirements: ['Completion of A Taste of Hope'],
     enemies: [
       'Vyrewatch (Level 105)',
       'Several venomous araxyte (Levels 96 and 146) (can be avoided)',
@@ -4050,8 +4575,12 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Jamila at her stall in Sophanem.',
     description:
       "When Sophanem was beset by a series of plagues, the gates to the golden city of Menaphos quickly closed. The city has been locked down ever since, with no one allowed to leave or enter. However, rumours have escaped of strange happenings inside Menaphos and there are stories of citizens mysteriously disappearing. These odd happenings need to be investigated, but few are willing to do so. Maisa, a spy from Al Kharid, has grown tired of inaction. She is determined to solve this mystery herself, but she won't be able to do it alone... are you up for the challenge?",
-    requirements:
-      "*Completion of the following quests: **Contact! ***Prince Ali Rescue ***Icthlarin's Little Helper ****Gertrude's Cat *   *   *",
+    requirements: [
+      'Completion of Contact!',
+      'Agility level 62',
+      'Crafting level 55',
+      'Firemaking level 55',
+    ],
     enemies: [
       'Head Menaphite Guard (level 174) without the use of protection prayers',
       'Two Scarab Mages (level 119)',
@@ -4078,8 +4607,8 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Wizard Persten north of Al Kharid, near the gate from Lumbridge.',
     description:
       "The Abyss: a deadly realm filled with ancient power. The secrets of this plane have long eluded the denizens of the Wizards' Tower, though some would give anything to properly uncover them. One of these wizards is Persten. While many in the Tower aren't convinced by her unorthodox methods, a recent discovery means she may now hold the key to the knowledge they crave the most. However, nothing is simple when the Abyss is involved, and Persten won't be able to get to the bottom of her discovery without your help...",
-    requirements: '*Completion of the following quests: **Enter the Abyss ***Rune Mysteries *',
-    enemies: [],
+    requirements: ['Completion of Enter the Abyss', 'Runecraft level 10'],
+    enemies: null,
     itemsRequired: [
       'Bucket of water',
       'Chisel (obtainable during quest)',
@@ -4098,8 +4627,16 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Speak to King Bolren in the Tree Gnome Village.',
     description:
       "King Bolren has a new pet. Unfortunately, it's another watcher, like the ones unmasked in the Tree Gnome Stronghold during The Eyes of Glouphrie. Has Glouphrie been watching the Tree Gnome Village, too? If you investigate further you'll find out more about Glouphrie, the history of the gnomes (and their unusual monarchy) and maybe you'll get within a hair's breadth of the lost city of Arposandra...",
-    requirements:
-      '* Completion of the following quests: ** The Eyes of Glouphrie *** The Grand Tree ** Waterfall Quest ** Tree Gnome Village *    *    *    *    *',
+    requirements: [
+      'Completion of The Eyes of Glouphrie',
+      'Completion of Waterfall Quest',
+      'Completion of Tree Gnome Village',
+      'Strength level 60',
+      'Slayer level 56',
+      'Thieving level 56',
+      'Ranged level 47',
+      'Agility level 45',
+    ],
     enemies: ['3 Warped Terrorbirds (level 138)', 'Evil Creature (level 1)'],
     itemsRequired: [
       'Tree Gnome Village Dungeon key (unless Roving Elves has been started) (obtainable during the quest)',
@@ -4120,9 +4657,16 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to Kovac at the Giants' Plateau, east of Al Kharid.",
     description:
       "Ahh, giants. We all know them. Enormous humanoids hanging about Gielinor, simply minding their own business until some adventurer or another comes along to beat them up. But how much do we really know about these giants? What do they think about? Where did they come from? Would they enjoy making massive swords in some kind of... gargantuan workshop? All these questions, and more, will be answered in the quest Sleeping Giants! You'll help Kovac, a friendly giant who's discovered an ancient forge built to his giant-size proportions!",
-    requirements: '*',
-    enemies: ['A method of obtaining oak logs:'],
-    itemsRequired: null,
+    requirements: ['Smithing level 15'],
+    enemies: null,
+    itemsRequired: [
+      '3 oak logs',
+      '1 wool (ball of wool will not work)',
+      '10 nails',
+      'Hammer or Imcando hammer (Other types of hammers will not work)',
+      'Chisel',
+      '1 bucket of water (Obtainable during quest) or ice gloves',
+    ],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Sleeping_Giants',
   },
   {
@@ -4137,8 +4681,8 @@ export const questDetails: WikiQuestDetails[] = [
       'Search the tent at the campsite found east of the chasm at the southern end of the Kebos Lowlands.',
     description:
       'In our newest Twisted Tale, you’ll piece together a long-lost language and unravel the mystery of some ancient ruins. Welcome, adventurer, to The Garden of Death. This quest contains no dialogue and focuses solely on environmental storytelling, so make sure that you set aside some time and prepare to be fully immersed in the world around you!',
-    requirements: '*',
-    enemies: [],
+    requirements: ['Farming level 20'],
+    enemies: null,
     itemsRequired: ['Secateurs (obtainable during quest) (magic secateurs also work)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Garden_of_Death',
   },
@@ -4153,8 +4697,21 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Investigate the Ancient Vault north-east of Nardah.',
     description:
       "During Gielinor's Second Age, the world was dominated by an empire the likes of which had never been seen. The areas now known as Asgarnia, Misthalin and even the Wilderness all once flourished under the banner of the Empty Lord. With the grand city of Senntisten at its heart, this civilisation washed over Gielinor like an unstoppable tide, pushing the boundaries of magic and science, while crushing any who stood in their way. Fast forward to today, the Fifth Age, and you won't find much trace of this ancient empire. Indeed, Saradominists and Zamorakians alike have spent many lifetimes purging all remnants of it. However, small fragments of this fallen empire remain, for those who know where to look. Perhaps you’ve already encountered some of these remains. Maybe you’ve met the monstrous Nex, sealed behind the Frozen Door for millennia. Or perhaps you’ve visited the bandits of the Kharidian Desert, the final human followers of the Empty Lord. You might even have encountered some mysterious Mahjarrat hidden away beneath those same sands. However, there are other parts of this forgotten empire that even you won’t have encountered yet. For example, this story begins deep in the desert, within a mysterious vault...",
-    requirements:
-      "*    *    *    *    *    *    *Completion of the following quests: **Desert Treasure I ***The Dig Site ***Temple of Ikov ***The Tourist Trap ***Troll Stronghold ****Death Plateau ***Priest in Peril ***Waterfall Quest **Secrets of the North ***Making Friends with My Arm ****My Arm's Big Adventure *****Eadgar's Ruse ******Druidic Ritual ******Troll Stronghold *******Death Plateau *****The Feud *****Jungle Potion ****Swan Song *****One Small Favour ******Rune Mysteries ******Shilo Village *****Garden of Tranquillity ******Creature of Fenkenstrain *******Priest in Peril *******The Restless Ghost ****Cold War ****Romeo & Juliet ***The General's Shadow ****Curse of the Empty Lord, for full ghostly robes ****Fight Arena ***Devious Minds ****Wanted! *****Recruitment Drive ******Black Knights' Fortress ******Druidic Ritual *****The Lost Tribe ******Goblin Diplomacy ******Rune Mysteries *****Priest in Peril ****Troll Stronghold *****Death Plateau ****Doric's Quest ****Enter the Abyss ***Hazeel Cult **Enakhra's Lament **Temple of the Eye ***Enter the Abyss ****Rune Mysteries **The Garden of Death **Below Ice Mountain **His Faithful Servants ***Priest in Peril",
+    requirements: [
+      'Firemaking level 75',
+      'Magic level 75',
+      'Thieving level 70',
+      'Herblore level 62',
+      'Runecraft level 60',
+      'Construction level 60',
+      'Completion of Desert Treasure I',
+      'Completion of Secrets of the North',
+      "Completion of Enakhra's Lament",
+      'Completion of Temple of the Eye',
+      'Completion of The Garden of Death',
+      'Completion of Below Ice Mountain',
+      'Completion of His Faithful Servants',
+    ],
     enemies: [
       'Ancient Guardian (level 153)',
       'Vardorvis (level 572)',
@@ -4193,8 +4750,15 @@ export const questDetails: WikiQuestDetails[] = [
       'Talk to the guard outside of the Carnillean Mansion in the south-western corner of East Ardougne.',
     description:
       "Our story begins - as all good murder mysteries do - with a mysterious murder, and there's no shortage of suspects - in fact, you're one of them! Be prepared to form an uneasy alliance, dig up secrets best left buried deep, and walk away with more questions than answers...",
-    requirements:
-      "*   *   *   *Completion of the following quests: **Making Friends with My Arm ***My Arm's Big Adventure ****Eadgar's Ruse *****Druidic Ritual *****Troll Stronghold ******Death Plateau ****The Feud ****Jungle Potion ***Swan Song ****One Small Favour *****Rune Mysteries *****Shilo Village ****Garden of Tranquillity *****Creature of Fenkenstrain ******Priest in Peril ******The Restless Ghost ***Cold War ***Romeo & Juliet **The General's Shadow ***Curse of the Empty Lord, for full ghostly robes ****Started Desert Treasure I, for the ring of visibility ***Fight Arena **Devious Minds ***Wanted! ****Recruitment Drive *****Black Knights' Fortress *****Druidic Ritual ****The Lost Tribe *****Goblin Diplomacy *****Rune Mysteries ****Priest in Peril ***Doric's Quest ***Enter the Abyss **Hazeel Cult",
+    requirements: [
+      'Agility level 69',
+      'Thieving level 64',
+      'Hunter level 56',
+      'Completion of Making Friends with My Arm',
+      "Completion of The General's Shadow",
+      'Completion of Devious Minds',
+      'Completion of Hazeel Cult',
+    ],
     enemies: ['Evelot (level 148)', 'Assassin (level 262)', 'Strange Creature (level 368)'],
     itemsRequired: [
       '100 Coins',
@@ -4230,8 +4794,14 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Zuma or Attala at the entrance to Cam Torum.',
     description:
       "Beneath the steep and jagged cliffs of Ralos' Rise sits the dwarven town of Cam Torum. Its strong fortifications have kept it safe through all of Varlamore's history... but now the inhabitants face a new challenge.<br><br>Lurking below the surface is an ancient temple, built to contain powerful entities. Now, the earth has been disturbed – and the dwarves need your help to keep these strange beings contained!",
-    requirements:
-      "*    *    *    *    *    *Completion of the following quests: ** Twilight's Promise *** Children of the Sun",
+    requirements: [
+      'Slayer level 48',
+      'Hunter level 20',
+      'Fishing level 20',
+      'Runecraft level 20',
+      'Construction level 10',
+      "Completion of Twilight's Promise",
+    ],
     enemies: [
       'Sulphur Nagua (level 98)',
       'Blue Moon (level 329)',
@@ -4257,8 +4827,8 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to Marcellus at the Locus Oasis.',
     description: 'Solve a ribbiting dispute and gain access to a new hardwood Farming patch.',
-    requirements: '*    * Completion of the following quests: ** Children of the Sun',
-    enemies: null,
+    requirements: ['Woodcutting level 15', 'Completion of Children of the Sun'],
+    enemies: ['Cuthbert, Lord of Dread (level 1)'],
     itemsRequired: ['Any axe (a bronze axe is obtainable during the quest)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Ribbiting_Tale_of_a_Lily_Pad_Labour_Dispute',
   },
@@ -4272,7 +4842,7 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to Ennius Tullus or Furia Tullus in front of the Sunrise Palace.',
     description: 'Take your first steps into Varlamore and unlock the Quetzal Transport System.',
-    requirements: '* Completion of the following quests: ** Children of the Sun',
+    requirements: ['Completion of Children of the Sun'],
     enemies: ['Knight of Varlamore (level 81)', '8 cultists (level 34)'],
     itemsRequired: [
       'Items for two different combat classes or a poisoned weapon (be warned that the poison method is much slower).',
@@ -4289,8 +4859,13 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to Guildmaster Apatura at the Hunter Guild.',
     description: 'Learn about the role of the Hunter Guild and unlock higher tier rumours.',
-    requirements:
-      "*    *    *    * Completion of the following quests: ** Children of the Sun ** Eagles' Peak",
+    requirements: [
+      'Hunter level 46',
+      'Herblore level 30',
+      'Construction level 27',
+      'Completion of Children of the Sun',
+      "Completion of Eagles' Peak",
+    ],
     enemies: [],
     itemsRequired: [
       "Needle or costume needle (one needle spawns in Pellem's Fur Store nearby)",
@@ -4309,8 +4884,13 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: null,
     start: 'Talk to Prince Itzla Arkan at the Teomat.',
     description: 'Uncover the secrets of a mysterious cult and unlock a new dungeon.',
-    requirements:
-      "*   *   *   *   *Completion of the following quests: **Twilight's Promise ***Children of the Sun",
+    requirements: [
+      'Mining level 55',
+      'Thieving level 48',
+      'Slayer level 48',
+      'Agility level 46',
+      "Completion of Twilight's Promise",
+    ],
     enemies: [
       'Several Emissary Brawlers (levels 74 and 86)',
       'Several Emissary Conjurers (level 71)',
@@ -4330,7 +4910,7 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 2,
     start: 'Talk to Patzi by the entrance to Villa Lucens.',
     description: 'Solve a mysterious murder on the island of Aldarin.',
-    requirements: '*   *   *Completion of the following quests: **Children of the Sun',
+    requirements: ['Thieving level 34', 'Agility level 32', 'Completion of Children of the Sun'],
     enemies: [],
     itemsRequired: [],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Death_on_the_Isle',
@@ -4345,15 +4925,9 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to Emelio at his home in Outer Fortis.',
     description: 'Bring the joy of kebabs to the land of Varlamore.',
-    requirements: '* Completion of the following quests: ** Children of the Sun',
+    requirements: ['Completion of Children of the Sun'],
     enemies: ['Dire Wolf Alpha (level 113)', 'Minotaur (level 193)'],
-    itemsRequired: [
-      'Combat level',
-      'Prayer to use Protect from Melee and Protect from Magic',
-      'Stamina potions or energy potions',
-      'Combat equipment',
-      'Food',
-    ],
+    itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/Meat_and_Greet',
   },
   {
@@ -4367,13 +4941,13 @@ export const questDetails: WikiQuestDetails[] = [
     start:
       'Inspect the empty display on the ground floor of the Grand Museum in Civitas illa Fortis.',
     description: 'Investigate a mysterious theft from the Fortis Grand Museum.',
-    requirements:
-      '*   *Completion of the following quests: **Children of the Sun **Shield of Arrav',
-    enemies: null,
-    itemsRequired: [
-      'Varrock Teleport',
-      'Civitas illa Fortis Teleport or a charged quetzal whistle',
+    requirements: [
+      'Thieving level 25',
+      'Completion of Children of the Sun',
+      'Completion of Shield of Arrav',
     ],
+    enemies: null,
+    itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/Ethically_Acquired_Antiquities',
   },
   {
@@ -4387,8 +4961,20 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Sarius Guile in the Icyene Graveyard.',
     description:
       'Long ago, before the vampyres were united as one, they lived in disparate clans in their ancestral home of Vampyrium. For the Drakan clan, strength ruled above all else. Clan leaders were selected during a brutal festival of combat known as the Night of the Blood Moon. Along with leadership of the clan, the victor of this festival was granted a title: they became known as the Blood Moon. Now, thousands of years later, Lord Lowerniel Drakan, the last Blood Moon has returned. He has but one goal: to return his people to the old ways and reclaim his former title, even if he has to sacrifice every life in Morytania to do it. For Drakan, this is the endgame. Failure is not an option and he does not intend to let anyone stand in his way. No matter what, the Blood Moon will rise once more.',
-    requirements:
-      '*    *    *    *    *    *    *    *    *    *    *Completion of the following quests: **A Night at the Theatre **Sins of the Father ***Vampyre Slayer ***A Taste of Hope ****Darkness of Hallowvale *****In Aid of the Myreque ******In Search of the Myreque *******Nature Spirit ********Priest in Peril ********The Restless Ghost',
+    requirements: [
+      'Slayer level 74',
+      'Woodcutting level 74',
+      'Smithing level 72',
+      'Cooking level 72',
+      'Fletching level 70',
+      'Mining level 66',
+      'Hunter level 65',
+      'Crafting level 64',
+      'Herblore level 64',
+      'Magic level 57',
+      'Completion of A Night at the Theatre',
+      'Completion of Sins of the Father',
+    ],
     enemies: [
       'Several vyrewatch and vyrewatch sentinels during various encounters',
       'Several Monk of Zamorak (level  36)',
@@ -4425,8 +5011,13 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 3,
     start: 'Talk to Servius in the Sunrise Palace.',
     description: 'Bring an end to the plots of a deadly cult and unlock a new boss.',
-    requirements:
-      "*    *    *    *Completion of the following quests: ** The Heart of Darkness *** Twilight's Promise **** Children of the Sun ** Perilous Moons *** Twilight's Promise **** Children of the Sun",
+    requirements: [
+      'Thieving level 66',
+      'Runecraft level 52',
+      'Fletching level 52',
+      'Completion of The Heart of Darkness',
+      'Completion of Perilous Moons',
+    ],
     enemies: [
       'Emissary Enforcer (lvl-196)',
       'Chimalli (lvl-160) and Lucius (lvl-160)',
@@ -4452,10 +5043,9 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: null,
     start: 'Talk to Will and Anne on the docks of Port Sarim.',
     description: 'Embark on your first voyage and unlock the Sailing skill.',
-    requirements:
-      '|items = * Hammer (obtainable during the quest) * Saw (obtainable during the quest)',
-    enemies: [],
-    itemsRequired: null,
+    requirements: null,
+    enemies: null,
+    itemsRequired: ['Hammer (obtainable during the quest)', 'Saw (obtainable during the quest)'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Pandemonium',
   },
   {
@@ -4469,8 +5059,13 @@ export const questDetails: WikiQuestDetails[] = [
     start: "Talk to 'Squawking' Steve Beanie at The Pandemonium pub.",
     description:
       "Help Steve Beanie recover some 'pirate treasure' and unlock the crowbar, a useful Sailing tool.",
-    requirements:
-      "*    *    *Completion of the following quests: ** Pandemonium ** The Knight's Sword *One open port task slot",
+    requirements: [
+      'Smithing level 30',
+      'Sailing level 12',
+      'Completion of Pandemonium',
+      "Completion of The Knight's Sword",
+      'One open port task slot',
+    ],
     enemies: ['Drink troll (level 14) - can be skipped'],
     itemsRequired: [
       'Hammer or Imcando hammer (obtainable during quest)',
@@ -4491,8 +5086,8 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Arhein on the Catherby docks.',
     description:
       'Help Arhein get past some political red tape and unlock the current duck, a useful Sailing tool.',
-    requirements: '*    *    *Completion of Pandemonium',
-    enemies: [],
+    requirements: ['Sailing level 22', 'Fishing level 10', 'Completion of Pandemonium'],
+    enemies: null,
     itemsRequired: ['Charcoal (obtainable during quest)', '50 Coins'],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Current_Affairs',
   },
@@ -4506,7 +5101,15 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to the injured tortugan on a Remote Island in the Unquiet Ocean.',
     description: 'Help a stranded tortugan and gain access to the Great Conch.',
-    requirements: '*    *   *   *   *   *   *Completion of Pandemonium',
+    requirements: [
+      'Slayer level 51',
+      'Construction level 48',
+      'Sailing level 45',
+      'Hunter level 45',
+      'Woodcutting level 40',
+      'Crafting level 34',
+      'Completion of Pandemonium',
+    ],
     enemies: ['Gryphon (level 95)', 'Shellbane gryphon (level 235)'],
     itemsRequired: [
       'Any axe (a bronze axe can be found during the quest, but bringing a better one is recommended for cutting 10 logs)',
@@ -4526,8 +5129,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Elder Raley at his home on the Great Conch.',
     description:
       'Investigate the dealings of the Red Reef Trading Company and gain access to some trees to cut.',
-    requirements:
-      '*    *    *Completion of the following quests: **Troubled Tortugans ***Pandemonium',
+    requirements: ['Sailing level 52', 'Smithing level 48', 'Completion of Troubled Tortugans'],
     enemies: [
       '2 pirate ships (or the crew on the ship)',
       '6 pirates (level 52)',
@@ -4550,7 +5152,13 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 2,
     start: 'Read the notice board in Auburn Pub.',
     description: 'Solve the case of some missing people and unlock a new dungeon.',
-    requirements: '*Completion of the following quests: ** Children of the Sun *    *    *    *',
+    requirements: [
+      'Completion of Children of the Sun',
+      'Slayer level 54',
+      'Fishing level 45',
+      'Construction level 41',
+      'Hunter level 36',
+    ],
     enemies: [],
     itemsRequired: [
       '4 willow longbows',
@@ -4570,7 +5178,12 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to Alan at the temple of Tal Teok north of Tal Teklan.',
     description: 'Egg.',
-    requirements: '*     *     *     * Completion of the following quests: ** Children of the Sun',
+    requirements: [
+      'Construction level 38',
+      'Cooking level 36',
+      'Smithing level 35',
+      'Completion of Children of the Sun',
+    ],
     enemies: [
       'Large chicken (level 16)',
       'Black jaguar (level 88) - can be safespotted',
@@ -4595,8 +5208,8 @@ export const questDetails: WikiQuestDetails[] = [
     questPoints: 1,
     start: 'Talk to the Quest Guide on Tutorial Island.',
     description: 'N/A',
-    requirements: '|items =',
-    enemies: null,
+    requirements: null,
+    enemies: [],
     itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/Learning_the_Ropes',
   },
@@ -4611,7 +5224,7 @@ export const questDetails: WikiQuestDetails[] = [
     start: 'Talk to Cassius by the Lumbridge pond.',
     description:
       'Lumbridge, the iconic city for all the fresh-faced arrivals and budding adventurers. Home to regular citizens of Gielinor, they chop the trees, work the fields, and tend to the animals of the realm, except there has been a disturbance in the nearby cow pen and the steaks have never been higher! Distress runs through the herd and while they have always feared adventurers claiming their lives, a new threat has entered their domain bringing the beef...',
-    requirements: 'None',
+    requirements: null,
     enemies: [],
     itemsRequired: [],
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Ides_of_Milk',
@@ -4621,15 +5234,22 @@ export const questDetails: WikiQuestDetails[] = [
     title: 'The Graveyard',
     difficulty: 'master',
     length: null,
-    members: false,
+    members: true,
     series: 'Fremennik, #5',
-    questPoints: null,
-    start: '|startmap =',
-    description: '|length =',
-    requirements:
-      "*  *  *  *  *Completion of the following quests: **The Fremennik Exiles ***The Fremennik Isles ****The Fremennik Trials ***Lunar Diplomacy ****Lost City ****Rune Mysteries ****Shilo Village *****Jungle Potion ******Druidic Ritual ***Mountain Daughter ***Heroes' Quest ****Dragon Slayer I ****Lost City ****Merlin's Crystal ****Shield of Arrav **Olaf's Quest ***The Fremennik Trials **Pandemonium",
-    enemies: [],
-    itemsRequired: [],
+    questPoints: 3,
+    start: null,
+    description: null,
+    requirements: [
+      'Sailing level 65',
+      'Agility level 65',
+      'Woodcutting level 56',
+      'Fletching level 54',
+      'Completion of The Fremennik Exiles',
+      "Completion of Olaf's Quest",
+      'Completion of Pandemonium',
+    ],
+    enemies: null,
+    itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/The_Graveyard',
   },
   {
@@ -4637,13 +5257,19 @@ export const questDetails: WikiQuestDetails[] = [
     title: 'Fallen From Grace',
     difficulty: 'experienced',
     length: 'Short',
-    members: false,
+    members: true,
     series: null,
     questPoints: 2,
     start: 'Talk to Cormac, the mayor of Auchrie, on the island of Wyrmscraig.',
     description:
       'Help the citizens of an isolated island and unlock new training methods and a repeatable boss.',
-    requirements: '*    *    *    *    *Completion of the following quests: **Pandemonium',
+    requirements: [
+      'Sailing level 62',
+      'Crafting level 60',
+      'Runecraft level 47',
+      'Mining level 53',
+      'Completion of Pandemonium',
+    ],
     enemies: ['3 mountain trolls (level 69)', 'Mad Angel (level 270)'],
     itemsRequired: [
       'A raft or skiff (a sloop does NOT work) (You MUST use your own boat - you will not be able to disembark in Wyrmscraig Cavern unless you are the only player on the boat)',
@@ -4657,31 +5283,31 @@ export const questDetails: WikiQuestDetails[] = [
     pageId: 678503,
     title: 'A Ruff Situation',
     difficulty: 'novice',
-    length: '|requirements =  *',
-    members: false,
-    series: '|developer =',
+    length: null,
+    members: true,
+    series: null,
     questPoints: null,
-    start: '|startmap =',
+    start: null,
     description:
       'Talia and Chase have set up a Dog Shelter near Ice Mountain. Unfortunately, their operations are struggling to get off the ground, and they need your help.',
-    requirements: null,
-    enemies: [],
-    itemsRequired: [],
+    requirements: ['Crafting level 15'],
+    enemies: null,
+    itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/A_Ruff_Situation',
   },
   {
     pageId: 678717,
     title: 'Crab Quest',
     difficulty: 'intermediate',
-    length: null,
+    length: 'Short',
     members: true,
     series: null,
     questPoints: null,
-    start: '|startmap =',
-    description: '|length = Short',
-    requirements: '*  *',
-    enemies: [],
-    itemsRequired: [],
+    start: null,
+    description: null,
+    requirements: ['Sailing level 40', 'Fishing level 30'],
+    enemies: null,
+    itemsRequired: null,
     wikiUrl: 'https://oldschool.runescape.wiki/w/Crab_Quest',
   },
 ]

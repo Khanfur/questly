@@ -55,7 +55,7 @@ describe('QuestTierGroup', () => {
     const onStatusChange = jest.fn()
     render(<QuestTierGroup tier={TIER} onStatusChange={onStatusChange} />)
 
-    fireEvent.click(screen.getAllByRole('button')[1])
+    fireEvent.click(screen.getByLabelText(/^Mark "The Restless Ghost" as/))
     expect(onStatusChange).toHaveBeenCalledWith('The Restless Ghost', 'in-progress')
   })
 })

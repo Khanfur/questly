@@ -25,6 +25,7 @@ test.describe('Style guide', () => {
       'Quest Status Icon',
       'Quest List Item',
       'Quest Tier Group',
+      'Quest Detail Modal',
       'Diary Tier Card',
       'Diary Region Card',
       'Filter Pill Group',

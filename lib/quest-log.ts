@@ -56,7 +56,18 @@ function toQuest(
     difficulty,
     status,
     questPoints: details.questPoints ?? 0,
-    requires: details.requirements && details.requirements.trim() ? details.requirements : 'None',
+    requires:
+      details.requirements && details.requirements.length > 0
+        ? details.requirements.join(', ')
+        : 'None',
     members: details.members,
+    start: details.start,
+    description: details.description,
+    series: details.series,
+    length: details.length,
+    enemies: details.enemies,
+    itemsRequired: details.itemsRequired,
+    wikiUrl: details.wikiUrl,
+    requirements: details.requirements,
   }
 }

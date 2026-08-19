@@ -76,8 +76,8 @@ export interface WikiQuestDetails {
   start: string | null
   /** Plain-text description/synopsis of the quest, with wiki markup stripped. */
   description: string | null
-  /** Plain-text summary of the quest's requirements, with wiki markup stripped. */
-  requirements: string | null
+  /** Direct prerequisites (skills, quest points, other quests), with wiki markup stripped and any transitive quest chains flattened out. */
+  requirements: string[] | null
   /** Enemies the player must defeat during the quest (e.g. "Vorkath (level 392)"), if any. */
   enemies: string[] | null
   /** Items required to start/complete the quest (e.g. "A pickaxe"), if any. */

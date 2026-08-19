@@ -3,6 +3,7 @@
 import { useState } from 'react'
 
 import { diaryRegions, questLog } from '@/lib/fixtures'
+import type { Quest } from '@/lib/types/quest'
 
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
 import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'
@@ -10,6 +11,7 @@ import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'
 import { ErrorMessage } from '@/components/ui/error-message/error-message'
 import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'
 import { PageHero } from '@/components/ui/page-hero/page-hero'
+import { QuestDetailModal } from '@/components/ui/quest-detail-modal/quest-detail-modal'
 import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
 import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'
 import { QuestStatusIcon } from '@/components/ui/quest-list-item/quest-status-icon'
@@ -51,8 +53,24 @@ import { GridExample } from './_components/grid-example'
 import { SpacingScale } from './_components/spacing-scale'
 import { Swatch } from './_components/swatch'
 
+const SAMPLE_QUEST_DETAILS: Quest = {
+  name: "Cook's Assistant",
+  difficulty: 'novice',
+  status: 'not-started',
+  questPoints: 1,
+  requires: 'None',
+  members: false,
+  start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
+  description:
+    "The Cook is in a panic! The Duke of Lumbridge is arriving shortly and he hasn't got a cake for him. Help the Cook gather the ingredients he needs before it's too late.",
+  length: 'Very short',
+  itemsRequired: ['Bucket of milk', 'Egg', 'Pot of flour'],
+  wikiUrl: "https://oldschool.runescape.wiki/w/Cook's_Assistant",
+}
+
 export default function StyleGuide() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const [questDetailOpen, setQuestDetailOpen] = useState(false)
 
   return (
     <>
@@ -305,6 +323,15 @@ export default function StyleGuide() {
 
       <Section title="Quest Tier Group" className="w-full max-w-2xl flex-col items-stretch gap-4">
         <QuestTierGroup tier={questLog[0]} />
+      </Section>
+
+      <Section title="Quest Detail Modal">
+        <Button onClick={() => setQuestDetailOpen(true)}>Open quest details</Button>
+        <QuestDetailModal
+          quest={SAMPLE_QUEST_DETAILS}
+          open={questDetailOpen}
+          onOpenChange={setQuestDetailOpen}
+        />
       </Section>
 
       <Section title="Diary Tier Card" className="items-stretch gap-3">

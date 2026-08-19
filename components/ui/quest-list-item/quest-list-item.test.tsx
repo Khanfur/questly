@@ -58,14 +58,14 @@ describe('QuestListItem', () => {
 
   it('does not render the status icon as a button when onStatusChange is omitted', () => {
     render(<QuestListItem quest={COMPLETED_QUEST} />)
-    expect(screen.queryByRole('button')).not.toBeInTheDocument()
+    expect(screen.queryByLabelText(/^Mark /)).not.toBeInTheDocument()
   })
 
   it('calls onStatusChange with the next status in the cycle when the status icon is clicked', () => {
     const onStatusChange = jest.fn()
     render(<QuestListItem quest={NOT_STARTED_QUEST_WITH_NOTE} onStatusChange={onStatusChange} />)
 
-    fireEvent.click(screen.getByRole('button'))
+    fireEvent.click(screen.getByLabelText(/^Mark /))
     expect(onStatusChange).toHaveBeenCalledWith('in-progress')
   })
 
@@ -73,7 +73,16 @@ describe('QuestListItem', () => {
     const onStatusChange = jest.fn()
     render(<QuestListItem quest={COMPLETED_QUEST} onStatusChange={onStatusChange} />)
 
-    fireEvent.click(screen.getByRole('button'))
+    fireEvent.click(screen.getByLabelText(/^Mark /))
     expect(onStatusChange).toHaveBeenCalledWith('not-started')
+  })
+
+  it('opens the quest detail modal when the chevron is clicked', () => {
+    render(<QuestListItem quest={COMPLETED_QUEST} />)
+
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument()
+    fireEvent.click(screen.getByLabelText(`View "${COMPLETED_QUEST.name}" quest details`))
+    expect(screen.getByRole('dialog')).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: COMPLETED_QUEST.name })).toBeInTheDocument()
   })
 })

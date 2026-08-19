@@ -1,7 +1,12 @@
+'use client'
+
+import { useState } from 'react'
+
 import type { Quest, QuestStatus } from '@/lib/types/quest'
 import { cn } from '@/lib/utils'
 import { ChevronRight, Sparkles } from 'lucide-react'
 
+import { QuestDetailModal } from '@/components/ui/quest-detail-modal/quest-detail-modal'
 import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
 import { Progress } from '@/components/ui/shadcn/progress'
 
@@ -36,6 +41,7 @@ interface QuestListItemProps {
 /** A single row in the Quest Log: status, name, requirements, points and status label. */
 export function QuestListItem({ quest, className, onStatusChange }: QuestListItemProps) {
   const { name, difficulty, status, questPoints, requires, note } = quest
+  const [detailsOpen, setDetailsOpen] = useState(false)
 
   return (
     <div
@@ -84,13 +90,22 @@ export function QuestListItem({ quest, className, onStatusChange }: QuestListIte
           >
             {STATUS_LABEL[status]}
           </span>
-          <ChevronRight className="size-4 text-muted-foreground" aria-hidden="true" />
+          <button
+            type="button"
+            onClick={() => setDetailsOpen(true)}
+            aria-label={`View "${name}" quest details`}
+            className="rounded-sm text-muted-foreground transition-colors hover:text-foreground"
+          >
+            <ChevronRight className="size-4" aria-hidden="true" />
+          </button>
         </div>
       </div>
 
       {status === 'in-progress' && (
         <Progress value={45} variant="default" className="ml-8" aria-label={`${name} progress`} />
       )}
+
+      <QuestDetailModal quest={quest} open={detailsOpen} onOpenChange={setDetailsOpen} />
     </div>
   )
 }

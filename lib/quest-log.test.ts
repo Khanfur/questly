@@ -98,4 +98,31 @@ describe('buildQuestLog', () => {
     const questLog = buildQuestLog([detail({ title: 'Some Unrated Quest', difficulty: null })], {})
     expect(questLog.flatMap((t) => t.quests)).toHaveLength(0)
   })
+
+  it('copies the wiki detail fields (start, description, series, length, enemies, itemsRequired, wikiUrl) onto the quest', () => {
+    const questLog = buildQuestLog(
+      [
+        detail({
+          title: "Cook's Assistant",
+          start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
+          description: 'The Cook needs help gathering ingredients.',
+          series: 'Recipe for Disaster',
+          length: 'Very short',
+          enemies: ['Cook'],
+          itemsRequired: ['Bucket of milk', 'Egg', 'Pot of flour'],
+          wikiUrl: "https://oldschool.runescape.wiki/w/Cook's_Assistant",
+        }),
+      ],
+      {}
+    )
+    const quest = questLog.flatMap((t) => t.quests).find((q) => q.name === "Cook's Assistant")
+
+    expect(quest?.start).toBe('Talk to the Cook in the kitchen of Lumbridge Castle.')
+    expect(quest?.description).toBe('The Cook needs help gathering ingredients.')
+    expect(quest?.series).toBe('Recipe for Disaster')
+    expect(quest?.length).toBe('Very short')
+    expect(quest?.enemies).toEqual(['Cook'])
+    expect(quest?.itemsRequired).toEqual(['Bucket of milk', 'Egg', 'Pot of flour'])
+    expect(quest?.wikiUrl).toBe("https://oldschool.runescape.wiki/w/Cook's_Assistant")
+  })
 })

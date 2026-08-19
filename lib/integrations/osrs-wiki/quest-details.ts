@@ -65,7 +65,10 @@ function parseTemplateFields(block: string): Record<string, string> {
   const fields: Record<string, string> = {}
   const inner = block.replace(/^\{\{\s*[^\n|]+/, '').replace(/\}\}$/, '')
 
-  const fieldPattern = /\|\s*([A-Za-z0-9_]+)\s*=\s*([\s\S]*?)(?=\n\s*\|[A-Za-z0-9_]+\s*=|$)/g
+  // The value only eats spaces/tabs after "=" (not `\s*`, which would also
+  // consume the newline before an empty field's value and swallow the next
+  // `|field = ...` entirely, since the lookahead below requires that newline).
+  const fieldPattern = /\|\s*([A-Za-z0-9_]+)\s*=[ \t]*([\s\S]*?)(?=\n\s*\|[A-Za-z0-9_]+\s*=|$)/g
   let match: RegExpExecArray | null
   while ((match = fieldPattern.exec(inner))) {
     fields[match[1]] = match[2].trim()
@@ -73,14 +76,70 @@ function parseTemplateFields(block: string): Record<string, string> {
   return fields
 }
 
+/**
+ * Expands `{{SCP|Skill|Level}}` "skill clickpic" templates (used throughout
+ * requirement/recommended lists) into readable text, e.g. `{{SCP|Agility|10}}`
+ * -> "Agility level 10", `{{SCP|Quest|200}}` -> "200 Quest Points" — otherwise
+ * these are silently deleted by the generic template-stripping below, which
+ * loses the actual requirement (e.g. leaving a bare, empty bullet).
+ */
+function expandSkillClickpics(value: string): string {
+  return value.replace(/\{\{\s*SCP\s*\|([^{}]*)\}\}/gi, (_match, paramsStr: string) => {
+    const params = paramsStr.split('|').map((p) => p.trim())
+    const skill = params[0]
+    const level = params[1] && /^\d+$/.test(params[1]) ? params[1] : null
+    if (!skill) return ''
+    if (!level) return skill
+    return /^quest$/i.test(skill) ? `${level} Quest Points` : `${skill} level ${level}`
+  })
+}
+
 /** Reduces wikitext markup (`[[links]]`, `{{templates}}`, `'''bold'''`) to plain display text. */
 function stripWikitext(value: string): string {
-  return value
+  return expandSkillClickpics(value)
     .replace(/\{\{[^{}]*\}\}/g, '')
     .replace(/\[\[(?:[^|\]]*\|)?([^\]]*)\]\]/g, '$1')
     .replace(/'{2,}/g, '')
     .replace(/\n+/g, ' ')
     .trim()
+}
+
+/**
+ * Parses a `requirements` field into a flat list of plain-text requirements.
+ *
+ * Requirement lists mix flat skill/quest-point bullets (`* {{SCP|Agility|10}}`)
+ * with a nested "Completion of the following quests:" bullet whose children
+ * are the actual prerequisite quests — and the wiki often keeps expanding
+ * *those* quests' own prerequisites two, three, even eight bullets deep for
+ * reader convenience (e.g. Song of the Elves). We only want the direct
+ * prerequisites, so only depth-1 bullets and the depth-2 children of a
+ * "Completion of the following quest(s)" header are kept; anything nested
+ * deeper (transitive prerequisite chains) is dropped.
+ */
+function parseRequirements(value: string): string[] | null {
+  const results: string[] = []
+  let underQuestHeader = false
+
+  for (const rawLine of value.split('\n')) {
+    const line = rawLine.trim()
+    if (!line) continue
+
+    const depthMatch = /^(\*+)\s*(.*)$/.exec(line)
+    if (!depthMatch) continue
+
+    const depth = depthMatch[1].length
+    const text = stripWikitext(depthMatch[2])
+    if (!text) continue
+
+    if (depth === 1) {
+      underQuestHeader = /completion of the following quests?/i.test(text)
+      if (!underQuestHeader) results.push(text)
+    } else if (depth === 2 && underQuestHeader && !text.endsWith(':')) {
+      results.push(`Completion of ${text}`)
+    }
+  }
+
+  return results.length > 0 ? results : null
 }
 
 /**
@@ -151,7 +210,7 @@ export async function fetchQuestDetails(
     questPoints: questPoints !== null && !Number.isNaN(questPoints) ? questPoints : null,
     start: detailsFields.start ? stripWikitext(detailsFields.start) : null,
     description: detailsFields.description ? stripWikitext(detailsFields.description) : null,
-    requirements: detailsFields.requirements ? stripWikitext(detailsFields.requirements) : null,
+    requirements: detailsFields.requirements ? parseRequirements(detailsFields.requirements) : null,
     enemies: detailsFields.kills ? parseBulletList(detailsFields.kills) : null,
     itemsRequired: detailsFields.items ? parseBulletList(detailsFields.items) : null,
     wikiUrl: buildWikiUrl(json.parse.title),
