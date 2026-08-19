@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import type { AccountType, Membership } from '@/lib/types/account'
 
@@ -20,7 +22,9 @@ export function HeaderAccountDetails() {
           id="sg-radio-username"
           placeholder="Zezima"
           value={accountDetails.username}
-          onChange={(event) => updateAccountDetails({ username: event.target.value })}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+            updateAccountDetails({ username: event.target.value })
+          }
         />
         <span className="helper-text">Used to sync your Hiscores and quest progress.</span>
       </div>
