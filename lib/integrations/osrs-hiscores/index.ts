@@ -11,6 +11,7 @@
 
 export { parseHiscoresCsv, fetchHiscores } from './client'
 export { useHiscores } from './hook'
+export { calculateCombatLevel } from './combat-level'
 
 export type {
   OsrsHiscores,
