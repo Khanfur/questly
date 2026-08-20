@@ -1,4 +1,10 @@
-export type QuestStatus = 'completed' | 'in-progress' | 'not-started'
+export const QuestStatus = {
+  Completed: 'completed',
+  InProgress: 'in-progress',
+  NotStarted: 'not-started',
+}
+
+export type QuestStatus = typeof QuestStatus[keyof typeof QuestStatus]
 
 export type QuestInfo = {
   name: string
