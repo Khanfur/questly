@@ -19,8 +19,7 @@ import { Label } from '@/components/ui/shadcn/label'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 import { ViewToggle } from '@/components/ui/view-toggle/view-toggle'
-import {QuestStatus} from "@/lib/types";
-import {Miniquest} from "@/lib/types/quest/quest";
+import {Miniquest, QuestStatus} from "@/lib/types/quest/quest";
 
 const VIEW_TOGGLE_ITEMS = [
   { href: '/quests', label: 'Quest Log' },
@@ -58,19 +57,20 @@ export default function QuestsPage() {
   )
 
   const totalQuests = questLog.reduce((sum, tier) => sum + tier.quests.length, 0)
+  
   const completedQuests = questLog.reduce(
-    (sum, tier) => sum + tier.quests.filter((quest) => quest.status === 'completed').length,
+    (sum, tier) => sum + tier.quests.filter((quest) => quest.status === QuestStatus.Completed).length,
     0
   )
-  const inProgress = questLog
-    .flatMap((tier) => tier.quests)
-    .find((quest) => quest.status === 'in-progress')
+  const inProgress = questLog.map((tier) => tier.quests.filter((quest) => quest.status === QuestStatus.InProgress)).flat()
+  
   const earnedQp = questLog.reduce(
     (sum, tier) =>
       sum +
-      tier.quests.filter((q) => q.status === 'completed').reduce((s, q) => s + q.questPoints, 0),
+      tier.quests.filter((q) => q.status === QuestStatus.Completed).reduce((s, q) => s + q.questPoints, 0),
     0
   )
+  
   const totalQp = questLog.reduce(
     (sum, tier) => sum + tier.quests.reduce((s, q) => s + q.questPoints, 0),
     0
@@ -118,7 +118,7 @@ export default function QuestsPage() {
           <StatCardGroup className="sm:[&>*]:flex-1">
             <StatCard label="Quest Points" stat={earnedQp} secondaryStat={totalQp} />
             <StatCard label="Quests Completed" stat={completedQuests} secondaryStat={totalQuests} />
-            <StatCard label="In Progress" stat={inProgress ? 1 : 0} caption={inProgress?.name} />
+            <StatCard label="In Progress" stat={inProgress.length} />
           </StatCardGroup>
         }
         className="mb-8"
