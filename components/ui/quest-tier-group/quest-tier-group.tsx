@@ -4,14 +4,6 @@ import { cn } from '@/lib/utils'
 import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'
 import { Progress } from '@/components/ui/shadcn/progress'
 
-const DIFFICULTY_LABEL: Record<QuestDifficulty, string> = {
-  novice: 'Novice',
-  intermediate: 'Intermediate',
-  experienced: 'Experienced',
-  master: 'Master',
-  grandmaster: 'Grandmaster',
-}
-
 interface QuestTierGroupProps {
   tier: QuestTier
   /**
@@ -40,7 +32,7 @@ export function QuestTierGroup({
     <section className={cn('flex flex-col gap-3', className)}>
       <div className="flex items-center justify-between gap-3">
         <h3 className="flex items-baseline gap-2">
-          {DIFFICULTY_LABEL[tier.difficulty]}
+          {tier.difficulty}
           <span className="text-sm font-normal text-muted-foreground">
             {completed} / {total} complete
           </span>

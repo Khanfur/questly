@@ -11,13 +11,14 @@
  * Count: 20 miniquests
  */
 import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
+import {QuestDifficulty, QuestLength} from "@/lib/types";
 
 export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 13262,
     title: "Alfred Grimhand's Barcrawl",
-    difficulty: 'novice',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Novice,
+    length: QuestLength.Medium,
     members: true,
     series: null,
     releaseDate: '25 March 2002',
@@ -32,8 +33,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 13547,
     title: 'Enter the Abyss',
-    difficulty: 'intermediate',
-    length: 'Very Short',
+    difficulty: QuestDifficulty.Intermediate,
+    length: QuestLength.VeryShort,
     members: true,
     series: 'Order of Wizards, #2',
     releaseDate: '13 June 2005',
@@ -50,8 +51,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 15667,
     title: "The General's Shadow",
-    difficulty: 'experienced',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Experienced,
+    length: QuestLength.Medium,
     members: true,
     series: 'Mahjarrat, #9',
     releaseDate: '12 February 2007',
@@ -72,8 +73,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 16080,
     title: 'Barbarian Training',
-    difficulty: 'experienced',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Experienced,
+    length: QuestLength.Medium,
     members: true,
     series: null,
     releaseDate: '3 July 2007',
@@ -99,8 +100,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 23159,
     title: 'Skippy and the Mogres',
-    difficulty: 'novice',
-    length: 'Very Short',
+    difficulty: QuestDifficulty.Novice,
+    length: QuestLength.VeryShort,
     members: true,
     series: null,
     releaseDate: '24 October 2005',
@@ -119,8 +120,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 24575,
     title: 'Curse of the Empty Lord',
-    difficulty: 'experienced',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Experienced,
+    length: QuestLength.Medium,
     members: true,
     series: 'Mahjarrat, #8',
     releaseDate: '26 July 2005',
@@ -143,8 +144,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 49145,
     title: 'Lair of Tarn Razorlor',
-    difficulty: 'experienced',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Experienced,
+    length: QuestLength.Medium,
     members: true,
     series: null,
     releaseDate: '22 January 2007',
@@ -160,8 +161,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 71255,
     title: 'Architectural Alliance',
-    difficulty: 'experienced',
-    length: 'Long',
+    difficulty: QuestDifficulty.Experienced,
+    length: QuestLength.Long,
     members: true,
     series: 'Great Kourend',
     releaseDate: '3 March 2016',
@@ -177,8 +178,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 73571,
     title: 'Bear Your Soul',
-    difficulty: 'intermediate',
-    length: 'Short',
+    difficulty: QuestDifficulty.Intermediate,
+    length: QuestLength.Short,
     members: true,
     series: 'Great Kourend',
     releaseDate: '19 May 2016',
@@ -193,8 +194,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 76248,
     title: 'The Enchanted Key',
-    difficulty: 'intermediate',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Intermediate,
+    length: QuestLength.Medium,
     members: true,
     series: null,
     releaseDate: '22 November 2005',
@@ -213,8 +214,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 76249,
     title: 'Mage Arena I',
-    difficulty: 'experienced',
-    length: 'Short',
+    difficulty: QuestDifficulty.Experienced,
+    length: QuestLength.Short,
     members: true,
     series: null,
     releaseDate: '22 September 2003',
@@ -232,8 +233,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 79649,
     title: 'Family Pest',
-    difficulty: 'intermediate',
-    length: 'Short',
+    difficulty: QuestDifficulty.Intermediate,
+    length: QuestLength.Short,
     members: true,
     series: null,
     releaseDate: '1 September 2016',
@@ -249,8 +250,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 106731,
     title: 'Mage Arena II',
-    difficulty: 'master',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Master,
+    length: QuestLength.Medium,
     members: true,
     series: null,
     releaseDate: '23 November 2017',
@@ -273,8 +274,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 222995,
     title: 'In Search of Knowledge',
-    difficulty: 'experienced',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Experienced,
+    length: QuestLength.Medium,
     members: true,
     series: null,
     releaseDate: '4 July 2019',
@@ -294,8 +295,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 272522,
     title: "Daddy's Home",
-    difficulty: 'novice',
-    length: 'Short',
+    difficulty: QuestDifficulty.Novice,
+    length: QuestLength.Short,
     members: true,
     series: null,
     releaseDate: '26 August 2020',
@@ -316,8 +317,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 340409,
     title: 'The Frozen Door',
-    difficulty: 'master',
-    length: 'Short',
+    difficulty: QuestDifficulty.Master,
+    length: QuestLength.Short,
     members: true,
     series: null,
     releaseDate: '16 December 2021',
@@ -361,8 +362,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 342622,
     title: "Hopespear's Will",
-    difficulty: 'master',
-    length: 'Short',
+    difficulty: QuestDifficulty.Master,
+    length: QuestLength.Short,
     members: true,
     series: null,
     releaseDate: '9 February 2022',
@@ -396,8 +397,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 363955,
     title: 'Into the Tombs',
-    difficulty: 'master',
-    length: 'Medium',
+    difficulty: QuestDifficulty.Master,
+    length: QuestLength.Medium,
     members: true,
     series: 'Kharidian, #5',
     releaseDate: '24 August 2022',
@@ -421,8 +422,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 387225,
     title: 'His Faithful Servants',
-    difficulty: 'experienced',
-    length: 'Very Short',
+    difficulty: QuestDifficulty.Experienced,
+    length: QuestLength.VeryShort,
     members: true,
     series: 'Mahjarrat, #12',
     releaseDate: '14 June 2023',
@@ -445,8 +446,8 @@ export const miniquestDetails: WikiMiniquestDetails[] = [
   {
     pageId: 593844,
     title: 'Vale Totems (miniquest)',
-    difficulty: 'novice',
-    length: 'Very Short',
+    difficulty: QuestDifficulty.Novice,
+    length: QuestLength.VeryShort,
     members: true,
     series: null,
     releaseDate: '23 July 2025',

@@ -15,17 +15,24 @@ export const QuestDifficulty = {
   Novice: 'novice',
   Intermediate: 'intermediate',
   Experienced: 'experienced',
+  Special: 'special',
   Master: 'master',
   Grandmaster: 'grandmaster',
 }
 
 export type QuestDifficulty = typeof QuestDifficulty[keyof typeof QuestDifficulty]
 
-
-export type QuestProgressStorage = {
-  name: string
-  status: QuestStatus
+export const QuestLength = {
+  VeryShort: 'very short',
+  Short: 'short',
+  Medium: 'medium',
+  Long: 'long',
+  VeryLong: 'very long',
 }
+
+export const DIFFICULTY_ORDER: QuestDifficulty[] = [...Object.values(QuestDifficulty)]
+
+export type QuestLength = typeof QuestLength[keyof typeof QuestLength]
 
 /** A single entry in the full Quest Log list, grouped by `difficulty`. */
 export type Quest = {
@@ -47,7 +54,7 @@ export type Quest = {
   /** Quest series this quest belongs to, e.g. "Dragonkin, #3". */
   series?: string | null
   /** Rough play-time estimate, e.g. "Short", "Very Long". */
-  length?: string | null
+  length?: QuestLength | null
   /** Enemies the player must defeat during the quest, if any. */
   enemies?: string[] | null
   /** Items required to start/complete the quest, if any. */
@@ -88,7 +95,7 @@ export type Miniquest = {
   /** Quest series this miniquest belongs to, e.g. "Dragonkin, #3". */
   series?: string | null
   /** Rough play-time estimate, e.g. "Short", "Very Long". */
-  length?: string | null
+  length?: QuestLength | null
   /** Enemies the player must defeat during the miniquest, if any. */
   enemies?: string[] | null
   /** Items required to start/complete the miniquest, if any. */

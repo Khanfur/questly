@@ -3,7 +3,7 @@
 import { useState } from 'react'
 
 import { diaryRegions, miniquestLog, questLog } from '@/lib/fixtures'
-import type { Miniquest, Quest } from '@/lib/types/quest/quest'
+import {Miniquest, Quest, QuestDifficulty, QuestLength} from '@/lib/types/quest/quest'
 
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
 import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'
@@ -58,7 +58,7 @@ import { Swatch } from './_components/swatch'
 
 const SAMPLE_QUEST_DETAILS: Quest = {
   name: "Cook's Assistant",
-  difficulty: 'novice',
+  difficulty: QuestDifficulty.Novice,
   status: 'not-started',
   questPoints: 1,
   requires: 'None',
@@ -66,7 +66,7 @@ const SAMPLE_QUEST_DETAILS: Quest = {
   start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
   description:
     "The Cook is in a panic! The Duke of Lumbridge is arriving shortly and he hasn't got a cake for him. Help the Cook gather the ingredients he needs before it's too late.",
-  length: 'Very short',
+  length: QuestLength.Short,
   itemsRequired: ['Bucket of milk', 'Egg', 'Pot of flour'],
   releaseDate: '4 January 2001',
   wikiUrl: "https://oldschool.runescape.wiki/w/Cook's_Assistant",
@@ -74,13 +74,13 @@ const SAMPLE_QUEST_DETAILS: Quest = {
 
 const SAMPLE_MINIQUEST_DETAILS: Miniquest = {
   name: 'Mage Arena I',
-  difficulty: 'experienced',
+  difficulty: QuestDifficulty.Experienced,
   status: 'not-started',
   requires: 'Magic level 60',
   members: true,
   start: 'Speak to Kolodion at the Mage Arena bank in level 53 Wilderness.',
   description: 'Prove your magical might to Kolodion and gain the ability to fight in his arena.',
-  length: 'Short',
+  length: QuestLength.Short,
   itemsRequired: ['Runes or a powered staff to fight Kolodion'],
   releaseDate: '22 September 2003',
   wikiUrl: 'https://oldschool.runescape.wiki/w/Mage_Arena_I',

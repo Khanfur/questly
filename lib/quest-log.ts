@@ -1,27 +1,12 @@
 import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
-import type {
+import {
+  DIFFICULTY_ORDER,
   Miniquest,
   Quest,
   QuestDifficulty,
   QuestStatus,
   QuestTier,
 } from '@/lib/types/quest/quest'
-
-const DIFFICULTY_ORDER: QuestDifficulty[] = [
-  'novice',
-  'intermediate',
-  'experienced',
-  'master',
-  'grandmaster',
-]
-
-// A handful of quest pages on the wiki use a difficulty rating (e.g. "Special")
-// that doesn't map to one of our five `QuestDifficulty` tiers, so `WikiQuestDetails.difficulty`
-// comes back `null` for them. Recipe for Disaster is the only standalone quest (not a
-// wiki sub-page — see below) affected; it's commonly treated as a master-tier quest.
-const DIFFICULTY_FALLBACK_BY_TITLE: Partial<Record<string, QuestDifficulty>> = {
-  'Recipe for Disaster': 'master',
-}
 
 /**
  * Builds the full Quest Log (every difficulty tier, in order) from the generated
@@ -47,7 +32,7 @@ export function buildQuestLog(
       .filter((details) => details.released)
       .filter(
         (details) =>
-          (details.difficulty ?? DIFFICULTY_FALLBACK_BY_TITLE[details.title]) === tierDifficulty
+          details.difficulty === tierDifficulty
       )
       .map((details) =>
         toQuest(details, tierDifficulty, statusByQuest[details.title] ?? 'not-started')

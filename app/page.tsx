@@ -16,12 +16,10 @@ import { SkillCard } from '@/components/ui/skill-card/skill-card'
 import { SkillCardGrid } from '@/components/ui/skill-card/skill-card-grid'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
-import {useQuestProgress} from "@/lib/hooks/use-quest-progress";
 
 export default function Home() {
   const { setOpen } = useSettingsDrawer()
   const { hiscores, hiscoresHydrated } = useAccountDetails()
-  const { statusByQuest, questsHydrated } = useQuestProgress()  
     
   // Overlay the fixture skill list (names + icons) with real levels from the
   // player's stored hiscores, when available, so the grid reflects their
@@ -30,11 +28,6 @@ export default function Home() {
     const hiscoreSkill = hiscores?.skills.find((s) => s.name === skill.name)
     return hiscoreSkill && hiscoreSkill.level >= 0 ? { ...skill, level: hiscoreSkill.level } : skill
   })
-
-
-  console.log("statusByQuest", statusByQuest, questsHydrated)
-    
-    
     
   const totalLevel =
     hiscores?.overall && hiscores.overall.level >= 0 ? hiscores.overall.level : 2277
