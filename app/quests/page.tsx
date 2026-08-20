@@ -6,7 +6,6 @@ import { miniquestDetails, questDetails } from '@/lib/data'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
 import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log'
-import type { QuestStatus } from '@/lib/types/quest/quest'
 import { Search } from 'lucide-react'
 
 import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'
@@ -20,6 +19,8 @@ import { Label } from '@/components/ui/shadcn/label'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 import { ViewToggle } from '@/components/ui/view-toggle/view-toggle'
+import {QuestStatus} from "@/lib/types";
+import {Miniquest} from "@/lib/types/quest/quest";
 
 const VIEW_TOGGLE_ITEMS = [
   { href: '/quests', label: 'Quest Log' },
@@ -31,9 +32,9 @@ type QuestFilter = (typeof FILTERS)[number]
 
 const FILTER_STATUS: Record<QuestFilter, QuestStatus | null> = {
   All: null,
-  'Not started': 'not-started',
-  'In progress': 'in-progress',
-  Completed: 'completed',
+  'Not started': QuestStatus.NotStarted,
+  'In progress': QuestStatus.InProgress,
+  Completed: QuestStatus.Completed,
 }
 
 export default function QuestsPage() {
@@ -84,8 +85,7 @@ export default function QuestsPage() {
       quests: tier.quests.filter((quest) => {
         if (query && !quest.name.toLowerCase().includes(query)) return false
         if (requiredStatus && quest.status !== requiredStatus) return false
-        if (f2pOnly && quest.members) return false
-        return true
+        return !(f2pOnly && quest.members);
       }),
     }))
   }, [questLog, search, statusFilter, f2pOnly])
@@ -94,11 +94,10 @@ export default function QuestsPage() {
     const query = search.trim().toLowerCase()
     const requiredStatus = FILTER_STATUS[statusFilter]
 
-    return miniquestLog.filter((miniquest) => {
+    return miniquestLog.filter((miniquest: Miniquest) : boolean => {
       if (query && !miniquest.name.toLowerCase().includes(query)) return false
       if (requiredStatus && miniquest.status !== requiredStatus) return false
-      if (f2pOnly && miniquest.members) return false
-      return true
+      return !(f2pOnly && miniquest.members);
     })
   }, [miniquestLog, search, statusFilter, f2pOnly])
 

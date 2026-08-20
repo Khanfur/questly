@@ -11,7 +11,21 @@ export type QuestInfo = {
   status: QuestStatus
 }
 
-export type QuestDifficulty = 'novice' | 'intermediate' | 'experienced' | 'master' | 'grandmaster'
+export const QuestDifficulty = {
+  Novice: 'novice',
+  Intermediate: 'intermediate',
+  Experienced: 'experienced',
+  Master: 'master',
+  Grandmaster: 'grandmaster',
+}
+
+export type QuestDifficulty = typeof QuestDifficulty[keyof typeof QuestDifficulty]
+
+
+export type QuestProgressStorage = {
+  name: string
+  status: QuestStatus
+}
 
 /** A single entry in the full Quest Log list, grouped by `difficulty`. */
 export type Quest = {

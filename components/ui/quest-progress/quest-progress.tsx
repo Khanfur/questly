@@ -1,16 +1,16 @@
 import React from 'react'
 
 import { Progress } from '@/components/ui/shadcn/progress'
+import {QuestStatus} from "@/lib/types";
 
-type QuestProgressStatus = 'completed' | 'in-progress' | 'not-started'
 
-const PROGRESS_VARIANT: Record<QuestProgressStatus, 'default' | 'secondary' | 'muted'> = {
+const PROGRESS_VARIANT: Record<QuestStatus, 'default' | 'secondary' | 'muted'> = {
   completed: 'secondary',
   'in-progress': 'default',
   'not-started': 'muted',
 }
 
-const PROGRESS_VALUE: Record<QuestProgressStatus, number> = {
+const PROGRESS_VALUE: Record<QuestStatus, number> = {
   completed: 100,
   'in-progress': 50,
   'not-started': 0,
@@ -21,7 +21,7 @@ interface QuestProgressProps extends Omit<
   'children' | 'value'
 > {
   questName: string
-  status: QuestProgressStatus
+  status: QuestStatus
 }
 
 function QuestProgress({ questName, status, ...props }: QuestProgressProps) {
