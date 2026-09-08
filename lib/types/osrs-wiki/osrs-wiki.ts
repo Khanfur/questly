@@ -2,6 +2,7 @@
  * Types for the OSRS Wiki (MediaWiki) API integration.
  * See `lib/integrations/osrsWiki.tsx` for usage.
  */
+import type { DiaryTierName } from '@/lib/types/diary'
 import type { QuestDifficulty } from '@/lib/types/quest'
 
 export interface WikiSearchResult {
@@ -151,6 +152,58 @@ export interface WikiMiniquestDetails {
 
 export interface UseMiniquestDetailsResult {
   data: WikiMiniquestDetails | null
+  loading: boolean
+  error: WikiError | null
+  refetch: () => void
+}
+
+export interface WikiDiaryListItem {
+  pageId: number
+  title: string
+}
+
+export interface UseDiaryListResult {
+  data: WikiDiaryListItem[] | null
+  loading: boolean
+  error: WikiError | null
+  refetch: () => void
+}
+
+/** A single task within one difficulty tier of an Achievement Diary region. */
+export interface WikiDiaryTask {
+  /** Plain-text task description, wiki markup stripped, e.g. "Steal a cake from the Ardougne market stalls.". */
+  description: string
+  /** Plain-text requirements for this specific task (skills, quest completion, items), if any. */
+  requirements: string[]
+}
+
+/** One difficulty tier (Easy/Medium/Hard/Elite) and its tasks, within a `WikiDiaryDetails`. */
+export interface WikiDiaryTierDetails {
+  tier: DiaryTierName
+  tasks: WikiDiaryTask[]
+}
+
+/**
+ * Achievement Diary region metadata scraped from a page's
+ * `{{Infobox Achievement Diary}}` and per-tier task tables (each tier's
+ * `data-diary-tier="..."` wikitable of Task/Requirements rows). Unlike
+ * `WikiDiaryListItem` (from the `embeddedin` list), this requires a
+ * per-page `action=parse` request, so it's fetched on demand rather than
+ * for the whole list — see `WikiQuestDetails` for the quest equivalent.
+ */
+export interface WikiDiaryDetails {
+  pageId: number
+  title: string
+  /** Region name with the trailing " Diary" suffix stripped, e.g. "Ardougne", "Kourend & Kebos". */
+  name: string
+  members: boolean
+  tiers: WikiDiaryTierDetails[]
+  /** Direct link to the diary's page on the OSRS Wiki. */
+  wikiUrl: string
+}
+
+export interface UseDiaryDetailsResult {
+  data: WikiDiaryDetails | null
   loading: boolean
   error: WikiError | null
   refetch: () => void

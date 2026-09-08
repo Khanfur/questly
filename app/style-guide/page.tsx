@@ -394,7 +394,7 @@ export default function StyleGuide() {
         </div>
         <div className="w-40">
           <DiaryTierCard
-            tier={{ tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 7 }}
+            tier={{ tier: 'elite', status: 'not-started', completedTasks: 0, totalTasks: 7 }}
           />
         </div>
       </Section>
