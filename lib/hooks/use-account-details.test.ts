@@ -1,4 +1,7 @@
-import { useAccountDetails } from '@/lib/hooks/use-account-details'
+import {
+  __resetHiscoresAutoFetchGuardForTests,
+  useAccountDetails,
+} from '@/lib/hooks/use-account-details'
 import { AccountType, DEFAULT_ACCOUNT_DETAILS, Membership } from '@/lib/types/account'
 import { act, renderHook } from '@testing-library/react'
 
@@ -13,6 +16,7 @@ function mockFetchOnce(body = '', ok = true, status = 200) {
 describe('useAccountDetails', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    __resetHiscoresAutoFetchGuardForTests()
   })
 
   afterEach(() => {
@@ -57,7 +61,8 @@ describe('useAccountDetails', () => {
     })
   })
 
-  it('rehydrates persisted details on a fresh mount', () => {
+  it('rehydrates persisted details on a fresh mount', async () => {
+    mockFetchOnce()
     window.localStorage.setItem(
       'questly:account-details',
       JSON.stringify({
@@ -69,6 +74,43 @@ describe('useAccountDetails', () => {
 
     const { result } = renderHook(() => useAccountDetails())
     expect(result.current.accountDetails.username).toBe('Woox')
+
+    // A saved username also triggers the automatic hiscores refresh below —
+    // wait for it to settle so it doesn't leak into the next test.
+    await act(() => Promise.resolve())
+  })
+
+  it('automatically fetches hiscores once a saved username hydrates', async () => {
+    mockFetchOnce()
+    window.localStorage.setItem(
+      'questly:account-details',
+      JSON.stringify({
+        username: 'Zezima',
+        membership: Membership.member,
+        accountType: AccountType.main,
+      })
+    )
+
+    const { result } = renderHook(() => useAccountDetails())
+
+    await act(() => Promise.resolve())
+
+    expect(global.fetch).toHaveBeenCalledWith(
+      expect.stringContaining('/api/osrs-hiscores?player=Zezima'),
+      expect.anything()
+    )
+    expect(result.current.hiscores).not.toBeNull()
+  })
+
+  it('does not automatically fetch hiscores when there is no saved username', async () => {
+    global.fetch = jest.fn()
+
+    const { result } = renderHook(() => useAccountDetails())
+
+    await act(() => Promise.resolve())
+
+    expect(global.fetch).not.toHaveBeenCalled()
+    expect(result.current.hiscores).toBeNull()
   })
 
   it('sets error when refetchHiscores is called with empty username', async () => {
