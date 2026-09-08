@@ -46,7 +46,9 @@ export default function AchievementDiariesPage() {
 
     return diaryRegions.filter((region) => {
       if (query && !region.name.toLowerCase().includes(query)) return false
-      return !(hideCompleted && region.tiers.every((tier) => tier.status === DiaryTierStatus.complete));
+      return !(
+        hideCompleted && region.tiers.every((tier) => tier.status === DiaryTierStatus.complete)
+      )
     })
   }, [diaryRegions, search, hideCompleted])
 
@@ -65,7 +67,6 @@ export default function AchievementDiariesPage() {
               label="Regions Completed"
               stat={regionsComplete}
               secondaryStat={diaryRegions.length}
-              captionClassName="text-muted-foreground"
             />
           </StatCardGroup>
         }

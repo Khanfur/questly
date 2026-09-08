@@ -21,7 +21,14 @@ noteworthy-packages table.
   `buildMiniquestLog` (`lib/quest-log.ts`) — miniquests share `statusByQuest`/`useQuestProgress`
   but are a separate, ungrouped category that isn't counted towards quest/quest point totals.
   `app/quests/diaries/` is the
-  Achievement Diaries page — still static (fixture-driven, no filtering wired up yet) — and both
+  Achievement Diaries page — builds the real, full diary tracker from `lib/data/diary/diary-details`
+  via `buildDiaryLog` (`lib/diary-log.ts`), with each task's completion merged in from
+  `useDiaryProgress` (locally-tracked in `localStorage`, since there's no OSRS API for per-task diary
+  completion). Clicking a tier card opens `DiaryTierDetailModal`, a checklist of that tier's tasks;
+  checking a task off toggles its stored completion. A tier's status (`complete`/`in-progress`/
+  `not-started`) is derived purely from its own task completion — diary tiers can be done in any
+  order in-game, so there's no "locked" status. Search filters regions by name, and a "Hide completed
+  regions" checkbox hides regions where every tier is complete; both
   share the `PageHero`/`ViewToggle` layout. `app/style-guide/` hosts the internal component style
   guide (visit `/style-guide` while `npm run dev` is running).
 - `components/layout/` — structural chrome: `container`, `header` (incl. a settings drawer, see
@@ -31,10 +38,15 @@ noteworthy-packages table.
   (e.g. `ask-the-sage`, `chat-head`, `quest-progress`, `skill-card`, `stat-card`, `section-window`,
   `page-hero`, `view-toggle`, `filter-pill-group`, `quest-difficulty-badge`, `quest-list-item`
   (incl. `quest-status-icon`), `quest-tier-group`, `quest-detail-modal`, `diary-tier-card`,
-  `diary-region-card`, `miniquest-list-item`, `miniquest-section`, `miniquest-detail-modal` — the
-  latter three mirror their `quest-*` counterparts but for the separate, ungrouped Miniquests
-  category, e.g. `MiniquestListItem` omits the quest points badge and `MiniquestDetailModal` omits
-  the difficulty badge when a miniquest's difficulty is unrated (`null`)).
+  `diary-region-card`, `diary-tier-detail-modal`, `miniquest-list-item`, `miniquest-section`,
+  `miniquest-detail-modal` — the latter three mirror their `quest-*` counterparts but for the
+  separate, ungrouped Miniquests category, e.g. `MiniquestListItem` omits the quest points badge and
+  `MiniquestDetailModal` omits the difficulty badge when a miniquest's difficulty is unrated
+  (`null`)). `DiaryTierCard` renders as a `<button>` (vs a plain `<div>`) when given an `onClick`,
+  opening `DiaryTierDetailModal` — a tier's task checklist, with each task's requirements grouped
+  into Skills/Quests/Items via `groupDiaryRequirements` (`lib/diary-requirements.ts`) and any
+  `Note: ...` aside split out into a smaller, de-emphasized line via `splitDiaryTaskNote`
+  (`lib/diary-task-description.ts`).
   `components/ui/shadcn/` holds shadcn/ui-generated primitives (`button`, etc.) — prefer composing
   these rather than hand-rolling new primitives.
 - `lib/utils.ts` — shared helpers, notably `cn()` (clsx + tailwind-merge) for conditional class
@@ -47,6 +59,19 @@ noteworthy-packages table.
   `buildMiniquestLog(miniquestDetails, statusByQuest)` is the equivalent for the generated
   `lib/data/miniquestDetails` — a flat `Miniquest[]` (no difficulty tiers, no quest points), sharing
   the same wiki sub-page/unreleased exclusions.
+- `lib/diary-log.ts` — `buildDiaryLog(diaryDetails, completedByTask)` merges the generated
+  `lib/data/diary/diary-details` (12 regions, 492 tasks scraped from the wiki) with locally-tracked
+  per-task completion into `DiaryRegion[]`, each with its four `DiaryTier`s. A tier's `status` is
+  derived purely from its own task completion (`complete`/`in-progress`/`not-started`) — diary tiers
+  can be completed in any order in-game, so there's no "locked" status. `diaryTaskKey` builds the
+  stable `localStorage` key for a single task from its region name, tier, and positional index
+  (since task descriptions aren't guaranteed unique).
+- `lib/diary-requirements.ts` — `groupDiaryRequirements(requirements)` classifies a diary task's
+  freeform requirement strings into Skills/Quests/Items display groups by text pattern (there's no
+  structured per-category source data, unlike quests' distinct `requirements`/`itemsRequired` wiki
+  template fields).
+- `lib/diary-task-description.ts` — `splitDiaryTaskNote(description)` splits a task's `Note: ...`
+  aside (common in scraped descriptions) out of the main text, for smaller/de-emphasized rendering.
 - `lib/hooks/` — reusable client-side hooks:
   - `useLocalStorage` — generic, JSON-serialized, SSR-safe state synced to `window.localStorage`.
     Returns `[value, setValue, isHydrated]`. The initial read happens in a layout effect (before
@@ -65,6 +90,10 @@ noteworthy-packages table.
   - `useQuestProgress` — persists a `Record<questTitle, QuestStatus>` map to `localStorage`
     (`questly:quest-progress`) via `useLocalStorage`, exposing `statusByQuest` and `setQuestStatus`.
     Used by the Quest Log page (`app/quests/page.tsx`) since OSRS has no API for per-quest completion.
+  - `useDiaryProgress` — persists a `Record<taskKey, boolean>` map (keyed by `diaryTaskKey`) to
+    `localStorage` (`questly:diary-progress`) via `useLocalStorage`, exposing `completedByTask` and
+    `toggleDiaryTask`. Used by the Achievement Diaries page since OSRS has no API for per-task diary
+    completion.
 - `lib/types/` — shared TypeScript types and interfaces, one folder per domain (mirroring the
   `components/ui/<name>/<name>.tsx` convention): `account/account.ts`, `activity/activity.ts`,
   `diary/diary.ts`, `hiscores/hiscores.ts`, `osrs-hiscores/osrs-hiscores.ts`, `osrs-wiki/osrs-wiki.ts`,
@@ -75,8 +104,8 @@ noteworthy-packages table.
   `miniquest-log.ts`), `sage/` (`sage-suggestions.ts`), `skill/` (`skill-names.ts`, `skills.ts`). A
   root `index.ts` barrel re-exports every fixture.
 - `lib/data/` — generated (not hand-edited) data snapshots fetched from external OSRS APIs, checked
-  into the repo for use without a live network call, grouped into `quest/` and `miniquest/` folders
-  (with a root `index.ts` barrel):
+  into the repo for use without a live network call, grouped into `quest/`, `miniquest/`, and `diary/`
+  folders (with a root `index.ts` barrel):
   - `quest/quest-list.ts` — every OSRS quest title/page id (`questList: WikiQuestListItem[]`),
     produced by `scripts/fetch-quest-list.mjs` via `npm run fetch:quests`.
   - `quest/quest-details.ts` — full per-quest metadata (`questDetails: WikiQuestDetails[]` —
@@ -89,6 +118,13 @@ noteworthy-packages table.
   - `miniquest/miniquest-list.ts` / `miniquest/miniquest-details.ts` — the miniquest equivalents,
     produced by `scripts/fetch-miniquest-list.mjs` / `scripts/fetch-miniquest-details.mjs` via
     `npm run fetch:miniquests` / `npm run fetch:miniquest-details`.
+  - `diary/diary-list.ts` — every Achievement Diary region title/page id (`diaryList:
+WikiDiaryListItem[]`), produced by `scripts/fetch-diary-list.mjs` via `npm run fetch:diaries`.
+  - `diary/diary-details.ts` — full per-region tier/task metadata (`diaryDetails:
+WikiDiaryDetails[]` — each region's four tiers, each tier's tasks with description +
+    requirements), produced by `scripts/fetch-diary-details.mjs` via `npm run fetch:diary-details`
+    (refetches every region) or `npm run fetch:diary-details -- --title "X Diary"` (single-region
+    upsert by `pageId`).
 - `lib/integrations/` — external service integration code, one folder per service, each split into
   `client.ts` (fetch logic), per-feature files (e.g. `hook.ts`/`search.ts`/`summary.ts`/`quests.ts`)
   exposing a `fetchX`/`useX` pair, and an `index.ts` barrel re-exporting the public API + types:
@@ -103,12 +139,17 @@ noteworthy-packages table.
     used on demand rather than in bulk), plus the miniquest equivalents `fetchMiniquestList`/
     `useMiniquestList` (`list=embeddedin` on `Template:Infobox Miniquest`) and
     `fetchMiniquestDetails`/`useMiniquestDetails` (scrapes `{{Infobox Miniquest}}`/`{{Quest details}}`;
-    no `{{Quest rewards}}` since miniquests award no quest points).
+    no `{{Quest rewards}}` since miniquests award no quest points), and the diary equivalents
+    `fetchDiaryList`/`useDiaryList` (`list=embeddedin` on `Template:Infobox Achievement Diary`) and
+    `fetchDiaryDetails`/`useDiaryDetails` (scrapes each region's four `data-diary-tier="Easy|Medium|
+Hard|Elite"` task tables).
     Both integrations default to routing through same-origin proxy routes under `app/api/` (to dodge
     CORS/User-Agent restrictions) but accept a `baseUrl` override for testing or self-hosted proxies.
 - `scripts/` — standalone Node scripts run outside the Next.js app, invoked directly with `node` (not
   through the Next.js dev/build pipeline): `fetch-quest-list.mjs` and `fetch-quest-details.mjs` (see
-  `lib/data/` above), sharing wikitext-parsing helpers via `scripts/lib/wiki-quest-parser.mjs`.
+  `lib/data/` above), sharing wikitext-parsing helpers via `scripts/lib/wiki-quest-parser.mjs`;
+  `fetch-diary-list.mjs` and `fetch-diary-details.mjs` are the diary equivalents, using
+  `scripts/lib/wiki-diary-parser.mjs` (which itself reuses several `wiki-quest-parser.mjs` helpers).
 - `e2e/` — Playwright end-to-end specs (`home.spec.ts`, `navigation.spec.ts`, `style-guide.spec.ts`).
   `style-guide.spec.ts` asserts every documented style-guide section renders — add a new section
   title to its `sectionTitles` list whenever a component is added to the style guide.
@@ -146,6 +187,9 @@ noteworthy-packages table.
   equivalent of `fetch:quests`.
 - `npm run fetch:miniquest-details` — regenerates `lib/data/miniquest/miniquest-details.ts`, the
   miniquest equivalent of `fetch:quest-details` (also supports `-- --title "Miniquest Name"`).
+- `npm run fetch:diaries` — regenerates `lib/data/diary/diary-list.ts` from the live OSRS Wiki API.
+- `npm run fetch:diary-details` — regenerates `lib/data/diary/diary-details.ts` (full per-region
+  tier/task metadata) for every region; add `-- --title "X Diary"` to fetch/update a single region.
 
 CI (`.github/workflows/ci.yml`) runs format check → lint → test → build on every push/PR to
 `master`; match that order locally before pushing.
