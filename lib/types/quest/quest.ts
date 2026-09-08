@@ -6,11 +6,6 @@ export const QuestStatus = {
 
 export type QuestStatus = (typeof QuestStatus)[keyof typeof QuestStatus]
 
-export type QuestInfo = {
-  name: string
-  status: QuestStatus
-}
-
 export const QuestDifficulty = {
   Novice: 'novice',
   Intermediate: 'intermediate',

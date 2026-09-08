@@ -5,6 +5,10 @@ import { render, screen } from '@testing-library/react'
 
 import { SettingsDrawerProvider } from '@/components/layout/header/settings-drawer-context'
 
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({ push: jest.fn() }),
+}))
+
 const HISCORES_STORAGE_KEY = 'questly:hiscores'
 
 function renderHome() {

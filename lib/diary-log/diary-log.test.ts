@@ -1,4 +1,4 @@
-import { buildDiaryLog, diaryTaskKey } from '@/lib/diary-log'
+import { buildDiaryLog, diaryTaskKey } from '@/lib/diary-log/diary-log'
 import type { WikiDiaryDetails } from '@/lib/types/osrs-wiki'
 
 function detail(overrides: Partial<WikiDiaryDetails>): WikiDiaryDetails {

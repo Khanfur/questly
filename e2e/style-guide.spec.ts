@@ -20,6 +20,7 @@ test.describe('Style guide', () => {
       'Progress',
       'Form Controls',
       'Chathead',
+      'Chat Message',
       'Stat card',
       'Quest Difficulty Badge',
       'Quest Status Icon',

@@ -3,13 +3,14 @@
 import { useMemo } from 'react'
 
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 import { questDetails } from '@/lib/data'
 import { sageSuggestions, skills } from '@/lib/fixtures'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
 import { calculateCombatLevel } from '@/lib/integrations/osrs-hiscores'
-import { buildQuestLog } from '@/lib/quest-log'
+import { buildQuestLog } from '@/lib/quest-log/quest-log'
 import { QuestStatus } from '@/lib/types/quest'
 import { SkillInfo } from '@/lib/types/skill'
 import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
@@ -32,6 +33,7 @@ import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 const HOMEPAGE_QUEST_LIMIT = 4
 
 export default function Home() {
+  const router = useRouter()
   const { setOpen } = useSettingsDrawer()
   const { hiscores, hiscoresHydrated } = useAccountDetails()
   const { statusByQuest, setQuestStatus, questsHydrated } = useQuestProgress()
@@ -83,9 +85,12 @@ export default function Home() {
           <Button size="lg" onClick={() => setOpen(true)}>
             View my stats
           </Button>
-          <Button size="lg" variant="outline">
-            Ask the Sage
-          </Button>
+          <Button
+            size="lg"
+            variant="outline"
+            nativeButton={false}
+            render={<Link href="/ask-the-sage">Ask the Sage</Link>}
+          />
         </div>
       </div>
 
@@ -155,6 +160,7 @@ export default function Home() {
           "Back again? Your Slayer's crept to 71 but you're still avoiding Vannaka. Ask me anything — task advice, quest order, gear upgrades. I won't judge. Much."
         }
         suggestions={sageSuggestions}
+        onOpenChat={() => router.push('/ask-the-sage')}
       />
     </>
   )

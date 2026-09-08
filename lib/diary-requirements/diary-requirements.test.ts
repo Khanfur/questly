@@ -1,4 +1,4 @@
-import { groupDiaryRequirements } from '@/lib/diary-requirements'
+import { groupDiaryRequirements } from '@/lib/diary-requirements/diary-requirements'
 
 describe('groupDiaryRequirements', () => {
   it('returns an empty array for no requirements', () => {

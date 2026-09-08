@@ -3,7 +3,7 @@
 import { useMemo, useState } from 'react'
 
 import { diaryDetails } from '@/lib/data'
-import { buildDiaryLog, diaryTaskKey } from '@/lib/diary-log'
+import { buildDiaryLog, diaryTaskKey } from '@/lib/diary-log/diary-log'
 import { useDiaryProgress } from '@/lib/hooks/use-diary-progress'
 import { DiaryTierStatus } from '@/lib/types/diary'
 import { Search } from 'lucide-react'

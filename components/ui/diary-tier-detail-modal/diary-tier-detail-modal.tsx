@@ -1,7 +1,7 @@
 'use client'
 
-import { groupDiaryRequirements } from '@/lib/diary-requirements'
-import { splitDiaryTaskNote } from '@/lib/diary-task-description'
+import { groupDiaryRequirements } from '@/lib/diary-requirements/diary-requirements'
+import { splitDiaryTaskNote } from '@/lib/diary-task-description/diary-task-description'
 import { DiaryTier, DiaryTierName } from '@/lib/types/diary'
 import { cn } from '@/lib/utils'
 

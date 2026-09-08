@@ -1,4 +1,4 @@
-import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log'
+import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log/quest-log'
 import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki'
 import { QuestDifficulty, QuestStatus } from '@/lib/types/quest'
 

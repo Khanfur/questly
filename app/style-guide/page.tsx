@@ -6,6 +6,7 @@ import { diaryRegions, miniquestLog, questLog } from '@/lib/fixtures'
 import { Miniquest, Quest, QuestDifficulty, QuestLength } from '@/lib/types/quest'
 
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
+import { ChatMessage } from '@/components/ui/chat-message/chat-message'
 import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'
 import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'
 import { ErrorMessage } from '@/components/ui/error-message/error-message'
@@ -303,6 +304,11 @@ export default function StyleGuide() {
         <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="online" />
         <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="away" />
         <ChatHead avatar="the_sage_avatar.png" fallbackAvatar="🧙" status="offline" />
+      </Section>
+
+      <Section title="Chat Message" className="w-full max-w-md flex-col items-stretch gap-4">
+        <ChatMessage message={{ id: '1', role: 'sage', text: 'Ask me anything.' }} />
+        <ChatMessage message={{ id: '2', role: 'user', text: 'Any tips on quest points?' }} />
       </Section>
 
       <Section title="Stat card" className="w-full max-w-3xl flex-col items-stretch gap-4">
