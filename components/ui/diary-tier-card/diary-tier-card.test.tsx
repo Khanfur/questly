@@ -1,5 +1,6 @@
 import type { DiaryTier } from '@/lib/types/diary'
 import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
 
 import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'
 
@@ -23,11 +24,15 @@ describe('DiaryTierCard', () => {
     expect(screen.getByText('In progress')).toBeInTheDocument()
   })
 
-  it('renders the locked status label and dims the card', () => {
-    const tier: DiaryTier = { tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 6 }
-    const { container } = render(<DiaryTierCard tier={tier} />)
-    expect(screen.getByText('Locked')).toBeInTheDocument()
-    expect(container.firstChild).toHaveClass('opacity-70')
+  it('renders the not-started status label', () => {
+    const tier: DiaryTier = {
+      tier: 'elite',
+      status: 'not-started',
+      completedTasks: 0,
+      totalTasks: 6,
+    }
+    render(<DiaryTierCard tier={tier} />)
+    expect(screen.getByText('Not started')).toBeInTheDocument()
   })
 
   it('reflects task completion in the progress bar width', () => {
@@ -39,5 +44,15 @@ describe('DiaryTierCard', () => {
     }
     render(<DiaryTierCard tier={tier} />)
     expect(screen.getByRole('progressbar')).toHaveAttribute('aria-valuenow', '50')
+  })
+
+  it('renders as a button and calls onClick when provided', async () => {
+    const user = userEvent.setup()
+    const onClick = jest.fn()
+    const tier: DiaryTier = { tier: 'easy', status: 'complete', completedTasks: 7, totalTasks: 7 }
+    render(<DiaryTierCard tier={tier} onClick={onClick} />)
+
+    await user.click(screen.getByRole('button', { name: /Easy/ }))
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 })

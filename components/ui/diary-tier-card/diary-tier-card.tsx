@@ -1,6 +1,6 @@
 import { DiaryTier, DiaryTierName, DiaryTierStatus } from '@/lib/types/diary'
 import { cn } from '@/lib/utils'
-import { Check, Lock, MoreHorizontal } from 'lucide-react'
+import { Check, MoreHorizontal } from 'lucide-react'
 
 const TIER_LABEL: Record<DiaryTierName, string> = {
   easy: 'Easy',
@@ -20,32 +20,34 @@ const STATUS_LABEL: Record<DiaryTier['status'], string> = {
   complete: 'Complete',
   'in-progress': 'In progress',
   'not-started': 'Not started',
-  locked: 'Locked',
 }
 
 const STATUS_CLASSNAME: Record<DiaryTier['status'], string> = {
   complete: 'text-secondary',
   'in-progress': 'text-primary',
   'not-started': 'text-muted-foreground',
-  locked: 'text-muted-foreground/70',
 }
 
 interface DiaryTierCardProps {
   tier: DiaryTier
   className?: string
+  /** If provided, renders the tile as a button (e.g. to open its task detail modal). */
+  onClick?: () => void
 }
 
 /** A single diary tier tile (Easy/Medium/Hard/Elite) showing task progress + status. */
-export function DiaryTierCard({ tier, className }: DiaryTierCardProps) {
+export function DiaryTierCard({ tier, className, onClick }: DiaryTierCardProps) {
   const { tier: tierName, status, completedTasks, totalTasks } = tier
   const percentComplete = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0
-  const isLocked = status === DiaryTierStatus.locked
+  const Tag = onClick ? 'button' : 'div'
 
   return (
-    <div
+    <Tag
+      type={onClick ? 'button' : undefined}
+      onClick={onClick}
       className={cn(
         'flex flex-col gap-2 rounded-sm border border-border bg-muted/40 p-3',
-        isLocked && 'opacity-70',
+        onClick && 'text-left transition-colors hover:border-primary/50',
         className
       )}
     >
@@ -56,9 +58,6 @@ export function DiaryTierCard({ tier, className }: DiaryTierCardProps) {
         )}
         {status === DiaryTierStatus.inProgress && (
           <MoreHorizontal className="size-3.5 text-primary" aria-hidden="true" />
-        )}
-        {status === DiaryTierStatus.locked && (
-          <Lock className="size-3 text-muted-foreground/70" aria-hidden="true" />
         )}
       </div>
 
@@ -80,6 +79,6 @@ export function DiaryTierCard({ tier, className }: DiaryTierCardProps) {
       </div>
 
       <span className={cn('label', STATUS_CLASSNAME[status])}>{STATUS_LABEL[status]}</span>
-    </div>
+    </Tag>
   )
 }
