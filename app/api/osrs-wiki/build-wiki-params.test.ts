@@ -76,6 +76,26 @@ describe('buildWikiParams', () => {
     })
   })
 
+  describe('mode=diaries', () => {
+    it('builds diary list params without eicontinue by default', () => {
+      const result = buildWikiParams('diaries', new URLSearchParams())
+      expect('params' in result).toBe(true)
+      if ('params' in result) {
+        expect(result.params.get('list')).toBe('embeddedin')
+        expect(result.params.get('eititle')).toBe('Template:Infobox Achievement Diary')
+        expect(result.params.has('eicontinue')).toBe(false)
+      }
+    })
+
+    it('forwards an eicontinue token when provided', () => {
+      const result = buildWikiParams('diaries', new URLSearchParams({ eicontinue: '500|123' }))
+      expect('params' in result).toBe(true)
+      if ('params' in result) {
+        expect(result.params.get('eicontinue')).toBe('500|123')
+      }
+    })
+  })
+
   describe('mode=details', () => {
     it('returns an error when title is missing', () => {
       const result = buildWikiParams('details', new URLSearchParams())

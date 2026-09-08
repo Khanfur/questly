@@ -8,7 +8,7 @@ export const diaryRegions: DiaryRegion[] = [
       { tier: 'easy', status: 'complete', completedTasks: 7, totalTasks: 7 },
       { tier: 'medium', status: 'complete', completedTasks: 16, totalTasks: 16 },
       { tier: 'hard', status: 'in-progress', completedTasks: 18, totalTasks: 24 },
-      { tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 6 },
+      { tier: 'elite', status: 'not-started', completedTasks: 0, totalTasks: 6 },
     ],
   },
   {
@@ -34,8 +34,8 @@ export const diaryRegions: DiaryRegion[] = [
     tiers: [
       { tier: 'easy', status: 'complete', completedTasks: 7, totalTasks: 7 },
       { tier: 'medium', status: 'in-progress', completedTasks: 8, totalTasks: 12 },
-      { tier: 'hard', status: 'locked', completedTasks: 0, totalTasks: 11 },
-      { tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 6 },
+      { tier: 'hard', status: 'not-started', completedTasks: 0, totalTasks: 11 },
+      { tier: 'elite', status: 'not-started', completedTasks: 0, totalTasks: 6 },
     ],
   },
   {
@@ -53,7 +53,7 @@ export const diaryRegions: DiaryRegion[] = [
       { tier: 'easy', status: 'complete', completedTasks: 9, totalTasks: 9 },
       { tier: 'medium', status: 'complete', completedTasks: 12, totalTasks: 12 },
       { tier: 'hard', status: 'in-progress', completedTasks: 5, totalTasks: 8 },
-      { tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 4 },
+      { tier: 'elite', status: 'not-started', completedTasks: 0, totalTasks: 4 },
     ],
   },
   {
@@ -61,8 +61,8 @@ export const diaryRegions: DiaryRegion[] = [
     tiers: [
       { tier: 'easy', status: 'complete', completedTasks: 9, totalTasks: 9 },
       { tier: 'medium', status: 'in-progress', completedTasks: 6, totalTasks: 10 },
-      { tier: 'hard', status: 'locked', completedTasks: 0, totalTasks: 10 },
-      { tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 6 },
+      { tier: 'hard', status: 'not-started', completedTasks: 0, totalTasks: 10 },
+      { tier: 'elite', status: 'not-started', completedTasks: 0, totalTasks: 6 },
     ],
   },
   {
@@ -97,17 +97,17 @@ export const diaryRegions: DiaryRegion[] = [
     tiers: [
       { tier: 'easy', status: 'complete', completedTasks: 10, totalTasks: 10 },
       { tier: 'medium', status: 'in-progress', completedTasks: 7, totalTasks: 12 },
-      { tier: 'hard', status: 'locked', completedTasks: 0, totalTasks: 14 },
-      { tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 6 },
+      { tier: 'hard', status: 'not-started', completedTasks: 0, totalTasks: 14 },
+      { tier: 'elite', status: 'not-started', completedTasks: 0, totalTasks: 6 },
     ],
   },
   {
     name: 'Wilderness',
     tiers: [
       { tier: 'easy', status: 'in-progress', completedTasks: 5, totalTasks: 8 },
-      { tier: 'medium', status: 'locked', completedTasks: 0, totalTasks: 12 },
-      { tier: 'hard', status: 'locked', completedTasks: 0, totalTasks: 10 },
-      { tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 6 },
+      { tier: 'medium', status: 'not-started', completedTasks: 0, totalTasks: 12 },
+      { tier: 'hard', status: 'not-started', completedTasks: 0, totalTasks: 10 },
+      { tier: 'elite', status: 'not-started', completedTasks: 0, totalTasks: 6 },
     ],
   },
 ]

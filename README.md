@@ -49,10 +49,10 @@ Questly talks to two external OSRS data sources, both wrapped in `lib/integratio
 through same-origin API routes under `app/api/` so requests work from the browser without CORS
 issues:
 
-| Integration     | Source                                                       | Proxy route             | Exposes                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-| --------------- | ------------------------------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `osrs-hiscores` | [OSRS HiScores](https://oldschool.runescape.wiki/w/Hiscores) | `app/api/osrs-hiscores` | `fetchHiscores` / `useHiscores` — a player's skill levels & activity ranks; `calculateCombatLevel` — derives [combat level](https://oldschool.runescape.wiki/w/Combat_level) from those skills                                                                                                                                                                                                                                                   |
-| `osrs-wiki`     | [OSRS Wiki API](https://oldschool.runescape.wiki/api.php)    | `app/api/osrs-wiki`     | `searchWiki`/`useWikiSearch`, `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList` (quest titles/ids), `fetchQuestDetails`/`useQuestDetails` (per-quest difficulty/length/members/series/quest points/start/description/requirements/enemies/items required/wiki link), `fetchMiniquestList`/`useMiniquestList` and `fetchMiniquestDetails`/`useMiniquestDetails` (the miniquest equivalents; miniquests award no quest points) |
+| Integration     | Source                                                       | Proxy route             | Exposes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------- | ------------------------------------------------------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `osrs-hiscores` | [OSRS HiScores](https://oldschool.runescape.wiki/w/Hiscores) | `app/api/osrs-hiscores` | `fetchHiscores` / `useHiscores` — a player's skill levels & activity ranks; `calculateCombatLevel` — derives [combat level](https://oldschool.runescape.wiki/w/Combat_level) from those skills                                                                                                                                                                                                                                                                                                                                                                                                                |
+| `osrs-wiki`     | [OSRS Wiki API](https://oldschool.runescape.wiki/api.php)    | `app/api/osrs-wiki`     | `searchWiki`/`useWikiSearch`, `fetchWikiPageSummary`/`useWikiPage`, `fetchQuestList`/`useQuestList` (quest titles/ids), `fetchQuestDetails`/`useQuestDetails` (per-quest difficulty/length/members/series/quest points/start/description/requirements/enemies/items required/wiki link), `fetchMiniquestList`/`useMiniquestList` and `fetchMiniquestDetails`/`useMiniquestDetails` (the miniquest equivalents; miniquests award no quest points), `fetchDiaryList`/`useDiaryList` and `fetchDiaryDetails`/`useDiaryDetails` (Achievement Diary region titles/ids and each region's four tier task checklists) |
 
 Both modules accept a `baseUrl` option to point at a different proxy (e.g. in tests), but default to
 the routes above.
@@ -97,7 +97,28 @@ available without a live network call:
 
   Both also support `-- --title "Miniquest Name"` to fetch/update a single miniquest.
 
-All four commands run their respective script in `scripts/` directly against the wiki API and
+- `diary/diary-list.ts` — every Achievement Diary region's title/page id (`list=embeddedin` on
+  `Template:Infobox Achievement Diary`). Regenerate with:
+
+  ```bash
+  npm run fetch:diaries
+  ```
+
+- `diary/diary-details.ts` — full per-region metadata: each of the four difficulty tiers (Easy,
+  Medium, Hard, Elite) and their tasks (description + requirements), scraped from each region's
+  `data-diary-tier` task tables. Regenerate everything with:
+
+  ```bash
+  npm run fetch:diary-details
+  ```
+
+  Or fetch/update just one region:
+
+  ```bash
+  npm run fetch:diary-details -- --title "Karamja Diary"
+  ```
+
+All six commands run their respective script in `scripts/` directly against the wiki API and
 overwrite the corresponding file in `lib/data/`.
 
 ## Continuous Integration
