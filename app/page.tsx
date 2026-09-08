@@ -1,14 +1,22 @@
 'use client'
 
-import { quests, sageSuggestions, skills } from '@/lib/fixtures'
+import { useMemo } from 'react'
+
+import Link from 'next/link'
+
+import { questDetails } from '@/lib/data'
+import { sageSuggestions, skills } from '@/lib/fixtures'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
+import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
 import { calculateCombatLevel } from '@/lib/integrations/osrs-hiscores'
+import { buildQuestLog } from '@/lib/quest-log'
+import { QuestStatus } from '@/lib/types/quest'
 import { SkillInfo } from '@/lib/types/skill'
 import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
 
 import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
 import { AskTheSage } from '@/components/ui/ask-the-sage/ask-the-sage'
-import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
+import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
 import { SectionWindow } from '@/components/ui/section-window/section-window'
 import { Button } from '@/components/ui/shadcn/button'
@@ -17,9 +25,16 @@ import { SkillCardGrid } from '@/components/ui/skill-card/skill-card-grid'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 
+// Cap on how many quests the homepage's Quest Log preview shows, so it stays
+// roughly as tall as the Skills grid alongside it instead of listing all ~196
+// quests — in-progress quests take priority, "up next" (not-started, in tier
+// order) fills any remaining slots.
+const HOMEPAGE_QUEST_LIMIT = 4
+
 export default function Home() {
   const { setOpen } = useSettingsDrawer()
   const { hiscores, hiscoresHydrated } = useAccountDetails()
+  const { statusByQuest, setQuestStatus, questsHydrated } = useQuestProgress()
 
   // Overlay the fixture skill list (names + icons) with real levels from the
   // player's stored hiscores, when available, so the grid reflects their
@@ -33,6 +48,25 @@ export default function Home() {
     hiscores?.overall && hiscores.overall.level >= 0 ? hiscores.overall.level : 2277
 
   const combatLevel = hiscores ? calculateCombatLevel(hiscores.skills) : 126
+
+  // Build the real Quest Log (from the generated questDetails, merged with
+  // the player's locally-tracked completion status) so the homepage preview
+  // and Quest Points stat reflect actual progress, same as `/quests`.
+  const questLog = useMemo(() => buildQuestLog(questDetails, statusByQuest), [statusByQuest])
+  const allQuests = useMemo(() => questLog.flatMap((tier) => tier.quests), [questLog])
+
+  const totalQuests = allQuests.length
+  const completedQuests = allQuests.filter((quest) => quest.status === QuestStatus.Completed).length
+  const earnedQp = allQuests
+    .filter((quest) => quest.status === QuestStatus.Completed)
+    .reduce((sum, quest) => sum + quest.questPoints, 0)
+  const totalQp = allQuests.reduce((sum, quest) => sum + quest.questPoints, 0)
+
+  const inProgressQuests = allQuests.filter((quest) => quest.status === QuestStatus.InProgress)
+  const upNextQuests = allQuests
+    .filter((quest) => quest.status === QuestStatus.NotStarted)
+    .slice(0, Math.max(0, HOMEPAGE_QUEST_LIMIT - inProgressQuests.length))
+  const previewQuests = [...inProgressQuests, ...upNextQuests].slice(0, HOMEPAGE_QUEST_LIMIT)
 
   return (
     <>
@@ -68,7 +102,13 @@ export default function Home() {
           stat={totalLevel}
           loading={!hiscoresHydrated}
         />
-        <StatCard className="sm:min-w-45" label="Quest Points" stat={341} secondaryStat={341} />
+        <StatCard
+          className="sm:min-w-45"
+          label="Quest Points"
+          stat={earnedQp}
+          secondaryStat={totalQp}
+          loading={!questsHydrated}
+        />
       </StatCardGroup>
 
       <SectionDivider className={'my-8'} />
@@ -83,10 +123,27 @@ export default function Home() {
         </SectionWindow>
 
         <SectionWindow title={'Quest Log'} icon={questStartIcon}>
-          <div className={'flex flex-col gap-4'}>
-            {quests.map((quest) => (
-              <QuestProgress key={quest.name} questName={quest.name} status={quest.status} />
-            ))}
+          <div className={'flex h-full flex-col'}>
+            <div className="flex flex-col">
+              {questsHydrated ? (
+                previewQuests.map((quest) => (
+                  <QuestListItem
+                    key={quest.name}
+                    quest={quest}
+                    onStatusChange={(status) => setQuestStatus(quest.name, status)}
+                  />
+                ))
+              ) : (
+                <div className="h-40 animate-pulse rounded bg-muted" aria-hidden="true" />
+              )}
+            </div>
+
+            <Link
+              href="/quests"
+              className="label mt-auto self-end pt-2 text-primary hover:underline"
+            >
+              View full quest log ({completedQuests}/{totalQuests}) →
+            </Link>
           </div>
         </SectionWindow>
       </div>

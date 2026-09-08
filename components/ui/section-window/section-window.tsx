@@ -27,7 +27,7 @@ export function SectionWindow({ title, icon, className, children }: SectionWindo
       </div>
       <div
         className={
-          'flex flex-col gap-1 rounded-sm border border-muted-foreground/35 border-t-0 bg-card px-4 py-3'
+          'flex flex-1 flex-col gap-1 rounded-sm border border-muted-foreground/35 border-t-0 bg-card px-4 py-3'
         }
       >
         {children}
