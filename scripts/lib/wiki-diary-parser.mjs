@@ -52,7 +52,10 @@ export function parseDiaryTasks(tableBlock) {
   const bodyStart = tableBlock.indexOf('\n|-')
   if (bodyStart === -1) return []
 
-  const rows = tableBlock.slice(bodyStart).split(/\n\|-[^\n]*/).slice(1)
+  const rows = tableBlock
+    .slice(bodyStart)
+    .split(/\n\|-[^\n]*/)
+    .slice(1)
 
   const tasks = []
   for (const row of rows) {

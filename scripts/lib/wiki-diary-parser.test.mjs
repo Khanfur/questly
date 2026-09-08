@@ -68,7 +68,7 @@ describe('parseDiaryTasks', () => {
         requirements: ['Quest Completion of Rune Mysteries'],
       },
       {
-        description: "Steal a cake from the Ardougne market stalls.",
+        description: 'Steal a cake from the Ardougne market stalls.',
         requirements: ['Thieving level 5'],
       },
       {
