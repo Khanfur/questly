@@ -6,6 +6,8 @@ import { miniquestDetails, questDetails } from '@/lib/data'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
 import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log'
+import { Membership } from '@/lib/types/account/account'
+import { Miniquest, QuestStatus } from '@/lib/types/quest/quest'
 import { Search } from 'lucide-react'
 
 import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'
@@ -19,7 +21,6 @@ import { Label } from '@/components/ui/shadcn/label'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 import { ViewToggle } from '@/components/ui/view-toggle/view-toggle'
-import {Miniquest, QuestStatus} from "@/lib/types/quest/quest";
 
 const VIEW_TOGGLE_ITEMS = [
   { href: '/quests', label: 'Quest Log' },
@@ -47,7 +48,7 @@ export default function QuestsPage() {
   // play F2P quests, so pre-filter for them (still user-overridable below).
   useEffect(() => {
     /* eslint-disable-next-line react-hooks/set-state-in-effect */
-    setF2pOnly(accountDetails.membership === 'f2p')
+    setF2pOnly(accountDetails.membership === Membership.f2p)
   }, [accountDetails.membership])
 
   const questLog = useMemo(() => buildQuestLog(questDetails, statusByQuest), [statusByQuest])
@@ -57,20 +58,26 @@ export default function QuestsPage() {
   )
 
   const totalQuests = questLog.reduce((sum, tier) => sum + tier.quests.length, 0)
-  
+
   const completedQuests = questLog.reduce(
-    (sum, tier) => sum + tier.quests.filter((quest) => quest.status === QuestStatus.Completed).length,
+    (sum, tier) =>
+      sum + tier.quests.filter((quest) => quest.status === QuestStatus.Completed).length,
     0
   )
-  const inProgress = questLog.map((tier) => tier.quests.filter((quest) => quest.status === QuestStatus.InProgress)).flat()
-  
+
+  const inProgress = questLog
+    .map((tier) => tier.quests.filter((quest) => quest.status === QuestStatus.InProgress))
+    .flat()
+
   const earnedQp = questLog.reduce(
     (sum, tier) =>
       sum +
-      tier.quests.filter((q) => q.status === QuestStatus.Completed).reduce((s, q) => s + q.questPoints, 0),
+      tier.quests
+        .filter((q) => q.status === QuestStatus.Completed)
+        .reduce((s, q) => s + q.questPoints, 0),
     0
   )
-  
+
   const totalQp = questLog.reduce(
     (sum, tier) => sum + tier.quests.reduce((s, q) => s + q.questPoints, 0),
     0
@@ -85,7 +92,7 @@ export default function QuestsPage() {
       quests: tier.quests.filter((quest) => {
         if (query && !quest.name.toLowerCase().includes(query)) return false
         if (requiredStatus && quest.status !== requiredStatus) return false
-        return !(f2pOnly && quest.members);
+        return !(f2pOnly && quest.members)
       }),
     }))
   }, [questLog, search, statusFilter, f2pOnly])
@@ -94,10 +101,10 @@ export default function QuestsPage() {
     const query = search.trim().toLowerCase()
     const requiredStatus = FILTER_STATUS[statusFilter]
 
-    return miniquestLog.filter((miniquest: Miniquest) : boolean => {
+    return miniquestLog.filter((miniquest: Miniquest): boolean => {
       if (query && !miniquest.name.toLowerCase().includes(query)) return false
       if (requiredStatus && miniquest.status !== requiredStatus) return false
-      return !(f2pOnly && miniquest.members);
+      return !(f2pOnly && miniquest.members)
     })
   }, [miniquestLog, search, statusFilter, f2pOnly])
 

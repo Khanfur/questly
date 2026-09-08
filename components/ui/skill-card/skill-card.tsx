@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import type { SkillInfo } from '@/lib/types/skill/skill'
+import type { SkillInfo } from '@/lib/types/skill'
 import { cn } from '@/lib/utils'
 import { toDataUrl } from '@dava96/osrs-icons'
 

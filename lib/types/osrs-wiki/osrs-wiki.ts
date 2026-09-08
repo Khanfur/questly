@@ -2,7 +2,7 @@
  * Types for the OSRS Wiki (MediaWiki) API integration.
  * See `lib/integrations/osrsWiki.tsx` for usage.
  */
-import type { QuestDifficulty } from '@/lib/types/quest/quest'
+import type { QuestDifficulty } from '@/lib/types/quest'
 
 export interface WikiSearchResult {
   pageId: number

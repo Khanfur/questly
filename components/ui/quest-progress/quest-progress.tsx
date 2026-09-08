@@ -1,8 +1,8 @@
 import React from 'react'
 
-import { Progress } from '@/components/ui/shadcn/progress'
-import {QuestStatus} from "@/lib/types";
+import { QuestStatus } from '@/lib/types/quest'
 
+import { Progress } from '@/components/ui/shadcn/progress'
 
 const PROGRESS_VARIANT: Record<QuestStatus, 'default' | 'secondary' | 'muted'> = {
   completed: 'secondary',

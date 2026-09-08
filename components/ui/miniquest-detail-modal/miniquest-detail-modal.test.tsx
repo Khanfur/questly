@@ -1,4 +1,4 @@
-import type { Miniquest } from '@/lib/types/quest/quest'
+import type { Miniquest } from '@/lib/types/quest'
 import { render, screen } from '@testing-library/react'
 
 import { MiniquestDetailModal } from '@/components/ui/miniquest-detail-modal/miniquest-detail-modal'

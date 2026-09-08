@@ -1,7 +1,7 @@
+import { QuestDifficulty } from '@/lib/types/quest'
 import { cn } from '@/lib/utils'
 
 import { Badge } from '@/components/ui/shadcn/badge'
-import {QuestDifficulty} from "@/lib/types";
 
 const DIFFICULTY_CLASSNAME: Record<QuestDifficulty, string> = {
   novice: 'bg-muted text-muted-foreground',
@@ -22,9 +22,5 @@ interface QuestDifficultyBadgeProps {
 export function QuestDifficultyBadge({ difficulty, className }: QuestDifficultyBadgeProps) {
   if (!difficulty) return null
 
-  return (
-    <Badge className={cn(DIFFICULTY_CLASSNAME[difficulty], className)}>
-      {difficulty}
-    </Badge>
-  )
+  return <Badge className={cn(DIFFICULTY_CLASSNAME[difficulty], className)}>{difficulty}</Badge>
 }

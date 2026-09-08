@@ -4,7 +4,7 @@ export const QuestStatus = {
   NotStarted: 'not-started',
 }
 
-export type QuestStatus = typeof QuestStatus[keyof typeof QuestStatus]
+export type QuestStatus = (typeof QuestStatus)[keyof typeof QuestStatus]
 
 export type QuestInfo = {
   name: string
@@ -20,7 +20,7 @@ export const QuestDifficulty = {
   Grandmaster: 'grandmaster',
 }
 
-export type QuestDifficulty = typeof QuestDifficulty[keyof typeof QuestDifficulty]
+export type QuestDifficulty = (typeof QuestDifficulty)[keyof typeof QuestDifficulty]
 
 export const QuestLength = {
   VeryShort: 'very short',
@@ -32,7 +32,7 @@ export const QuestLength = {
 
 export const DIFFICULTY_ORDER: QuestDifficulty[] = [...Object.values(QuestDifficulty)]
 
-export type QuestLength = typeof QuestLength[keyof typeof QuestLength]
+export type QuestLength = (typeof QuestLength)[keyof typeof QuestLength]
 
 /** A single entry in the full Quest Log list, grouped by `difficulty`. */
 export type Quest = {

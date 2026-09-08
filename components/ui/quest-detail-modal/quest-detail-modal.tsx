@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-import type { Quest } from '@/lib/types/quest/quest'
+import type { Quest } from '@/lib/types/quest'
 import { ExternalLink } from 'lucide-react'
 
 import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'

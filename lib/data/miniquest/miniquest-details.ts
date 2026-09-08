@@ -10,8 +10,8 @@
  * Last generated: 2026-08-19T19:38:34.313Z
  * Count: 20 miniquests
  */
-import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
-import {QuestDifficulty, QuestLength} from "@/lib/types";
+import { QuestDifficulty, QuestLength } from '@/lib/types/quest'
+import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki'
 
 export const miniquestDetails: WikiMiniquestDetails[] = [
   {

@@ -1,6 +1,6 @@
 import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log'
-import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
-import {QuestDifficulty, QuestStatus} from "@/lib/types";
+import { QuestDifficulty, QuestStatus } from '@/lib/types/quest'
+import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki'
 
 function detail(overrides: Partial<WikiQuestDetails>): WikiQuestDetails {
   return {

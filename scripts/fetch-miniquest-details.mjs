@@ -92,7 +92,7 @@ export function toModuleSource(miniquestDetails, generatedAt = new Date()) {
  * Last generated: ${generatedAt.toISOString()}
  * Count: ${miniquestDetails.length} miniquests
  */
-import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
+import type { WikiMiniquestDetails } from '@/lib/types/osrs-wiki'
 
 export const miniquestDetails: WikiMiniquestDetails[] = ${JSON.stringify(miniquestDetails, null, 2)}
 `

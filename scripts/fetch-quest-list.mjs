@@ -66,7 +66,7 @@ export function toModuleSource(quests, generatedAt = new Date()) {
  * Last generated: ${generatedAt.toISOString()}
  * Count: ${quests.length} quests
  */
-import type { WikiQuestListItem } from '@/lib/types/osrs-wiki/osrs-wiki'
+import type { WikiQuestListItem } from '@/lib/types/osrs-wiki'
 
 export const questList: WikiQuestListItem[] = [
 ${entries}

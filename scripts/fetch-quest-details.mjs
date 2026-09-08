@@ -92,7 +92,7 @@ export function toModuleSource(questDetails, generatedAt = new Date()) {
  * Last generated: ${generatedAt.toISOString()}
  * Count: ${questDetails.length} quests
  */
-import type { WikiQuestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
+import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
 
 export const questDetails: WikiQuestDetails[] = ${JSON.stringify(questDetails, null, 2)}
 `

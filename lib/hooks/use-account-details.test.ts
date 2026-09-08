@@ -1,5 +1,5 @@
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
-import { DEFAULT_ACCOUNT_DETAILS } from '@/lib/types/account/account'
+import { AccountType, DEFAULT_ACCOUNT_DETAILS, Membership } from '@/lib/types/account'
 import { act, renderHook } from '@testing-library/react'
 
 function mockFetchOnce(body = '', ok = true, status = 200) {
@@ -47,20 +47,24 @@ describe('useAccountDetails', () => {
   it('preserves other fields when updating one field', () => {
     const { result } = renderHook(() => useAccountDetails())
 
-    act(() => result.current.updateAccountDetails({ membership: 'f2p' }))
-    act(() => result.current.updateAccountDetails({ accountType: 'ironman' }))
+    act(() => result.current.updateAccountDetails({ membership: Membership.f2p }))
+    act(() => result.current.updateAccountDetails({ accountType: AccountType.ironman }))
 
     expect(result.current.accountDetails).toEqual({
       username: '',
-      membership: 'f2p',
-      accountType: 'ironman',
+      membership: Membership.f2p,
+      accountType: AccountType.ironman,
     })
   })
 
   it('rehydrates persisted details on a fresh mount', () => {
     window.localStorage.setItem(
       'questly:account-details',
-      JSON.stringify({ username: 'Woox', membership: 'f2p', accountType: 'ironman' })
+      JSON.stringify({
+        username: 'Woox',
+        membership: Membership.f2p,
+        accountType: AccountType.ironman,
+      })
     )
 
     const { result } = renderHook(() => useAccountDetails())

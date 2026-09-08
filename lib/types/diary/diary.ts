@@ -5,7 +5,7 @@ export const DiaryTierName = {
   elite: 'elite',
 }
 
-export type DiaryTierName = typeof DiaryTierName[keyof typeof DiaryTierName]
+export type DiaryTierName = (typeof DiaryTierName)[keyof typeof DiaryTierName]
 
 export const DiaryTierStatus = {
   complete: 'complete',
@@ -14,7 +14,7 @@ export const DiaryTierStatus = {
   locked: 'locked',
 }
 
-export type DiaryTierStatus = typeof DiaryTierStatus[keyof typeof DiaryTierStatus]
+export type DiaryTierStatus = (typeof DiaryTierStatus)[keyof typeof DiaryTierStatus]
 
 /** Progress within a single diary tier (Easy, Medium, Hard, Elite) for a region. */
 export type DiaryTier = {

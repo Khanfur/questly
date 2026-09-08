@@ -1,4 +1,5 @@
 import QuestsPage from '@/app/quests/page'
+import { AccountType, Membership } from '@/lib/types/account/account'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 jest.mock('next/navigation', () => ({
@@ -62,7 +63,7 @@ describe('QuestsPage', () => {
   it('automatically checks free-to-play only for an F2P account', () => {
     window.localStorage.setItem(
       'questly:account-details',
-      JSON.stringify({ username: '', membership: 'f2p', accountType: 'main' })
+      JSON.stringify({ username: '', membership: Membership.f2p, accountType: AccountType.main })
     )
     render(<QuestsPage />)
 
@@ -74,7 +75,7 @@ describe('QuestsPage', () => {
   it('leaves free-to-play only unchecked for a members account', () => {
     window.localStorage.setItem(
       'questly:account-details',
-      JSON.stringify({ username: '', membership: 'member', accountType: 'main' })
+      JSON.stringify({ username: '', membership: Membership.member, accountType: AccountType.main })
     )
     render(<QuestsPage />)
 

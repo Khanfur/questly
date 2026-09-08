@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import { Quest, QuestStatus } from '@/lib/types/quest/quest'
+import { Quest, QuestStatus } from '@/lib/types/quest'
 import { cn } from '@/lib/utils'
 import { ChevronRight, Clock } from 'lucide-react'
 

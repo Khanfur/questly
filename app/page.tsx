@@ -3,7 +3,7 @@
 import { quests, sageSuggestions, skills } from '@/lib/fixtures'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { calculateCombatLevel } from '@/lib/integrations/osrs-hiscores'
-import { SkillInfo} from '@/lib/types'
+import { SkillInfo } from '@/lib/types/skill'
 import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
 
 import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
@@ -20,7 +20,7 @@ import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 export default function Home() {
   const { setOpen } = useSettingsDrawer()
   const { hiscores, hiscoresHydrated } = useAccountDetails()
-    
+
   // Overlay the fixture skill list (names + icons) with real levels from the
   // player's stored hiscores, when available, so the grid reflects their
   // actual progress instead of the placeholder level-99 data.
@@ -28,7 +28,7 @@ export default function Home() {
     const hiscoreSkill = hiscores?.skills.find((s) => s.name === skill.name)
     return hiscoreSkill && hiscoreSkill.level >= 0 ? { ...skill, level: hiscoreSkill.level } : skill
   })
-    
+
   const totalLevel =
     hiscores?.overall && hiscores.overall.level >= 0 ? hiscores.overall.level : 2277
 

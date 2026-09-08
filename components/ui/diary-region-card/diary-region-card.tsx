@@ -1,4 +1,4 @@
-import {DiaryRegion, DiaryTierStatus} from '@/lib/types/diary/diary'
+import { DiaryRegion, DiaryTierStatus } from '@/lib/types/diary'
 import { cn } from '@/lib/utils'
 
 import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'
@@ -10,7 +10,9 @@ interface DiaryRegionCardProps {
 
 /** A region's diary card: name + tier-completion summary, with a grid of its 4 tiers. */
 export function DiaryRegionCard({ region, className }: DiaryRegionCardProps) {
-  const tiersComplete = region.tiers.filter((tier) => tier.status === DiaryTierStatus.complete).length
+  const tiersComplete = region.tiers.filter(
+    (tier) => tier.status === DiaryTierStatus.complete
+  ).length
 
   return (
     <section

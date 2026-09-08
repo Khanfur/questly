@@ -1,4 +1,4 @@
-import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
+import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki'
 import {
   DIFFICULTY_ORDER,
   Miniquest,
@@ -6,7 +6,7 @@ import {
   QuestDifficulty,
   QuestStatus,
   QuestTier,
-} from '@/lib/types/quest/quest'
+} from '@/lib/types/quest'
 
 /**
  * Builds the full Quest Log (every difficulty tier, in order) from the generated
@@ -30,10 +30,7 @@ export function buildQuestLog(
     quests: questDetails
       .filter((details) => !details.title.includes('/'))
       .filter((details) => details.released)
-      .filter(
-        (details) =>
-          details.difficulty === tierDifficulty
-      )
+      .filter((details) => details.difficulty === tierDifficulty)
       .map((details) =>
         toQuest(details, tierDifficulty, statusByQuest[details.title] ?? 'not-started')
       )

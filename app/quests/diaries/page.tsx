@@ -1,4 +1,5 @@
 import { diaryRegions } from '@/lib/fixtures'
+import { DiaryTierName, DiaryTierStatus } from '@/lib/types/diary'
 import { Search } from 'lucide-react'
 
 import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'
@@ -10,7 +11,7 @@ import { Label } from '@/components/ui/shadcn/label'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 import { ViewToggle } from '@/components/ui/view-toggle/view-toggle'
-import {DiaryTierName, DiaryTierStatus} from '@/lib/types/diary/diary'
+
 const VIEW_TOGGLE_ITEMS = [
   { href: '/quests', label: 'Quest Log' },
   { href: '/quests/diaries', label: 'Achievement Diaries' },
@@ -22,7 +23,9 @@ export default function AchievementDiariesPage() {
   const totalTasks = allTiers.reduce((sum, tier) => sum + tier.totalTasks, 0)
   const tiersComplete = allTiers.filter((tier) => tier.status === DiaryTierStatus.complete).length
   const eliteDiariesComplete = diaryRegions.filter(
-    (region) => region.tiers.find((tier) => tier.tier === DiaryTierName.elite)?.status === DiaryTierStatus.complete
+    (region) =>
+      region.tiers.find((tier) => tier.tier === DiaryTierName.elite)?.status ===
+      DiaryTierStatus.complete
   ).length
 
   return (

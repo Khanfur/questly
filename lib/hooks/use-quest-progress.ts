@@ -3,7 +3,7 @@
 import { useCallback } from 'react'
 
 import { useLocalStorage } from '@/lib/hooks/use-local-storage'
-import { QuestStatus } from '@/lib/types/quest/quest'
+import { QuestStatus } from '@/lib/types/quest'
 
 const QUEST_PROGRESS_STORAGE_KEY = 'questly:quest-progress'
 
@@ -14,10 +14,9 @@ const QUEST_PROGRESS_STORAGE_KEY = 'questly:quest-progress'
  * tracking status is entirely local/manual, via `setQuestStatus`.
  */
 export function useQuestProgress() {
-  const [statusByQuest, setStatusByQuest, questsHydrated] = useLocalStorage<Record<string, QuestStatus>>(
-    QUEST_PROGRESS_STORAGE_KEY,
-    {}
-  )
+  const [statusByQuest, setStatusByQuest, questsHydrated] = useLocalStorage<
+    Record<string, QuestStatus>
+  >(QUEST_PROGRESS_STORAGE_KEY, {})
 
   const setQuestStatus = useCallback(
     (questName: string, status: QuestStatus) => {
