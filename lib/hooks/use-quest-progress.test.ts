@@ -8,13 +8,13 @@ describe('useQuestProgress', () => {
 
   it('starts with an empty status map', async () => {
     const { result } = renderHook(() => useQuestProgress())
-    await waitFor(() => expect(result.current.hydrated).toBe(true))
+    await waitFor(() => expect(result.current.questsHydrated).toBe(true))
     expect(result.current.statusByQuest).toEqual({})
   })
 
   it('persists a quest status update to localStorage', async () => {
     const { result } = renderHook(() => useQuestProgress())
-    await waitFor(() => expect(result.current.hydrated).toBe(true))
+    await waitFor(() => expect(result.current.questsHydrated).toBe(true))
 
     act(() => result.current.setQuestStatus("Cook's Assistant", 'completed'))
 
@@ -28,7 +28,7 @@ describe('useQuestProgress', () => {
 
   it('updates one quest without clobbering another', async () => {
     const { result } = renderHook(() => useQuestProgress())
-    await waitFor(() => expect(result.current.hydrated).toBe(true))
+    await waitFor(() => expect(result.current.questsHydrated).toBe(true))
 
     act(() => result.current.setQuestStatus("Cook's Assistant", 'completed'))
     await waitFor(() =>

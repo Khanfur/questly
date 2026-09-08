@@ -43,12 +43,13 @@ function miniquestDetail(overrides: Partial<WikiMiniquestDetails>): WikiMiniques
 }
 
 describe('buildQuestLog', () => {
-  it('returns all five difficulty tiers in order, even when some are empty', () => {
+  it('returns all six difficulty tiers in order, even when some are empty', () => {
     const questLog = buildQuestLog([], {})
     expect(questLog.map((tier) => tier.difficulty)).toEqual([
       'novice',
       'intermediate',
       'experienced',
+      'special',
       'master',
       'grandmaster',
     ])
@@ -107,13 +108,13 @@ describe('buildQuestLog', () => {
     expect(questLog.flatMap((t) => t.quests)).toHaveLength(0)
   })
 
-  it('falls back to master difficulty for Recipe for Disaster, which the wiki rates "Special"', () => {
+  it('groups Recipe for Disaster into its own "special" tier', () => {
     const questLog = buildQuestLog(
-      [detail({ title: 'Recipe for Disaster', difficulty: null, questPoints: 10 })],
+      [detail({ title: 'Recipe for Disaster', difficulty: 'special', questPoints: 10 })],
       {}
     )
-    const master = questLog.find((tier) => tier.difficulty === 'master')
-    expect(master?.quests.map((q) => q.name)).toEqual(['Recipe for Disaster'])
+    const special = questLog.find((tier) => tier.difficulty === 'special')
+    expect(special?.quests.map((q) => q.name)).toEqual(['Recipe for Disaster'])
   })
 
   it('excludes a quest whose difficulty cannot be resolved at all', () => {

@@ -13,7 +13,8 @@ const DIFFICULTY_CLASSNAME: Record<QuestDifficulty, string> = {
 }
 
 interface QuestDifficultyBadgeProps {
-  difficulty: QuestDifficulty
+  /** Miniquests may have no wiki-rated difficulty; renders nothing when `null`. */
+  difficulty: QuestDifficulty | null
   className?: string
 }
 

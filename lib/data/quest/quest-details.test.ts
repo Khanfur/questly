@@ -16,7 +16,7 @@ describe('questDetails', () => {
       expect(quest.wikiUrl).toMatch(/^https:\/\/oldschool\.runescape\.wiki\/w\//)
       expect(
         quest.difficulty === null ||
-          ['novice', 'intermediate', 'experienced', 'master', 'grandmaster'].includes(
+          ['novice', 'intermediate', 'experienced', 'special', 'master', 'grandmaster'].includes(
             quest.difficulty
           )
       ).toBe(true)

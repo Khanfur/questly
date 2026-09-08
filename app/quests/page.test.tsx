@@ -20,8 +20,8 @@ describe('QuestsPage', () => {
 
   it('renders a tier group for every difficulty', () => {
     render(<QuestsPage />)
-    expect(screen.getByRole('heading', { name: /Novice/ })).toBeInTheDocument()
-    expect(screen.getByRole('heading', { name: /Grandmaster/ })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /novice/ })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /grandmaster/ })).toBeInTheDocument()
   })
 
   it('renders quests from the real generated quest data', () => {

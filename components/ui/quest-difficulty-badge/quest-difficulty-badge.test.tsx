@@ -4,11 +4,12 @@ import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/que
 
 describe('QuestDifficultyBadge', () => {
   it.each([
-    ['novice', 'Novice'],
-    ['intermediate', 'Intermediate'],
-    ['experienced', 'Experienced'],
-    ['master', 'Master'],
-    ['grandmaster', 'Grandmaster'],
+    ['novice', 'novice'],
+    ['intermediate', 'intermediate'],
+    ['experienced', 'experienced'],
+    ['special', 'special'],
+    ['master', 'master'],
+    ['grandmaster', 'grandmaster'],
   ] as const)('renders the label for %s difficulty', (difficulty, label) => {
     render(<QuestDifficultyBadge difficulty={difficulty} />)
     expect(screen.getByText(label)).toBeInTheDocument()
@@ -16,7 +17,7 @@ describe('QuestDifficultyBadge', () => {
 
   it('merges custom className onto the badge', () => {
     render(<QuestDifficultyBadge difficulty="novice" className="custom-class" />)
-    expect(screen.getByText('Novice')).toHaveClass('custom-class')
+    expect(screen.getByText('novice')).toHaveClass('custom-class')
   })
 
   it('renders nothing when difficulty is null', () => {

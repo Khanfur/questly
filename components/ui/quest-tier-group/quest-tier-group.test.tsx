@@ -28,7 +28,7 @@ const TIER: QuestTier = {
 describe('QuestTierGroup', () => {
   it('renders the difficulty label and completion count', () => {
     render(<QuestTierGroup tier={TIER} />)
-    expect(screen.getByRole('heading', { name: /Novice/ })).toBeInTheDocument()
+    expect(screen.getByRole('heading', { name: /novice/ })).toBeInTheDocument()
     expect(screen.getByText('1 / 2 complete')).toBeInTheDocument()
   })
 

@@ -35,7 +35,7 @@ describe('QuestListItem', () => {
   it('renders the quest name, difficulty and points', () => {
     render(<QuestListItem quest={COMPLETED_QUEST} />)
     expect(screen.getByText("Cook's Assistant")).toBeInTheDocument()
-    expect(screen.getByText('Novice')).toBeInTheDocument()
+    expect(screen.getByText('novice')).toBeInTheDocument()
     expect(screen.getByText('1 QP')).toBeInTheDocument()
     expect(screen.getByText('Completed')).toBeInTheDocument()
   })
