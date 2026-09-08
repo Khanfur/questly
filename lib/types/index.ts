@@ -7,12 +7,15 @@ export type { DiaryTierName, DiaryTierStatus, DiaryTier, DiaryRegion } from './d
 export type { SageSuggestion } from './sage/sage'
 export type { SkillEntry } from './hiscores/hiscores'
 export type { ActivityEntry } from './activity/activity'
+
 export type {
   OsrsHiscores,
   FetchHiscoresOptions,
   UseHiscoresResult,
 } from './osrs-hiscores/osrs-hiscores'
+
 export { HiscoresError } from './osrs-hiscores/osrs-hiscores'
+
 export type {
   WikiSearchResult,
   WikiPageSummary,
@@ -20,4 +23,5 @@ export type {
   UseWikiSearchResult,
   UseWikiPageResult,
 } from './osrs-wiki/osrs-wiki'
+
 export { WikiError } from './osrs-wiki/osrs-wiki'
