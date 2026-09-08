@@ -60,7 +60,7 @@ describe('buildQuestLog', () => {
   it('groups quests into their matching difficulty tier', () => {
     const questLog = buildQuestLog(
       [
-        detail({ title: "Cook's Assistant", difficulty: ' ' }),
+        detail({ title: "Cook's Assistant", difficulty: QuestDifficulty.Novice }),
         detail({ pageId: 2, title: 'Dragon Slayer II', difficulty: 'grandmaster' }),
       ],
       {}
