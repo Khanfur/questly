@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 
-import type { Miniquest, QuestStatus } from '@/lib/types/quest/quest'
+import { Miniquest, QuestStatus } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
 import { ChevronRight, Clock } from 'lucide-react'
 
@@ -102,7 +102,7 @@ export function MiniquestListItem({
         </div>
       </div>
 
-      {status === 'in-progress' && (
+      {status === QuestStatus.InProgress && (
         <Progress value={45} variant="default" className="ml-8" aria-label={`${name} progress`} />
       )}
 

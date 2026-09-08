@@ -1,4 +1,4 @@
-import type { DiaryTier, DiaryTierName } from '@/lib/types/diary/diary'
+import {DiaryTier, DiaryTierName, DiaryTierStatus} from '@/lib/types/diary/diary'
 import { cn } from '@/lib/utils'
 import { Check, Lock, MoreHorizontal } from 'lucide-react'
 
@@ -39,7 +39,7 @@ interface DiaryTierCardProps {
 export function DiaryTierCard({ tier, className }: DiaryTierCardProps) {
   const { tier: tierName, status, completedTasks, totalTasks } = tier
   const percentComplete = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0
-  const isLocked = status === 'locked'
+  const isLocked = status === DiaryTierStatus.locked
 
   return (
     <div
@@ -51,13 +51,13 @@ export function DiaryTierCard({ tier, className }: DiaryTierCardProps) {
     >
       <div className="flex items-center justify-between gap-2">
         <span className="label text-foreground">{TIER_LABEL[tierName]}</span>
-        {status === 'complete' && (
+        {status === DiaryTierStatus.complete && (
           <Check className="size-3.5 text-secondary" aria-hidden="true" strokeWidth={3} />
         )}
-        {status === 'in-progress' && (
+        {status === DiaryTierStatus.inProgress && (
           <MoreHorizontal className="size-3.5 text-primary" aria-hidden="true" />
         )}
-        {status === 'locked' && (
+        {status === DiaryTierStatus.locked && (
           <Lock className="size-3 text-muted-foreground/70" aria-hidden="true" />
         )}
       </div>

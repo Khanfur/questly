@@ -1,4 +1,4 @@
-import type { QuestStatus } from '@/lib/types/quest/quest'
+import { QuestStatus } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
 import { Check } from 'lucide-react'
 
@@ -21,7 +21,7 @@ const IN_PROGRESS_STYLE = {
  * is provided, otherwise as a purely decorative `<span>`.
  */
 export function QuestStatusIcon({ status, className, onClick, label }: QuestStatusIconProps) {
-  if (status === 'completed') {
+  if (status === QuestStatus.Completed) {
     const completedClassName = cn(
       'flex size-5 items-center justify-center rounded-full bg-secondary text-secondary-foreground',
       className
@@ -39,7 +39,7 @@ export function QuestStatusIcon({ status, className, onClick, label }: QuestStat
     )
   }
 
-  if (status === 'in-progress') {
+  if (status === QuestStatus.InProgress) {
     const inProgressClassName = cn('size-5 rounded-full bg-muted', className)
 
     return onClick ? (

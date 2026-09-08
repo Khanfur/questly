@@ -334,7 +334,7 @@ export default function StyleGuide() {
       >
         {/* Grandmaster tier conveniently covers every status + the optional flavour note. */}
         {questLog
-          .find((tier) => tier.difficulty === 'grandmaster')
+          .find((tier) => tier.difficulty === QuestDifficulty.Grandmaster)
           ?.quests.map((quest) => (
             <QuestListItem key={quest.name} quest={quest} />
           ))}

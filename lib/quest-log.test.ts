@@ -1,5 +1,6 @@
 import { buildMiniquestLog, buildQuestLog } from '@/lib/quest-log'
 import type { WikiMiniquestDetails, WikiQuestDetails } from '@/lib/types/osrs-wiki/osrs-wiki'
+import {QuestDifficulty, QuestStatus} from "@/lib/types";
 
 function detail(overrides: Partial<WikiQuestDetails>): WikiQuestDetails {
   return {
@@ -59,14 +60,14 @@ describe('buildQuestLog', () => {
   it('groups quests into their matching difficulty tier', () => {
     const questLog = buildQuestLog(
       [
-        detail({ title: "Cook's Assistant", difficulty: 'novice' }),
+        detail({ title: "Cook's Assistant", difficulty: ' ' }),
         detail({ pageId: 2, title: 'Dragon Slayer II', difficulty: 'grandmaster' }),
       ],
       {}
     )
 
-    const novice = questLog.find((tier) => tier.difficulty === 'novice')
-    const grandmaster = questLog.find((tier) => tier.difficulty === 'grandmaster')
+    const novice = questLog.find((tier) => tier.difficulty === QuestDifficulty.Novice)
+    const grandmaster = questLog.find((tier) => tier.difficulty === QuestDifficulty.Grandmaster)
     expect(novice?.quests.map((q) => q.name)).toEqual(["Cook's Assistant"])
     expect(grandmaster?.quests.map((q) => q.name)).toEqual(['Dragon Slayer II'])
   })
@@ -74,15 +75,15 @@ describe('buildQuestLog', () => {
   it('defaults quests with no locally-tracked status to not-started', () => {
     const questLog = buildQuestLog([detail({ title: "Cook's Assistant" })], {})
     const quest = questLog.flatMap((t) => t.quests).find((q) => q.name === "Cook's Assistant")
-    expect(quest?.status).toBe('not-started')
+    expect(quest?.status).toBe(QuestStatus.NotStarted)
   })
 
   it('applies the locally-tracked status for a quest by title', () => {
     const questLog = buildQuestLog([detail({ title: "Cook's Assistant" })], {
-      "Cook's Assistant": 'completed',
+      "Cook's Assistant": QuestStatus.Completed,
     })
     const quest = questLog.flatMap((t) => t.quests).find((q) => q.name === "Cook's Assistant")
-    expect(quest?.status).toBe('completed')
+    expect(quest?.status).toBe(QuestStatus.Completed)
   })
 
   it('falls back to "None" for requirements when the field is null or blank', () => {
@@ -113,7 +114,7 @@ describe('buildQuestLog', () => {
       [detail({ title: 'Recipe for Disaster', difficulty: 'special', questPoints: 10 })],
       {}
     )
-    const special = questLog.find((tier) => tier.difficulty === 'special')
+    const special = questLog.find((tier) => tier.difficulty === QuestDifficulty.Special)
     expect(special?.quests.map((q) => q.name)).toEqual(['Recipe for Disaster'])
   })
 

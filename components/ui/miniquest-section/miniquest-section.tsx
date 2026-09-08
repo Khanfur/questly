@@ -1,4 +1,4 @@
-import type { Miniquest, QuestStatus } from '@/lib/types/quest/quest'
+import { Miniquest, QuestStatus } from '@/lib/types/quest/quest'
 import { cn } from '@/lib/utils'
 
 import { MiniquestListItem } from '@/components/ui/miniquest-list-item/miniquest-list-item'
@@ -31,7 +31,7 @@ export function MiniquestSection({
   className,
   onStatusChange,
 }: MiniquestSectionProps) {
-  const completed = miniquests.filter((miniquest) => miniquest.status === 'completed').length
+  const completed = miniquests.filter((miniquest) => miniquest.status === QuestStatus.Completed).length
   const total = miniquests.length
   const percentComplete = total > 0 ? (completed / total) * 100 : 0
 
