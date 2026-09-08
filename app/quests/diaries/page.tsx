@@ -1,5 +1,11 @@
-import { diaryRegions } from '@/lib/fixtures'
-import { DiaryTierName, DiaryTierStatus } from '@/lib/types/diary'
+'use client'
+
+import { useMemo, useState } from 'react'
+
+import { diaryDetails } from '@/lib/data'
+import { buildDiaryLog, diaryTaskKey } from '@/lib/diary-log'
+import { useDiaryProgress } from '@/lib/hooks/use-diary-progress'
+import { DiaryTierStatus } from '@/lib/types/diary'
 import { Search } from 'lucide-react'
 
 import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'
@@ -18,15 +24,31 @@ const VIEW_TOGGLE_ITEMS = [
 ] as const
 
 export default function AchievementDiariesPage() {
+  const [search, setSearch] = useState('')
+  const [hideCompleted, setHideCompleted] = useState(false)
+  const { completedByTask, toggleDiaryTask } = useDiaryProgress()
+
+  const diaryRegions = useMemo(
+    () => buildDiaryLog(diaryDetails, completedByTask),
+    [completedByTask]
+  )
+
   const allTiers = diaryRegions.flatMap((region) => region.tiers)
   const completedTasks = allTiers.reduce((sum, tier) => sum + tier.completedTasks, 0)
   const totalTasks = allTiers.reduce((sum, tier) => sum + tier.totalTasks, 0)
   const tiersComplete = allTiers.filter((tier) => tier.status === DiaryTierStatus.complete).length
-  const eliteDiariesComplete = diaryRegions.filter(
-    (region) =>
-      region.tiers.find((tier) => tier.tier === DiaryTierName.elite)?.status ===
-      DiaryTierStatus.complete
+  const regionsComplete = diaryRegions.filter((region) =>
+    region.tiers.every((tier) => tier.status === DiaryTierStatus.complete)
   ).length
+
+  const filteredRegions = useMemo(() => {
+    const query = search.trim().toLowerCase()
+
+    return diaryRegions.filter((region) => {
+      if (query && !region.name.toLowerCase().includes(query)) return false
+      return !(hideCompleted && region.tiers.every((tier) => tier.status === DiaryTierStatus.complete));
+    })
+  }, [diaryRegions, search, hideCompleted])
 
   return (
     <>
@@ -40,10 +62,9 @@ export default function AchievementDiariesPage() {
             <StatCard label="Diary Tasks Done" stat={completedTasks} secondaryStat={totalTasks} />
             <StatCard label="Tiers Complete" stat={tiersComplete} secondaryStat={allTiers.length} />
             <StatCard
-              label="Elite Diaries"
-              stat={eliteDiariesComplete}
+              label="Regions Completed"
+              stat={regionsComplete}
               secondaryStat={diaryRegions.length}
-              caption="completed in full"
               captionClassName="text-muted-foreground"
             />
           </StatCardGroup>
@@ -59,19 +80,40 @@ export default function AchievementDiariesPage() {
             className="pointer-events-none absolute top-1/2 left-2.5 size-4 -translate-y-1/2 text-muted-foreground"
             aria-hidden="true"
           />
-          <Input placeholder="Search regions…" className="pl-8" />
+          <Input
+            placeholder="Search regions…"
+            className="pl-8"
+            value={search}
+            onChange={(event) => setSearch(event.target.value)}
+          />
         </div>
 
         <div className="flex items-center gap-2">
-          <Checkbox id="hide-completed-regions" />
+          <Checkbox
+            id="hide-completed-regions"
+            checked={hideCompleted}
+            onCheckedChange={(checked) => setHideCompleted(checked)}
+          />
           <Label htmlFor="hide-completed-regions">Hide completed regions</Label>
         </div>
       </div>
 
       <div className="flex flex-col gap-4">
-        {diaryRegions.map((region) => (
-          <DiaryRegionCard key={region.name} region={region} />
-        ))}
+        {filteredRegions.length > 0 ? (
+          filteredRegions.map((region) => (
+            <DiaryRegionCard
+              key={region.name}
+              region={region}
+              onToggleTask={(tier, taskIndex) =>
+                toggleDiaryTask(diaryTaskKey(region.name, tier, taskIndex))
+              }
+            />
+          ))
+        ) : (
+          <p className="text-center text-muted-foreground">
+            No regions match your filters. Try broadening your search.
+          </p>
+        )}
       </div>
     </>
   )
