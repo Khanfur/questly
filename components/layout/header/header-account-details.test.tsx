@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import { __resetHiscoresAutoFetchGuardForTests } from '@/lib/hooks/use-account-details'
 import { AccountType, Membership } from '@/lib/types/account/account'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -12,6 +13,19 @@ import {
 
 const renderWithContext = (component: React.ReactNode) => {
   return render(<SettingsDrawerProvider>{component}</SettingsDrawerProvider>)
+}
+
+// A saved username also triggers `useAccountDetails`'s automatic hiscores
+// refresh on mount, so any test that pre-seeds one needs a mocked `fetch`
+// to settle cleanly (otherwise the resulting error/loading state updates
+// land after the test finishes and trip React's "not wrapped in act"
+// warning).
+function mockFetchOnce(body = '') {
+  global.fetch = jest.fn().mockResolvedValue({
+    ok: true,
+    status: 200,
+    text: async () => body,
+  }) as jest.Mock
 }
 
 // Opens the drawer on mount (mimicking a user clicking the settings cog),
@@ -36,6 +50,7 @@ function OpenedDrawerHarness() {
 describe('HeaderAccountDetails', () => {
   beforeEach(() => {
     window.localStorage.clear()
+    __resetHiscoresAutoFetchGuardForTests()
   })
 
   it('renders empty by default', () => {
@@ -73,7 +88,8 @@ describe('HeaderAccountDetails', () => {
     })
   })
 
-  it('restores previously saved account details on mount', () => {
+  it('restores previously saved account details on mount', async () => {
+    mockFetchOnce()
     window.localStorage.setItem(
       'questly:account-details',
       JSON.stringify({
@@ -88,6 +104,10 @@ describe('HeaderAccountDetails', () => {
     expect(screen.getByLabelText('RuneScape username')).toHaveValue('Woox')
     expect(screen.getByRole('radio', { name: 'Free to play' })).toBeChecked()
     expect(screen.getByRole('radio', { name: 'Ironman' })).toBeChecked()
+
+    // Let the automatic hiscores refresh (triggered by the saved username)
+    // settle before the test ends.
+    await waitFor(() => expect(global.fetch).toHaveBeenCalled())
   })
 
   it('allows selecting hardcore ironman as an account type', async () => {
@@ -121,6 +141,7 @@ describe('HeaderAccountDetails', () => {
   })
 
   it('does not auto-close the drawer on mount for a returning user with a saved username', async () => {
+    mockFetchOnce()
     window.localStorage.setItem(
       'questly:account-details',
       JSON.stringify({
@@ -139,5 +160,9 @@ describe('HeaderAccountDetails', () => {
     await waitFor(() => expect(screen.getByLabelText('RuneScape username')).toHaveValue('Woox'))
 
     expect(screen.getByTestId('drawer-state')).toHaveTextContent('open')
+
+    // Let the automatic hiscores refresh settle before the test ends, so
+    // its state updates don't leak into the next test.
+    await waitFor(() => expect(global.fetch).toHaveBeenCalled())
   })
 })

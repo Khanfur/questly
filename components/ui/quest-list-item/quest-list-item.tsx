@@ -99,7 +99,12 @@ export function QuestListItem({ quest, className, onStatusChange }: QuestListIte
       </div>
 
       {status === QuestStatus.InProgress && (
-        <Progress value={45} variant="default" className="ml-8" aria-label={`${name} progress`} />
+        <Progress
+          value={45}
+          variant="default"
+          className="ml-8 w-[calc(100%-2rem)]"
+          aria-label={`${name} progress`}
+        />
       )}
 
       <QuestDetailModal quest={quest} open={detailsOpen} onOpenChange={setDetailsOpen} />
