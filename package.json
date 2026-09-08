@@ -18,7 +18,9 @@
     "fetch:quests": "node scripts/fetch-quest-list.mjs",
     "fetch:quest-details": "node scripts/fetch-quest-details.mjs",
     "fetch:miniquests": "node scripts/fetch-miniquest-list.mjs",
-    "fetch:miniquest-details": "node scripts/fetch-miniquest-details.mjs"
+    "fetch:miniquest-details": "node scripts/fetch-miniquest-details.mjs",
+    "fetch:diaries": "node scripts/fetch-diary-list.mjs",
+    "fetch:diary-details": "node scripts/fetch-diary-details.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
