@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 
+import { AccountType, Membership } from '@/lib/types/account/account'
 import { render, screen, waitFor } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 
@@ -65,13 +66,21 @@ describe('HeaderAccountDetails', () => {
     expect(screen.getByRole('radio', { name: 'Ironman' })).toBeChecked()
 
     const stored = JSON.parse(window.localStorage.getItem('questly:account-details') ?? '{}')
-    expect(stored).toEqual({ username: '', membership: 'f2p', accountType: 'ironman' })
+    expect(stored).toEqual({
+      username: '',
+      membership: Membership.f2p,
+      accountType: AccountType.ironman,
+    })
   })
 
   it('restores previously saved account details on mount', () => {
     window.localStorage.setItem(
       'questly:account-details',
-      JSON.stringify({ username: 'Woox', membership: 'f2p', accountType: 'ironman' })
+      JSON.stringify({
+        username: 'Woox',
+        membership: Membership.f2p,
+        accountType: AccountType.ironman,
+      })
     )
 
     renderWithContext(<HeaderAccountDetails />)
@@ -90,7 +99,11 @@ describe('HeaderAccountDetails', () => {
     expect(screen.getByRole('radio', { name: 'Hardcore Ironman' })).toBeChecked()
 
     const stored = JSON.parse(window.localStorage.getItem('questly:account-details') ?? '{}')
-    expect(stored).toEqual({ username: '', membership: 'member', accountType: 'hc_ironman' })
+    expect(stored).toEqual({
+      username: '',
+      membership: Membership.member,
+      accountType: AccountType.hcIronman,
+    })
   })
 
   it('renders a fetch button next to the username input', () => {
@@ -110,7 +123,11 @@ describe('HeaderAccountDetails', () => {
   it('does not auto-close the drawer on mount for a returning user with a saved username', async () => {
     window.localStorage.setItem(
       'questly:account-details',
-      JSON.stringify({ username: 'Woox', membership: 'member', accountType: 'main' })
+      JSON.stringify({
+        username: 'Woox',
+        membership: Membership.member,
+        accountType: AccountType.main,
+      })
     )
 
     render(

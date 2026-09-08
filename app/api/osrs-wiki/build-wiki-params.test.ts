@@ -75,4 +75,21 @@ describe('buildWikiParams', () => {
       }
     })
   })
+
+  describe('mode=details', () => {
+    it('returns an error when title is missing', () => {
+      const result = buildWikiParams('details', new URLSearchParams())
+      expect('error' in result).toBe(true)
+    })
+
+    it('builds parse+wikitext params', () => {
+      const result = buildWikiParams('details', new URLSearchParams({ title: "Cook's Assistant" }))
+      expect('params' in result).toBe(true)
+      if ('params' in result) {
+        expect(result.params.get('action')).toBe('parse')
+        expect(result.params.get('prop')).toBe('wikitext')
+        expect(result.params.get('page')).toBe("Cook's Assistant")
+      }
+    })
+  })
 })

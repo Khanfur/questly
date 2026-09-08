@@ -48,6 +48,16 @@ export function buildWikiParams(
     return { params }
   }
 
+  if (mode === 'details') {
+    const title = searchParams.get('title')
+    if (!title) return errorResponse('Missing title parameter')
+
+    params.set('action', 'parse')
+    params.set('page', title)
+    params.set('prop', 'wikitext')
+    return { params }
+  }
+
   if (mode === 'quests') {
     const continueToken = searchParams.get('eicontinue')
 
@@ -62,7 +72,21 @@ export function buildWikiParams(
     return { params }
   }
 
+  if (mode === 'miniquests') {
+    const continueToken = searchParams.get('eicontinue')
+
+    params.set('action', 'query')
+    params.set('list', 'embeddedin')
+    params.set('eititle', 'Template:Infobox Miniquest')
+    params.set('einamespace', '0')
+    params.set('eilimit', '500')
+    if (continueToken) {
+      params.set('eicontinue', continueToken)
+    }
+    return { params }
+  }
+
   return errorResponse(
-    'Missing or invalid mode parameter (expected "search", "summary", or "quests")'
+    'Missing or invalid mode parameter (expected "search", "summary", "quests", "miniquests", or "details")'
   )
 }

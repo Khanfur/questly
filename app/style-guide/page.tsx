@@ -1,8 +1,25 @@
 'use client'
 
+import { useState } from 'react'
+
+import { diaryRegions, miniquestLog, questLog } from '@/lib/fixtures'
+import { Miniquest, Quest, QuestDifficulty, QuestLength } from '@/lib/types/quest'
+
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
+import { DiaryRegionCard } from '@/components/ui/diary-region-card/diary-region-card'
+import { DiaryTierCard } from '@/components/ui/diary-tier-card/diary-tier-card'
 import { ErrorMessage } from '@/components/ui/error-message/error-message'
+import { FilterPillGroup } from '@/components/ui/filter-pill-group/filter-pill-group'
+import { MiniquestDetailModal } from '@/components/ui/miniquest-detail-modal/miniquest-detail-modal'
+import { MiniquestListItem } from '@/components/ui/miniquest-list-item/miniquest-list-item'
+import { MiniquestSection } from '@/components/ui/miniquest-section/miniquest-section'
+import { PageHero } from '@/components/ui/page-hero/page-hero'
+import { QuestDetailModal } from '@/components/ui/quest-detail-modal/quest-detail-modal'
+import { QuestDifficultyBadge } from '@/components/ui/quest-difficulty-badge/quest-difficulty-badge'
+import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'
+import { QuestStatusIcon } from '@/components/ui/quest-list-item/quest-status-icon'
 import { QuestProgress } from '@/components/ui/quest-progress/quest-progress'
+import { QuestTierGroup } from '@/components/ui/quest-tier-group/quest-tier-group'
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
 import { Section } from '@/components/ui/section/section'
 import { Badge } from '@/components/ui/shadcn/badge'
@@ -32,13 +49,48 @@ import { Switch } from '@/components/ui/shadcn/switch'
 import { Textarea } from '@/components/ui/shadcn/textarea'
 import { StatCard } from '@/components/ui/stat-card/stat-card'
 import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
+import { ViewToggle } from '@/components/ui/view-toggle/view-toggle'
 
 import { ThemeColorPalette } from './_components/color-swatch'
 import { GridExample } from './_components/grid-example'
 import { SpacingScale } from './_components/spacing-scale'
 import { Swatch } from './_components/swatch'
 
+const SAMPLE_QUEST_DETAILS: Quest = {
+  name: "Cook's Assistant",
+  difficulty: QuestDifficulty.Novice,
+  status: 'not-started',
+  questPoints: 1,
+  requires: 'None',
+  members: false,
+  start: 'Talk to the Cook in the kitchen of Lumbridge Castle.',
+  description:
+    "The Cook is in a panic! The Duke of Lumbridge is arriving shortly and he hasn't got a cake for him. Help the Cook gather the ingredients he needs before it's too late.",
+  length: QuestLength.Short,
+  itemsRequired: ['Bucket of milk', 'Egg', 'Pot of flour'],
+  releaseDate: '4 January 2001',
+  wikiUrl: "https://oldschool.runescape.wiki/w/Cook's_Assistant",
+}
+
+const SAMPLE_MINIQUEST_DETAILS: Miniquest = {
+  name: 'Mage Arena I',
+  difficulty: QuestDifficulty.Experienced,
+  status: 'not-started',
+  requires: 'Magic level 60',
+  members: true,
+  start: 'Speak to Kolodion at the Mage Arena bank in level 53 Wilderness.',
+  description: 'Prove your magical might to Kolodion and gain the ability to fight in his arena.',
+  length: QuestLength.Short,
+  itemsRequired: ['Runes or a powered staff to fight Kolodion'],
+  releaseDate: '22 September 2003',
+  wikiUrl: 'https://oldschool.runescape.wiki/w/Mage_Arena_I',
+}
+
 export default function StyleGuide() {
+  const [activeFilter, setActiveFilter] = useState('All')
+  const [questDetailOpen, setQuestDetailOpen] = useState(false)
+  const [miniquestDetailOpen, setMiniquestDetailOpen] = useState(false)
+
   return (
     <>
       <h1>Style Guide</h1>
@@ -258,7 +310,137 @@ export default function StyleGuide() {
           <StatCard label="Combat Level" stat={112} />
           <StatCard label="Total Level" stat={1543} />
           <StatCard label="Quest Points" stat={284} secondaryStat={293} />
+          <StatCard label="In Progress" stat={1} caption="Dragon Slayer II" />
         </StatCardGroup>
+      </Section>
+
+      <Section title="Quest Difficulty Badge">
+        <QuestDifficultyBadge difficulty="novice" />
+        <QuestDifficultyBadge difficulty="intermediate" />
+        <QuestDifficultyBadge difficulty="experienced" />
+        <QuestDifficultyBadge difficulty="master" />
+        <QuestDifficultyBadge difficulty="grandmaster" />
+      </Section>
+
+      <Section title="Quest Status Icon" className="items-center gap-4">
+        <QuestStatusIcon status="completed" />
+        <QuestStatusIcon status="in-progress" />
+        <QuestStatusIcon status="not-started" />
+      </Section>
+
+      <Section
+        title="Quest List Item"
+        className="w-full max-w-2xl flex-col items-stretch gap-0 rounded-sm border border-border bg-card px-4"
+      >
+        {/* Grandmaster tier conveniently covers every status + the optional flavour note. */}
+        {questLog
+          .find((tier) => tier.difficulty === QuestDifficulty.Grandmaster)
+          ?.quests.map((quest) => (
+            <QuestListItem key={quest.name} quest={quest} />
+          ))}
+      </Section>
+
+      <Section title="Quest Tier Group" className="w-full max-w-2xl flex-col items-stretch gap-4">
+        <QuestTierGroup tier={questLog[0]} />
+      </Section>
+
+      <Section title="Quest Detail Modal">
+        <Button onClick={() => setQuestDetailOpen(true)}>Open quest details</Button>
+        <QuestDetailModal
+          quest={SAMPLE_QUEST_DETAILS}
+          open={questDetailOpen}
+          onOpenChange={setQuestDetailOpen}
+        />
+      </Section>
+
+      <Section
+        title="Miniquest List Item"
+        className="w-full max-w-2xl flex-col items-stretch gap-0 rounded-sm border border-border bg-card px-4"
+      >
+        {/* Covers every status: completed, in-progress, not-started, and an unrated difficulty. */}
+        {miniquestLog.map((miniquest) => (
+          <MiniquestListItem key={miniquest.name} miniquest={miniquest} />
+        ))}
+      </Section>
+
+      <Section title="Miniquest Section" className="w-full max-w-2xl flex-col items-stretch gap-4">
+        <MiniquestSection miniquests={miniquestLog} />
+      </Section>
+
+      <Section title="Miniquest Detail Modal">
+        <Button onClick={() => setMiniquestDetailOpen(true)}>Open miniquest details</Button>
+        <MiniquestDetailModal
+          miniquest={SAMPLE_MINIQUEST_DETAILS}
+          open={miniquestDetailOpen}
+          onOpenChange={setMiniquestDetailOpen}
+        />
+      </Section>
+
+      <Section title="Diary Tier Card" className="items-stretch gap-3">
+        <div className="w-40">
+          <DiaryTierCard
+            tier={{ tier: 'easy', status: 'complete', completedTasks: 5, totalTasks: 5 }}
+          />
+        </div>
+        <div className="w-40">
+          <DiaryTierCard
+            tier={{ tier: 'medium', status: 'in-progress', completedTasks: 8, totalTasks: 12 }}
+          />
+        </div>
+        <div className="w-40">
+          <DiaryTierCard
+            tier={{ tier: 'hard', status: 'not-started', completedTasks: 0, totalTasks: 9 }}
+          />
+        </div>
+        <div className="w-40">
+          <DiaryTierCard
+            tier={{ tier: 'elite', status: 'locked', completedTasks: 0, totalTasks: 7 }}
+          />
+        </div>
+      </Section>
+
+      <Section title="Diary Region Card" className="w-full max-w-2xl flex-col items-stretch gap-4">
+        <DiaryRegionCard region={diaryRegions[0]} />
+      </Section>
+
+      <Section title="Filter Pill Group">
+        <FilterPillGroup
+          items={['All', 'Not started', 'In progress', 'Completed']}
+          activeItem={activeFilter}
+          onSelect={setActiveFilter}
+        />
+      </Section>
+
+      <Section title="View Toggle">
+        <ViewToggle
+          items={[
+            { href: '/style-guide', label: 'Quest Log' },
+            { href: '/style-guide#achievement-diaries', label: 'Achievement Diaries' },
+          ]}
+        />
+      </Section>
+
+      <Section title="Page Hero" className="w-full flex-col items-stretch gap-4">
+        <PageHero
+          eyebrow="Quest Log"
+          titleLines={['24 quests.', "You've earned the right to be smug about 17."]}
+          description="Every quest in Gielinor, sorted by what's left to prove."
+          actions={
+            <ViewToggle
+              items={[
+                { href: '/style-guide', label: 'Quest Log' },
+                { href: '/style-guide#achievement-diaries', label: 'Achievement Diaries' },
+              ]}
+            />
+          }
+          stats={
+            <StatCardGroup className="sm:[&>*]:flex-1">
+              <StatCard label="Quest Points" stat={37} secondaryStat={51} />
+              <StatCard label="Quests Completed" stat={17} secondaryStat={24} />
+              <StatCard label="In Progress" stat={1} caption="Dragon Slayer II" />
+            </StatCardGroup>
+          }
+        />
       </Section>
     </>
   )

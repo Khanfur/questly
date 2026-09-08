@@ -1,8 +1,8 @@
-import type { ActivityEntry } from './activity'
-import type { SkillEntry } from './hiscores'
+import type { ActivityEntry } from '../activity/activity'
+import type { SkillEntry } from '../hiscores/hiscores'
 
-export type { ActivityEntry } from './activity'
-export type { SkillEntry } from './hiscores'
+export type { ActivityEntry } from '../activity/activity'
+export type { SkillEntry } from '../hiscores/hiscores'
 
 export interface OsrsHiscores {
   skills: SkillEntry[]

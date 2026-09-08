@@ -3,7 +3,7 @@
 import { quests, sageSuggestions, skills } from '@/lib/fixtures'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { calculateCombatLevel } from '@/lib/integrations/osrs-hiscores'
-import { SkillInfo } from '@/lib/types'
+import { SkillInfo } from '@/lib/types/skill'
 import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
 
 import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'

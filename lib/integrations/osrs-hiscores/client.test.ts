@@ -1,5 +1,5 @@
-import { ACTIVITY_NAMES } from '@/lib/fixtures/activity-names'
-import { SKILL_NAMES } from '@/lib/fixtures/skill-names'
+import { ACTIVITY_NAMES } from '@/lib/fixtures/activity/activity-names'
+import { SKILL_NAMES } from '@/lib/fixtures/skill/skill-names'
 import { fetchHiscores, parseHiscoresCsv } from '@/lib/integrations/osrs-hiscores/client'
 import { HiscoresError } from '@/lib/types/osrs-hiscores'
 
