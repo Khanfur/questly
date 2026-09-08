@@ -1,4 +1,4 @@
-import type { QuestDifficulty, QuestStatus, QuestTier } from '@/lib/types/quest'
+import { QuestStatus, QuestTier } from '@/lib/types/quest'
 import { cn } from '@/lib/utils'
 
 import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'
@@ -24,7 +24,7 @@ export function QuestTierGroup({
   className,
   onStatusChange,
 }: QuestTierGroupProps) {
-  const completed = tier.quests.filter((quest) => quest.status === 'completed').length
+  const completed = tier.quests.filter((quest) => quest.status === QuestStatus.Completed).length
   const total = tier.quests.length
   const percentComplete = total > 0 ? (completed / total) * 100 : 0
 
