@@ -7,7 +7,7 @@
  * GENERATED FILE — do not hand-edit.
  * Regenerate all: npm run fetch:quest-details
  * Update one: npm run fetch:quest-details -- --title "Quest Name"
- * Last generated: 2026-08-19T19:05:18.197Z
+ * Last generated: 2026-09-11T11:20:50.717Z
  * Count: 196 quests
  */
 import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
@@ -5672,18 +5672,23 @@ export const questDetails: WikiQuestDetails[] = [
     pageId: 678503,
     title: 'A Ruff Situation',
     difficulty: QuestDifficulty.Novice,
-    length: null,
+    length: QuestLength.Short,
     members: true,
     series: null,
-    questPoints: null,
-    releaseDate: null,
-    released: false,
-    start: null,
+    questPoints: 1,
+    releaseDate: '8 September 2026',
+    released: true,
+    start: 'Talk to Talia in the camp just south-west of the Edgeville Monastery.',
     description:
-      'Talia and Chase have set up a Dog Shelter near Ice Mountain. Unfortunately, their operations are struggling to get off the ground, and they need your help.',
+      'Help Talia and Chase set up their dog shelter and unlock your very own canine companion.',
     requirements: ['Crafting level 15'],
-    enemies: null,
-    itemsRequired: null,
+    enemies: [],
+    itemsRequired: [
+      'Either a needle or a costume needle',
+      'Thread. Not required if using costume needle.',
+      'Fur, bear fur, grey wolf fur, fox fur, or jaguar fur. Can be purchased from Baraek for 20 coins in Varrock Square.',
+      "Grain. Can be picked from the nearby wheat field north of the Cooks' Guild.",
+    ],
     wikiUrl: 'https://oldschool.runescape.wiki/w/A_Ruff_Situation',
   },
   {
@@ -5693,14 +5698,15 @@ export const questDetails: WikiQuestDetails[] = [
     length: QuestLength.Short,
     members: true,
     series: null,
-    questPoints: null,
-    releaseDate: 'September 2026',
-    released: false,
-    start: null,
-    description: null,
+    questPoints: 1,
+    releaseDate: '8 September 2026',
+    released: true,
+    start:
+      'Sail to Dognose Island (north-west of the Great Conch) and drink from the strange bottle to start the quest.',
+    description: 'Help a crab to earn some Sailing and Fishing XP.',
     requirements: ['Sailing level 40', 'Fishing level 30'],
     enemies: null,
-    itemsRequired: null,
+    itemsRequired: [],
     wikiUrl: 'https://oldschool.runescape.wiki/w/Crab_Quest',
   },
 ]

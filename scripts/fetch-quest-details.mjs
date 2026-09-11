@@ -21,6 +21,24 @@ import { fileURLToPath } from 'node:url'
 import { fetchQuestList } from './fetch-quest-list.mjs'
 import { parseQuestDetails } from './lib/wiki-quest-parser.mjs'
 
+// Define enums needed for evaluating existing quest details
+const QuestDifficulty = {
+  Novice: 'novice',
+  Intermediate: 'intermediate',
+  Experienced: 'experienced',
+  Special: 'special',
+  Master: 'master',
+  Grandmaster: 'grandmaster',
+}
+
+const QuestLength = {
+  VeryShort: 'very short',
+  Short: 'short',
+  Medium: 'medium',
+  Long: 'long',
+  VeryLong: 'very long',
+}
+
 const WIKI_API_BASE = 'https://oldschool.runescape.wiki/api.php'
 const USER_AGENT = 'Questly/1.0 (https://github.com/Khanfur/questly)'
 const OUTPUT_PATH = fileURLToPath(new URL('../lib/data/quest/quest-details.ts', import.meta.url))
@@ -68,7 +86,7 @@ export function readExistingQuestDetails(path = OUTPUT_PATH) {
   // possible (`quoteProps: "as-needed"`), so the array literal isn't valid
   // strict JSON — evaluate it as a JS expression instead. Safe here since
   // this file is only ever written by this script (trusted content).
-  return new Function(`return (${match[1]})`)()
+  return new Function('QuestDifficulty', 'QuestLength', `return (${match[1]})`)(QuestDifficulty, QuestLength)
 }
 
 /** Replaces any existing entry with the same `pageId` and returns a pageId-sorted copy. */
@@ -80,6 +98,36 @@ export function upsertQuestDetails(existing, entry) {
 }
 
 export function toModuleSource(questDetails, generatedAt = new Date()) {
+  // Map from capitalized length strings to enum keys
+  const lengthLookup = {
+    'very short': 'VeryShort',
+    'short': 'Short',
+    'medium': 'Medium',
+    'long': 'Long',
+    'very long': 'VeryLong',
+  }
+  
+  // Serialize with enum references instead of string values
+  const serialized = questDetails.map((q) => {
+    const obj = { ...q }
+    // Convert string values back to enum references
+    if (obj.difficulty) {
+      const diffKey = Object.entries(QuestDifficulty).find(([, v]) => v === obj.difficulty)?.[0]
+      if (diffKey) obj.difficulty = `QuestDifficulty.${diffKey}`
+    }
+    if (obj.length) {
+      // Normalize the length string to lowercase for lookup
+      const normalized = obj.length.toLowerCase()
+      const lenKey = lengthLookup[normalized]
+      if (lenKey) obj.length = `QuestLength.${lenKey}`
+    }
+    return obj
+  })
+  
+  const json = JSON.stringify(serialized, null, 2)
+  // Replace string-escaped enum references with actual references
+  const fixed = json.replace(/"(QuestDifficulty\.\w+|QuestLength\.\w+)"/g, '$1')
+  
   return `/**
  * Full quest metadata (difficulty, length, members, series, quest points,
  * start, description, requirements, enemies, items required, wiki link) for every OSRS
@@ -93,8 +141,9 @@ export function toModuleSource(questDetails, generatedAt = new Date()) {
  * Count: ${questDetails.length} quests
  */
 import type { WikiQuestDetails } from '@/lib/types/osrs-wiki'
+import { QuestDifficulty, QuestLength } from '@/lib/types/quest'
 
-export const questDetails: WikiQuestDetails[] = ${JSON.stringify(questDetails, null, 2)}
+export const questDetails: WikiQuestDetails[] = ${fixed}
 `
 }
 
