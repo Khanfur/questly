@@ -795,7 +795,7 @@ export const diaryDetails: WikiDiaryDetails[] = [
           },
           {
             description:
-              'Obtain the Blast Furnace Foremans permission to use the Blast Furnace for free.<br/> Note: With the requirements, talk to him and use the following dialogue options . Selecting the wrong choices may require you to pay him, in which case you can hop to another world to try again.',
+              'Obtain the Blast Furnace Foremans permission to use the Blast Furnace for free. Note: With the requirements, talk to him and use the following dialogue options . Selecting the wrong choices may require you to pay him, in which case you can hop to another world to try again.',
             requirements: ['Quest Started The Giant Dwarf', 'Smithing level 60'],
           },
         ],

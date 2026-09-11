@@ -158,6 +158,7 @@ function expandSkillClickpics(value) {
 export function stripWikitext(value) {
   return expandSkillClickpics(value)
     .replace(/<ref[^>]*>.*?<\/ref>/gs, '')
+    .replace(/<[^>]*>/g, '')
     .replace(/\{\{[^{}]*\}\}/g, '')
     .replace(/\[\[(?:[^|\]]*\|)?([^\]]*)\]\]/g, '$1')
     .replace(/'{2,}/g, '')
