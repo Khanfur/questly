@@ -31,9 +31,9 @@ export default function AskTheSagePage() {
     const fallback = sageMessages.find((msg) => msg.id === MessageId.fallback)!.text
     try {
       const context: SageContext = {
-        hiscores: hiscoresHydrated ? hiscores : undefined,
-        questProgress: questsHydrated ? statusByQuest : undefined,
-        diaryProgress: diaryProgressHydrated ? completedByTask : undefined,
+        hiscores: hiscores ?? undefined,
+        questProgress: Object.keys(statusByQuest).length > 0 ? statusByQuest : undefined,
+        diaryProgress: Object.keys(completedByTask).length > 0 ? completedByTask : undefined,
       }
 
       const response = await fetch('/api/sage', {
@@ -102,8 +102,14 @@ export default function AskTheSagePage() {
       <div className="mx-auto flex w-full flex-col rounded-sm border border-muted-foreground/35 bg-sidebar">
         <div className="flex flex-col gap-4 px-5 py-4">
           {messages.map((message) => (
-            <ChatMessage key={message.id} message={message} />
+            <ChatMessage key={message.id} message={message} isLoading={isSending && message.role === 'sage' && message === messages[messages.length - 1]} />
           ))}
+          {isSending && messages[messages.length - 1]?.role === 'user' && (
+            <ChatMessage
+              message={{ id: 'loading', role: 'sage', text: '' }}
+              isLoading={true}
+            />
+          )}
         </div>
 
         <form

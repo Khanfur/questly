@@ -9,6 +9,7 @@ interface ChatMessageProps {
   avatar?: string
   fallbackAvatar?: string
   status?: ConnectionStatus
+  isLoading?: boolean
   className?: string
 }
 
@@ -19,6 +20,7 @@ function ChatMessage({
   avatar = '/the_sage_avatar.png',
   fallbackAvatar = '🧙',
   status = 'online',
+  isLoading = false,
   className,
 }: ChatMessageProps) {
   const isSage = message.role === 'sage'
@@ -36,14 +38,27 @@ function ChatMessage({
       )}
       <div className={cn('flex max-w-[80%] flex-col', !isSage && 'items-end')}>
         <span className="label text-secondary">{isSage ? sageName : 'You'}</span>
-        <p
+        <div
           className={cn(
             'mt-1 rounded-sm px-3 py-2 text-sm',
             isSage ? 'bg-sidebar text-foreground' : 'bg-primary text-primary-foreground'
           )}
         >
-          {message.text}
-        </p>
+          {isLoading ? (
+            <div className="flex items-center gap-2">
+              <span>The Sage is thinking</span>
+              <span className="inline-flex gap-1">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-current animate-pulse delay-100" />
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-current animate-pulse delay-200" />
+              </span>
+            </div>
+          ) : (
+            <div className="space-y-2 whitespace-pre-line">
+              {message.text}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
