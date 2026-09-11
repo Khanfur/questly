@@ -2,60 +2,74 @@
 
 import { useRef, useState } from 'react'
 
-import { sageFallbackReplies, sageMessages, sageReplies, sageSuggestions } from '@/lib/fixtures'
-import type { ChatMessage as ChatMessageType, SageSuggestion, ChatRole } from '@/lib/types/sage'
+import { sageMessages, sageSuggestions } from '@/lib/fixtures'
+import { ChatRole, type ChatMessage as ChatMessageType, type SageSuggestion } from '@/lib/types/sage'
 import { Send } from 'lucide-react'
 
-import { ChatHead } from '@/components/ui/chat-head/chat-head'
 import { ChatMessage } from '@/components/ui/chat-message/chat-message'
 import { PageHero } from '@/components/ui/page-hero/page-hero'
 import { SectionDivider } from '@/components/ui/section-divider/section-divider'
 import { Button } from '@/components/ui/shadcn/button'
 import { Textarea } from '@/components/ui/shadcn/textarea'
 
-// The Sage has no real AI backend yet — this page is a static, fixture-driven
-// chat transcript. Suggestion chips return a canned reply from sageReplies,
-// while free-typed messages cycle through sageFallbackReplies in order (kept
-// deterministic rather than random so the page renders predictably in tests).
 export default function AskTheSagePage() {
   const [messages, setMessages] = useState<ChatMessageType[]>(sageMessages)
   const [draft, setDraft] = useState('')
+  const [isSending, setIsSending] = useState(false)
   const nextId = useRef(messages.length)
-  const fallbackIndex = useRef(0)
 
-  function reply(userText: string, suggestionId?: string): string {
-    if (suggestionId && sageReplies[suggestionId]) return sageReplies[suggestionId]
+  async function requestSageReply(message: string): Promise<string> {
+    try {
+      const response = await fetch('/api/sage', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ message }),
+      })
 
-    const fallback = sageFallbackReplies[fallbackIndex.current % sageFallbackReplies.length]
-    fallbackIndex.current += 1
-    return fallback
+      if (!response.ok) {
+        return 'The Sage is taking a brief breather. Try asking again in a moment.'
+      }
+
+      const data = (await response.json()) as { reply?: string }
+      return data.reply?.trim() || 'The Sage is taking a brief breather. Try asking again in a moment.'
+    } catch {
+      return 'The Sage is taking a brief breather. Try asking again in a moment.'
+    }
   }
 
-  function sendMessage(text: string, suggestionId?: string) {
+  async function sendMessage(text: string) {
     const trimmed = text.trim()
-    if (!trimmed) return
+    if (!trimmed || isSending) return
 
     const userMessage: ChatMessageType = {
       id: `msg-${nextId.current++}`,
       role: ChatRole.USER,
       text: trimmed,
     }
+
+    setMessages((prev) => [...prev, userMessage])
+    setIsSending(true)
+
+    const sageReply = await requestSageReply(trimmed)
     const sageMessage: ChatMessageType = {
       id: `msg-${nextId.current++}`,
       role: ChatRole.SAGE,
-      text: reply(trimmed, suggestionId),
+      text: sageReply,
     }
 
-    setMessages((prev) => [...prev, userMessage, sageMessage])
+    setMessages((prev) => [...prev, sageMessage])
+    setIsSending(false)
   }
 
-  function submitDraft() {
-    sendMessage(draft)
+  async function submitDraft() {
+    await sendMessage(draft)
     setDraft('')
   }
 
-  function handleSelectSuggestion(suggestion: SageSuggestion) {
-    sendMessage(suggestion.label, suggestion.id)
+  async function handleSelectSuggestion(suggestion: SageSuggestion) {
+    await sendMessage(suggestion.label)
   }
 
   return (
@@ -83,7 +97,8 @@ export default function AskTheSagePage() {
               type="button"
               size="sm"
               variant="outline"
-              onClick={() => handleSelectSuggestion(suggestion)}
+              disabled={isSending}
+              onClick={() => void handleSelectSuggestion(suggestion)}
             >
               {suggestion.label}
             </Button>
@@ -93,7 +108,7 @@ export default function AskTheSagePage() {
         <form
           onSubmit={(event) => {
             event.preventDefault()
-            submitDraft()
+            void submitDraft()
           }}
           className="flex items-end gap-2 border-t border-muted-foreground/20 px-5 py-4"
         >
@@ -103,14 +118,15 @@ export default function AskTheSagePage() {
             onKeyDown={(event) => {
               if (event.key === 'Enter' && !event.shiftKey) {
                 event.preventDefault()
-                submitDraft()
+                void submitDraft()
               }
             }}
             placeholder="Ask the Sage anything…"
             className="min-h-10 flex-1 bg-background"
             aria-label="Message"
+            disabled={isSending}
           />
-          <Button type="submit" size="icon" aria-label="Send message">
+          <Button type="submit" size="icon" aria-label="Send message" disabled={isSending || !draft.trim()}>
             <Send />
           </Button>
         </form>

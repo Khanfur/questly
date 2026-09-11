@@ -29,6 +29,16 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 While running a development server you can access the style guide at [http://localhost:3000/style-guide](http://localhost:3000/style-guide).
 
+### Ask the Sage AI
+
+The Sage chat can call Claude through the `app/api/sage` route. Create a local `.env.local` file from `.env.example` and add your Anthropic API key before starting the app:
+
+```bash
+cp .env.example .env.local
+```
+
+If the API key is missing or the request fails, the Sage falls back to a deterministic local response so the app still works in development and tests.
+
 ## Testing
 
 Run unit/component tests with Jest:
