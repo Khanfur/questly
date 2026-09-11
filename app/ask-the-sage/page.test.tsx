@@ -21,7 +21,10 @@ describe('AskTheSagePage', () => {
 
   it('sends the selected suggestion to the Sage API and renders the reply', async () => {
     render(<AskTheSagePage />)
-    fireEvent.click(screen.getByRole('button', { name: 'Just here to chat.' }))
+    fireEvent.change(screen.getByLabelText('Message'), {
+      target: { value: 'Just here to chat.' },
+    })
+    fireEvent.click(screen.getByRole('button', { name: 'Send message' }))
 
     await waitFor(() => {
       expect(global.fetch).toHaveBeenCalledWith(

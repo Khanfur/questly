@@ -2,8 +2,11 @@
 
 import { useRef, useState } from 'react'
 
-import { sageMessages, sageSuggestions } from '@/lib/fixtures'
-import { ChatRole, type ChatMessage as ChatMessageType, type SageSuggestion } from '@/lib/types/sage'
+import { MessageId, sageMessages } from '@/lib/fixtures'
+import { useAccountDetails } from '@/lib/hooks/use-account-details'
+import { useDiaryProgress } from '@/lib/hooks/use-diary-progress'
+import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
+import { ChatRole, type ChatMessage as ChatMessageType, type SageContext, type SageSuggestion } from '@/lib/types/sage'
 import { Send } from 'lucide-react'
 
 import { ChatMessage } from '@/components/ui/chat-message/chat-message'
@@ -13,29 +16,42 @@ import { Button } from '@/components/ui/shadcn/button'
 import { Textarea } from '@/components/ui/shadcn/textarea'
 
 export default function AskTheSagePage() {
-  const [messages, setMessages] = useState<ChatMessageType[]>(sageMessages)
+  const [messages, setMessages] = useState<ChatMessageType[]>([
+    sageMessages.find((msg) => msg.id === MessageId.greeting)!,
+  ])
   const [draft, setDraft] = useState('')
   const [isSending, setIsSending] = useState(false)
   const nextId = useRef(messages.length)
 
+  const { hiscores, hiscoresHydrated } = useAccountDetails()
+  const { statusByQuest, questsHydrated } = useQuestProgress()
+  const { completedByTask, diaryProgressHydrated } = useDiaryProgress()
+
   async function requestSageReply(message: string): Promise<string> {
+    const fallback = sageMessages.find((msg) => msg.id === MessageId.fallback)!.text
     try {
+      const context: SageContext = {
+        hiscores: hiscoresHydrated ? hiscores : undefined,
+        questProgress: questsHydrated ? statusByQuest : undefined,
+        diaryProgress: diaryProgressHydrated ? completedByTask : undefined,
+      }
+
       const response = await fetch('/api/sage', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message }),
+        body: JSON.stringify({ message, context }),
       })
 
-      if (!response.ok) {
-        return 'The Sage is taking a brief breather. Try asking again in a moment.'
+      const data = (await response.json()) as { reply?: string; error?: string }
+      if (!response.ok || data.error) {
+        return fallback
       }
 
-      const data = (await response.json()) as { reply?: string }
-      return data.reply?.trim() || 'The Sage is taking a brief breather. Try asking again in a moment.'
+      return data.reply?.trim() || fallback
     } catch {
-      return 'The Sage is taking a brief breather. Try asking again in a moment.'
+      return fallback
     }
   }
 
@@ -87,21 +103,6 @@ export default function AskTheSagePage() {
         <div className="flex flex-col gap-4 px-5 py-4">
           {messages.map((message) => (
             <ChatMessage key={message.id} message={message} />
-          ))}
-        </div>
-
-        <div className="flex flex-wrap gap-2 border-t border-muted-foreground/20 px-5 py-3">
-          {sageSuggestions.map((suggestion) => (
-            <Button
-              key={suggestion.id}
-              type="button"
-              size="sm"
-              variant="outline"
-              disabled={isSending}
-              onClick={() => void handleSelectSuggestion(suggestion)}
-            >
-              {suggestion.label}
-            </Button>
           ))}
         </div>
 

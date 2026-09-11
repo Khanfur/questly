@@ -23,6 +23,7 @@ describe('POST /api/sage', () => {
     const body = await response.json()
     expect(body.source).toBe('fallback')
     expect(body.reply).toEqual(expect.any(String))
+    expect(body.error).toBe('Missing ANTHROPIC_API_KEY')
   })
 
   it('exports the Sage persona prompt separately', () => {
