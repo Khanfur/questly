@@ -1,8 +1,13 @@
-import { sageSuggestions } from '@/lib/fixtures'
 import type { Meta, StoryObj } from '@storybook/nextjs-vite'
 import { expect, fn } from 'storybook/test'
 
 import { AskTheSage } from './ask-the-sage'
+
+const suggestions = [
+  { id: 'suggestion-1', label: 'What should I do next?' },
+  { id: 'suggestion-2', label: 'I need gear advice.' },
+  { id: 'suggestion-3', label: 'Just here to chat.' },
+]
 
 const meta = {
   component: AskTheSage,
@@ -10,7 +15,7 @@ const meta = {
   args: {
     message:
       "Back again? Your Slayer's crept to 71 but you're still avoiding Vannaka. Ask me anything — task advice, quest order, gear upgrades. I won't judge. Much.",
-    suggestions: sageSuggestions,
+    suggestions,
     onContinue: fn(),
     onSelectSuggestion: fn(),
     onOpenChat: fn(),

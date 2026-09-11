@@ -1,4 +1,4 @@
-import { splitDiaryTaskNote } from '@/lib/diary-task-description'
+import { splitDiaryTaskNote } from '@/lib/diary-task-description/diary-task-description'
 
 describe('splitDiaryTaskNote', () => {
   it('returns the description unchanged with no note when there is no "Note:"', () => {

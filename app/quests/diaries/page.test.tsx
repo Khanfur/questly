@@ -1,6 +1,6 @@
 import AchievementDiariesPage from '@/app/quests/diaries/page'
 import { diaryDetails } from '@/lib/data'
-import { diaryTaskKey } from '@/lib/diary-log'
+import { diaryTaskKey } from '@/lib/diary-log/diary-log'
 import { fireEvent, render, screen, within } from '@testing-library/react'
 
 jest.mock('next/navigation', () => ({

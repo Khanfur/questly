@@ -29,6 +29,16 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 While running a development server you can access the style guide at [http://localhost:3000/style-guide](http://localhost:3000/style-guide).
 
+### Ask the Sage AI
+
+The Sage chat can call Claude through the `app/api/sage` route. Create a local `.env.local` file from `.env.example` and add your Anthropic API key before starting the app:
+
+```bash
+cp .env.example .env.local
+```
+
+If the API key is missing or the request fails, the Sage falls back to a deterministic local response so the app still works in development and tests.
+
 ## Testing
 
 Run unit/component tests with Jest:
@@ -137,6 +147,9 @@ The `CI` check is a required status check on `master`, so pull requests cannot b
 
 ## Noteworthy packages
 
+For shared literal-map types in `lib/types/`, follow the pattern used by the quest, diary, and sage
+domains: `export const Foo = { ... }` and `export type Foo = (typeof Foo)[keyof typeof Foo]`.
+
 ### Framework & Core
 
 | Package      | Type          | Notes                                            | Link                                    |
@@ -167,11 +180,12 @@ The `CI` check is a required status check on `master`, so pull requests cannot b
 
 ### Dev Tooling
 
-| Package              | Type          | Notes                       | Link                                                  |
-| -------------------- | ------------- | --------------------------- | ----------------------------------------------------- |
-| `eslint`             | devDependency | Linting                     | [Link](https://eslint.org/)                           |
-| `eslint-config-next` | devDependency | Next.js-specific lint rules | [Link](https://nextjs.org/docs/basic-features/eslint) |
-| `prettier`           | devDependency | Code formatting             | [Link](https://prettier.io/)                          |
+| Package              | Type                               | Notes                       | Link                                                  |
+| -------------------- | ---------------------------------- | --------------------------- | ----------------------------------------------------- |
+| `eslint`             | devDependency                      | Linting                     | [Link](https://eslint.org/)                           |
+| `eslint-config-next` | devDependency                      | Next.js-specific lint rules | [Link](https://nextjs.org/docs/basic-features/eslint) |
+| `prettier`           | devDependency                      | Code formatting             | [Link](https://prettier.io/)                          |
+| `Ponytail`           | devDependency - Added in claude.md | Lazy senior dev mode helper | [Link](https://github.com/DietrichGebert/ponytail)    |
 
 ### Testing
 
