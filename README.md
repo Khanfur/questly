@@ -180,12 +180,12 @@ domains: `export const Foo = { ... }` and `export type Foo = (typeof Foo)[keyof 
 
 ### Dev Tooling
 
-| Package              | Type          | Notes                       | Link                                                  |
-| -------------------- | ------------- | --------------------------- | ----------------------------------------------------- |
-| `eslint`             | devDependency | Linting                     | [Link](https://eslint.org/)                           |
-| `eslint-config-next` | devDependency | Next.js-specific lint rules | [Link](https://nextjs.org/docs/basic-features/eslint) |
-| `prettier`           | devDependency | Code formatting             | [Link](https://prettier.io/)                          |
-| `Ponytail`           | devDependency - Added in claude.md | Lazy senior dev mode helper | [Link](https://github.com/DietrichGebert/ponytail) |
+| Package              | Type                               | Notes                       | Link                                                  |
+| -------------------- | ---------------------------------- | --------------------------- | ----------------------------------------------------- |
+| `eslint`             | devDependency                      | Linting                     | [Link](https://eslint.org/)                           |
+| `eslint-config-next` | devDependency                      | Next.js-specific lint rules | [Link](https://nextjs.org/docs/basic-features/eslint) |
+| `prettier`           | devDependency                      | Code formatting             | [Link](https://prettier.io/)                          |
+| `Ponytail`           | devDependency - Added in claude.md | Lazy senior dev mode helper | [Link](https://github.com/DietrichGebert/ponytail)    |
 
 ### Testing
 

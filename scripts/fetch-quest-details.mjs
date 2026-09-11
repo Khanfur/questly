@@ -86,7 +86,10 @@ export function readExistingQuestDetails(path = OUTPUT_PATH) {
   // possible (`quoteProps: "as-needed"`), so the array literal isn't valid
   // strict JSON — evaluate it as a JS expression instead. Safe here since
   // this file is only ever written by this script (trusted content).
-  return new Function('QuestDifficulty', 'QuestLength', `return (${match[1]})`)(QuestDifficulty, QuestLength)
+  return new Function('QuestDifficulty', 'QuestLength', `return (${match[1]})`)(
+    QuestDifficulty,
+    QuestLength
+  )
 }
 
 /** Replaces any existing entry with the same `pageId` and returns a pageId-sorted copy. */
@@ -101,12 +104,12 @@ export function toModuleSource(questDetails, generatedAt = new Date()) {
   // Map from capitalized length strings to enum keys
   const lengthLookup = {
     'very short': 'VeryShort',
-    'short': 'Short',
-    'medium': 'Medium',
-    'long': 'Long',
+    short: 'Short',
+    medium: 'Medium',
+    long: 'Long',
     'very long': 'VeryLong',
   }
-  
+
   // Serialize with enum references instead of string values
   const serialized = questDetails.map((q) => {
     const obj = { ...q }
@@ -123,11 +126,11 @@ export function toModuleSource(questDetails, generatedAt = new Date()) {
     }
     return obj
   })
-  
+
   const json = JSON.stringify(serialized, null, 2)
   // Replace string-escaped enum references with actual references
   const fixed = json.replace(/"(QuestDifficulty\.\w+|QuestLength\.\w+)"/g, '$1')
-  
+
   return `/**
  * Full quest metadata (difficulty, length, members, series, quest points,
  * start, description, requirements, enemies, items required, wiki link) for every OSRS

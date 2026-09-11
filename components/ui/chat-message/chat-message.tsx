@@ -54,9 +54,7 @@ function ChatMessage({
               </span>
             </div>
           ) : (
-            <div className="space-y-2 whitespace-pre-line">
-              {message.text}
-            </div>
+            <div className="space-y-2 whitespace-pre-line">{message.text}</div>
           )}
         </div>
       </div>

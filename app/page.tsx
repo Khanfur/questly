@@ -1,102 +1,30 @@
 'use client'
 
-import { useMemo } from 'react';
+import { useMemo } from 'react'
 
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
-
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-
-
-
-import { questDetails } from '@/lib/data';
+import { questDetails } from '@/lib/data'
 import { MessageId, sageMessages, skills } from '@/lib/fixtures'
-import { useAccountDetails } from '@/lib/hooks/use-account-details';
-import { useQuestProgress } from '@/lib/hooks/use-quest-progress';
-import { calculateCombatLevel } from '@/lib/integrations/osrs-hiscores';
-import { buildQuestLog } from '@/lib/quest-log/quest-log';
-import { QuestStatus } from '@/lib/types/quest';
-import { SkillInfo } from '@/lib/types/skill';
-import { questStartIcon, skillsIcon } from '@dava96/osrs-icons';
-
-
-
-import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context';
-import { AskTheSage } from '@/components/ui/ask-the-sage/ask-the-sage';
-import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item';
-import { SectionDivider } from '@/components/ui/section-divider/section-divider';
-import { SectionWindow } from '@/components/ui/section-window/section-window';
-import { Button } from '@/components/ui/shadcn/button';
-import { SkillCard } from '@/components/ui/skill-card/skill-card';
-import { SkillCardGrid } from '@/components/ui/skill-card/skill-card-grid';
-import { StatCard } from '@/components/ui/stat-card/stat-card';
-import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import { useAccountDetails } from '@/lib/hooks/use-account-details'
+import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
+import { calculateCombatLevel } from '@/lib/integrations/osrs-hiscores'
+import { buildQuestLog } from '@/lib/quest-log/quest-log'
+import { QuestStatus } from '@/lib/types/quest'
+import { SkillInfo } from '@/lib/types/skill'
+import { questStartIcon, skillsIcon } from '@dava96/osrs-icons'
+
+import { useSettingsDrawer } from '@/components/layout/header/settings-drawer-context'
+import { AskTheSage } from '@/components/ui/ask-the-sage/ask-the-sage'
+import { QuestListItem } from '@/components/ui/quest-list-item/quest-list-item'
+import { SectionDivider } from '@/components/ui/section-divider/section-divider'
+import { SectionWindow } from '@/components/ui/section-window/section-window'
+import { Button } from '@/components/ui/shadcn/button'
+import { SkillCard } from '@/components/ui/skill-card/skill-card'
+import { SkillCardGrid } from '@/components/ui/skill-card/skill-card-grid'
+import { StatCard } from '@/components/ui/stat-card/stat-card'
+import { StatCardGroup } from '@/components/ui/stat-card/stat-card-group'
 
 // Cap on how many quests the homepage's Quest Log preview shows, so it stays
 // roughly as tall as the Skills grid alongside it instead of listing all ~196
@@ -228,9 +156,7 @@ export default function Home() {
       <SectionDivider className={'my-8'} />
 
       <AskTheSage
-        message={
-          sageMessages.find((message) => message.id === MessageId.greeting)?.text
-        }
+        message={sageMessages.find((message) => message.id === MessageId.greeting)?.text}
         onOpenChat={() => router.push('/ask-the-sage')}
         suggestions={[]}
       />

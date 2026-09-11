@@ -5,7 +5,10 @@ import type { SageContext } from '@/lib/types/sage'
 const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL ?? 'claude-3-5-sonnet-20241022'
 
 function getFallbackReply() {
-  return sageMessages.find((message) => message.id === MessageId.fallback)?.text ?? 'The Sage is taking a brief breather. Ask again later.'
+  return (
+    sageMessages.find((message) => message.id === MessageId.fallback)?.text ??
+    'The Sage is taking a brief breather. Ask again later.'
+  )
 }
 
 function formatSageContext(context: SageContext): string {
@@ -21,11 +24,11 @@ function formatSageContext(context: SageContext): string {
 
   if (context.questProgress) {
     const completedQuests = Object.entries(context.questProgress)
-      .filter(([_, status]) => status === 'completed')
+      .filter(([, status]) => status === 'completed')
       .map(([name]) => name)
 
     const inProgressQuests = Object.entries(context.questProgress)
-      .filter(([_, status]) => status === 'in-progress')
+      .filter(([, status]) => status === 'in-progress')
       .map(([name]) => name)
 
     if (completedQuests.length > 0 || inProgressQuests.length > 0) {
@@ -41,7 +44,7 @@ function formatSageContext(context: SageContext): string {
 
   if (context.diaryProgress) {
     const completedTasks = Object.entries(context.diaryProgress)
-      .filter(([_, completed]) => completed)
+      .filter(([, completed]) => completed)
       .map(([key]) => key)
 
     if (completedTasks.length > 0) {
@@ -59,7 +62,9 @@ function formatSageContext(context: SageContext): string {
 export async function POST(request: Request) {
   const payload = await request.json().catch(() => ({}))
   const message = typeof payload.message === 'string' ? payload.message.trim() : ''
-  const context = (typeof payload.context === 'object' && payload.context !== null ? payload.context : {}) as SageContext
+  const context = (
+    typeof payload.context === 'object' && payload.context !== null ? payload.context : {}
+  ) as SageContext
 
   if (!message) {
     return Response.json({ error: 'Missing message' }, { status: 400 })
@@ -67,11 +72,16 @@ export async function POST(request: Request) {
 
   const apiKey = process.env.ANTHROPIC_API_KEY
   if (!apiKey) {
-    return Response.json({ reply: getFallbackReply(), source: 'fallback', error: 'Missing ANTHROPIC_API_KEY' }, { status: 200 })
+    return Response.json(
+      { reply: getFallbackReply(), source: 'fallback', error: 'Missing ANTHROPIC_API_KEY' },
+      { status: 200 }
+    )
   }
 
   const contextString = formatSageContext(context)
-  const messageContent = contextString ? `Player Context:\n${contextString}\n\nPlayer Question: ${message}` : message
+  const messageContent = contextString
+    ? `Player Context:\n${contextString}\n\nPlayer Question: ${message}`
+    : message
 
   const response = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -92,7 +102,11 @@ export async function POST(request: Request) {
     const errorText = await response.text()
     console.error('Anthropic request failed', response.status, errorText)
     return Response.json(
-      { reply: getFallbackReply(), source: 'fallback', error: errorText || `Anthropic request failed: ${response.status}` },
+      {
+        reply: getFallbackReply(),
+        source: 'fallback',
+        error: errorText || `Anthropic request failed: ${response.status}`,
+      },
       { status: 502 }
     )
   }
@@ -104,7 +118,11 @@ export async function POST(request: Request) {
   const reply = data.content?.find((part) => part.type === 'text')?.text?.trim()
   if (!reply) {
     return Response.json(
-      { reply: getFallbackReply(), source: 'fallback', error: 'Anthropic returned an empty response.' },
+      {
+        reply: getFallbackReply(),
+        source: 'fallback',
+        error: 'Anthropic returned an empty response.',
+      },
       { status: 502 }
     )
   }

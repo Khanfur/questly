@@ -1,4 +1,4 @@
-import { ChatMessage, ChatRole } from '@/lib/types/sage';
+import { ChatMessage, ChatRole } from '@/lib/types/sage'
 
 export const MessageId = {
   greeting: 'greeting',

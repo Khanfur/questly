@@ -1,8 +1,8 @@
 /**
  * @jest-environment node
  */
-import { SAGE_SYSTEM_PROMPT } from '@/lib/ai/sage-prompt'
 import { POST } from '@/app/api/sage/route'
+import { SAGE_SYSTEM_PROMPT } from '@/lib/ai/sage-prompt'
 
 describe('POST /api/sage', () => {
   afterEach(() => {

@@ -6,7 +6,7 @@ import { MessageId, sageMessages } from '@/lib/fixtures'
 import { useAccountDetails } from '@/lib/hooks/use-account-details'
 import { useDiaryProgress } from '@/lib/hooks/use-diary-progress'
 import { useQuestProgress } from '@/lib/hooks/use-quest-progress'
-import { ChatRole, type ChatMessage as ChatMessageType, type SageContext, type SageSuggestion } from '@/lib/types/sage'
+import { type ChatMessage as ChatMessageType, ChatRole, type SageContext } from '@/lib/types/sage'
 import { Send } from 'lucide-react'
 
 import { ChatMessage } from '@/components/ui/chat-message/chat-message'
@@ -23,9 +23,9 @@ export default function AskTheSagePage() {
   const [isSending, setIsSending] = useState(false)
   const nextId = useRef(messages.length)
 
-  const { hiscores, hiscoresHydrated } = useAccountDetails()
-  const { statusByQuest, questsHydrated } = useQuestProgress()
-  const { completedByTask, diaryProgressHydrated } = useDiaryProgress()
+  const { hiscores } = useAccountDetails()
+  const { statusByQuest } = useQuestProgress()
+  const { completedByTask } = useDiaryProgress()
 
   async function requestSageReply(message: string): Promise<string> {
     const fallback = sageMessages.find((msg) => msg.id === MessageId.fallback)!.text
@@ -84,10 +84,6 @@ export default function AskTheSagePage() {
     setDraft('')
   }
 
-  async function handleSelectSuggestion(suggestion: SageSuggestion) {
-    await sendMessage(suggestion.label)
-  }
-
   return (
     <>
       <PageHero
@@ -102,13 +98,16 @@ export default function AskTheSagePage() {
       <div className="mx-auto flex w-full flex-col rounded-sm border border-muted-foreground/35 bg-sidebar">
         <div className="flex flex-col gap-4 px-5 py-4">
           {messages.map((message) => (
-            <ChatMessage key={message.id} message={message} isLoading={isSending && message.role === 'sage' && message === messages[messages.length - 1]} />
+            <ChatMessage
+              key={message.id}
+              message={message}
+              isLoading={
+                isSending && message.role === 'sage' && message === messages[messages.length - 1]
+              }
+            />
           ))}
           {isSending && messages[messages.length - 1]?.role === 'user' && (
-            <ChatMessage
-              message={{ id: 'loading', role: 'sage', text: '' }}
-              isLoading={true}
-            />
+            <ChatMessage message={{ id: 'loading', role: 'sage', text: '' }} isLoading={true} />
           )}
         </div>
 
@@ -133,7 +132,12 @@ export default function AskTheSagePage() {
             aria-label="Message"
             disabled={isSending}
           />
-          <Button type="submit" size="icon" aria-label="Send message" disabled={isSending || !draft.trim()}>
+          <Button
+            type="submit"
+            size="icon"
+            aria-label="Send message"
+            disabled={isSending || !draft.trim()}
+          >
             <Send />
           </Button>
         </form>
