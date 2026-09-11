@@ -94,6 +94,10 @@ describe('stripWikitext', () => {
       stripWikitext('{{SCP|Herblore|10|link=yes}} {{Boostable|yes}} {{Questreqstart|no}}')
     ).toBe('Herblore level 10')
   })
+
+  it('strips ref tags and their content', () => {
+    expect(stripWikitext('Mine some Granite.<ref group="d">Mining granite at the Cape Conch mine in The Great Conch will also complete this task.</ref>')).toBe('Mine some Granite.')
+  })
 })
 
 describe('parseBulletList', () => {

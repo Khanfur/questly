@@ -7,7 +7,7 @@
  * GENERATED FILE — do not hand-edit.
  * Regenerate all: npm run fetch:diary-details
  * Update one: npm run fetch:diary-details -- --title "Region Diary"
- * Last generated: 2026-09-08T07:59:32.513Z
+ * Last generated: 2026-09-11T10:48:36.519Z
  * Count: 12 diaries
  */
 import type { WikiDiaryDetails } from '@/lib/types/osrs-wiki'
@@ -1562,8 +1562,7 @@ export const diaryDetails: WikiDiaryDetails[] = [
             ],
           },
           {
-            description:
-              'Mine some Granite.<ref group="d">Mining granite at the Cape Conch mine in The Great Conch will also complete this task.</ref>',
+            description: 'Mine some Granite.',
             requirements: ['Mining level 45', 'Any pickaxe'],
           },
           {
