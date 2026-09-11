@@ -172,6 +172,7 @@ The `CI` check is a required status check on `master`, so pull requests cannot b
 | `eslint`             | devDependency | Linting                     | [Link](https://eslint.org/)                           |
 | `eslint-config-next` | devDependency | Next.js-specific lint rules | [Link](https://nextjs.org/docs/basic-features/eslint) |
 | `prettier`           | devDependency | Code formatting             | [Link](https://prettier.io/)                          |
+| `Ponytail`           | devDependency - Added in claude.md | Lazy senior dev mode helper | [Link](https://github.com/DietrichGebert/ponytail) |
 
 ### Testing
 
