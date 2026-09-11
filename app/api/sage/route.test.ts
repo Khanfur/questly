@@ -5,6 +5,13 @@ import { POST } from '@/app/api/sage/route'
 import { SAGE_SYSTEM_PROMPT } from '@/lib/ai/sage-prompt'
 
 describe('POST /api/sage', () => {
+  beforeEach(() => {
+    // Clear the API key before each test
+    delete process.env.ANTHROPIC_API_KEY
+    // Mock global.fetch to prevent real network requests
+    global.fetch = jest.fn()
+  })
+
   afterEach(() => {
     delete process.env.ANTHROPIC_API_KEY
     jest.restoreAllMocks()

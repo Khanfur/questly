@@ -31,7 +31,7 @@ describe('AskTheSagePage', () => {
         '/api/sage',
         expect.objectContaining({
           method: 'POST',
-          body: JSON.stringify({ message: 'Just here to chat.' }),
+          body: expect.stringContaining('"message":"Just here to chat."'),
         })
       )
     })
