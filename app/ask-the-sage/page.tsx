@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react'
 
 import { sageFallbackReplies, sageMessages, sageReplies, sageSuggestions } from '@/lib/fixtures'
-import type { ChatMessage as ChatMessageType, SageSuggestion } from '@/lib/types/sage'
+import type { ChatMessage as ChatMessageType, SageSuggestion, ChatRole } from '@/lib/types/sage'
 import { Send } from 'lucide-react'
 
 import { ChatHead } from '@/components/ui/chat-head/chat-head'
@@ -37,12 +37,12 @@ export default function AskTheSagePage() {
 
     const userMessage: ChatMessageType = {
       id: `msg-${nextId.current++}`,
-      role: 'user',
+      role: ChatRole.USER,
       text: trimmed,
     }
     const sageMessage: ChatMessageType = {
       id: `msg-${nextId.current++}`,
-      role: 'sage',
+      role: ChatRole.SAGE,
       text: reply(trimmed, suggestionId),
     }
 
@@ -69,15 +69,7 @@ export default function AskTheSagePage() {
 
       <SectionDivider className="mb-8" />
 
-      <div className="mx-auto flex w-full max-w-2xl flex-col rounded-sm border border-muted-foreground/35 bg-sidebar">
-        <div className="flex items-center gap-3 border-b border-muted-foreground/20 px-5 py-4">
-          <ChatHead avatar="/the_sage_avatar.png" fallbackAvatar="🧙" status="online" />
-          <div className="flex flex-col">
-            <span className="label text-secondary">The Sage</span>
-            <span className="text-xs text-muted-foreground">Online</span>
-          </div>
-        </div>
-
+      <div className="mx-auto flex w-full flex-col rounded-sm border border-muted-foreground/35 bg-sidebar">
         <div className="flex flex-col gap-4 px-5 py-4">
           {messages.map((message) => (
             <ChatMessage key={message.id} message={message} />

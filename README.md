@@ -137,6 +137,9 @@ The `CI` check is a required status check on `master`, so pull requests cannot b
 
 ## Noteworthy packages
 
+For shared literal-map types in `lib/types/`, follow the pattern used by the quest, diary, and sage
+domains: `export const Foo = { ... }` and `export type Foo = (typeof Foo)[keyof typeof Foo]`.
+
 ### Framework & Core
 
 | Package      | Type          | Notes                                            | Link                                    |

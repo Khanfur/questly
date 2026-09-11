@@ -139,7 +139,8 @@ noteworthy-packages table.
   `diary/diary.ts`, `hiscores/hiscores.ts`, `osrs-hiscores/osrs-hiscores.ts`, `osrs-wiki/osrs-wiki.ts`,
   `quest/quest.ts`, `sage/sage.ts`, `skill/skill.ts`. Each domain folder has its own `index.ts` barrel
   (e.g. `@/lib/types/quest`) — there's no root aggregator, since call sites always import a specific
-  domain.
+  domain. For literal maps in these files, use `export const Foo = { ... }` plus
+  `export type Foo = (typeof Foo)[keyof typeof Foo]`.
 - `lib/fixtures/` — dummy data for development and Storybook, one folder per domain: `activity/`
   (`activity-names.ts`), `diary/` (`diary-regions.ts`), `quest/` (`quest-log.ts`, `miniquest-log.ts`),
   `sage/` (`sage-suggestions.ts`, `sage-messages.ts`, `sage-replies.ts`), `skill/` (`skill-names.ts`,

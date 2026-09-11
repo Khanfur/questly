@@ -3,7 +3,12 @@ export type SageSuggestion = {
   label: string
 }
 
-export type ChatRole = 'sage' | 'user'
+export const ChatRole = {
+  SAGE: 'sage',
+  USER: 'user',
+}
+
+export type ChatRole = (typeof ChatRole)[keyof typeof ChatRole]
 
 export type ChatMessage = {
   id: string
