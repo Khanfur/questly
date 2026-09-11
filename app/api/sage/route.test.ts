@@ -1,6 +1,7 @@
 /**
  * @jest-environment node
  */
+import { SAGE_SYSTEM_PROMPT } from '@/lib/ai/sage-prompt'
 import { POST } from '@/app/api/sage/route'
 
 describe('POST /api/sage', () => {
@@ -22,6 +23,11 @@ describe('POST /api/sage', () => {
     const body = await response.json()
     expect(body.source).toBe('fallback')
     expect(body.reply).toEqual(expect.any(String))
+  })
+
+  it('exports the Sage persona prompt separately', () => {
+    expect(SAGE_SYSTEM_PROMPT).toContain('ancient wandering guide from Gielinor')
+    expect(SAGE_SYSTEM_PROMPT).toContain('Never mention being an AI')
   })
 
   it('proxies a Claude response when the API key is configured', async () => {
